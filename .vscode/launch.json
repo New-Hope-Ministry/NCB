@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "configurations": [
+        {
+            "name": "Launch Node afixMin.js",
+            "program": "${workspaceFolder}/data/afixMin.js",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Edge Launch comp.html",
+            "url": "http://localhost:5501/comp.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Edge Launch synth.html",
+            "url": "http://localhost:5501/synth.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch chron.html",
+            "url": "http://localhost:5501/chron.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch synth.html",
+            "url": "http://localhost:5501/synth.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch index.html",
+            "url": "http://localhost:5501/index.html",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
