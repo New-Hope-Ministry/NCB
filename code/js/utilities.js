@@ -130,8 +130,8 @@ function lightTheme() {
      document.documentElement.style.setProperty('--lighterMaroonEmphasis', '#ba0e0e');
      document.documentElement.style.setProperty('--navyEmphasis', 'navy');
      document.documentElement.style.setProperty('--searchResults', '#ba0e0e');
-     document.documentElement.style.setProperty('--gradientLight', '#0064d9');
-     document.documentElement.style.setProperty('--gradientDark', '#11428c');
+     document.documentElement.style.setProperty('--gradientLight', '#59d4f9');
+     document.documentElement.style.setProperty('--gradientDark', '#022a69');
      document.documentElement.style.setProperty('--darkGrayEmphasis', '#545353');
 };
 

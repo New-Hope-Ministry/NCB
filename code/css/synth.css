@@ -30,7 +30,7 @@ body {
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-.cs-logo { position: absolute; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
+.cs-logo { position: fixed; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
 .cs-logoTitle { display: inline-block; position: relative; left: 2em; cursor: pointer; }
 .cs-header {
      position: fixed;

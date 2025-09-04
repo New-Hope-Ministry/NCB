@@ -52,7 +52,7 @@ html::-webkit-scrollbar,
 .cs-chat:hover,
 .cs-randomChapter:hover,
 .cs-readChronological:hover,
-.cs-searchBtn:hover { background-color: #706f6f; cursor: pointer; }
+.cs-searchBtn:hover { background-color: #706f6f; color: white; cursor: pointer; }
 
 
 .cs-endBtn:hover,

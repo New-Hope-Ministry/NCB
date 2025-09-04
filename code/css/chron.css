@@ -22,7 +22,7 @@ p { font-size: 1.06rem; }
 }
 
 
-.cs-logo { position: absolute; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
+.cs-logo { position: fixed; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
 .cs-logoTitle { display: inline-block; position: relative; left: 4em; cursor: pointer; }
 .cs-header {
      position: fixed;
