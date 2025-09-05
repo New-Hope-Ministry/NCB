@@ -238,7 +238,6 @@ p { font-size: 1.06rem; }
 }
 @media (max-width: 768px) {
      .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); }
-     .cs-menuBtn { font-size: 1rem; }
      .cs-books,
      .cs-versions,
      .cs-languages { width: 330px; }
@@ -247,7 +246,7 @@ p { font-size: 1.06rem; }
      .cs-bottomLine { font-size: 1.1rem; }
 }
 @media (max-width: 480px) {
-     .cs-chronMenu { font-size: .80rem; }
+     .cs-chronMenu { font-size: .95rem; }
      .cs-chronTitleHeader { font-size: .80rem; }
      .cs-banner { top: 1.95rem; }
      .cs-books,
@@ -258,7 +257,6 @@ p { font-size: 1.06rem; }
      .cs-chronDay,
      .cs-chapter { font-size: 1.2em; height: 1.6em; width: 1.6em; }
      .cs-books
-     .cs-menuBtn { font-size: .80rem; }
      .cs-book,
      .cs-version { font-size: 1.1rem; }
 }
