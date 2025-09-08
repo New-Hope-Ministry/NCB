@@ -1,7 +1,7 @@
 :root {
      --mediumGray: #c3c1c1;
      --headlineBackground: #8e8c8c;
-     --blackText: black;
+     --blackText: #3a3939;
      --whiteText: white;
      --bannerBackground: #022a69;
      --bannerBackground: #1a4480;
@@ -11,8 +11,8 @@
      --mainBackground: white;
      --verseNumber: #0505da;
      --blueVerse: #0202d8;
-     --shadowColor: #07070733;
 
+     --shadowColor: #07070733;
      --darkGrayEmphasis: #545353;
      --lightGreenEmphasis: #07f007;
      --lightGrayEmphasis: #757575;
@@ -26,5 +26,5 @@
      --gradientLight: #0064d9;
      --gradientLight: #10b4e6;
      --gradientDark: #11428c;
-     --gradientDark: #022a69;
+     --gradientDark: #022a69
 }

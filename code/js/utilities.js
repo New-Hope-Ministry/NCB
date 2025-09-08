@@ -124,7 +124,7 @@ function lightTheme() {
      document.documentElement.style.setProperty('--bodyBackground', '#f3f3f3');
      document.documentElement.style.setProperty('--bannerBackground', '#1a4480');
      document.documentElement.style.setProperty('--mainBackground', 'white');
-     document.documentElement.style.setProperty('--blackText', 'black');
+     document.documentElement.style.setProperty('--blackText', '#3a3939');
      document.documentElement.style.setProperty('--whiteText', 'white');
      document.documentElement.style.setProperty('--verseNumber', '#0505da');
      document.documentElement.style.setProperty('--lighterMaroonEmphasis', '#ba0e0e');

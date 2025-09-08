@@ -6,8 +6,9 @@ body { background-color: var(--bodyBackground); color: var(--blackText); z-index
 p { font-size: 1.06rem; }
 
 .cs-pagesBody { background-color: var(--mainBackground); }
-.cs-page { text-align: justify; margin: auto; width: 80%; }
+.cs-page { position: relative; top: 3.5em; text-align: justify; margin: auto; width: 80%; }
 
+.cs-fixBanner { position: fixed; left: 0; top:0; background-color: #eeeeee; width: 100%; z-index: 1000; }
 .cs-imgBanner { position: relative; top: 0; left: 0; height: 4em; width: 100%; z-index: 1010;}
 .cs-imgLogo { position: absolute; top: -.15em; left: .5em; z-index: 1011; }
 .cs-iconA { cursor: pointer; }
