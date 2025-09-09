@@ -4,6 +4,9 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="☀️The Ark Bible App is an online searchable Bible App. It offers the Bible in many different versions and languages, and a 365 day chronological reading plan.">
+     <meta name="keywords" content="Ark Bible, The Ark Bible, Bible, Bible App, Bible Archive, Bible Reference, Bible Study, Free Bible, Read the Bible, Searchable Bible, Search The Bible, Strong's Versions, Study Bible, Study The Bible, King James Version, KJV, Twenty-First Century Version, TWF">
+
      <base href="./">
      <link rel="manifest" href="manifest.json">
 
@@ -20,6 +23,89 @@
      <script async src="code/js/utilities.js"></script>
      <script async src="code/js/index.js"></script>
      <script defer src="code/js/lateload.js"></script>
+
+     <script type="application/ld+json">
+          {
+               "@context": "https://schema.org",
+               "@graph": [
+                    {
+                         "@type": "ImageObject",
+                         "@id": "https://thearkbible.com/images/cavalry.png",
+                         "url": "https://thearkbible.com/images/cavalry.png",
+                         "width": 1200,
+                         "height": 628
+                    },
+                    {
+                         "@type": "ImageObject",
+                         "@id": "https://thearkbible.com/images/bible.png",
+                         "url": "https://thearkbible.com/images/bible.png",
+                         "width": 1200,
+                         "height": 1200
+                    },
+                    {
+                         "@type": "WebSite",
+                         "@id": "https://thearkbible.com/index.html",
+                         "name": "The Ark Bible",
+                         "url": "https://thearkbible.com",
+                         "about": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also offers other functionality, including a 365 day chronological reading plan, a computer text to speech synthesis to listen, so you can listen to the Bible, and a comparison function, so you can compare two different versions of the Bible on the same page.",
+                         "image": [
+                              "https://thearkbible.com/images/cavalry.png",
+                              "https://thearkbible.com/images/bible.png"
+                         ]
+                    },
+                    {
+                         "@type": "WebApplication",
+                         "@id": "https://thearkbible.com/index.html",
+                         "name": "The Ark Bible",
+                         "applicationCategory": "Religion",
+                         "operatingSystem": "Web",
+                         "browserRequirements": "Modern browser with PWA support",
+                         "url": "https://thearkbible.com",
+                         "about": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also offers other functionality, including a 365 day chronological reading plan, a computer text to speech synthesis to listen, so you can listen to the Bible, and a comparison function, so you can compare two different versions of the Bible on the same page.",
+                         "isAccessibleForFree": true,
+                         "image": [
+                              "https://thearkbible.com/images/cavalry.png",
+                              "https://thearkbible.com/images/bible.png"
+                         ]
+                    },
+                    {
+                         "@type": "CreativeWork",
+                         "@id": "https://thearkbible.com/chron.html",
+                         "name": "The Ark Bible 365 Day Chronological Reading Plan",
+                         "creator": {
+                              "@type": "Organization",
+                              "name": "New Hope Ministries"
+                         },
+                         "about": "📜Read the Bible the way the events historically happened in chronological order",
+                         "isAccessibleForFree": true,
+                         "image": [
+                              "https://thearkbible.com/images/cavalry.png",
+                              "https://thearkbible.com/images/bible.png"
+                         ]
+                    },
+                    {
+                         "@type": "Book",
+                         "@id": "https://thearkbible.com/comp.html",
+                         "name": "The Ark Bible",
+                         "author": {
+                              "@type": "Person",
+                              "name": "Various Authors"
+                         },
+                         "publisher": {
+                              "@type": "Organization",
+                              "name": "New Hope Ministries"
+                         },
+                         "about": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also offers other functionality, including a 365 day chronological reading plan, a computer text to speech synthesis to listen, so you can listen to the Bible, and a comparison function, so you can compare two different versions of the Bible on the same page.",
+                         "isAccessibleForFree": true,
+                         "image": [
+                              "https://thearkbible.com/images/cavalry.png",
+                              "https://thearkbible.com/images/bible.png"
+                         ]
+                    }
+               ]
+          }
+     </script>
+
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
@@ -37,14 +123,14 @@
 
      <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
 
-          <span class="cs-logoTitle" onclick="aClick(goHome)" </span>The Ark Bible</span>
+          <span class="cs-logoTitle" onclick="aClick(goHome)">The Ark Bible</span>
 
-          <div id="id-search" class="cs-search" onclick="openSearch(event)">
+          <div id="id-search" class="cs-search" onclick="openSearch(event)" data-nosnippet>
                <div class="cs-magnifier">⚲</div>
           </div>
      </div>
 
-     <div id="id-header" class="cs-header cs-banner" onclick="openBoxes(event)">
+     <div id="id-header" class="cs-header cs-banner" onclick="openBoxes(event)" data-nosnippet>
           <div id="id-menu" class="cs-menu">
                <div class="cs-menu1">
                     <button id="id-MenuBtn1" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)"
@@ -67,21 +153,21 @@
                <div id="id-page" class="cs-page" onclick="unHighlight()"></div>
 
                <br><br><br>
-               <div class="cs-bottomLine">
+               <div class="cs-bottomLine" data-nosnippet>
                     <div id="id-bottomLastLine" class="cs-bottomLastLine" onclick="lastChapter()">‹Last</div>
                     <div id="id-bottomTitleLine" class="cs-bottomTitleLine">Genesis 1</div>
                     <div id="id-bottomNextLine" class="cs-bottomNextLine" onclick="nextChapter()">Next ›</div>
                </div>
           </div>
 
-          <div id="id-readRandom" class="cs-readRandom">
+          <div id="id-readRandom" class="cs-readRandom" data-nosnippet>
                <br><br>
                <div id="id-randomChapter" class="cs-randomChapter" onclick="readRandomChapter()">
                     Read a Random Chapter
                </div>
           </div>
 
-          <div id="id-searchContainer" class="cs-searchContainer">
+          <div id="id-searchContainer" class="cs-searchContainer" data-nosnippet>
                <br>
                <h2 class="cs-searchTitle">Search Bible Verses</span></h2>
                <div class="cs-searchCase">
@@ -103,7 +189,7 @@
 
           <br><br><br><br>
           <div class="cs-bottom">
-               <div id="id-settings" class="cs-settings">
+               <div id="id-settings" class="cs-settings" data-nosnippet>
 
                     <div id="id-col1" class="cs-glossary">
                          <h4 class="cs-glossaryHeaders">Overview</h4>
@@ -164,19 +250,19 @@
                </div>
 
                <br>
-               <a onclick="aClick('https://bibleask.org/')" target="_blank" class="cs-chat">
+               <a onclick="aClick('https://bibleask.org/')" target="_blank" class="cs-chat" data-nosnippet>
                     BibleAsk AI Research Tool and Chat Bot
                </a>
                <br>
-               <a onclick="aClick('comp.html')" target="_blank" class="cs-chat">
+               <a onclick="aClick('comp.html')" target="_blank" class="cs-chat" data-nosnippet>
                     Compare Bible Versions
                </a>
                <br id="id-brListen">
-               <a id="id-listen" onclick="synthVoice()" target="_blank" class="cs-chat">
+               <a id="id-listen" onclick="synthVoice()" target="_blank" class="cs-chat" data-nosnippet>
                     Listen to the Bible
                </a>
                <br>
-               <a id="id-readChronological" class="cs-readChronological" onclick="readChronological()">
+               <a id="id-readChronological" class="cs-readChronological" onclick="readChronological()" data-nosnippet>
                     365 Day Chronological Reading Plan
                </a>
                <br>
@@ -201,7 +287,7 @@
           </div>
      </div>
 
-     <div id="id-end" class="cs-end">
+     <div id="id-end" class="cs-end" data-nosnippet>
           <br>
           <p id="id-endLine" class="cs-endLine">
                Click OK if you agree to allow The Ark Bible app to store performance files locally. The Ark Bible app
@@ -222,11 +308,11 @@
 
      </div>
 
-     <div id="id-versions" class="cs-versions"></div>
-     <div id="id-languages" class="cs-languages"></div>
-     <div id="id-books" class="cs-books"></div>
-     <div id="id-chapters" class="cs-chapters"></div>
-     <div id="id-verses" class="cs-verses"></div>
+     <div id="id-versions" class="cs-versions" data-nosnippet></div>
+     <div id="id-languages" class="cs-languages" data-nosnippet></div>
+     <div id="id-books" class="cs-books" data-nosnippet></div>
+     <div id="id-chapters" class="cs-chapters" data-nosnippet></div>
+     <div id="id-verses" class="cs-verses" data-nosnippet></div>
 </body>
 
 </html>
