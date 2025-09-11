@@ -98,6 +98,7 @@ function darkTheme() {
 
 async function deleteData() {
 
+     localStorage.removeItem('installed');
      localStorage.removeItem('savedLocal');
      document.getElementById('top').scrollIntoView({ block: 'start' });
      await unregisterServiceWorkers();
@@ -479,7 +480,8 @@ function verseHighlight(id) {
                e.stopPropagation();
                e.stopImmediatePropagation();
           });
-          if (bookSort) { div1.title = 'Sort Biblically';
+          if (bookSort) {
+               div1.title = 'Sort Biblically';
           } else { div1.title = 'Sort Alphabetically'; };
 
           spa = document.createElement('span');
@@ -800,43 +802,44 @@ function verseHighlight(id) {
      };
 
      async function saveLocal() {
-     if (navigator.onLine) {
-          if ('serviceWorker' in navigator) {
-               (async () => {
-                    try {
-                         const registration = await navigator.serviceWorker.register('sw.js');
-                         console.log('Service Worker registered with scope:', registration.scope);
-                    } catch (error) {
-                         console.log('Service Worker registration failed:', error);
-                    };
-               })();
+          if (navigator.onLine) {
+               if ('serviceWorker' in navigator) {
+                    (async () => {
+                         try {
+                              const registration = await navigator.serviceWorker.register('sw.js');
+                              console.log('Service Worker registered with scope:', registration.scope);
+                              localStorage.setItem("installed", true);
+                         } catch (error) {
+                              console.log('Service Worker registration failed:', error);
+                         };
+                    })();
+               };
+               localStorage.setItem("savedLocal", true);
+               document.getElementById('id-end').style.display = 'none';
+          } else {
+               alert('You must have an active internet connection to install The Ark Bible files locally.')
           };
-          document.getElementById('id-end').style.display = 'none';
-          localStorage.setItem("savedLocal", true);
-     } else {
-          alert('You must have an active internet connection to install The Ark Bible files locally.')
-     };
      };
 
      async function unregisterServiceWorkers() {
 
-     if ('serviceWorker' in navigator) {
-          try {
-               //const keys = await caches.keys();
-               //await Promise.all(keys.map(key => caches.delete(key)));
-               const registrations = await navigator.serviceWorker.getRegistrations();
-               if (registrations.length > 0) {
-                    await Promise.all(
-                         registrations.map(async (registration) => {
-                         const unregistered = await registration.unregister();
-                         console.log('Service worker unregistered:', unregistered);
-                         })
-                    );
+          if ('serviceWorker' in navigator) {
+               try {
+                    //const keys = await caches.keys();
+                    //await Promise.all(keys.map(key => caches.delete(key)));
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    if (registrations.length > 0) {
+                         await Promise.all(
+                              registrations.map(async (registration) => {
+                                   const unregistered = await registration.unregister();
+                                   console.log('Service worker unregistered:', unregistered);
+                              })
+                         );
+                    };
+               } catch (error) {
+                    console.error('Error during unregistering:', error);
                };
-          } catch (error) {
-               console.error('Error during unregistering:', error);
           };
-     };
      };
 // End of client Side serviceworker code.
 

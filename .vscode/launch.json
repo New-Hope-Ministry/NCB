@@ -12,35 +12,35 @@
             "type": "msedge",
             "request": "launch",
             "name": "Edge Launch comp.html",
-            "url": "http://localhost:5501/comp.html",
+            "url": "http://localhost:5500/comp.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "msedge",
             "request": "launch",
             "name": "Edge Launch synth.html",
-            "url": "http://localhost:5501/synth.html",
+            "url": "http://localhost:5500/synth.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch chron.html",
-            "url": "http://localhost:5501/chron.html",
+            "url": "http://localhost:5500/chron.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch synth.html",
-            "url": "http://localhost:5501/synth.html",
+            "url": "http://localhost:5500/synth.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch index.html",
-            "url": "http://localhost:5501/index.html",
+            "url": "http://localhost:5500/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
