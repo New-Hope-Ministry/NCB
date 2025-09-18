@@ -9,7 +9,7 @@ var updateVar = true;
 
 const urlsToCache = [
      'index.html',
-     'manifest.json',
+     'manifest.webmanifest',
      //'code/css/index.css',
      'code/css/lateload.css',
      //'code/css/variables.css',
