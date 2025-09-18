@@ -54,6 +54,8 @@ html::-webkit-scrollbar,
 .cs-readChronological:hover,
 .cs-searchBtn:hover { background-color: #706f6f; color: white; cursor: pointer; }
 
+.cs-copyright:hover { cursor: pointer; color: var(--paleMaroonEmphasis); }
+.cs-copyright:visited { color: var(--whiteText); }
 
 .cs-endBtn:hover,
 .cs-searchChapter:hover { color: #b20303; cursor: pointer; }

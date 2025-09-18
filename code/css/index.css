@@ -585,21 +585,15 @@ body {
      height: 2em;
      width: 20em;
      background-color: #ba0e0e;
-     color: #fee9c9;
+     color: navajowhite;
      border-radius: 6px;
      margin: auto;
      justify-content: center;
      align-items: center;
 }
 .cs-copyright { text-decoration: underline; }
-.cs-copyright,
-.cs-copyright:visited {
+.cs-copyright {
      color: var(--whiteText);
-}
-
-.cs-copyright:hover {
-     cursor: pointer;
-     color: var(--paleMaroonEmphasis);
 }
 
 .cs-copySign {

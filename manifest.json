@@ -8,91 +8,91 @@
      "theme_color": "#022a69",
      "icons": [
           {
-               "src": "/TAB-Test/images/crystal.png",
+               "src": "/images/crystal.png",
                "sizes": "1200x100",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/apple-touch-icon.png",
+               "src": "/images/icons/apple-touch-icon.png",
                "sizes": "180x180",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-32.png",
+               "src": "/images/icons/ark-32.png",
                "sizes": "32x32",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-64.png",
+               "src": "/images/icons/ark-64.png",
                "sizes": "96x96",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-96.png",
+               "src": "/images/icons/ark-96.png",
                "sizes": "96x96",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-128.png",
+               "src": "/images/icons/ark-128.png",
                "sizes": "128x128",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-192.png",
+               "src": "/images/icons/ark-192.png",
                "sizes": "192x192",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-256.png",
+               "src": "/images/icons/ark-256.png",
                "sizes": "256x256",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-300.png",
+               "src": "/images/icons/ark-300.png",
                "sizes": "300x300",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-512.png",
+               "src": "/images/icons/ark-512.png",
                "sizes": "512x512",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-600.png",
+               "src": "/images/icons/ark-600.png",
                "sizes": "600x600",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-900.png",
+               "src": "/images/icons/ark-900.png",
                "sizes": "900x900",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/ark-1024.png",
+               "src": "/images/icons/ark-1024.png",
                "sizes": "1024x1024",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/logo-192.png",
+               "src": "/images/icons/logo-192.png",
                "sizes": "192x192",
                "type": "image/png",
                "rel": "shortcut icon"
           },
           {
-               "src": "/TAB-Test/images/icons/qr-logo.png",
+               "src": "/images/icons/qr-logo.png",
                "sizes": "512x512",
                "type": "image/png",
                "rel": "shortcut icon"
@@ -100,14 +100,14 @@
      ],
      "screenshots": [
           {
-               "src": "/TAB-Test/images/screenshots/laptop.png",
+               "src": "/images/screenshots/laptop.png",
                "sizes": "755x503",
                "type": "image/png",
                "form_factor": "wide",
                "label": "Laptop Screen"
           },
           {
-               "src": "/TAB-Test/images/screenshots/moto-432.png",
+               "src": "/images/screenshots/moto-432.png",
                "sizes": "320x610",
                "type": "image/png",
                "label": "Moto-432 Screen"
