@@ -105,7 +105,7 @@ async function getChapter() {
      if (isTWF) {
           let sp2 = document.createElement('span');
           sp2.classList.add('cs-edited');
-          sp2.textContent = ` TWF - Last Edited: ${dateEdited}`
+          sp2.textContent = ` TWF - Last Edited: ${dateEdited}`;
           h2.appendChild(sp2);
      };
      page.appendChild(h2);
@@ -253,12 +253,12 @@ async function getVersion(e = null) {
                case '503':
                     err = 'No internet connection error: 503A!';
                     break;
-          }
+          };
           alert(err);
      };
      closeBoxes();
      if (selectedVerseID) {
-          if (isNumeric(selectedVerseID)) { selectedVerseID = `id-verse${selectedVerseID}` };
+          if (isNumeric(selectedVerseID)) { selectedVerseID = `id-verse${selectedVerseID}`; };
           verseHighlight(selectedVerseID);
      };
 
@@ -448,7 +448,7 @@ async function triggerCacheCheck() {
      const LAST_CHECK_KEY = 'lastCacheCheck';
      const today = new Date();
      const dayOfWeek = today.getDay();
-     if (dayOfWeek === 0) { console.log(`Caches not checked it's Sunday`); return; }
+     if (dayOfWeek === 0) { console.log(`Caches not checked it's Sunday`); return; };
      const now = Date.now();
      const sevenDays = 7 * 24 * 60 * 60 * 1000;
 
@@ -545,7 +545,7 @@ function verseHighlight(id) {
                div1.dataset.bid = oldBooks[i].id;
                div1.dataset.chapters = oldBooks[i].c;
                div1.textContent = oldBooks[i].t;
-               if (activeBookID === div1.id) { chapterCount = Number(div1.dataset.chapters) };
+               if (activeBookID === div1.id) { chapterCount = Number(div1.dataset.chapters); };
                div1.setAttribute("translate", "no");
                div.appendChild(div1);
 
@@ -566,7 +566,7 @@ function verseHighlight(id) {
                     div1 = document.createElement('div');
                     div1.classList.add('cs-endBook');
                };
-               if (activeBookID === div1.id) { chapterCount = Number(div1.dataset.chapters) };
+               if (activeBookID === div1.id) { chapterCount = Number(div1.dataset.chapters); };
                div.setAttribute("translate", "no");
                div.appendChild(div1);
                menuBooks.appendChild(div);
@@ -622,7 +622,7 @@ function verseHighlight(id) {
                     div1.textContent = i;
                     div1.setAttribute("translate", "no");
                     div.appendChild(div1);
-                    i++
+                    i++;
                     x++;
                };
                i = i - 1;
@@ -667,7 +667,6 @@ function verseHighlight(id) {
           spa.classList.add('cs-changeLanguage');
           spa.textContent = 'Change Language';
           div.appendChild(spa);
-
 
           div1 = document.createElement("div");
           div1.id = 'id-closeChangeLng';
@@ -747,7 +746,7 @@ function verseHighlight(id) {
                     div1.textContent = i;
                     div1.setAttribute("translate", "no");
                     div.appendChild(div1);
-                    i++
+                    i++;
                     x++;
                };
                i = i - 1;

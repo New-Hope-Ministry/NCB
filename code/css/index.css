@@ -289,7 +289,7 @@ body {
 .cs-headline {
      line-height: 1.5rem;
      text-align: center;
-     color: var(--headlineColor)
+     color: var(--headlineColor);
 }
 
 .cs-bottomLine {
@@ -628,7 +628,7 @@ body {
      height: max-content;
      background-color: #f1f2f3;
      border-top: 3px solid #9b9a9a;
-     color: #010914
+     color: #010914;
 }
 
 .cs-endLine {

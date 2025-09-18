@@ -1070,4 +1070,4 @@ var languages = [
         "lng": "Vietnamese - Tiếng Việt",
         "lngc": "vi-VN"
     }
-]
+];
