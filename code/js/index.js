@@ -30,7 +30,9 @@ window.addEventListener("load", async () => {
           } else {
                document.getElementById("id-end").style.display = 'block';
           };
-          startUp();
+          rec = false;
+          rec = await startUp();
+          if (rec) { document.getElementById('id-noDisplay').style.visibility = 'visible'; };
      };
      window.addEventListener("resize", adjustPosition);
      if ('speechSynthesis' in window) {

@@ -10,12 +10,13 @@ var updateVar = true;
 const urlsToCache = [
      'index.html',
      'manifest.webmanifest',
-     //'code/css/index.css',
+     'code/css/index.css',
      'code/css/lateload.css',
-     //'code/css/variables.css',
-     //'code/js/index.js',
+     'code/css/media.css',
+     'code/css/variables.css',
+     'code/js/index.js',
      'code/js/utilities.js',
-     //'code/js/variables.js',
+     'code/js/variables.js',
 ];
 
 self.addEventListener('install', event => {
