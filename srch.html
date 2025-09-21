@@ -9,11 +9,11 @@
      <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
 
      <link async rel="stylesheet" type="text/css" href="code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="code/css/chron.css">
+     <link async rel="stylesheet" type="text/css" href="code/css/srch.css">
 
      <script async src="code/js/variables.js"></script>
-     <script async src="code/js/chron/chronUtilities.js"></script>
-     <script async src="code/js/chron/chron.js"></script>
+     <script async src="code/js/srch/searcher.js"></script>
+     <script async src="code/js/srch/srch.js"></script>
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
@@ -30,35 +30,40 @@
      <img id="logo" async src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="aClick(goHome)"></img>
 
      <div id="id-header" class="cs-header cs-title" onclick="openBox(event)">
-          <h1 class="cs-headerTitle cs-chronTitleHeader cs-logoTitle" onclick="aClick(goHome)">Ark Bible 365 Day Chronological Plan</h1>
+          <h1 class="cs-headerTitle cs-srchTitleHeader cs-logoTitle" onclick="aClick(goHome)"> Search The Ark Bible</h1>
      </div>
 
-     <div id="id-header1" class="cs-header cs-banner">
-          <div id="id-menu" class="cs-menu cs-chronMenu">
+     <div id="id-header1" class="cs-header cs-banner" onclick="openBox(event)">
+          <div id="id-menu" class="cs-menu cs-srchMenu">
                <div class="cs-menu1" translate="no">
-                    <button id="id-ChronBtn1" class="cs-menuBtn cs-menuBtn1 cs-chronMenu" onclick="openBox(event)"
-                         title="Select A Version" translate="no">TWF</button>
-                    <button id="id-ChronBtn2" class="cs-menuBtn cs-menuBtn1 cs-chronMenu" onclick="openBox(event)"
-                         title="Select A Day" translate="no">Day 1</button>
-                    <button id="id-ChronBtn3" class="cs-menuBtn cs-menuBtn2 cs-chronMenu" onclick="openBox(event)"
-                         title="Select A Chapter" translate="no">Genesis 1</button>
-                    <button id="id-ChronBtn3" class="cs-menuBtn cs-menuBtn2 cs-chronMenu" onclick="restart(event)"
-                         title="Restart" translate="no">Restart</button>
+                    <button id="id-MenuBtn1" class="cs-menuBtn cs-menuBtn1 cs-srchMenu" onclick="openBox(event)" title="Select A Version" translate="no">TWF</button>
                </div>
           </div>
      </div>
 
      <div id="id-pageContainer" class="cs-pageContainer" onclick="openBox(event)">
-          <div id="id-mainPage" class="cs-mainPage">
 
-               <div id="id-headline" class="cs-headline"></div>
-               <div id="id-page" class="cs-page"></div>
-
-               <br><br><br><br><br>
-               <div id="id-bottomTitleLine" class="cs-bottomLine"></div>
-          </div>
           <br><br>
-          <div class="cs-bottom">
+          <div id="id-searchContainer" class="cs-searchContainer" data-nosnippet>
+                    <br>
+                    <h2 class="cs-searchTitle">Search Bible Verses</span></h2>
+                    <div class="cs-searchCase">
+                         <span id="id-searchVersion"></span>
+                         <br>
+                         <span>spelling & case sensitive</span>
+                         <br>
+                         <span id="id-resultCount"></span>
+                    </div>
+                    <div id="id-searchPage" class="cs-searchPage">
+                         <div id="id-searchBox" class="cs-searchBox" type="text" contentEditable="true" data-placeholder="Search..." onkeydown="searchKeyDown()" tabindex="0" onfocus="searchFocus()"></div>
+                         <div class="cs-searchBtn" onclick="searcher()">Search</div>
+                         <div id="id-searchResults" class="cs-searchResult"></div>
+                    </div>
+                    <br><br><br>
+               </div>
+               <br><br><br><br>
+     </div>
+     <div class="cs-bottom">
                <br>
                <hr class="cs-hrCopyright">
                <br><br>
@@ -85,14 +90,8 @@
 
                </div>
           </div>
-
-     </div>
-
 </body>
 
-<div id="id-chronVersions" class="cs-versions" translate="no"></div>
-<div id="id-languages" class="cs-languages"></div>
-<div id="id-chronDays" class="cs-chronDays" translate="no"></div>
-<div id="id-chronChapters" class="cs-chronChapters" translate="no"></div>
-
-</html>
+<div id="id-versions" class="cs-versions" translate="no"></div>
+<div id="id-languages" class="cs-languages" translate="no"></div>
+</html

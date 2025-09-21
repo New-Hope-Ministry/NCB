@@ -170,9 +170,11 @@ async function getChapter() {
           page.appendChild(p);
      };
      loadVerses();
+
      if (activeBook === 1 && activeChapter === 1) { document.getElementById('id-bottomLastLine').style.visibility = 'hidden'; } else { document.getElementById('id-bottomLastLine').style.visibility = 'visible'; };
 
      if (activeBook === 66 && activeChapter === 22) { document.getElementById('id-bottomNextLine').style.visibility = 'hidden'; } else { document.getElementById('id-bottomNextLine').style.visibility = 'visible'; };
+
      setFontSize();
      document.getElementById('id-MenuBtn3').textContent = `${document.getElementById(activeChapterID).textContent}:`;
 };
@@ -245,7 +247,6 @@ async function getVersion(e = null) {
           document.getElementById('id-MenuBtn1').textContent = versions[idx].ar;
           document.getElementById('id-headline').textContent = versions[idx].t;
           activeVersionAbreviation = versions[idx].ar;
-          searchIndex = null;
      } catch (error) {
           let err = error.message;
           switch (error.message) {
@@ -264,11 +265,6 @@ async function getVersion(e = null) {
           verseHighlight(selectedVerseID);
      };
 
-     if (versions[idx].sch) {
-          document.getElementById('id-search').style.display = 'block';
-     } else {
-          document.getElementById('id-search').style.display = 'none';
-     };
      if (versions[idx].rdl) {
           document.getElementById('id-redLetter').style.display = 'block';
           if (redLetterDefault === 0) {
@@ -285,9 +281,6 @@ async function getVersion(e = null) {
           document.getElementById('id-paragraphLayout').style.display = 'block';
      } else { document.getElementById('id-paragraphLayout').style.display = 'none'; };
 
-     removeElements('id-searchResults');
-     document.getElementById('id-searchBox').textContent = '';
-     searchIndex = null;
      boxesAreOpen = false;
      return true;
 };

@@ -1,7 +1,6 @@
+html { font-size: 110%; }
 html,
 body {
-     font-size: 110%;
-     margin: 0;
      margin: 0;
      padding: 0;
      width: 100%;
@@ -43,12 +42,10 @@ body {
 .cs-menuBtns { padding-right: 2em; }
 .cs-pageContainer { width: 100%; z-index: 10; min-height: 100vh; }
 .cs-mainPage {  min-height: 100vh; }
-.cs-mainPage,
-.cs-searchContainer { border-radius: 6px; width: 70%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
+.cs-mainPage { border-radius: 6px; width: 70%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
 .cs-headline,
 .cs-bottomLine { height: 1.5rem; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.35rem; }
 .cs-headline { line-height: 1.5rem; text-align: center; color: var(--headlineColor); }
-.cs-searchPage,
 .cs-page { text-align: justify; margin: auto; margin-top: 2.5em; width: 80%; }
 .cs-edited { font-size: .4em; color: var(--darkGrayEmphasis); }
 .cs-singleVerse { margin-top: -.5em; z-index: 100; }
@@ -59,12 +56,7 @@ body {
 .cs-bottomTitleLine { width: max-content; }
 .cs-readRandom { display: none; }
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #ba0e0e; color: navajowhite; border-radius: 6px; padding: .8em; }
-.cs-searchContainer { display: none; margin-top: 4.5em; height: max-content; min-height: 100%; }
-.cs-searchTitle { width: 90%; margin: auto; text-align: center; }
-.cs-searchCase { width: 90%; margin: auto; text-align: center; font-size: .9em; }
-.cs-searchBox { height: 2.5em; width: 74%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; padding-right: 3em; font-size: 1.3rem; z-index: 12; white-space: nowrap; overflow-x: scroll; overflow-y: hidden; }
-.cs-searchBtn { color: white; background-color: red; padding: .6em; border-radius: 6px; width: 10%; margin: auto; margin-top: .6em; font-size: 1.1em; z-index: 12; text-align: center; border: 2px solid black; }
-.cs-searchResults { font-size: 1.2rem; text-decoration: underline; color: var(--lightMaroonEmphasis); }
+
 .cs-bottom { bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 20%, var(--gradientDark) 90%); z-index: 5; }
 .cs-settings { display: flex; justify-content: space-evenly; bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; padding-left: .8em; background-color: var(--bannerBackground); z-index: 0; }
 .cs-glossary { position: relative; margin-top: 1.2em; margin-bottom: 1.2em; color: var(--whiteText); width: 99%; z-index: 0; }

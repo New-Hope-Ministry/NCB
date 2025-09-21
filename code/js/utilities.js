@@ -165,7 +165,6 @@ function redLetter() {
      localStorage.setItem("redLetter", redLetterDefault);
 };
 
-
 function removeQueryParam(param) {
      var url = new URL(window.location.href);
      url.searchParams.delete(param);

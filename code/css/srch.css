@@ -1,0 +1,133 @@
+html { font-size: 110%; }
+html,
+body {
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     height: 100%;
+     min-height: 100vh;
+}
+body {
+     background-color: var(--bodyBackground);
+     color: var(--blackText);
+     z-index: 10;
+}
+.cs-loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg); /* initial state */
+  border: 8px solid var(--mediumGray);
+  border-top: 8px solid var(--bannerBackground);
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.cs-logo { position: fixed; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
+.cs-logoTitle { display: inline-block; position: relative; left: 3em; cursor: pointer; }
+.cs-header { position: fixed; left: 0; height: 2rem; width: 100%; background-color: var(--bannerBackground); color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999; }
+.cs-title { top: 0; padding-left: .8em; font-size: 1.3rem; z-index: 2; }
+.cs-srchTitleHeader { font-size: 1rem; }
+.cs-headerTitle { margin: 0; position: absolute; font-size: 1.3rem; top: 5%; }
+.cs-banner { top: 2rem; text-align: center; border-bottom: 5px solid dimgray; }
+.cs-menu { display: flex; position: absolute; left: 0; width: 100%; z-index: 1; }
+.cs-menu1 { position: absolute; left: 50%; transform: translate(-50%); width: max-content; }
+.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; background-color: var(--bannerBackground); color: var(--whiteText); padding: .3em; cursor: pointer; }
+.cs-menuBtn1 { padding-right: 2em; }
+.cs-pageContainer { margin-top: 5em; width: 100%; z-index: 10; }
+.cs-searchContainer { border-radius: 6px; width: 70%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
+.cs-searchTitle { width: 90%; margin: auto; text-align: center; }
+.cs-searchCase { width: 90%; margin: auto; text-align: center; font-size: .9em; }
+.cs-searchBox { height: 2.5em; max-width: 84%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; padding-right: 3em; font-size: 1.3rem; z-index: 12; white-space: nowrap; overflow-x: scroll; overflow-y: hidden; }
+.cs-searchBox[contenteditable="true"]:empty:before { content: attr(data-placeholder); color: gray; font-style: italic; }
+.cs-searchBtn { color: white; background-color: red; padding: .6em; border-radius: 6px; width: 10%; margin: auto; margin-top: .6em; font-size: 1.1em; z-index: 12; text-align: center; border: 2px solid black; }
+.cs-searchBtn:hover { background-color: #706f6f; color: white; cursor: pointer; }
+.cs-headline,
+.cs-bottomLine { height: 1.5rem; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.35rem; }
+.cs-headline { line-height: 1.5rem; text-align: center; color: var(--headlineColor); }
+.cs-searchPage { text-align: justify; margin: auto; margin-top: 2.5em; width: 80%; }
+.cs-bottom { bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%); z-index: 2; }
+.cs-hrCopyright { width: 98%; margin-left: auto; margin-right: auto; }
+.cs-GodLovesYou { position: relative; text-align: center; width: 80%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; color: var(--whiteText); }
+.cs-blueLtr,
+.cs-blueLtrLink {display: block; width: 60%; margin: auto;}
+.cs-copyright { display: inline-block; margin-top: .3em; }
+.cs-blueLtrLink,
+.cs-copyright,
+.cs-copyright:visited { color: var(--whiteText); text-decoration: underline;}
+.cs-copySign { font-size: .75em; }
+.cs-versions,
+.cs-languages { display: none; position: absolute; left: 50%; height: max-content; min-height: 25%; max-height: 48%; transform: translate(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--shadowColor); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; overflow: hidden; overflow-y: scroll; z-index: 1; max-width: 100%; }
+.cs-booksW { width: max-content; }
+.cs-booksW1 { width: var(--bookWidth); }
+.cs-darkTheme { background-color: #3d3636; color: white; }
+.cs-bvSelected { background-color: #8e8c8c; color: white; }
+.cs-versionHeader,
+.cs-languageHeader,
+.cs-chapterHeader { position: sticky; top: 0; padding: .35em; padding-left: .8em; font-size: 1.3em; font-weight: 550; background-color: var(--headerBackground); color: var(--whiteText); user-select: none; width: 100%; z-index: 1; overflow: hidden; }
+.cs-versionHeaderLanguage { font-size: .8rem; }
+.cs-languageFlag { position: absolute; top: 0; left: 0; height: 100%; width: .9em; font-size: .4em; color: white; background-color: var(--bannerBackground); padding-left: .2em; padding-right: .2em; display: flex; flex-direction: column; justify-content: center; }
+.cs-changeLanguage { color: #e8ef68; }
+.cs-openLngs { display: flex; position: absolute; cursor: pointer; justify-content: center; align-items: center; top: 30%; transform: translateY(-30%); right: 13%; margin: 0; width: 1.2em; height: 1.2em; line-height: 1.2em; padding: .2em; font-size: .7rem; border: 1px solid #434242; border-radius: 50%; background-color: var(--headlineBackground); color: white; }
+.cs-version,
+.cs-language { padding: .3em; padding-left: .6em; padding-right: .6em; font-size: 1.2rem; }
+.cs-lastLine { position: absolute; text-align: center; left: 50%; transform: translate(-50%); padding-bottom: 1.5em; }
+.cs-searchVerse { margin-top: -.1em; }
+.cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--navyEmphasis); }
+.cs-searchChapter:hover { color: #b20303; cursor: pointer; }
+.cs-searchResults { font-size: 1.2rem; text-decoration: underline; color: var(--lightMaroonEmphasis); }
+.cs-noResults { color: var(--greenEmphasis) }
+
+.cs-searchResults:hover { color: red; cursor: pointer; }
+.cs-version:hover,
+.cs-language:hover { cursor: pointer; background-color: #8e8c8c; color: white; }
+
+/*? Media Queries widths */
+@media (max-width: 1920px) { .cs-mainPage { width: 60%; } }
+@media (max-width: 1440px) { .cs-mainPage { width: 70%; border-radius: 6px; } }
+@media (max-width: 1280px) { .cs-mainPage { width: 70%; } }
+@media (max-width: 1025px) { .cs-mainPage { width: 100%; border-radius: 0; } .cs-searchBtn { width: 20%; } }
+@media (max-width: 768px) { .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); } .cs-versions,.cs-languages { width: 330px; } .cs-headline, .cs-bottomLine { font-size: 1.1rem; } }
+@media (max-width: 480px) { .cs-srchMenu { font-size: .95rem; } .cs-srchTitleHeader { font-size: .80rem; } .cs-blueLtr,.cs-blueLtrLink {display: block; width: 99%; margin: auto; text-align: justify;} .cs-banner { top: 1.95rem; } .cs-versions,.cs-languages { width: 100%; } }
+@media (max-width: 348px) { .cs-chapter { font-size: 1.2em; height: 1.6em; width: 1.6em; } .cs-version { font-size: 1.1rem; } }
+
+
+/*! Media Queries Heights */
+     @media (max-height: 1368px) { .cs-mainPage { margin-top: .5em; } }
+     @media (max-height: 1080px) { .cs-versions,.cs-languages { height: 49%; } }
+     @media (max-height: 1024px) { .cs-versions,.cs-languages { height: 48%; } }
+
+     @media (max-height: 932px) { .cs-versions,.cs-languages { max-height: 75%; } }
+     @media (max-height: 741px) { .cs-versions,.cs-languages { height: 70%; } }
+     @media (max-height: 668px) { .cs-versions,.cs-languages { max-height: 67%; } }
+     @media (max-height: 600px) {  }
+     @media (max-height: 568px) { .cs-versions,.cs-languages { height: 73%; } }
+     @media (max-height: 480px) { .cs-versions,.cs-languages { height: 83%; } }
+/*! End Media Queries Heights */
+
+
+/* Utilities */
+html,
+body,
+.cs-versions,
+.cs-languages,
+.cs-searchBox {
+     overflow: hidden;
+     overflow-y: scroll;
+     -ms-overflow-style: none;
+     /* IE and Edge */
+     scrollbar-width: none;
+     /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+.cs-versions::-webkit-scrollbar,
+.cs-searchBox::-webkit-scrollbar,
+.cs-languages::-webkit-scrollbar { display: none; }

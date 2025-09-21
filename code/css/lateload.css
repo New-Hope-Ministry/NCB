@@ -51,8 +51,7 @@ html::-webkit-scrollbar,
 
 .cs-chat:hover,
 .cs-randomChapter:hover,
-.cs-readChronological:hover,
-.cs-searchBtn:hover { background-color: #706f6f; color: white; cursor: pointer; }
+.cs-readChronological:hover { background-color: #706f6f; color: white; cursor: pointer; }
 
 .cs-copyright:hover { cursor: pointer; color: var(--paleMaroonEmphasis); }
 .cs-copyright:visited { color: var(--whiteText); }
@@ -62,8 +61,3 @@ html::-webkit-scrollbar,
 
 /* Selected text */
 ::selection { background-color: #4180de; color: white; }
-
-.cs-searchBox[contenteditable="true"]:empty:before { content: attr(data-placeholder); color: gray; font-style: italic; }
-.cs-searchResult { margin-top: 5%; }
-.cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--navyEmphasis); }
-.cs-searchVerse { margin-top: -.1em; }

@@ -327,6 +327,4 @@ body::-webkit-scrollbar,
 html::-webkit-scrollbar,
 .cs-chronDays::-webkit-scrollbar,
 .cs-chronChapters::-webkit-scrollbar,
-.cs-versions::-webkit-scrollbar {
-     display: none;
-}
+.cs-versions::-webkit-scrollbar { display: none; }
