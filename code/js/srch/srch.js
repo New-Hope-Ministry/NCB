@@ -13,13 +13,12 @@ var activeSrchVersionText = null;
 var pastSrchSelectedVersionID = null;
 var pastSrchSelectedLanguageID = null;
 
-var boxesAreOpen = false;
-var isTWF = false;
+var srchBoxesAreOpen = false;
 var searchIndex = null;
 var setSrchTheme = '0';
 
-var verses = [];
-var versions = [
+var srchVerses = [];
+var srchVersions = [
     {
         "ar": "ALB",
         "id": 1,
@@ -343,13 +342,6 @@ var versions = [
         "t": "Romanian Cornilescu Version - Versiunea Cornilescu în limba română"
     },
     {
-        "ar": "RSB",
-        "id": 59,
-        "lid": 78,
-        "rdl": 0,
-        "t": "Russian Synodal Bible - 1876 - Русская Синодальная Библия"
-    },
-    {
         "ar": "SSE",
         "id": 60,
         "lid": 84,
@@ -406,7 +398,7 @@ var versions = [
         "t": "Vietnamese Cadman Version - 1934 - Phiên bản Cadman Việt Nam"
     }
 ];
-var languages = [
+var srchLanguages = [
     {
         "idx": 0,
         "lid": 1,
@@ -498,12 +490,6 @@ var languages = [
         "lngc": "ro-RO"
     },
     {
-        "idx": 23,
-        "lid": 78,
-        "lng": "Russian - русский (russkiy)",
-        "lngc": "ru-RU"
-    },
-    {
         "idx": 24,
         "lid": 84,
         "lng": "Spanish - Español",
@@ -537,8 +523,8 @@ window.addEventListener("load", async () => {
      if (rec) { rec = false; rec = await loadBoxes(); };
      if (activeSrchVersionID) {
           let id = Number(activeSrchVersionID.slice("id-version".length));
-          i = versions.findIndex(rec => rec.id === id);
-          document.getElementById('id-searchVersion').textContent = `${versions[i].t} - ${versions[i].ar}`;
+          i = srchVersions.findIndex(rec => rec.id === id);
+          document.getElementById('id-searchVersion').textContent = `${srchVersions[i].t} - ${srchVersions[i].ar}`;
      }
      if (rec) {
           setTimeout(() => {
@@ -565,10 +551,10 @@ async function changeLanguage(e = null) {
      if (e) { id = e.target.id; };
      let idx = Number(document.getElementById(id).dataset.index);
      activeSrchChapterID = defaultSrchChapterID;
-     activeSrchLanguageID = languages[idx].lid;
+     activeSrchLanguageID = srchLanguages[idx].lid;
 
      loadVersions();
-     document.getElementById('id-language').textContent = `Language: ${languages[idx].lng}`;
+     document.getElementById('id-language').textContent = `Language: ${srchLanguages[idx].lng}`;
      let parentElement = document.getElementById('id-versions');
      let selectedVersion = parentElement.children[1];
      activeSrchVersionID = selectedVersion.id;
@@ -577,9 +563,9 @@ async function changeLanguage(e = null) {
      if (document.getElementById('id-searchBox').textContent === '') {
           closeBoxes();
           let idx = Number(activeSrchVersionID.slice("id-version".length));
-          let id = versions.findIndex(rec => rec.id === idx);
-          document.getElementById('id-MenuBtn1').textContent = versions[id].ar;
-          document.getElementById('id-searchVersion').textContent = `${versions[id].t} - ${versions[id].ar}`;
+          let id = srchVersions.findIndex(rec => rec.id === idx);
+          document.getElementById('id-MenuBtn1').textContent = srchVersions[id].ar;
+          document.getElementById('id-searchVersion').textContent = `${srchVersions[id].t} - ${srchVersions[id].ar}`;
           fetchVerses(id);
      } else {
           selectedVersion.click();
@@ -596,11 +582,11 @@ async function changeVersion(e = null) {
           let rec = false;
           activeSrchVersionID = e.target.id;
           let idx = Number(activeSrchVersionID.slice("id-version".length));
-          let id = versions.findIndex(rec => rec.id === idx);
+          let id = srchVersions.findIndex(rec => rec.id === idx);
 
           rec = await fetchVerses(id);
-          document.getElementById('id-MenuBtn1').textContent = versions[id].ar;
-          document.getElementById('id-searchVersion').textContent = `${versions[id].t} - ${versions[id].ar}`;
+          document.getElementById('id-MenuBtn1').textContent = srchVersions[id].ar;
+          document.getElementById('id-searchVersion').textContent = `${srchVersions[id].t} - ${srchVersions[id].ar}`;
           selected(activeSrchVersionID, 'id-versions');
           if (document.getElementById('id-searchBox').textContent === '') { closeBoxes(); return; };
           searcher();
@@ -612,7 +598,7 @@ function closeBoxes() {
      document.getElementById('id-versions').style.display = 'none';
      document.getElementById('id-openLngs').textContent = '♥';
      document.getElementById('id-languages').style.display = 'none';
-     boxesAreOpen = false;
+     srchBoxesAreOpen = false;
 };
 function closeLanguage(e = null) {
 
@@ -643,13 +629,13 @@ function darkTheme() {
 };
 async function fetchVerses(id) {
 
-     let url = `data/${versions[id].ar}/${versions[id].ar}Verses.json`;
+     let url = `data/${srchVersions[id].ar}/${srchVersions[id].ar}Verses.json`;
      try {
           const res = await fetch(url);
           if (!res.ok) { throw new Error(res.status); };
-          verses = await res.json();
+          srchVerses = await res.json();
      } catch {
-          console.log('Error fetching verses!');
+          console.log('Error fetching srchVerses!');
      };
      return true;
 };
@@ -663,8 +649,8 @@ async function getDefaults() {
      if (!activeSrchVersionID) { activeSrchVersionID = `id-version${defaultSrchVersionID}`; };
 
      let id = Number(activeSrchVersionID.slice("id-version".length));
-     let i = versions.findIndex(rec => rec.id === id);
-     activeSrchLanguageID = versions[i].lid;
+     let i = srchVersions.findIndex(rec => rec.id === id);
+     activeSrchLanguageID = srchVersions[i].lid;
 
      setSrchTheme = localStorage.getItem("setTheme");
      activeSrchFontSize = localStorage.getItem("activeFontSize");
@@ -716,11 +702,11 @@ function openBox(e = null) {
                document.getElementById(id).style.display = 'block';
                selected(`id-lang${activeSrchLanguageID}`, id);
                document.getElementById(`id-lang${activeSrchLanguageID}`).scrollIntoView({ block: 'center' });
-               boxesAreOpen = false;
+               srchBoxesAreOpen = false;
                break;
     };
 
-    if (boxesAreOpen) { closeBoxes(); } else { boxesAreOpen = true; };
+    if (srchBoxesAreOpen) { closeBoxes(); } else { srchBoxesAreOpen = true; };
 };
 function removeElements(id) {
 
@@ -772,7 +758,7 @@ function toggleTheme() {
 
           let i = 0;
           let menuLanguages = document.getElementById("id-languages");
-          let ii = languages.findIndex(rec => rec.lid === activeSrchLanguageID);
+          let ii = srchLanguages.findIndex(rec => rec.lid === activeSrchLanguageID);
 
           removeElements('id-languages');
 
@@ -814,10 +800,10 @@ function toggleTheme() {
           div1.id = 'id-language';
           div1.classList.add("cs-versionHeaderLanguage");
           div1.classList.add('cs-changeLanguage');
-          div1.textContent = `Language: ${languages[ii].lng}`;
+          div1.textContent = `Language: ${srchLanguages[ii].lng}`;
           div.appendChild(div1);
           menuLanguages.appendChild(div);
-          for (const lang of languages) {
+          for (const lang of srchLanguages) {
 
                div = document.createElement("div");
                div.addEventListener("click", (e) => {
@@ -847,8 +833,8 @@ function toggleTheme() {
           let menuVersions = document.getElementById("id-versions");
           let menuVersion = document.getElementById("id-MenuBtn1");
           let pageHeadline = document.getElementById("id-headline");
-          let i = versions.findIndex(rec => rec.lid === activeSrchLanguageID);
-          let ii = languages.findIndex(rec => rec.lid === activeSrchLanguageID);
+          let i = srchVersions.findIndex(rec => rec.lid === activeSrchLanguageID);
+          let ii = srchLanguages.findIndex(rec => rec.lid === activeSrchLanguageID);
 
           removeElements('id-versions');
 
@@ -874,11 +860,11 @@ function toggleTheme() {
           div1 = document.createElement("div");
           div1.id = 'id-versionHeaderlanguage';
           div1.classList.add("cs-versionHeaderLanguage");
-          div1.textContent = `Language: ${languages[ii].lng}`;
+          div1.textContent = `Language: ${srchLanguages[ii].lng}`;
           div.appendChild(div1);
           menuVersions.appendChild(div);
 
-          while (i < versions.length && versions[i].lid === Number(activeSrchLanguageID)) {
+          while (i < srchVersions.length && srchVersions[i].lid === Number(activeSrchLanguageID)) {
 
                div = document.createElement("div");
                div.addEventListener("click", (e) => {
@@ -887,13 +873,13 @@ function toggleTheme() {
                     e.stopPropagation();
                     e.stopImmediatePropagation();
                });
-               div.id = `id-version${versions[i].id}`;
+               div.id = `id-version${srchVersions[i].id}`;
                if (activeVersionID === div.id) {
-                    menuVersion.textContent = versions[i].ar;
-                    pageHeadline.textContent = versions[i].t;
+                    menuVersion.textContent = srchVersions[i].ar;
+                    pageHeadline.textContent = srchVersions[i].t;
                };
                div.dataset.index = i;
-               div.textContent = `${versions[i].t} - ${versions[i].ar}`;
+               div.textContent = `${srchVersions[i].t} - ${srchVersions[i].ar}`;
                div.classList.add("cs-version");
                div.setAttribute("translate", "no");
                menuVersions.appendChild(div);

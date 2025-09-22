@@ -56,24 +56,24 @@
 
           // Find case-sensitive exact phrase matches
           const caseSensitiveExactPhraseDocIds = commonDocIdsArray.filter(docId => {
-               const text = verses.find(doc => doc.vid === docId).vt;
+               const text = srchVerses.find(doc => doc.vid === docId).vt;
                return text.includes(phrase);
           });
 
           // Find case-insensitive exact phrase matches
           const caseInsensitiveExactPhraseDocIds = commonDocIdsArray.filter(docId => {
-               const text = verses.find(doc => doc.vid === docId).vt.toLowerCase();
+               const text = srchVerses.find(doc => doc.vid === docId).vt.toLowerCase();
                return text.includes(lowerCasePhrase);
           });
 
           // Find documents containing all words in the phrase
           const partialPhraseDocIds = commonDocIdsArray.filter(docId => {
-               const text = verses.find(doc => doc.vid === docId).vt.toLowerCase();
+               const text = srchVerses.find(doc => doc.vid === docId).vt.toLowerCase();
                return words.every(word => text.includes(word));
           });
 
           // Find documents containing all words in the phrase
-          const allWordsDocIds = verses.filter(doc => {
+          const allWordsDocIds = srchVerses.filter(doc => {
                const text = doc.vt.toLowerCase();
                return words.every(word => text.includes(word));
           }).map(doc => doc.vid);
@@ -94,9 +94,9 @@
 
           let i;
           let books;
-          let bid = verses[idx].bid;
-          let cn = verses[idx].cn;
-          let vn = verses[idx].vn;
+          let bid = srchVerses[idx].bid;
+          let cn = srchVerses[idx].cn;
+          let vn = srchVerses[idx].vn;
 
           if (bid < 40) {
                i = oldBooks.findIndex(rec => rec.id === bid);
@@ -135,16 +135,16 @@
                     e.stopImmediatePropagation();
                });
                idx = result[searchResultIndex] - 1;
-               a.id = `id-searchVerse${verses[idx].vid}`;
+               a.id = `id-searchVerse${srchVerses[idx].vid}`;
                a.textContent = setSearchChapter(idx);
-               a.dataset.bid = verses[idx].bid;
-               a.dataset.cn = verses[idx].cn;
-               a.dataset.vn = verses[idx].vn;
+               a.dataset.bid = srchVerses[idx].bid;
+               a.dataset.cn = srchVerses[idx].cn;
+               a.dataset.vn = srchVerses[idx].vn;
                a.classList.add('cs-searchChapter');
                p.appendChild(a);
                br = document.createElement('br');
                p.appendChild(br);
-               nt = verses[idx].vt.replace('`', '');
+               nt = srchVerses[idx].vt.replace('`', '');
                nt = nt.replace('´', '');
                vt = document.createTextNode(nt);
                p.appendChild(vt);
@@ -256,7 +256,7 @@
 
           setTimeout(function () {
                searchResultIndex = 0;
-               if (!searchIndex) { searchIndex = createIndex(verses); };
+               if (!searchIndex) { searchIndex = createIndex(srchVerses); };
                searchResults = searchPhrase(searchIndex, searchData);
                removeElements('id-searchResults');
                getSearchVerses(searchResults);

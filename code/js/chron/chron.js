@@ -13,7 +13,7 @@ var pastActiveChronDayID = null;
 var pastActiveChronChapterID = null;
 var pastActiveChronVersion = null;
 var newday = false;
-var isTWF = false;
+var ischronTWF = false;
 
 const chronPlan = [
      {
@@ -8596,7 +8596,7 @@ async function getChapter() {
      h2.textContent = `${chronPlan[i].t} ${chronPlan[i].cn}`;
      document.getElementById('id-headline').textContent = activeChronVersionText;
      document.getElementById('id-bottomTitleLine').textContent = h2.textContent;
-     if (isTWF) {
+     if (ischronTWF) {
           let sp2 = document.createElement('span');
           sp2.classList.add('cs-edited');
           sp2.textContent = ` TWF - Last Edited: ${dateEdited}`
@@ -8684,7 +8684,7 @@ async function loadVersions() {
           if (activeChronVersion === div.id) {
                menuVersion.textContent = version.ar;
                pageHeadline.textContent = version.t;
-               if (version.ar === 'TWF') { isTWF = true; } else { isTWF = false; };
+               if (version.ar === 'TWF') { ischronTWF = true; } else { ischronTWF = false; };
           };
           div.dataset.index = i;
           div.dataset.vid = version.id;
@@ -8710,7 +8710,7 @@ async function changeVersion(vid, e = null) {
      activeChronVersion = id;
      activeChronVersionID = Number(document.getElementById(id).dataset.vid);
      let idx = Number(document.getElementById(id).dataset.index);
-     if (versions[idx].ar === 'TWF') { isTWF = true; } else { isTWF = false; };
+     if (versions[idx].ar === 'TWF') { ischronTWF = true; } else { ischronTWF = false; };
 
      selected(id, 'id-chronVersions');
      pastActiveChronVersion = id;
