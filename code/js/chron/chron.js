@@ -8706,7 +8706,11 @@ async function loadVersions() {
 async function changeVersion(vid, e = null) {
 
      let id;
+     let chpt = null;
      if (e) { id = e.target.id; } else { id = vid };
+     closeBoxes();
+     document.getElementById("id-loader").style.display = 'block';
+
      activeChronVersion = id;
      activeChronVersionID = Number(document.getElementById(id).dataset.vid);
      let idx = Number(document.getElementById(id).dataset.index);
@@ -8714,10 +8718,26 @@ async function changeVersion(vid, e = null) {
 
      selected(id, 'id-chronVersions');
      pastActiveChronVersion = id;
-     closeBoxes();
-     await getVerses();
-     await getChapter();
-     localStorage.setItem('version', activeChronVersionID);
-     document.getElementById('id-ChronBtn1').textContent = versions[idx].ar;
+
+     try {
+          await getVerses();
+          chpt = await getChapter();
+          localStorage.setItem('version', activeChronVersionID);
+          document.getElementById('id-ChronBtn1').textContent = versions[idx].ar;
+     } catch (error) {
+          let err = error.message;
+          switch (error.message) {
+               case '500':
+                    err = 'Network fetch error: 500A!';
+                    break;
+               case '503':
+                    err = 'No internet connection error: 503A!';
+                    break;
+          };
+          document.getElementById("id-loader").style.display = 'none';
+          alert(err);
+     };
+     if (chpt) { document.getElementById("id-loader").style.display = 'none'; };
+
      return true;
 };

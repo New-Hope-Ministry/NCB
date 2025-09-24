@@ -444,6 +444,7 @@ async function getVersion(e = null) {
 
      let id = null;
      if (e) { id = e.target.id; };
+     closeBoxes();
      if (!id || id === 'id-resetDefaults') { id = activeVersionID };
      let aVersion = document.getElementById(id);
      let idx = Number(aVersion.dataset.index);
@@ -468,10 +469,10 @@ async function getVersion(e = null) {
                case '503':
                     err = 'No internet connection error: 503A!';
                     break;
-          }
+          };
+          document.getElementById("id-loader").style.display = 'none';
           alert(err);
      };
-     closeBoxes();
 
      boxesAreOpen = false;
      return true;

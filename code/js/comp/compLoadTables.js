@@ -160,7 +160,7 @@ async function loadLanguages() {
      let spa = document.createElement("spa");
      spa.id = 'id-changeLanguage';
      spa.classList.add('cs-changeLanguage');
-     spa.textContent = 'Change Language';
+     spa.textContent = 'Change Language-A';
      div.appendChild(spa);
 
 
@@ -235,7 +235,7 @@ async function loadLanguages1() {
      let spa = document.createElement("spa");
      spa.id = 'id-changeLanguage1';
      spa.classList.add('cs-changeLanguage');
-     spa.textContent = 'Change Language';
+     spa.textContent = 'Change Language-B';
      div.appendChild(spa);
 
 
@@ -297,7 +297,7 @@ async function loadVersions() {
      div.id = 'id-versionHeader';
      div.classList.add('cs-versionHeader');
      let spa = document.createElement("spa");
-     spa.textContent = 'Versions';
+     spa.textContent = 'Versions-A';
      div.appendChild(spa);
 
      let div1 = document.createElement("div");
@@ -353,7 +353,6 @@ async function loadVersions1() {
      let menuVersions = document.getElementById("id-versions1");
      let menuVersion = document.getElementById("id-MenuBtn4");
      let pageHeadline = document.getElementById("id-headline1");
-     //let activeVersionIDA = activeVersionID.replace("id-version", 'id-versionA');
      let i = versions.findIndex(rec => rec.lid === activeLanguage1ID);
      let ii = languages.findIndex(rec => rec.lid === activeLanguage1ID);
 
@@ -363,7 +362,7 @@ async function loadVersions1() {
      div.id = 'id-versionHeader1';
      div.classList.add('cs-versionHeader');
      let spa = document.createElement("spa");
-     spa.textContent = 'Versions';
+     spa.textContent = 'Versions-B';
      div.appendChild(spa);
 
      let div1 = document.createElement("div");

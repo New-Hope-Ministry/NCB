@@ -1,4 +1,4 @@
-const dateEdited = '9-10-2025';
+const dateEdited = '9-24-2025';
 const copyrighted = '2018-2025';
 const goHome = 'https://thearkbible.com';
 
@@ -663,18 +663,18 @@ var versions = [
         "t": "Italian Giovanni Diodati Version - 1649 - Versione Giovanni italiana Diodati"
     },
     {
+        "ar": "JBY",
+        "id": 45,
+        "lid": 54,
+        "rdl": 0,
+        "t": "Japanese Bungo-yaku Taishō-kaiyaku New Testament - 1950 - 日本文語訳 大正改訳 (NT) 明治訳"
+    },
+    {
         "ar": "JKY",
         "id": 44,
         "lid": 54,
         "rdl": 0,
         "t": "Japanese Alternative Bible - 1954/1955 - 日本語代替聖書"
-    },
-    {
-        "ar": "JBY",
-        "id": 45,
-        "lid": 54,
-        "rdl": 0,
-        "t": "Japanese National Literary Bible - 1950/1953 - 日本語聖書"
     },
     {
         "ar": "KBQ",

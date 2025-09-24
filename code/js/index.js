@@ -230,14 +230,17 @@ async function getDefaults() {
 async function getVersion(e = null) {
 
      let id = null;
+     let res = null;
      if (e) { id = e.target.id; };
      if (!id || id === 'id-resetDefaults') { id = activeVersionID };
+     closeBoxes();
+     document.getElementById("id-loader").style.display = 'block';
      let aVersion = document.getElementById(id);
      let idx = Number(aVersion.dataset.index);
      let url = `data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
      if (versions[idx].ar === 'TWF') { isTWF = true } else { isTWF = false };
      try {
-          const res = await fetch(url);
+          res = await fetch(url);
           if (!res.ok) { throw new Error(res.status); };
           verses = await res.json();
           let holdSelectedVerseID = selectedVerseID;
@@ -257,9 +260,10 @@ async function getVersion(e = null) {
                     err = 'No internet connection error: 503A!';
                     break;
           };
+          document.getElementById("id-loader").style.display = 'none';
           alert(err);
      };
-     closeBoxes();
+
      if (selectedVerseID) {
           if (isNumeric(selectedVerseID)) { selectedVerseID = `id-verse${selectedVerseID}`; };
           verseHighlight(selectedVerseID);
@@ -280,7 +284,7 @@ async function getVersion(e = null) {
      if (verses[0].pn) {
           document.getElementById('id-paragraphLayout').style.display = 'block';
      } else { document.getElementById('id-paragraphLayout').style.display = 'none'; };
-
+     if (res) { document.getElementById("id-loader").style.display = 'none'; };
      boxesAreOpen = false;
      return true;
 };

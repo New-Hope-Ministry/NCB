@@ -1,4 +1,4 @@
-const version = 32;
+const version = 33;
 var oldVersion = version - 1;
 
 const MAIN_CACHE = `ARK-cache-version: ${version}`;
@@ -166,6 +166,7 @@ self.addEventListener('message', (event) => {
           checkCaches(2);
      };
 });
+
 async function checkCaches(cacheToCheck) {
 
      let checkCache = '';

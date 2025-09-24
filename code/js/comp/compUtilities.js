@@ -147,8 +147,8 @@ function openBoxes(e = null) {
                locateBox('id-header', id);
                document.getElementById('id-versions1').style.display = 'none';
                document.getElementById(id).style.display = 'block';
-               selected(`id-langA${activeLanguageID}`, id);
-               document.getElementById(`id-langA${activeLanguageID}`).scrollIntoView({ block: 'center' });
+               selected(`id-langA${activeLanguage1ID}`, id);
+               document.getElementById(`id-langA${activeLanguage1ID}`).scrollIntoView({ block: 'center' });
                boxesAreOpen = false;
                break;
           default:
@@ -177,6 +177,10 @@ function selected(id, container, reset = null) {
                unselected = pastSelectedVersionID;
                pastSelectedVersionID = id;
                break;
+          case "id-versions1":
+               unselected = pastSelectedVersion1ID;
+               pastSelectedVersion1ID = id;
+               break;
           case "id-books":
                unselected = pastSelectedBookID;
                pastSelectedBookID = id;
@@ -188,6 +192,10 @@ function selected(id, container, reset = null) {
           case "id-languages":
                unselected = pastSelectedLanguageID;
                pastSelectedLanguageID = id;
+               break;
+          case "id-languages1":
+               unselected = pastSelectedLanguage1ID;
+               pastSelectedLanguage1ID = id;
                break;
           case "id-verses":
                unselected = pastSelectedVerseID;

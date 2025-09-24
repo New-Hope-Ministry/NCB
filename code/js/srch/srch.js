@@ -574,24 +574,44 @@ async function changeLanguage(e = null) {
 };
 async function changeVersion(e = null) {
 
+     let res = false;
      if (e) {
           e.preventDefault();
           e.stopPropagation();
           e.stopImmediatePropagation();
+     };
 
-          let rec = false;
+     closeBoxes();
+     document.getElementById("id-loader").style.display = 'block';
+     try {
           activeSrchVersionID = e.target.id;
           let idx = Number(activeSrchVersionID.slice("id-version".length));
           let id = srchVersions.findIndex(rec => rec.id === idx);
 
-          rec = await fetchVerses(id);
+          res = await fetchVerses(id);
           document.getElementById('id-MenuBtn1').textContent = srchVersions[id].ar;
           document.getElementById('id-searchVersion').textContent = `${srchVersions[id].t} - ${srchVersions[id].ar}`;
           selected(activeSrchVersionID, 'id-versions');
-          if (document.getElementById('id-searchBox').textContent === '') { closeBoxes(); return; };
+          if (document.getElementById('id-searchBox').textContent === '') {
+               if (res) { document.getElementById("id-loader").style.display = 'none'; };
+               return;
+          };
           searcher();
+     } catch (error) {
+          let err = error.message;
+          switch (error.message) {
+               case '500':
+                    err = 'Network fetch error: 500A!';
+                    break;
+               case '503':
+                    err = 'No internet connection error: 503A!';
+                    break;
+          };
+          document.getElementById("id-loader").style.display = 'none';
+          alert(err);
      };
-     closeBoxes();
+     if (res) { document.getElementById("id-loader").style.display = 'none'; };
+
      return true;
 };
 function closeBoxes() {

@@ -4,6 +4,8 @@ var defaultLanguage1ID = 34; // English
 var defaultVersion1ID = `id-versionA9`; // Version Defaults: AKJ = 9, TWF = 25
 var activeLanguage1ID = null;
 var activeVersion1ID = null;
+var pastSelectedLanguage1ID = null;
+var pastSelectedVersion1ID = null;
 
 window.addEventListener("load", async () => {
 
@@ -32,6 +34,7 @@ window.addEventListener("load", async () => {
                rotateTheme = false;
           };
           startUp();
+          selected(activeVersion1ID, 'id-versions1');
      };
      window.addEventListener("resize", adjustPosition);
 });
@@ -115,6 +118,7 @@ async function getChapter() {
      };
      setFontSize();
      document.getElementById('id-MenuBtn3').textContent = `${document.getElementById(activeChapterID).textContent}:`;
+     return true;
 };
 
 async function getChapter1() {
@@ -194,11 +198,13 @@ async function getChapter1() {
           page.appendChild(p);
      };
      setFontSize();
+     return true;
 };
 
 async function getDefaults() {
 
      //testRemover();
+     //return;
      const params = new URLSearchParams(window.location.search);
 
      let ltr = localStorage.getItem('redLetter');
@@ -242,7 +248,12 @@ async function getDefaults() {
 async function getVersion(e = null) {
 
      let id = null;
+     let chpt;
      if (e) { id = e.target.id; };
+
+     closeBoxes();
+     document.getElementById("id-loader").style.display = 'block';
+
      if (!id || id === 'id-resetDefaults') { id = activeVersionID };
      let aVersion = document.getElementById(id);
      let idx = Number(aVersion.dataset.index);
@@ -252,7 +263,7 @@ async function getVersion(e = null) {
           const res = await fetch(url);
           if (!res.ok) { throw new Error(res.status); };
           verses = await res.json();
-          await getChapter();
+          chpt = await getChapter();
           activeVersionID = aVersion.id;
           document.getElementById('id-MenuBtn1').textContent = versions[idx].ar;
           document.getElementById('id-headline').textContent = versions[idx].t;
@@ -266,28 +277,34 @@ async function getVersion(e = null) {
                     err = 'No internet connection error: 503A!';
                     break;
           }
+          document.getElementById("id-loader").style.display = 'none';
           alert(err);
      };
-     closeBoxes();
-
+     if (chpt) { document.getElementById("id-loader").style.display = 'none'; };
      boxesAreOpen = false;
+
      return true;
 };
 
 async function getVersion1(e = null) {
 
      let id = null;
+     let chpt;
      if (e) { id = e.target.id; };
      if (!id) { id = activeVersion1ID };
+     closeBoxes();
+     document.getElementById("id-loader").style.display = 'block';
+
      let aVersion = document.getElementById(id);
      let idx = Number(aVersion.dataset.index);
      let url = `data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
      if (versions[idx].ar === 'TWF') {isTWF = true} else {isTWF = false};
+
      try {
           const res = await fetch(url);
           if (!res.ok) { throw new Error(res.status); };
           verses1 = await res.json();
-          await getChapter1();
+          chpt = await getChapter1();
           activeVersion1ID = aVersion.id;
           document.getElementById('id-MenuBtn4').textContent = versions[idx].ar;
           document.getElementById('id-headline1').textContent = versions[idx].t;
@@ -300,12 +317,13 @@ async function getVersion1(e = null) {
                case '503':
                     err = 'No internet connection error: 503A!';
                     break;
-          }
+          };
+          document.getElementById("id-loader").style.display = 'none';
           alert(err);
      };
-     closeBoxes();
-
+     if (chpt) { document.getElementById("id-loader").style.display = 'none'; };
      boxesAreOpen = false;
+
      return true;
 };
 
@@ -315,6 +333,7 @@ async function setFontSize() {
           if (ps.id !== 'id-endLine') { ps.style.fontSize = `${activeFontSize}rem`; };
      };
 };
+
 
 function testRemover() {
      localStorage.removeItem('activeFontSizeCount');

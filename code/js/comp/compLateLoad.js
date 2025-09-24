@@ -70,7 +70,7 @@ async function changeLanguageA(e = null) {
      activeBookID = defaultBookID;
      activeChapterID = defaultChapterID;
      activeLanguage1ID = languages[idx].lid;
-     loadVersions1();
+     await loadVersions1();
      document.getElementById('id-languageA').textContent = `Language: ${languages[idx].lng}`;
      closeLanguageA();
      let parentElement = document.getElementById('id-versions1');
@@ -82,7 +82,7 @@ async function changeLanguageA(e = null) {
      localStorage.setItem('activeVersion1ID', activeVersion1ID);
 
      selected(id, 'id-languages1');
-     selected(activeVersionID, 'id-versions1');
+     selected(activeVersion1ID, 'id-versions1');
 
      document.getElementById('top').scrollIntoView({ block: 'start' });
 };

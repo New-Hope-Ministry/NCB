@@ -61,11 +61,17 @@ async function changeLanguage(e = null) {
 
 async function changeVersion(e = null) {
 
+
+     document.getElementById("id-loader").style.display = 'block';
+
      stopSpeech();
      setTimeout(async () => {
           let rec = false;
           rec = await getVersion(e);
-          if (rec) { locateBox('id-header', 'id-mainPage', -10); };
+          if (rec) {
+               locateBox('id-header', 'id-mainPage', -10);
+               document.getElementById("id-loader").style.display = 'none';
+          };
           selected(activeVersionID, 'id-versions');
           locateBox('id-synth', 'id-mainPage', -10);
           return true;

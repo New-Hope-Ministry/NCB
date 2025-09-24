@@ -100,6 +100,8 @@ table { border-collapse: collapse; width: 100%; }
 th, td { border: 1px solid black; padding: .2em; text-align: left; }
 th { background-color: var(--bannerBackground); color: var(--whiteText)}
 tr:nth-child(even) { background-color: #f2f2f2; }
+.cs-magnifier { cursor: pointer; rotate: -45deg; top: 0; z-index: 100; margin: 0; padding: 0; padding-left: .5em; }
+.cs-magnifier { display: inline-block; cursor: pointer; justify-content: center; align-items: center; rotate: -45deg; color: var(--navyEmphasis); margin: 0; padding: .2em; }
 
 @media (max-width: 344px) {
     .cs-page { margin-top: 2em; width: 90%; }
