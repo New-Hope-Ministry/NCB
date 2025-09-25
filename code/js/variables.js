@@ -467,13 +467,6 @@ var versions = [
         "t": "Berean Standard Bible"
     },
     {
-        "ar": "BBE",
-        "id": 14,
-        "lid": 34,
-        "rdl": 0,
-        "t": "Bible in Basic English"
-    },
-    {
         "ar": "DBY",
         "id": 15,
         "lid": 34,
@@ -495,13 +488,6 @@ var versions = [
         "t": "English Revised Version"
     },
     {
-        "ar": "FBV",
-        "id": 18,
-        "lid": 34,
-        "rdl": 0,
-        "t": "Free Bible Version"
-    },
-    {
         "ar": "KJV",
         "id": 19,
         "lid": 34,
@@ -514,13 +500,6 @@ var versions = [
         "lid": 34,
         "rdl": 0,
         "t": "King James Version w/Strong's"
-    },
-    {
-        "ar": "LSV",
-        "id": 21,
-        "lid": 34,
-        "rdl": 0,
-        "t": "Literal Standard Version"
     },
     {
         "ar": "NWB",
@@ -537,32 +516,11 @@ var versions = [
         "t": "Smith's Literal Translation"
     },
     {
-        "ar": "T4T",
-        "id": 24,
-        "lid": 34,
-        "rdl": 0,
-        "t": "Translation for Translators"
-    },
-    {
         "ar": "TWF",
         "id": 25,
         "lid": 34,
         "rdl": 1,
         "t": "Twenty-First Century Version"
-    },
-    {
-        "ar": "ULB",
-        "id": 26,
-        "lid": 34,
-        "rdl": 0,
-        "t": "Unlocked Literal Bible"
-    },
-    {
-        "ar": "WEB",
-        "id": 27,
-        "lid": 34,
-        "rdl": 0,
-        "t": "World English Bible"
     },
     {
         "ar": "YLT",
@@ -598,13 +556,6 @@ var versions = [
         "lid": 38,
         "rdl": 0,
         "t": "French Ostervald Version - 1996 - Version française d'Ostervald"
-    },
-    {
-        "ar": "FLB",
-        "id": 33,
-        "lid": 38,
-        "rdl": 0,
-        "t": "French New Bible - 2005 - Nouvelle Bible française"
     },
     {
         "ar": "GEL",
@@ -747,13 +698,6 @@ var versions = [
         "t": "Portuguese Free Bible - Bíblia em Português Grátis"
     },
     {
-        "ar": "PTC",
-        "id": 56,
-        "lid": 73,
-        "rdl": 0,
-        "t": "Portuguese Translation by João Ferreira de Almeida Revised and Corrected - Tradução de João Ferreira de Almeida Revista e Corrigida"
-    },
-    {
         "ar": "PTA",
         "id": 57,
         "lid": 73,
@@ -773,13 +717,6 @@ var versions = [
         "lid": 78,
         "rdl": 0,
         "t": "Russian Synodal Bible - 1876 - Русская Синодальная Библия"
-    },
-    {
-        "ar": "SSE",
-        "id": 60,
-        "lid": 84,
-        "rdl": 0,
-        "t": "Spanish Holy Scriptures - 1569 - Sagradas Escrituras Españolas"
     },
     {
         "ar": "SRV",

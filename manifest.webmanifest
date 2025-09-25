@@ -8,108 +8,64 @@
      "theme_color": "#022a69",
      "icons": [
           {
-               "src": "/images/crystal.png",
-               "sizes": "1200x100",
-               "type": "image/png",
-               "rel": "shortcut icon"
-          },
-          {
                "src": "/images/icons/apple-touch-icon.png",
                "sizes": "180x180",
-               "type": "image/png",
-               "rel": "shortcut icon"
+               "type": "image/png"
+          },
+
+          {
+               "src": "/images/icons/ark-16.png",
+               "sizes": "16x16",
+               "type": "image/webp"
           },
           {
                "src": "/images/icons/ark-32.png",
                "sizes": "32x32",
-               "type": "image/png",
-               "rel": "shortcut icon"
-          },
-          {
-               "src": "/images/icons/ark-64.png",
-               "sizes": "96x96",
-               "type": "image/png",
-               "rel": "shortcut icon"
+               "type": "image/webp"
           },
           {
                "src": "/images/icons/ark-96.png",
                "sizes": "96x96",
-               "type": "image/png",
-               "rel": "shortcut icon"
-          },
-          {
-               "src": "/images/icons/ark-128.png",
-               "sizes": "128x128",
-               "type": "image/png",
-               "rel": "shortcut icon"
+               "type": "image/png"
           },
           {
                "src": "/images/icons/ark-192.png",
                "sizes": "192x192",
-               "type": "image/png",
-               "rel": "shortcut icon"
+               "type": "image/png"
           },
           {
                "src": "/images/icons/ark-256.png",
                "sizes": "256x256",
-               "type": "image/png",
-               "rel": "shortcut icon"
-          },
-          {
-               "src": "/images/icons/ark-300.png",
-               "sizes": "300x300",
-               "type": "image/png",
-               "rel": "shortcut icon"
+               "type": "image/png"
           },
           {
                "src": "/images/icons/ark-512.png",
                "sizes": "512x512",
-               "type": "image/png",
-               "rel": "shortcut icon"
-          },
-          {
-               "src": "/images/icons/ark-600.png",
-               "sizes": "600x600",
-               "type": "image/png",
-               "rel": "shortcut icon"
-          },
-          {
-               "src": "/images/icons/ark-900.png",
-               "sizes": "900x900",
-               "type": "image/png",
-               "rel": "shortcut icon"
+               "type": "image/png"
           },
           {
                "src": "/images/icons/ark-1024.png",
                "sizes": "1024x1024",
-               "type": "image/png",
-               "rel": "shortcut icon"
+               "type": "image/png"
           },
           {
                "src": "/images/icons/logo-192.png",
-               "sizes": "192x192",
-               "type": "image/png",
-               "rel": "shortcut icon"
-          },
-          {
-               "src": "/images/icons/qr-logo.png",
-               "sizes": "512x512",
-               "type": "image/png",
-               "rel": "shortcut icon"
+               "sizes": "1024x1024",
+               "type": "image/png"
           }
      ],
      "screenshots": [
           {
-               "src": "/images/screenshots/laptop.png",
+               "src": "/images/screenshots/laptop.webp",
                "sizes": "755x503",
-               "type": "image/png",
+               "type": "image/webp",
                "form_factor": "wide",
                "label": "Laptop Screen"
           },
           {
-               "src": "/images/screenshots/moto-432.png",
+               "src": "/images/screenshots/moto-432.webp",
                "sizes": "320x610",
-               "type": "image/png",
+               "type": "image/webp",
                "label": "Moto-432 Screen"
           }
      ]
