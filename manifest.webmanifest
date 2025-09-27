@@ -8,12 +8,6 @@
      "theme_color": "#022a69",
      "icons": [
           {
-               "src": "/images/icons/apple-touch-icon.png",
-               "sizes": "180x180",
-               "type": "image/png"
-          },
-
-          {
                "src": "/images/icons/ark-16.png",
                "sizes": "16x16",
                "type": "image/webp"
@@ -51,6 +45,11 @@
           {
                "src": "/images/icons/logo-192.png",
                "sizes": "1024x1024",
+               "type": "image/png"
+          },
+          {
+               "src": "/images/icons/apple-touch-icon.png",
+               "sizes": "180x180",
                "type": "image/png"
           }
      ],
