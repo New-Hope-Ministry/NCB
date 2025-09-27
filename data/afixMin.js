@@ -815,6 +815,8 @@ for (const item of jsonData) {
     item.vt = item.vt.replace("!\"Y", "!\" Y");
     item.vt = item.vt.replace("!\"Z", "!\" Z");
 
+
+
     item.vt = item.vt.replace(",´\"a", ",´\" a");
     item.vt = item.vt.replace(",´\"b", ",´\" b");
     item.vt = item.vt.replace(",´\"c", ",´\" c");
@@ -905,6 +907,7 @@ for (const item of jsonData) {
     item.vt = item.vt.replace("\"\"", "\" \"");
 
     item.vt = item.vt.replace("andknow", "and know");
+
 };
 
 try {

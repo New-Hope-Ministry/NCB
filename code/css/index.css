@@ -12,22 +12,6 @@ body {
      color: var(--blackText);
      z-index: 10;
 }
-.cs-loader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(0deg); /* initial state */
-  border: 8px solid var(--mediumGray);
-  border-top: 8px solid var(--bannerBackground);
-  border-radius: 50%;
-  width: 2em;
-  height: 2em;
-  animation: spin 2s linear infinite;
-}
-@keyframes spin {
-  0%   { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
 .cs-hidden { visibility: hidden; }
 .cs-header { position: fixed; left: 0; height: 2rem; width: 100%; background-color: var(--bannerBackground); color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999;}
 .cs-title { top: 0; padding-left: .8em; font-size: 1.3rem; z-index: 2; }
@@ -52,7 +36,7 @@ body {
 .cs-verseNumber { margin-right: .5em; color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }
 .cs-bottomLine { display: flex; align-items: center; font-size: 1.2rem; user-select: none; justify-content: space-evenly; }
 .cs-bottomLastLine { visibility: hidden; }
-.cs-bottomNextLine { visibility: visible; }
+.cs-bottomNextLine { visibility: hidden; }
 .cs-bottomTitleLine { width: max-content; }
 .cs-readRandom { display: none; }
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #ba0e0e; color: navajowhite; border-radius: 6px; padding: .8em; }

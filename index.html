@@ -7,6 +7,42 @@
      <meta name="description" content="☀️The Ark Bible App is an online searchable Bible App. It offers the Bible in many different versions and languages, and a 365 day chronological reading plan.">
      <meta name="keywords" content="God, Lord, Jehovah, Jesus, Ark Bible, The Ark Bible, Bible, Bible App, Bible Archive, Bible Reference, Bible Study, Christ, Christian, Forgiveness, Free Bible, Holy Bible, Read the Bible, Searchable Bible, Search The Bible,, Salvation, Savior, Scripture, Holy Scripture,Strong's Versions, Study Bible, Study The Bible, King James Version, KJV, Twenty-First Century Version, TWF, Bible 365 day Chronological Reading Plan">
      <base href="./">
+     <style>
+          .cs-loaderContainer { position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: var(--bannerBackground); background-color: #2b317f;}
+          .cs-northStarLoader {
+               position: fixed;
+               top: 15%;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               font-size: 2.5em;
+          }
+          .cs-loaderTitle {
+               position: absolute;
+               left: 50%;
+               top: 20%;
+               transform: translate(-50%);
+               color: white;
+               font-size: 3em;
+           }
+          .cs-loader {
+               position: fixed;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%) rotate(0deg); /* initial state */
+               border: 8px solid var(--mediumGray);
+               border-top: 8px solid var(--lightMaroonEmphasis);
+               border-radius: 50%;
+               color: white;
+               text-align: center;
+               width: 2em;
+               height: 2em;
+               animation: spin 1.5s linear infinite;
+          }
+          @keyframes spin {
+               0%   { transform: translate(-50%, -50%) rotate(0deg); }
+               100% { transform: translate(-50%, -50%) rotate(360deg); }
+          }
+     </style>
      <link rel="manifest" href="manifest.webmanifest">
      <link rel="icon" href="favicon.ico" type="image/x-icon" />
      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -118,9 +154,13 @@
 
 </head>
 
-<body>
-     <div id="top"></div>
-     <div id="id-loader" class="cs-loader"> </div>
+<body id="id-body">
+     <div id="top"> </div>
+     <div id="id-loader" class="cs-loaderContainer">
+          <div class="cs-northStarLoader">✨</div>
+          <h1 class="cs-loaderTitle">The Ark Bible</h1>
+          <div class="cs-loader">✝</div>
+     </div>
      <div id="id-noDisplay" class="cs-hidden">
           <img id="logo" async src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="aClick(goHome)"></img>
           <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
@@ -207,7 +247,7 @@
                          <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
                          <div data-nosnippet>The TWF version is being actively edited and is subject to change daily.</div>
                          <div data-nosnippet>If you prefer to read other Bible versions, please feel free to do so.</div>
-                         
+
                          <div class="cs-northStar">✨</div>
                          <a onclick="aClick('license.html')" class="cs-copyright" data-nosnippet>
                               <span>Copyright ©</span>

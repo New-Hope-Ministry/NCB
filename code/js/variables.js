@@ -2,7 +2,7 @@ const dateEdited = '9-24-2025';
 const copyrighted = '2018-2025';
 const goHome = 'https://thearkbible.com';
 
-var allLoaded = false;
+var loadAll = true;
 var bookSort = false;
 var boxesAreOpen = false;
 var chapterCount = 0;

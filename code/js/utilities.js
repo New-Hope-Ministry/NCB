@@ -1,3 +1,25 @@
+window.addEventListener("resize", adjustPosition);
+
+function adjustPosition() {
+     locateBox('id-header', 'id-versions');
+     locateBox('id-header', 'id-languages');
+     locateBox('id-header', 'id-books');
+     locateBox('id-header', 'id-chapters');
+     locateBox('id-header', 'id-verses');
+};
+
+async function bookWidth() {
+     let element = document.getElementById("id-books");
+     element.style.display = "block";
+     let width = element.offsetWidth;
+     element.style.display = "none";
+     width = (width + 61) + "px";
+     document.documentElement.style.setProperty('--bookWidth', width);
+     element.classList.remove("cs-booksW");
+     element.classList.add("cs-booksW1");
+     document.getElementById("id-versions").style.width = width;
+};
+
 function changeFontSize(direction) {
 
      if (direction === '+') {
@@ -36,6 +58,17 @@ function changeTheme() {
 
 };
 
+function closeBoxes() {
+     document.getElementById('id-versions').style.display = 'none';
+     document.getElementById('id-books').style.display = 'none';
+     document.getElementById('id-chapters').style.display = 'none';
+     document.getElementById('id-verses').style.display = 'none';
+     document.getElementById('id-randomChapter').style.backgroundColor = 'ba0e0e';
+     document.getElementById('id-openLngs').textContent = '♥';
+     document.getElementById('id-languages').style.display = 'none';
+     boxesAreOpen = false;
+};
+
 function closeLanguage(e = null) {
 
      if (e) {
@@ -71,7 +104,7 @@ function lightTheme() {
      document.documentElement.style.setProperty('--darkGrayEmphasis', '#545353');
 };
 
-function openBoxes(e = null) {
+async function openBoxes(e = null) {
 
      if (e) {
           e.preventDefault();
@@ -81,6 +114,8 @@ function openBoxes(e = null) {
 
      let ID = e.target.id;
      let id = null;
+     let rec = null;
+     if (loadAll) { rec = await loadBoxes(); if (rec) { loadAll = false; }; };
 
      const params = new URLSearchParams(window.location.search);
      let vh = params.get('vh');
@@ -229,8 +264,8 @@ function resetDefaults() {
      document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
      document.getElementById('id-redLetter').textContent = 'Red Letter';
      document.getElementById(defaultVersionID).classList.add('cs-bvSelected');
-     document.getElementById('id-book1').classList.add('cs-bvSelected');
-     document.getElementById('id-chapter1').classList.add('cs-bvSelected');
+     //document.getElementById('id-book1').classList.add('cs-bvSelected');
+     //document.getElementById('id-chapter1').classList.add('cs-bvSelected');
 
      pastSelectedLanguageID = defaultLanguageID;
      pastSelectedVersionID = defaultVersionID;
@@ -241,11 +276,56 @@ function resetDefaults() {
      document.getElementById('top').scrollIntoView({ block: 'start' });
 };
 
+function selected(id, container, reset = null) {
+
+     let unselected = null;
+
+     switch (container) {
+          case "id-versions":
+               unselected = pastSelectedVersionID;
+               pastSelectedVersionID = id;
+               break;
+          case "id-books":
+               unselected = pastSelectedBookID;
+               pastSelectedBookID = id;
+               break;
+          case "id-chapters":
+               unselected = pastSelectedChapterID;
+               pastSelectedChapterID = id;
+               break;
+          case "id-languages":
+               unselected = pastSelectedLanguageID;
+               pastSelectedLanguageID = id;
+               break;
+          case "id-verses":
+               unselected = pastSelectedVerseID;
+               pastSelectedVerseID = id;
+               if (id === 'id-verse0') { id = null; };
+               break;
+     };
+     let div = document.getElementById(unselected);
+     if (unselected) { if (div) { div.classList.remove('cs-bvSelected'); }; };
+     let div1 = document.getElementById(id);
+     if (id && !reset) { if (div1) { div1.classList.add('cs-bvSelected'); }; };
+};
 
 async function setFontSize() {
      const allP = document.querySelectorAll('p');
      for (const ps of allP) {
           if (ps.id !== 'id-endLine') { ps.style.fontSize = `${activeFontSize}rem`; };
+     };
+};
+
+function setQuerystring(key, value) {
+
+     let url = new URL(window.location);
+     let params = new URLSearchParams(url.search);
+
+     url.searchParams.set(key, value);
+     if (params.has(key)) {
+          window.history.replaceState({}, '', url);
+     } else {
+          window.history.pushState({}, '', url);
      };
 };
 
