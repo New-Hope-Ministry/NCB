@@ -83,6 +83,7 @@ async function changeVersion(e = null) {
      let div = document.createElement("div");
      div.id = 'id-versionLoader';
      div.classList.add('cs-loader');
+     div.textContent ='✝';
      document.body.appendChild(div);
 
      let rec = false;
