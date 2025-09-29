@@ -1,4 +1,4 @@
-const version = 33;
+const version = 34;
 var oldVersion = version - 1;
 
 const MAIN_CACHE = `ARK-cache-version: ${version}`;
@@ -74,7 +74,7 @@ self.addEventListener('fetch', event => {
 
                     if (filename === 'variables.js') {
                          if (updateVar) {
-                              const headResponse = await fetch(url, { method: 'HEAD' });
+                              const headResponse = await fetch(url, { method: 'HEAD', redirect: 'follow' });
                               const newETag = headResponse.headers.get('ETag');
                               let cachedResponse = await cache.match(url);
                               if (cachedResponse) {
@@ -90,7 +90,7 @@ self.addEventListener('fetch', event => {
 
                     if (filename === 'TWFVerses.json') {
                          if (update) {
-                              const headResponse = await fetch(url, { method: 'HEAD' });
+                              const headResponse = await fetch(url, { method: 'HEAD', redirect: 'follow' });
                               const newETag = headResponse.headers.get('ETag');
                               let cachedResponse = await versionCache.match(url);
                               if (cachedResponse) {
@@ -138,7 +138,7 @@ async function fetchOnlineUpdate(url, filename) {
 
      if (navigator.onLine) {
           try {
-               const response = await fetch(url, { cache: 'reload' });
+               const response = await fetch(url, { cache: 'reload', redirect: 'follow' });
                if (!response.ok) { return new Response(`${filename}Network fetch error: 500`, { status: 500 }); };
                return response;
           } catch (error) {
@@ -151,7 +151,7 @@ async function fetchOnline(url, filename) {
 
      if (navigator.onLine) {
           try {
-               const response = await fetch(url);
+               const response = await fetch(url, { redirect: 'follow' });
                if (!response.ok) { return new Response(`${filename}Network fetch error: 500`, { status: 500 }); };
                return response;
           } catch (error) {
@@ -180,7 +180,7 @@ async function checkCaches(cacheToCheck) {
 
      const updatePromises = cachedRequests.map(async (request) => {
           const url = request.url;
-          const headResponse = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+          const headResponse = await fetch(url, { method: 'HEAD', cache: 'no-store', redirect: 'follow' });
           if (headResponse.status === 404) {
                console.log(`Resource ${url} no longer exists on server (404). Deleting from cache.`);
                await cache.delete(request);
@@ -193,7 +193,7 @@ async function checkCaches(cacheToCheck) {
           if (cachedResponse) {
                const cachedETag = cachedResponse.headers.get('ETag');
                if (newETag && cachedETag && newETag !== cachedETag) {
-                    const freshResponse = await fetch(url);
+                    const freshResponse = await fetch(url, { redirect: 'follow' });
                     if (freshResponse.ok) {
                          await cache.put(request, freshResponse.clone());
                          console.log(`Resource ${url} was fetched and updated in cache.`);
