@@ -124,8 +124,8 @@ self.addEventListener('fetch', event => {
 
                     const cachedResponse = await cache.match(url);
                     if (cachedResponse) { return cachedResponse; };
-
-                    const response = await fetchOnline(event.request, filename);
+                    let evr = event.request.clone();
+                    const response = await fetchOnline(evr, filename);
                     if (!response.ok) { return response; };
                     await cache.put(url, response.clone());
                     return response;
