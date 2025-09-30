@@ -1,4 +1,4 @@
-const version = 3;
+const version = 2;
 var oldVersion = version - 1;
 
 const MAIN_CACHE = `ARK-cache-version: ${version}`;
@@ -65,6 +65,7 @@ self.addEventListener('fetch', event => {
 
                const cache = await caches.open(MAIN_CACHE);
                const versionCache = await caches.open(VERSION_CACHE);
+               
                var url = new URL(event.request.url);
                var filename = url.pathname.split('/').pop();
                url.search = '';
@@ -74,13 +75,13 @@ self.addEventListener('fetch', event => {
 
                     if (filename === 'variables.js') {
                          if (updateVar) {
-                              const headResponse = await fetch(event.request, { method: 'HEAD', redirect: 'follow' });
+                              const headResponse = await fetch(url, { method: 'HEAD', redirect: 'follow' });
                               const newETag = headResponse.headers.get('ETag');
                               let cachedResponse = await cache.match(url);
                               if (cachedResponse) {
                                    const oldETag = cachedResponse.headers.get('ETag');
                                    if (newETag && oldETag && newETag !== oldETag) {
-                                        const newResponse = await fetchOnlineUpdate(event.request, filename);
+                                        const newResponse = await fetchOnlineUpdate(url, filename);
                                         if (newResponse.ok) { await cache.put(url, newResponse); };
                                    };
                                    updateVar = false;
@@ -90,13 +91,13 @@ self.addEventListener('fetch', event => {
 
                     if (filename === 'TWFVerses.json') {
                          if (update) {
-                              const headResponse = await fetch(event.request, { method: 'HEAD', redirect: 'follow' });
+                              const headResponse = await fetch(url, { method: 'HEAD', redirect: 'follow' });
                               const newETag = headResponse.headers.get('ETag');
                               let cachedResponse = await versionCache.match(url);
                               if (cachedResponse) {
                                    const oldETag = cachedResponse.headers.get('ETag');
                                    if (newETag && oldETag && newETag !== oldETag) {
-                                        const newResponse = await fetchOnlineUpdate(event.request, filename);
+                                        const newResponse = await fetchOnlineUpdate(url, filename);
                                         if (newResponse.ok) { await versionCache.put(url, newResponse); };
                                    };
                                    update = false;
@@ -116,7 +117,7 @@ self.addEventListener('fetch', event => {
                          return cachedResponse;
                     };
 
-                    const response = await fetchOnline(event.request, filename);
+                    const response = await fetchOnline(url, filename);
                     if (!response.ok) { return response; };
                     await versionCache.put(url, response.clone());
                     return response;
@@ -125,7 +126,7 @@ self.addEventListener('fetch', event => {
                     const cachedResponse = await cache.match(url);
                     if (cachedResponse) { return cachedResponse; };
 
-                    const response = await fetchOnline(event.request, filename);
+                    const response = await fetchOnline(url, filename);
                     if (!response.ok) { return response; };
                     await cache.put(url, response.clone());
                     return response;
@@ -134,11 +135,11 @@ self.addEventListener('fetch', event => {
      );
 });
 
-async function fetchOnlineUpdate(evr, filename) {
+async function fetchOnlineUpdate(url, filename) {
 
      if (navigator.onLine) {
           try {
-               const response = await fetch(evr, { cache: 'reload', redirect: 'follow' });
+               const response = await fetch(url, { cache: 'reload', redirect: 'follow' });
                if (!response.ok) { return new Response(`${filename}Network fetch error: 500`, { status: 500 }); };
                return response;
           } catch (error) {
@@ -147,11 +148,11 @@ async function fetchOnlineUpdate(evr, filename) {
      } else { return new Response(`${filename}: No internet connection error: 503-1`, { status: 503 }); };
 };
 
-async function fetchOnline(evr, filename) {
+async function fetchOnline(url, filename) {
 
      if (navigator.onLine) {
           try {
-               const response = await fetch(evr, { redirect: 'follow' });
+               const response = await fetch(url, { redirect: 'follow' });
                if (!response.ok) { return new Response(`${filename}Network fetch error: 500`, { status: 500 }); };
                return response;
           } catch (error) {
@@ -168,6 +169,7 @@ self.addEventListener('message', (event) => {
 });
 
 async function checkCaches(cacheToCheck) {
+
      let checkCache = '';
      if (cacheToCheck === 1) {
           checkCache = MAIN_CACHE;
