@@ -96,8 +96,10 @@ body {
 @media (max-width: 1440px) { .cs-mainPage { width: 70%; border-radius: 6px; } }
 @media (max-width: 1280px) { .cs-mainPage { width: 70%; } }
 @media (max-width: 1025px) { .cs-mainPage { width: 100%; border-radius: 0; } .cs-searchBtn { width: 20%; } }
-@media (max-width: 768px) { .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); } .cs-versions,.cs-languages { width: 330px; } .cs-headline, .cs-bottomLine { font-size: 1.1rem; } }
-@media (max-width: 480px) { .cs-srchMenu { font-size: .95rem; } .cs-srchTitleHeader { font-size: .80rem; } .cs-blueLtr,.cs-blueLtrLink {display: block; width: 99%; margin: auto; text-align: justify;} .cs-banner { top: 1.95rem; } .cs-versions,.cs-languages { width: 100%; } }
+
+@media (max-width: 768px) { .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); } .cs-versions,.cs-languages { width: 330px; } .cs-headline, .cs-bottomLine { font-size: 1.1rem; } .cs-searchContainer { width: 95%; } }
+
+@media (max-width: 480px) { .cs-srchMenu { font-size: .95rem; } .cs-srchTitleHeader { font-size: .80rem; } .cs-blueLtr,.cs-blueLtrLink { display: block; width: 99%; margin: auto; text-align: justify; } .cs-banner { top: 1.95rem; } .cs-versions,.cs-languages { width: 100%; } }
 @media (max-width: 348px) { .cs-chapter { font-size: 1.2em; height: 1.6em; width: 1.6em; } .cs-version { font-size: 1.1rem; } }
 
 
@@ -109,13 +111,13 @@ body {
      @media (max-height: 932px) { .cs-versions,.cs-languages { max-height: 75%; } }
      @media (max-height: 741px) { .cs-versions,.cs-languages { height: 70%; } }
      @media (max-height: 668px) { .cs-versions,.cs-languages { max-height: 67%; } }
-     @media (max-height: 600px) {  }
+     @media (max-height: 600px) { .cs-pageContainer { margin-top: 3em; } }
      @media (max-height: 568px) { .cs-versions,.cs-languages { height: 73%; } }
      @media (max-height: 480px) { .cs-versions,.cs-languages { height: 83%; } }
 /*! End Media Queries Heights */
 
 
-/* Utilities */
+/* CSS Utilities */
 html,
 body,
 .cs-versions,

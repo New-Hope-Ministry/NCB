@@ -11,12 +11,6 @@ function aClick(ahref) {
 function bClick(ahref) { window.location.href = ahref; };
 function cClick(ahref) {
      if (isLive) {
-          ahref = ahref.replace("index.html", "");
-     };
-     window.location.href = ahref;
-};
-function dClick(ahref) {
-     if (isLive) {
           ahref = ahref.replace("index.html", goHome);
      };
      window.location.href = ahref;
