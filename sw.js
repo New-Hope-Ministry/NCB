@@ -1,4 +1,4 @@
-const version = 3;
+const version = 4;
 var oldVersion = version - 1;
 
 const MAIN_CACHE = `ARK-cache-version: ${version}`;
@@ -124,15 +124,29 @@ self.addEventListener('fetch', event => {
 
                     const cachedResponse = await cache.match(url);
                     if (cachedResponse) { return cachedResponse; };
+
                     let evr = event.request.clone();
                     const response = await fetchOnline(evr, filename);
                     if (!response.ok) { return response; };
-                    await cache.put(url, response.clone());
+                    let cleanedResponse = cleanResponse(response);
+                    await cache.put(url, cleanedResponse.clone());
                     return response;
                };
           })()
      );
 });
+
+function cleanResponse(response) {
+     // If the response has been redirected, clone the body into a new Response object
+     if (response.redirected) {
+          return new Response(response.body, {
+               status: response.status,
+               statusText: response.statusText,
+               headers: response.headers,
+          });
+     }
+     return response;
+}
 
 async function fetchOnlineUpdate(evr, filename) {
 
@@ -203,7 +217,7 @@ async function checkCaches(cacheToCheck) {
                     console.log(`Resource ${url} is still fresh (ETag match or no ETag change).`);
                }
           } else {
-             console.log(`Resource ${url} in cache keys but no direct match found, skipping ETag check for now.`);
+               console.log(`Resource ${url} in cache keys but no direct match found, skipping ETag check for now.`);
           };
      });
      await Promise.all(updatePromises);

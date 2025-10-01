@@ -1,5 +1,3 @@
-function aClick(ahref) { window.location.href = ahref; };
-
 function changeBook(e = null) {
 
      if (e) { activeBookID = e.target.id; };
@@ -180,16 +178,19 @@ function synthVoice() {
      if (bid !== null && bid !== 'null') readParams.set('bid', bid);
      if (cn !== null && cn !== 'null') readParams.set('cn', cn);
 
-     const readhref = `synth.html?${readParams.toString()}`;
-     window.location.href = readhref;
+     let ahref = `synth.html?${readParams.toString()}`;
+     if (isLive) { ahref = ahref.replace(".html", ""); };
+     window.location.href = ahref;
 };
 
 function readChronological() {
 
      const params = new URLSearchParams(window.location.search);
      const verid = params.get('verid');
-     const readhref = `chron.html?verid=${verid}`;
-     window.location.href = readhref;
+
+     let ahref = `chron.html?verid=${verid}`;
+     if (isLive) { ahref = ahref.replace(".html", ""); };
+     window.location.href = ahref;
 };
 
 function readRandomChapter() {

@@ -232,21 +232,12 @@
                if (bid !== null && bid !== 'null') readParams.set('bid', bid);
                if (cn !== null && cn !== 'null') readParams.set('cn', cn);
                if (vh !== null && vh !== 'null') readParams.set('vh', vh);
-               const readhref = `index.html?${readParams.toString()}`;
-               window.location.href = readhref;
+               const readhref = `/?${readParams.toString()}`;
+               bClick(readhref);
           };
           return true;
      };
 
-     /*
-     async function firstSearcher() {
-
-          let searchData = localStorage.getItem('searchData');
-          if (searchData) {
-               document.getElementById('id-searchBox').textContent = searchData;
-               searcher();
-          };
-     };*/
      async function searcher() {
 
           let searchData = document.getElementById('id-searchBox').textContent;

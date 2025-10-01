@@ -26,7 +26,7 @@
      <div class="cs-fixBanner">
           <div class="cs-imgBanner">
                <img src="images/crystal.webp" class="cs-imgBanner" alt="img">
-               <a class="cs-iconLinkQR cs-imgLogo" onclick="window.location.href = goHome;">
+               <a class="cs-iconLinkQR cs-imgLogo" onclick="bClick(goHome);">
                     <img async src="images/qr/qr-logo.png" class="cs-iconLink"
                          title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
                </a>
@@ -51,7 +51,7 @@
 
           <div id="Albanian Bible - Shqip Bibla" class="cs-historyBox">
 
-               <a class="cs-twfLink" href="index.html?bid=1&cn=1&verid=1" target="_blank"
+               <a class="cs-twfLink" onclick="dClick('index.html?bid=1&cn=1&verid=1')" target="_blank"
                     title="American King James Version">Albanian Bible - Shqip Bibla</a><br><br>
                ✍️Authors: Authors: Gjon Buzuku, Vangjel Meksi, Kostandin Kristoforidhi, Dom Simon Filipaj, Stephen Etches, and other institutional contributors from the Albanian Bible Society - Shoqëria Biblike Shqiptare.<br>
                📅Published: 1994
@@ -72,7 +72,7 @@
 
           <div id="American King James Version" class="cs-historyBox">
 
-               <a class="cs-twfLink" href="index.html?bid=1&cn=1&verid=9" target="_blank"
+               <a class="cs-twfLink" href="/?bid=1&cn=1&verid=9" target="_blank"
                     title="American King James Version">American King James Version (AKJ)</a><br><br>
                ✍️Author:  Michael Peter (Stone) Engelbrite<br>
                📅Published: 1999
@@ -957,7 +957,7 @@
                <div>The TWF version is being actively edited and is subject to change daily.</div>
                <div>If you prefer to read other Bible versions, please feel free to do so.</div>
                <div class="cs-northStar">✨</div>
-               <a href="license.html">
+               <a onclick="aClick('license.html')" class="cs-copyright">
                     <span>Copyright ©</span>
                     <span id="id-copyrighted">2018-2025</span>
                     <span class="cs-copySign"> ● </span>

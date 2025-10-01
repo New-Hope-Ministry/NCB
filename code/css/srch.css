@@ -56,11 +56,15 @@ body {
 .cs-GodLovesYou { position: relative; text-align: center; width: 80%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; color: var(--whiteText); }
 .cs-blueLtr,
 .cs-blueLtrLink {display: block; width: 60%; margin: auto;}
-.cs-copyright { display: inline-block; margin-top: .3em; }
+
+.cs-copyright { display: inline-block; margin-top: .3em; text-decoration: underline; cursor: pointer; }
+.cs-copyright:hover { color: var(--paleMaroonEmphasis); }
+
 .cs-blueLtrLink,
 .cs-copyright,
 .cs-copyright:visited { color: var(--whiteText); text-decoration: underline;}
 .cs-copySign { font-size: .75em; }
+
 .cs-versions,
 .cs-languages { display: none; position: absolute; left: 50%; height: max-content; min-height: 25%; max-height: 48%; transform: translate(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--shadowColor); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; overflow: hidden; overflow-y: scroll; z-index: 1; max-width: 100%; }
 .cs-booksW { width: max-content; }

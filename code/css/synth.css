@@ -248,6 +248,8 @@ body {
      z-index: 5;
 }
 
+.cs-copyright { text-decoration: underline; }
+
 .cs-help,
 .cs-help:visited,
 .cs-copyright,

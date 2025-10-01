@@ -1,4 +1,3 @@
-function aClick(ahref) { window.location.href = ahref; };
 function adjustPosition() {
     locateBox('id-header1', 'id-chronVersions');
     locateBox('id-header1', 'id-chronDays');

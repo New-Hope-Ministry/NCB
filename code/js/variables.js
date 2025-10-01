@@ -1,6 +1,26 @@
 const dateEdited = '9-28-2025';
 const copyrighted = '2018-2025';
 const goHome = 'https://thearkbible.com';
+var isLive = false;
+function aClick(ahref) {
+     if (isLive) {
+          ahref = ahref.replace(".html", "");
+     };
+     window.location.href = ahref;
+};
+function bClick(ahref) { window.location.href = ahref; };
+function cClick(ahref) {
+     if (isLive) {
+          ahref = ahref.replace("index.html", "");
+     };
+     window.location.href = ahref;
+};
+function dClick(ahref) {
+     if (isLive) {
+          ahref = ahref.replace("index.html", goHome);
+     };
+     window.location.href = ahref;
+};
 
 var loadAll = true;
 var bookSort = false;

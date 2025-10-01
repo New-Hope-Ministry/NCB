@@ -1,63 +1,63 @@
 {
      "name": "The Ark Bible",
      "short_name": "Ark Bible",
-     "description": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also offers other functionality, including a 365 day chronological reading plan, a computer text to speech synthesis to listen, so you can listen to the Bible, and a comparison function, so you can compare two different versions of the Bible on the same page.",
+     "description": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also includes a 365 day chronological reading plan, a computer text to speech synthesis to listen to the Bible, and a comparison page to compare two different versions of the Bible.",
      "start_url": "/index.html",
      "display": "fullscreen",
      "background_color": "#ffffff",
      "theme_color": "#022a69",
      "icons": [
           {
-               "src": "/NCB/images/icons/ark-32.png",
+               "src": "/images/icons/ark-32.png",
                "sizes": "32x32",
                "type": "image/webp"
           },
           {
-               "src": "/NCB/images/icons/ark-96.png",
+               "src": "/images/icons/ark-96.png",
                "sizes": "96x96",
                "type": "image/png"
           },
           {
-               "src": "/NCB/images/icons/ark-192.png",
+               "src": "/images/icons/ark-192.png",
                "sizes": "192x192",
                "type": "image/png"
           },
           {
-               "src": "/NCB/images/icons/ark-256.png",
+               "src": "/images/icons/ark-256.png",
                "sizes": "256x256",
                "type": "image/png"
           },
           {
-               "src": "/NCB/images/icons/ark-512.png",
+               "src": "/images/icons/ark-512.png",
                "sizes": "512x512",
                "type": "image/png"
           },
           {
-               "src": "/NCB/images/icons/ark-1024.png",
+               "src": "/images/icons/ark-1024.png",
                "sizes": "1024x1024",
                "type": "image/png"
           },
           {
-               "src": "/NCB/images/icons/logo-192.png",
+               "src": "/images/icons/logo-192.png",
                "sizes": "192x192",
                "type": "image/png"
           },
           {
-               "src": "/NCB/images/icons/apple-touch-icon.png",
+               "src": "/images/icons/apple-touch-icon.png",
                "sizes": "180x180",
                "type": "image/png"
           }
      ],
      "screenshots": [
           {
-               "src": "/NCB/images/screenshots/laptop.webp",
+               "src": "/images/screenshots/laptop.webp",
                "sizes": "755x503",
                "type": "image/webp",
                "form_factor": "wide",
                "label": "Laptop Screen"
           },
           {
-               "src": "/NCB/images/screenshots/moto-432.webp",
+               "src": "/images/screenshots/moto-432.webp",
                "sizes": "320x610",
                "type": "image/webp",
                "label": "Moto-432 Screen"
