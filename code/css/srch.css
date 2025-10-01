@@ -99,7 +99,7 @@ body {
 
 @media (max-width: 768px) { .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); } .cs-versions,.cs-languages { width: 330px; } .cs-headline, .cs-bottomLine { font-size: 1.1rem; } .cs-searchContainer { width: 95%; } }
 
-@media (max-width: 480px) { .cs-srchMenu { font-size: .95rem; } .cs-srchTitleHeader { font-size: .80rem; } .cs-blueLtr,.cs-blueLtrLink { display: block; width: 99%; margin: auto; text-align: justify; } .cs-banner { top: 1.95rem; } .cs-versions,.cs-languages { width: 100%; } }
+@media (max-width: 480px) { .cs-srchMenu { font-size: .95rem; } .cs-srchTitleHeader { font-size: .80rem; } .cs-blueLtr,.cs-blueLtrLink { display: block; width: 99%; margin: auto; text-align: justify; } .cs-banner { top: 1.95rem; } .cs-versions,.cs-languages { width: 100%; } .cs-searchBtn { width: 30%; } }
 @media (max-width: 348px) { .cs-chapter { font-size: 1.2em; height: 1.6em; width: 1.6em; } .cs-version { font-size: 1.1rem; } }
 
 
