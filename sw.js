@@ -1,4 +1,4 @@
-const version = 4;
+const version = 6;
 var oldVersion = version - 1;
 
 const MAIN_CACHE = `ARK-cache-version: ${version}`;
@@ -8,7 +8,6 @@ var update = true;
 var updateVar = true;
 
 const urlsToCache = [
-     'index.html',
      'manifest.webmanifest',
      'code/css/index.css',
      'code/css/lateload.css',
