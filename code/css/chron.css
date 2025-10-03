@@ -170,7 +170,7 @@ p { font-size: 1.06rem; }
 .cs-mainPage { border-radius: 6px; width: 60%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
 .cs-edited { font-size: .4em; color: var(--darkGrayEmphasis); }
 .cs-headline,
-.cs-bottomLine { height: 1.5rem; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.35rem;}
+.cs-bottomLine { height: max-content; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.25rem;}
 
 .cs-headline,
 .cs-bottomLine { line-height: 1.5rem; text-align: center; color: var(--headlineColor)}

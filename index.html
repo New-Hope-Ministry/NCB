@@ -7,6 +7,7 @@
      <meta name="description" content="☀️The Ark Bible App is an online searchable Bible App. It offers the Bible in many different versions and languages, and a 365 day chronological reading plan.">
      <meta name="keywords" content="God, Lord, Jehovah, Jesus, Ark Bible, The Ark Bible, Bible, Bible App, Bible Archive, Bible Reference, Bible Study, Christ, Christian, Forgiveness, Free Bible, Holy Bible, Read the Bible, Searchable Bible, Search The Bible,, Salvation, Savior, Scripture, Holy Scripture,Strong's Versions, Study Bible, Study The Bible, King James Version, KJV, Twenty-First Century Version, TWF, Bible 365 day Chronological Reading Plan">
      <base href="./">
+
      <style>
           .cs-loaderContainer { position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: #2b317f;}
           .cs-northStarLoader {
@@ -18,9 +19,12 @@
           }
           .cs-loaderTitle {
                position: absolute;
-               left: 50%;
+               /*left: 50%;*/
                top: 20%;
-               transform: translate(-50%);
+               width: 100%;
+               min-width: max-content;
+               text-align: center;
+               /*transform: translate(-50%);*/
                color: white;
                font-size: 3em;
            }
@@ -43,7 +47,9 @@
                0%   { transform: translate(-50%, -50%) rotate(0deg); }
                100% { transform: translate(-50%, -50%) rotate(360deg); }
           }
+          @media (max-width: 668px) { .cs-loaderTitle { font-size: 2em; } }
      </style>
+
      <link rel="manifest" href="manifest.webmanifest">
      <link rel="icon" href="favicon.ico" type="image/x-icon" />
      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -272,10 +278,12 @@
           </div>
           <div id="id-end" class="cs-end" data-nosnippet>
                <br>
-               <p id="id-endLine" class="cs-endLine"> Click OK if you agree to allow The Ark Bible app to store performance files locally. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel, no files will be stored locally. If you change your mind, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or clear your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. The app will operate much faster, if you allow the files to be stored locally, and it will dramatically reduce data transfer usage for your internet connection. </p>
+               <p id="id-endLine" class="cs-endLine">
+                    Click Install if you agree to allow The Ark Bible app to be installed and store performance files locally. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel, no files will be stored locally. If you change your mind, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or clear your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. The app will operate much faster, if you allow the files to be stored locally, and it will dramatically reduce data transfer usage for your internet connection.
+               </p>
                <br>
                <div class="cs-endBtnLine">
-                    <button class="cs-endBtn" onclick="saveLocal()">OK</button>
+                    <button class="cs-endBtn" onclick="saveLocal()">Install</button>
                     <button class="cs-endBtn" onclick="closeSave()">Cancel</button>
                </div>
                <br><br>

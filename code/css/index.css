@@ -14,7 +14,7 @@ body {
 }
 .cs-hidden { visibility: hidden; }
 .cs-header { position: fixed; left: 0; height: 2rem; width: 100%; background-color: var(--bannerBackground); color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999;}
-.cs-title { top: 0; padding-left: .8em; font-size: 1.3rem; z-index: 2; }
+.cs-title { top: 0; height: max-content; padding-left: .8em; font-size: 1.3rem; z-index: 2; }
 .cs-logo { position: fixed; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
 .cs-logoTitle { display: inline-block; position: relative; left: 2em; cursor: pointer; }
 .cs-search { display: flex; cursor: pointer; justify-content: center; align-items: center; position: absolute; color: white; top: 0; right: 5%; height: 1.6rem; width: 1.6rem; line-height: 1.6rem; font-size: 1.6em; padding: .35em; border-radius: 50%; overflow: hidden; z-index: 1; }
@@ -28,8 +28,8 @@ body {
 .cs-mainPage {  min-height: 100vh; }
 .cs-mainPage { border-radius: 6px; width: 70%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
 .cs-headline,
-.cs-bottomLine { height: 1.5rem; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.35rem; }
-.cs-headline { line-height: 1.5rem; text-align: center; color: var(--headlineColor); }
+.cs-bottomLine { height: max-content; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.25rem; color: var(--headlineColor); }
+.cs-headline { line-height: 1.5rem; text-align: center; }
 .cs-page { text-align: justify; margin: auto; margin-top: 2.5em; width: 80%; }
 .cs-edited { font-size: .4em; color: var(--darkGrayEmphasis); }
 .cs-singleVerse { margin-top: -.5em; z-index: 100; }

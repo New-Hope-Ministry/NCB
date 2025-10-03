@@ -94,12 +94,12 @@ body {
 }
 .cs-headline,
 .cs-bottomLine {
-     height: 1.5rem;
+     height: max-content;
      width: 100%;
      color: var(--whiteText);
      background-color: var(--headlineBackground);
      padding: .3em;
-     font-size: 1.35rem;
+     font-size: 1.25rem;
 }
 .cs-headline {
      line-height: 1.5rem;

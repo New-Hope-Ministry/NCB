@@ -1,12 +1,38 @@
 {
-     "id":"https://thearkbible.com/index.html",
+     "id": "https://thearkbible.com/index.html",
      "name": "The Ark Bible",
      "short_name": "Ark Bible",
-     "description": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also includes a 365 day chronological reading plan, a computer text to speech synthesis to listen to the Bible, and a comparison page to compare two different versions of the Bible.",
+     "description": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also includes a 365 day chronological reading plan, a computer text to speech synthesizer to listen to the Bible, and a page to compare two different versions of the Bible.",
      "start_url": "/index.html",
      "display": "fullscreen",
      "background_color": "#ffffff",
      "theme_color": "#022a69",
+     "shortcuts": [
+          {
+               "name": "365 Day Reading Plan",
+               "short_name": "365 Plan",
+               "description": "Jump to the 365 day chronological reading plan.",
+               "url": "/chron.html",
+               "icons": [
+                    {
+                         "src": "/images/icons/ark-192.png",
+                         "sizes": "192x192"
+                    }
+               ]
+          },
+          {
+               "name": "Compare Versions",
+               "short_name": "Compare",
+               "description": "Compare two different versions of the Bible.",
+               "url": "/comp.html"
+          },
+          {
+               "name": "Listen to the Bible",
+               "short_name": "Listen",
+               "description": "Listen to different versions of the Bible.",
+               "url": "/synth.html"
+          }
+     ],
      "icons": [
           {
                "src": "/images/icons/ark-32.png",
@@ -47,21 +73,6 @@
                "src": "/images/icons/apple-touch-icon.png",
                "sizes": "180x180",
                "type": "image/png"
-          }
-     ],
-     "screenshots": [
-          {
-               "src": "/images/screenshots/laptop.webp",
-               "sizes": "755x503",
-               "type": "image/webp",
-               "form_factor": "wide",
-               "label": "Laptop Screen"
-          },
-          {
-               "src": "/images/screenshots/moto-432.webp",
-               "sizes": "320x610",
-               "type": "image/webp",
-               "label": "Moto-432 Screen"
           }
      ]
 }
