@@ -1,4 +1,4 @@
-const dateEdited = '9-28-2025';
+const dateEdited = '10-6-2025';
 const copyrighted = '2018-2025';
 const goHome = 'https://thearkbible.com';
 var isLive = false;
