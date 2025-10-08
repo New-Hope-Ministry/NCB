@@ -1,4 +1,4 @@
-const dateEdited = '10-6-2025';
+const dateEdited = '10-8-2025';
 const copyrighted = '2018-2025';
 const goHome = 'https://thearkbible.com';
 var isLive = false;
@@ -436,7 +436,7 @@ var versions = [
         "id": 7,
         "lid": 18,
         "rdl": 0,
-        "t": "Czech Bible of Kralice - Czech Bible Kralická"
+        "t": "Czech Bible of Kralice - 1613 - Czech Bible Kralická (CZK)"
     },
     {
         "ar": "DSV",
