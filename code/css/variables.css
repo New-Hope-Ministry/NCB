@@ -3,7 +3,6 @@
      --headlineBackground: #8e8c8c;
      --blackText: #3a3939;
      --whiteText: white;
-     --bannerBackground: #022a69;
      --bannerBackground: #1a4480;
      --bodyBackground: #eee;
      --headerBackground: #c02b31;
@@ -23,9 +22,7 @@
      --maroonEmphasis: #530306;
      --navyEmphasis: navy;
      --redEmphasis: #7f0000;
-     --gradientLight: #0064d9;
      --gradientLight: #10b4e6;
-     --gradientDark: #11428c;
      --gradientDark: #022a69;
 }
 .cs-northStar { font-size: 2em;}
