@@ -21,14 +21,14 @@
      ],
      "screenshots": [
           {
-               "src": "/images/screenshots/laptop.webp",
+               "src": "/images/screenshots/laptop-V2.webp",
                "sizes": "755x503",
                "type": "image/webp",
                "form_factor": "wide",
                "label": "Laptop Screen"
           },
           {
-               "src": "/images/screenshots/moto-432.webp",
+               "src": "/images/screenshots/moto-432-V2.webp",
                "sizes": "320x610",
                "type": "image/webp",
                "label": "Moto-432 Screen"
@@ -61,5 +61,3 @@
           }
      ]
 }
-
-

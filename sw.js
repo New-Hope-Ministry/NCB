@@ -1,4 +1,4 @@
-const version = 11;
+const version = 12;
 var oldVersion = version - 1;
 
 const MAIN_CACHE = `ARK-cache-version: ${version}`;
