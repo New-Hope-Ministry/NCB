@@ -66,6 +66,7 @@ function closeBoxes() {
      document.getElementById('id-randomChapter').style.backgroundColor = 'ba0e0e';
      document.getElementById('id-openLngs').textContent = '♥';
      document.getElementById('id-languages').style.display = 'none';
+     document.body.classList.remove('cs-lockScroll');
      boxesAreOpen = false;
 };
 
@@ -122,6 +123,7 @@ async function openBoxes(e = null) {
      if (vh) { selectedVerseID = `id-verse${vh}`; };
 
      if (ID === 'id-headerTitle' || ID === 'id-header' || ID === 'id-pageContainer' || ID === '' || ID === 'id-headline' || ID === '' || ID.includes("id-p") || ID.includes("id-versNumber")) { closeBoxes(); return; };
+     document.body.classList.add('cs-lockScroll');
      switch (ID) {
           case "id-MenuBtn1":
                id = 'id-versions';

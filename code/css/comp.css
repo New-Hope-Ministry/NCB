@@ -165,7 +165,7 @@ body {
      left: 50%;
      height: max-content;
      min-height: 25%;
-     max-height: 48%;
+     max-height: 80%;
      width: max-content;
      max-width: 100%;
      transform: translate(-50%);
@@ -178,6 +178,8 @@ body {
      overflow-y: scroll;
      z-index: 1;
 }
+.cs-lockScroll { overflow:hidden; }
+
 .cs-changeLanguage { color: #e8ef68; }
 .cs-bookHeader,
 .cs-versionHeader,
@@ -269,11 +271,7 @@ body {
      left: 50%;
      transform: translate(-50%, -50%);
 }
-.cs-chapters {
-     height: max-content;
-     max-height: 90%;
-     width: max-content;
-}
+
 .cs-chapterLine {
      position: relative;
      display: flex;
@@ -364,3 +362,4 @@ html::-webkit-scrollbar,
 .cs-languages::-webkit-scrollbar { display: none; }
 /* Selected text */
 ::selection { background-color: #4180de; color: white; }
+

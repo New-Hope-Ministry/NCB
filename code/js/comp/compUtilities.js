@@ -26,6 +26,7 @@ function closeBoxes() {
      document.getElementById('id-openLngs').textContent = '♥';
      document.getElementById('id-languages').style.display = 'none';
      document.getElementById('id-languages1').style.display = 'none';
+     document.body.classList.remove('cs-lockScroll');
      boxesAreOpen = false;
 };
 function closeLanguage(e = null) {
@@ -108,6 +109,8 @@ function openBoxes(e = null) {
      if (vh) { selectedVerseID = `id-verse${vh}`; };
 
      if (ID === 'id-headerTitle' || ID === 'id-header' || ID === 'id-pageContainer' || ID === '' || ID === 'id-headline' || ID === '' || ID.includes("pid") || ID.includes("id-versNumber")) { closeBoxes(); return; };
+     document.body.classList.add('cs-lockScroll');
+
      switch (ID) {
           case "id-MenuBtn1":
                id = 'id-versions';

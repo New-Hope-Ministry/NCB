@@ -294,7 +294,7 @@ body {
      left: 50%;
      height: max-content;
      min-height: 25%;
-     max-height: 48%;
+     max-height: 80%;
      transform: translate(-50%);
      background-color: #f1f1f1;
      color: black;
@@ -306,6 +306,7 @@ body {
      z-index: 1;
      max-width: 100%;
 }
+.cs-lockScroll { overflow:hidden; }
 .cs-bookHeader,
 .cs-verseHeader,
 .cs-versionHeader,

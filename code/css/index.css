@@ -74,9 +74,9 @@ body {
 .cs-verses,
 .cs-chapters,
 .cs-versions,
-.cs-languages { display: none; position: absolute; left: 50%; height: max-content; min-height: 25%; max-height: 48%; transform: translate(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--shadowColor); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; overflow: hidden; overflow-y: scroll; z-index: 1; max-width: 100%; }
-.cs-verses,
-.cs-chapters { height: max-content; max-height: 90%; width: max-content; }
+.cs-languages { display: none; position: absolute; left: 50%; height: max-content; min-height: 25%; max-height: 80%; transform: translate(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--shadowColor); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; overflow: hidden; overflow-y: scroll; z-index: 1; max-width: 100%; width: max-content;}
+.cs-lockScroll { overflow:hidden; }
+
 .cs-bookHeader,
 .cs-verseHeader,
 .cs-versionHeader,
