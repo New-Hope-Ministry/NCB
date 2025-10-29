@@ -97,7 +97,7 @@ p { font-size: 1.06rem; }
 .cs-arrowUp { display: none; position: fixed; bottom: 0; left: 50%; transform: translateY(-50%); height: auto;  width: auto; border-radius: 6px; cursor: pointer; font-size: 1.3em; padding: 0; text-decoration: none; background-color: #c8e2f7; }
 
 .cs-emphasis { color: var(--lighterMaroonEmphasis); }
-.cs-unknown { color: #858282; font-weight: 400; }
+.cs-unknown { color: #706f6f; font-weight: 400; }
 table { border-collapse: collapse; width: 100%; }
 th, td { border: 1px solid black; padding: .2em; text-align: left; }
 th { background-color: var(--bannerBackground); color: var(--whiteText)}
