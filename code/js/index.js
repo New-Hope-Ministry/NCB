@@ -286,14 +286,14 @@ function isNumeric(value) { return !isNaN(value) && !isNaN(parseFloat(value)); }
 function JesusQuote(aVerse, vNum) {
 
      if (redLetterDefault === 0) {
-          aVerse = aVerse.replace('`', '');
-          aVerse = aVerse.replace('´', '');
+          aVerse = aVerse.replaceAll('`', '');
+          aVerse = aVerse.replaceAll('´', '');
      } else if (redLetterDefault === 1) {
-          aVerse = aVerse.replace('`', '<span class="cs-emphasis">');
-          aVerse = aVerse.replace('´', '</span>');
+          aVerse = aVerse.replaceAll('`', '<span class="cs-emphasis">');
+          aVerse = aVerse.replaceAll('´', '</span>');
      } else if (redLetterDefault === 2) {
-          aVerse = aVerse.replace('`', '<span class="cs-emphasisBlue">');
-          aVerse = aVerse.replace('´', '</span>');
+          aVerse = aVerse.replaceAll('`', '<span class="cs-emphasisBlue">');
+          aVerse = aVerse.replaceAll('´', '</span>');
      };
      return `<span class="cs-verseNumber">${vNum}</span>${aVerse}`;
 };
