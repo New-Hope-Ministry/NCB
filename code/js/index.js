@@ -170,6 +170,15 @@ async function getDefaults() {
      let ltr = localStorage.getItem('redLetter');
      if (ltr) { redLetterDefault = Number(ltr); setRedLetter = Number(ltr); };
 
+     paragraphLayoutDefault = localStorage.getItem("paragraphLayout");
+     if (!paragraphLayoutDefault) {
+          paragraphLayoutDefault = 0;
+          document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
+     } else {
+          paragraphLayoutDefault = Number(paragraphLayoutDefault);
+          if (paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Line Layout'; }
+     };
+
      let vh = params.get('vh');
      if (vh) { selectedVerseID = `id-verse${vh}`; };
 

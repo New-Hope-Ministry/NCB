@@ -175,6 +175,7 @@ function paragraphLayout() {
      if (paragraphLayoutDefault) {
           document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
           paragraphLayoutDefault = 0;
+          localStorage.removeItem("paragraphLayout");
      } else {
           document.getElementById('id-paragraphLayout').textContent = 'Line Layout';
           paragraphLayoutDefault = 1;
