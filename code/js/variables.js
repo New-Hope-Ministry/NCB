@@ -1,4 +1,4 @@
-const dateEdited = '12-19-2025';
+const dateEdited = '12-20-2025';
 const copyrighted = '2018-2025';
 const goHome = 'https://thearkbible.com';
 var isLive = false;
@@ -411,25 +411,11 @@ var versions = [
         "t": "Chinese Union Simplified Version - 简体中文联盟"
     },
     {
-        "ar": "CUSS",
-        "id": 4,
-        "lid": 7,
-        "rdl": 0,
-        "t": "Chinese Union Simplified Version w/Strong's - 中國聯合會（簡體）Zhōngguó liánhé huì (jiǎntǐ)"
-    },
-    {
         "ar": "CUT",
         "id": 5,
         "lid": 11,
         "rdl": 0,
         "t": "Chinese Union Traditional Version - 繁體中文聯會"
-    },
-    {
-        "ar": "CUTS",
-        "id": 6,
-        "lid": 11,
-        "rdl": 0,
-        "t": "Chinese Union Traditional Version w/Strong's - 繁体中文聯合 Fántǐ zhōngwén liánhé"
     },
     {
         "ar": "CZK",
@@ -458,13 +444,6 @@ var versions = [
         "lid": 34,
         "rdl": 0,
         "t": "American Standard Version"
-    },
-    {
-        "ar": "ASVS",
-        "id": 11,
-        "lid": 34,
-        "rdl": 0,
-        "t": "American Standard Version w/Strong's"
     },
     {
         "ar": "AKV",
@@ -507,13 +486,6 @@ var versions = [
         "lid": 34,
         "rdl": 0,
         "t": "King James Version"
-    },
-    {
-        "ar": "KJVS",
-        "id": 20,
-        "lid": 34,
-        "rdl": 0,
-        "t": "King James Version w/Strong's"
     },
     {
         "ar": "NWB",
@@ -752,13 +724,6 @@ var versions = [
         "lid": 84,
         "rdl": 0,
         "t": "Spanish Reina Valera Gómez - 2010 - Reina Valera Gómez Española"
-    },
-    {
-        "ar": "SRVS",
-        "id": 64,
-        "lid": 84,
-        "rdl": 0,
-        "t": "Spanish Reina Valera w/Strong's - 1909 - Reina Valera Española con Strong's"
     },
     {
         "ar": "TAB",
