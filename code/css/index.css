@@ -25,7 +25,7 @@ body {
 .cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; background-color: var(--bannerBackground); color: var(--whiteText); padding: .3em; cursor: pointer; }
 .cs-menuBtns { padding-right: 2em; }
 .cs-pageContainer { width: 100%; z-index: 10; min-height: 100vh; }
-.cs-mainPage {  min-height: 100vh; }
+/*.cs-mainPage { min-height: 100vh; }*/
 .cs-mainPage { border-radius: 6px; width: 70%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
 .cs-headline,
 .cs-bottomLine { height: max-content; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.25rem; color: var(--headlineColor); }
@@ -34,7 +34,7 @@ body {
 .cs-edited { font-size: .4em; color: var(--darkGrayEmphasis); }
 .cs-singleVerse { margin-top: -.5em; z-index: 100; }
 .cs-verseNumber { margin-right: .5em; color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }
-.cs-bottomLine { display: flex; align-items: center; font-size: 1.2rem; user-select: none; justify-content: space-evenly; }
+.cs-bottomLine { display: flex; align-items: center; font-size: 1.2rem; user-select: none; justify-content: space-evenly; margin-top: auto; }
 .cs-bottomLastLine { visibility: hidden; }
 .cs-bottomNextLine { visibility: hidden; }
 .cs-bottomTitleLine { width: max-content; }

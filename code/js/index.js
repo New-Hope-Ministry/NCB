@@ -81,6 +81,7 @@ async function getChapter() {
      document.getElementById('id-MenuBtn2').textContent = books[idx].t;
      h2.textContent = `${books[idx].t} ${activeChapter}`;
      document.getElementById('id-bottomTitleLine').textContent = h2.textContent;
+
      if (isTWF) {
           let sp2 = document.createElement('span');
           sp2.classList.add('cs-edited');
@@ -146,6 +147,7 @@ async function getChapter() {
           };
           page.appendChild(p);
      };
+
      loadVerses();
 
      if (activeBook === 1 && activeChapter === 1) { document.getElementById('id-bottomLastLine').style.visibility = 'hidden'; } else { document.getElementById('id-bottomLastLine').style.visibility = 'visible'; };
