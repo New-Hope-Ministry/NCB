@@ -1,5 +1,5 @@
-const dateEdited = '12-31-2025';
-const copyrighted = '2018-2025';
+const dateEdited = '1-5-2026';
+const copyrighted = '2018-2026';
 const goHome = 'https://thearkbible.com';
 var isLive = false;
 function aClick(ahref) {
