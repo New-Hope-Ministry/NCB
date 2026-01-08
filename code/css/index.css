@@ -19,7 +19,7 @@ body {
 .cs-logoTitle { display: inline-block; position: relative; left: 2em; cursor: pointer; }
 .cs-search { display: flex; cursor: pointer; justify-content: center; align-items: center; position: absolute; color: white; top: 0; right: 5%; height: 1.6rem; width: 1.6rem; line-height: 1.6rem; font-size: 1.6em; padding: .35em; border-radius: 50%; overflow: hidden; z-index: 1; }
 .cs-magnifier { display: flex; cursor: pointer; justify-content: center; align-items: center; rotate: -45deg;color: white; top: 0; z-index: 100; margin: 0; padding: 0; }
-.cs-banner { top: 2rem; text-align: center; border-bottom: 5px solid dimgray; }
+.cs-banner { top: 2rem; text-align: center; border-bottom: 5px solid dimgray;  }
 .cs-menu { display: flex; position: absolute; left: 0; width: 100%; z-index: 1; }
 .cs-menu1 { position: absolute; left: 50%; transform: translate(-50%); width: max-content; }
 .cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; background-color: var(--bannerBackground); color: var(--whiteText); padding: .3em; cursor: pointer; }
@@ -40,6 +40,7 @@ body {
 .cs-bottomTitleLine { width: max-content; }
 .cs-readRandom { display: none; }
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #ba0e0e; color: navajowhite; border-radius: 6px; padding: .8em; }
+
 
 .cs-bottom { bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 20%, var(--gradientDark) 90%); z-index: 5; }
 .cs-settings { display: flex; justify-content: space-evenly; bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; padding-left: .8em; background-color: var(--bannerBackground); z-index: 0; }

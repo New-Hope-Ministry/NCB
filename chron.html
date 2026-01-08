@@ -24,28 +24,36 @@
           });
      </script>
 
+     <style>
+          .cs-sunshine { position: fixed;  top: 0; left: 0; background-image: url("images/crystal.png"); background-size: cover; /* or 'contain' depending on your design */ background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; }
+          .cs-banner, .cs-header, .cs-menuBtn { background-color: transparent; }
+     </style>
+
 </head>
 
 <body>
      <div id="id-loader" class="cs-loader"> </div>
      <div id="top"></div>
-     <img id="logo" async src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
 
-     <div id="id-header" class="cs-header cs-title" onclick="openBox(event)">
-          <h1 class="cs-headerTitle cs-chronTitleHeader cs-logoTitle" onclick="bClick(goHome)">Ark Bible 365 Day Chronological Plan</h1>
-     </div>
+     <div id="id-sunshine" class="cs-sunshine">
+          <img id="logo" async src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
 
-     <div id="id-header1" class="cs-header cs-banner">
-          <div id="id-menu" class="cs-menu cs-chronMenu">
-               <div class="cs-menu1" translate="no">
-                    <button id="id-ChronBtn1" class="cs-menuBtn cs-menuBtn1 cs-chronMenu" onclick="openBox(event)"
-                         title="Select A Version" translate="no">TWF</button>
-                    <button id="id-ChronBtn2" class="cs-menuBtn cs-menuBtn1 cs-chronMenu" onclick="openBox(event)"
-                         title="Select A Day" translate="no">Day 1</button>
-                    <button id="id-ChronBtn3" class="cs-menuBtn cs-menuBtn2 cs-chronMenu" onclick="openBox(event)"
-                         title="Select A Chapter" translate="no">Genesis 1</button>
-                    <button id="id-ChronBtn3" class="cs-menuBtn cs-menuBtn2 cs-chronMenu" onclick="restart(event)"
-                         title="Restart" translate="no">Restart</button>
+          <div id="id-header" class="cs-header cs-title" onclick="openBox(event)">
+               <h1 class="cs-headerTitle cs-chronTitleHeader cs-logoTitle" onclick="bClick(goHome)">Ark Bible 365 Day Chronological Plan</h1>
+          </div>
+
+          <div id="id-header1" class="cs-header cs-banner">
+               <div id="id-menu" class="cs-menu cs-chronMenu">
+                    <div class="cs-menu1" translate="no">
+                         <button id="id-ChronBtn1" class="cs-menuBtn cs-menuBtn1 cs-chronMenu" onclick="openBox(event)"
+                              title="Select A Version" translate="no">TWF</button>
+                         <button id="id-ChronBtn2" class="cs-menuBtn cs-menuBtn1 cs-chronMenu" onclick="openBox(event)"
+                              title="Select A Day" translate="no">Day 1</button>
+                         <button id="id-ChronBtn3" class="cs-menuBtn cs-menuBtn2 cs-chronMenu" onclick="openBox(event)"
+                              title="Select A Chapter" translate="no">Genesis 1</button>
+                         <button id="id-ChronBtn3" class="cs-menuBtn cs-menuBtn2 cs-chronMenu" onclick="restart(event)"
+                              title="Restart" translate="no">Restart</button>
+                    </div>
                </div>
           </div>
      </div>

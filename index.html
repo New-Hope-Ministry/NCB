@@ -166,6 +166,10 @@
           };
      </script>
 
+     <style>
+          .cs-sunshine { position: fixed;  top: 0; left: 0; background-image: url("images/crystal.png"); background-size: cover; /* or 'contain' depending on your design */ background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; }
+          .cs-banner, .cs-header, .cs-menuBtn { background-color: transparent; }
+     </style>
 </head>
 
 <body id="id-body">
@@ -176,23 +180,27 @@
           <div class="cs-loader">✝</div>
      </div>
      <div id="id-noDisplay" class="cs-hidden">
-          <img id="logo" async src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
-          <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
-               <span class="cs-logoTitle" onclick="bClick(goHome)">The Ark Bible</span>
-               <div id="id-search" class="cs-search" onclick="aClick('srch.html')" data-nosnippet>
-                    <div class="cs-magnifier">⚲</div>
-               </div>
-          </div>
-          <div id="id-header" class="cs-header cs-banner" onclick="openBoxes(event)" data-nosnippet>
-               <div id="id-menu" class="cs-menu">
-                    <div class="cs-menu1">
-                         <button id="id-MenuBtn1" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
-                         <button id="id-MenuBtn2" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Book" translate="no">Genesis</button>
-                         <button id="id-MenuBtn3" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Chapter" translate="no">1:</button>
-                         <button id="id-MenuBtn4" class="cs-menuBtn" onclick="openBoxes(event)" title="Highlight the Selected Verse" translate="no">1</button>
+
+          <div id="id-sunshine" class="cs-sunshine">
+               <img id="logo" async src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
+               <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
+                    <span class="cs-logoTitle" onclick="bClick(goHome)">The Ark Bible</span>
+                    <div id="id-search" class="cs-search" onclick="aClick('srch.html')" data-nosnippet>
+                         <div class="cs-magnifier">⚲</div>
                     </div>
                </div>
-          </div>
+
+               <div id="id-header" class="cs-header cs-banner" onclick="openBoxes(event)" data-nosnippet>
+                    <div id="id-menu" class="cs-menu">
+                         <div class="cs-menu1">
+                              <button id="id-MenuBtn1" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
+                              <button id="id-MenuBtn2" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Book" translate="no">Genesis</button>
+                              <button id="id-MenuBtn3" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Chapter" translate="no">1:</button>
+                              <button id="id-MenuBtn4" class="cs-menuBtn" onclick="openBoxes(event)" title="Highlight the Selected Verse" translate="no">1</button>
+                         </div>
+                    </div>
+               </div>
+</div>
           <div id="id-pageContainer" class="cs-pageContainer" onclick="openBoxes(event)">
                <div id="id-searchTop"></div>
                <div id="id-mainPage" class="cs-mainPage">
