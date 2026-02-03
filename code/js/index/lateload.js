@@ -178,7 +178,7 @@ function synthVoice() {
      if (bid !== null && bid !== 'null') readParams.set('bid', bid);
      if (cn !== null && cn !== 'null') readParams.set('cn', cn);
 
-     let ahref = `synth.html?${readParams.toString()}`;
+     let ahref = `/apps/synth.html?${readParams.toString()}`;
      if (isLive) { ahref = ahref.replace(".html", ""); };
      window.location.href = ahref;
 };
@@ -188,7 +188,7 @@ function readChronological() {
      const params = new URLSearchParams(window.location.search);
      const verid = params.get('verid');
 
-     let ahref = `chron.html?verid=${verid}`;
+     let ahref = `/apps/chron.html?verid=${verid}`;
      if (isLive) { ahref = ahref.replace(".html", ""); };
      window.location.href = ahref;
 };

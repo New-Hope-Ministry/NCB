@@ -5,22 +5,22 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
-     <link rel="icon" type="image/png" sizes="32x32" href="images/icons/ark-32.png">
-     <link rel="icon" type="image/png" sizes="192x192" href="images/icons/ark-192.png">
-     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/ark-32.png">
+     <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/ark-192.png">
+     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
 
      <title>The Ark Bible Help</title>
-     <script async src="code/js/variables.js"></script>
-     <link rel="stylesheet" type="text/css" href="code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="code/css/html.css">
+     <script async src="/code/js/variables.js"></script>
+     <link rel="stylesheet" type="text/css" href="/code/css/variables.css">
+     <link async rel="stylesheet" type="text/css" href="/code/css/html.css">
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
                     document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
                     document.getElementById('id-copyrighted').textContent = copyrighted;
                     let inst = localStorage.getItem('installed');
-                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark is Installed!'; } else {
-                         document.getElementById('id-installed').textContent = 'The Ark is Not Installed!';
+                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
+                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
                     };
                }, 200);
           });
@@ -30,18 +30,19 @@
 <body>
      <div class="cs-fixBanner">
           <div class="cs-imgBanner">
-               <img src="images/crystal.webp" class="cs-imgBanner" alt="img">
+               <img loading="lazy" src="/images/headers/crystal.webp" class="cs-imgBanner" alt="img">
                <a class="cs-iconLinkQR cs-imgLogo" onclick="bClick(goHome);">
-                    <img async src="images/qr/qr-logo.png" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
+                    <img loading="lazy" src="/images/logos/white-logo-512.png" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
+                    <span class="cs-logoTitle">The Ark Help</span>
                </a>
           </div>
      </div>
      <div class="cs-page">
-          <h2 class="cs-contentsTitle">The Ark Bible Help</h2>
+          <h2 class="cs-contentsTitle">Help</h2>
           <p>
                The Ark Bible is an open-source Bible application project, that can be freely distributed by anyone for use in spreading God's Holy word.
           </p>
-          <br>
+
           <hr>
           <br>
           <span>
@@ -116,11 +117,11 @@
                <div>If you prefer to read other Bible versions, please feel free to do so.</div>
                <div class="cs-northStar">✨</div>
                <a onclick="aClick('license.html')" class="cs-copyright">
-                    <span>Copyright ©</span>
+                    <span>Copyright&nbsp;©</span>
                     <span id="id-copyrighted">2018-2025</span>
-                    <span class="cs-copySign"> ● </span>
-                    <span>New Hope Ministries </span>
-                    <span class="cs-copySign"> ● </span>
+                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                    <span>New Hope Ministries</span>
+                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
                     <span>MIT License</span>
                </a>
                <br><br>

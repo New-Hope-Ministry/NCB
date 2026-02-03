@@ -28,16 +28,25 @@ body {
   0%   { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+
+/* Add Background Image to header*/
+.cs-sunshine { position: fixed; top: 0; left: 0; background-image: url("/images/headers/crystal.png"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; }
+.cs-banner,
+.cs-header,
+.cs-menuBtn { background-color: transparent; }
+/* End Add Background Image to header*/
+
 .cs-logo { position: fixed; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
 .cs-logoTitle { display: inline-block; position: relative; left: 3em; cursor: pointer; }
-.cs-header { position: fixed; left: 0; height: 2rem; width: 100%; background-color: var(--bannerBackground); color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999; }
+.cs-header { position: fixed; left: 0; height: 2rem; width: 100%; color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999; }
+
 .cs-title { top: 0; padding-left: .8em; font-size: 1.3rem; z-index: 2; }
 .cs-srchTitleHeader { font-size: 1rem; }
 .cs-headerTitle { margin: 0; position: absolute; font-size: 1.3rem; top: 5%; }
 .cs-banner { top: 2rem; text-align: center; border-bottom: 5px solid dimgray; }
 .cs-menu { display: flex; position: absolute; left: 0; width: 100%; z-index: 1; }
 .cs-menu1 { position: absolute; left: 50%; transform: translate(-50%); width: max-content; }
-.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; background-color: var(--bannerBackground); color: var(--whiteText); padding: .3em; cursor: pointer; }
+.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; color: var(--whiteText); padding: .3em; cursor: pointer; }
 .cs-menuBtn1 { padding-right: 2em; }
 .cs-pageContainer { margin-top: 5em; width: 100%; z-index: 10; }
 .cs-searchContainer { border-radius: 6px; width: 70%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
@@ -55,14 +64,15 @@ body {
 .cs-hrCopyright { width: 98%; margin-left: auto; margin-right: auto; }
 .cs-GodLovesYou { position: relative; text-align: center; width: 80%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; color: var(--whiteText); }
 .cs-blueLtr,
-.cs-blueLtrLink {display: block; width: 60%; margin: auto;}
+.cs-blueLtrLink { display: block; width: 60%; margin: auto; }
+.cs-blueLtrLink { cursor: pointer; }
 
 .cs-copyright { display: inline-block; margin-top: .3em; text-decoration: underline; cursor: pointer; }
 .cs-copyright:hover { color: var(--paleMaroonEmphasis); }
 
 .cs-blueLtrLink,
 .cs-copyright,
-.cs-copyright:visited { color: var(--whiteText); text-decoration: underline;}
+.cs-copyright:visited { color: var(--whiteText); text-decoration: underline; }
 .cs-copySign { font-size: .75em; }
 
 .cs-versions,

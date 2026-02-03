@@ -448,7 +448,7 @@ async function getVersion(e = null) {
      if (!id || id === 'id-resetDefaults') { id = activeVersionID };
      let aVersion = document.getElementById(id);
      let idx = Number(aVersion.dataset.index);
-     let url = `data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
+     let url = `/data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
      if (versions[idx].ar === 'TWF') { isTWF = true } else { isTWF = false };
      try {
           const res = await fetch(url);

@@ -3,13 +3,24 @@
 
 <head>
      <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="description" content="☀️The Ark Bible App is an online searchable Bible App. It offers the Bible in many different versions and languages, and a 365 day chronological reading plan.">
-     <meta name="keywords" content="God, Lord, Jehovah, Jesus, Ark Bible, The Ark Bible, Bible, Bible App, Bible Archive, Bible Reference, Bible Study, Christ, Christian, Forgiveness, Free Bible, Holy Bible, Read the Bible, Searchable Bible, Search The Bible,, Salvation, Savior, Scripture, Holy Scripture,Strong's Versions, Study Bible, Study The Bible, King James Version, KJV, Twenty-First Century Version, TWF, Bible 365 day Chronological Reading Plan">
+     <title>The Ark Bible</title>
+     <link rel="canonical" href="https://thearkbible.com/index.html" />
      <base href="./">
 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="☀️ The Ark Bible App is an online searchable Bible App. It offers the Bible in many different versions and languages, and a 365 day chronological reading plan.">
+     <meta name="keywords" content="God, Lord, God's Love, Jehovah, Jesus, Ark Bible, The Ark Bible, Bible, Bible App, Bible Archive, Bible Reference, Bible Study, Christ, Christian, Forgiveness, Free Bible, Holy Bible, Read the Bible, Searchable Bible, Search The Bible,, Salvation, Savior, Scripture, Holy Scripture, Study Bible, Study The Bible, King James Version, KJV, Twenty-First Century Version, TWF, Bible 365 day Chronological Reading Plan">
+
      <style>
-          .cs-loaderContainer { position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: #2b317f;}
+          .cs-loaderContainer {
+               position: fixed;
+               left: 0;
+               top: 0;
+               height: 100%;
+               width: 100%;
+               background-color: #2b317f;
+          }
+
           .cs-northStarLoader {
                position: fixed;
                top: 15%;
@@ -17,6 +28,7 @@
                transform: translate(-50%, -50%);
                font-size: 2.5em;
           }
+
           .cs-loaderTitle {
                position: absolute;
                /*left: 50%;*/
@@ -27,12 +39,14 @@
                /*transform: translate(-50%);*/
                color: white;
                font-size: 3em;
-           }
+          }
+
           .cs-loader {
                position: fixed;
                top: 50%;
                left: 50%;
-               transform: translate(-50%, -50%) rotate(0deg); /* initial state */
+               transform: translate(-50%, -50%) rotate(0deg);
+               /* initial state */
                border: 8px solid var(--mediumGray);
                border-top: 8px solid var(--lightMaroonEmphasis);
                border-radius: 50%;
@@ -43,19 +57,26 @@
                height: 2em;
                animation: spin 1.5s linear infinite;
           }
+
           @keyframes spin {
-               0%   { transform: translate(-50%, -50%) rotate(0deg); }
-               100% { transform: translate(-50%, -50%) rotate(360deg); }
+               0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
+               }
+
+               100% {
+                    transform: translate(-50%, -50%) rotate(360deg);
+               }
           }
-          @media (max-width: 668px) { .cs-loaderTitle { font-size: 2em; } }
+
+          @media (max-width: 668px) {
+               .cs-loaderTitle {
+                    font-size: 2em;
+               }
+          }
      </style>
 
      <link rel="manifest" href="manifest.webmanifest">
-     <!--<link rel="icon" type="image/png" sizes="32x32" href="images/icons/ark-32.png">
-     <link rel="icon" href="favicon.ico" type="image/x-icon" />-->
      <link rel="icon" type="image/png" sizes="192x192" href="images/logos/logo-192.png">
-
-     <title>The Ark Bible</title>
 
      <link rel="stylesheet" type="text/css" href="code/css/variables.css">
      <link rel="stylesheet" type="text/css" href="code/css/index.css">
@@ -63,97 +84,198 @@
      <link rel="stylesheet" type="text/css" media="print" onload="this.media='all'" href="code/css/lateload.css">
 
      <script async src="code/js/variables.js"></script>
-     <script async src="code/js/index.js"></script>
-     <script defer src="code/js/utilities.js"></script>
-     <script defer src="code/js/lateload.js"></script>
+     <script async src="code/js/index/index.js"></script>
+     <script defer src="code/js/index/utilities.js"></script>
+     <script defer src="code/js/index/lateload.js"></script>
 
      <script type="application/ld+json">
           {
                "@context": "https://schema.org",
                "@graph": [
                     {
+                         "@type": "Organization",
+                         "@id": "https://thearkbible.com/#organization",
+                         "name": "New Hope Ministries",
+                         "url": "https://thearkbible.com",
+                         "logo": {
+                              "@type": "ImageObject",
+                              "url": "https://thearkbible.com/images/logos/logo-512.webp",
+                              "width": 512,
+                              "height": 512
+                         }
+                    },
+                    {
+                         "@type": "WebSite",
+                         "@id": "https://thearkbible.com/#website",
+                         "name": "The Ark Bible",
+                         "url": "https://thearkbible.com",
+                         "publisher": { "@id": "https://thearkbible.com/#organization" },
+                         "description": "An online searchable Bible App with a chronological reading plan, text-to-speech reader, and Bible version comparison tools."
+                    },
+                    {
+                         "@type": "WebApplication",
+                         "@id": "https://thearkbible.com/#application",
+                         "name": "The Ark Bible App",
+                         "applicationCategory": "ReligionApplication",
+                         "operatingSystem": "Web, Android, iOS",
+                         "browserRequirements": "Modern browser with PWA support",
+                         "url": "https://thearkbible.com",
+                         "description": "An online searchable Bible App with a chronological reading plan, text-to-speech reader, and Bible version comparison tools.",
+                         "isAccessibleForFree": true,
+                         "image": [
+                         { "@id": "https://thearkbible.com/images/logos/logo-512.webp" }
+                         ],
+                         "author": { "@id": "https://thearkbible.com/#organization" },
+                         "featureList": [
+                              "Searchable Bible database",
+                              "365-Day Chronological Reading Plan",
+                              "Text-to-Speech synthesis",
+                              "Parallel Version Comparison"
+                         ],
+                         "applicationSubCategory": "Bible Study Tool",
+                         "hasPart": [
+                              { "@id": "https://thearkbible.com/apps/chron.html#plan" },
+                              { "@id": "https://thearkbible.com/apps/comp.html#comparison-tool" },
+                              { "@id": "https://thearkbible.com/apps/synth.html#listen-synth" }
+                         ],
+                         "offers": {
+                         "@type": "Offer",
+                         "price": "0",
+                         "priceCurrency": "USD"
+                         }
+                    },
+                    {
+                         "@type": "CreativeWork",
+                         "@id": "https://thearkbible.com/apps/chron.html#plan",
+                         "name": "The Ark Bible 365 Day Chronological Reading Plan",
+                         "author": { "@id": "https://thearkbible.com/#organization" },
+                         "description": "Read the Bible the way the events historically happened in chronological order.",
+                         "isAccessibleForFree": true,
+                         "genre": "Religious",
+                         "image": { "@id": "https://thearkbible.com/images/logos/logo-512.webp" },
+                         "educationalUse": "Study the historical order of Biblical events as they happened."
+                    },
+                    {
+                         "@type": "CreativeWork",
+                         "@id": "https://thearkbible.com/apps/comp.html#comparison-tool",
+                         "name": "The Ark Bible Comparison Tool",
+                         "description": "A side-by-side Bible version comparison tool. Study and compare two different versions or languages of the Bible simultaneously on the same page.",
+                         "url": "https://thearkbible.com/apps/comp.html",
+                         "author": { "@id": "https://thearkbible.com/#organization" },
+                         "isAccessibleForFree": true,
+                         "genre": "Religious Study Tool",
+                         "image": { "@id": "https://thearkbible.com/images/logos/logo-512.webp" },
+                         "educationalUse": "Comparison and Analysis"
+                    },
+                    {
+                         "@type": "CreativeWork",
+                         "@id": "https://thearkbible.com/apps/synth.html#listen-synth",
+                         "name": "Listen to The Ark Bible",
+                         "description": "Have your computer speech synthesis read the Bible to you with The Ark Bible speech synthesis program.",
+                         "url": "https://thearkbible.com/apps/synth.html",
+                         "author": { "@id": "https://thearkbible.com/#organization" },
+                         "isAccessibleForFree": true,
+                         "genre": "Religious Study Tool",
+                         "image": { "@id": "https://thearkbible.com/images/logos/logo-512.webp" },
+                         "educationalUse": "Listen to the Bible"
+                    },
+                    {
+                         "@type": "BreadcrumbList",
+                         "@id": "https://thearkbible.com/#breadcrumb",
+                         "itemListElement": [
+                         {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://thearkbible.com/index.html"
+                         },
+                         {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Chronological Plan",
+                              "item": "https://thearkbible.com/apps/chron.html"
+                         },
+                         {
+                              "@type": "ListItem",
+                              "position": 3,
+                              "name": "Compare Bible Versions",
+                              "item": "https://thearkbible.com/apps/comp.html"
+                         },
+                         {
+                              "@type": "ListItem",
+                              "position": 4,
+                              "name": "Listen to the Bible",
+                              "item": "https://thearkbible.com/apps/synth.html"
+                         }
+                         ]
+                    },
+                    {
+                         "@type": "FAQPage",
+                         "@id": "https://thearkbible.com/index.html#faq",
+                         "mainEntity": [
+                         {
+                              "@type": "Question",
+                              "name": "Which Bible versions are available on The Ark Bible?",
+                              "acceptedAnswer": {
+                                   "@type": "Answer",
+                                   "text": "The Ark Bible offers many different versions of the Bible in multiple languages. Users can search, read, and compare different translations side-by-side."
+                              }
+                         },
+                         {
+                              "@type": "Question",
+                              "name": "Is The Ark Bible app free to use?",
+                              "acceptedAnswer": {
+                                   "@type": "Answer",
+                                   "text": "Yes, The Ark Bible is completely free to use. It provides access to searchable scriptures, a 365-day chronological reading plan, and speech synthesis tools at no cost."
+                              }
+                         },
+                         {
+                              "@type": "Question",
+                              "name": "Can I listen to the Bible on The Ark Bible app?",
+                              "acceptedAnswer": {
+                                   "@type": "Answer",
+                                   "text": "Yes! The Ark Bible includes a computer text-to-speech synthesis function that allows you to listen to the Bible as you follow along or on the go."
+                              }
+                         },
+                         {
+                              "@type": "Question",
+                              "name": "How many different Bible versions are in The Ark Bible app?",
+                              "acceptedAnswer": {
+                                   "@type": { "@type": "Answer" },
+                                   "text": "The Ark Bible currently includes 52 different versions of the Bible in 27 different languages."
+                              }
+                         }
+                         ]
+                    },
+                    {
                          "@type": "ImageObject",
-                         "@id": "https://thearkbible.com/images/cavalry-1200x628.webp",
-                         "url": "https://thearkbible.com/images/cavalry-1200x628.webp",
-                         "contentUrl": "https://thearkbible.com/images/cavalry-1200x628.webp",
+                         "@id": "https://thearkbible.com/images/schema/calvary-1200x628.webp",
+                         "url": "https://thearkbible.com/images/schema/calvary-1200x628.webp",
+                         "contentUrl": "https://thearkbible.com/images/schema/calvary-1200x628.webp",
                          "width": 1200,
                          "height": 628
                     },
                     {
                          "@type": "ImageObject",
-                         "@id": "https://thearkbible.com/images/cavalry-1200x1200.webp",
-                         "url": "https://thearkbible.com/images/cavalry-1200x1200.webp",
-                         "contentUrl": "https://thearkbible.com/images/cavalry-1200x1200.webp",
+                         "@id": "https://thearkbible.com/images/schema/calvary-1200x1200.webp",
+                         "url": "https://thearkbible.com/images/schema/calvary-1200x1200.webp",
+                         "contentUrl": "https://thearkbible.com/images/schema/calvary-1200x1200.webp",
                          "width": 1200,
                          "height": 1200
                     },
-                    {
-                         "@type": "WebSite",
-                         "@id": "https://thearkbible.com/index.html",
-                         "name": "The Ark Bible",
-                         "url": "https://thearkbible.com",
-                         "about": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also offers other functionality, including a 365 day chronological reading plan, a computer text to speech synthesis to listen, so you can listen to the Bible, and a comparison function, so you can compare two different versions of the Bible on the same page.",
-                         "image": [
-                              "https://thearkbible.com/images/cavalry-1200x628.webp",
-                              "https://thearkbible.com/images/cavalry-1200x1200.webp"
-                         ]
-                    },
-                    {
-                         "@type": "WebApplication",
-                         "@id": "https://thearkbible.com/index.html",
-                         "name": "The Ark Bible",
-                         "applicationCategory": "Religion",
-                         "operatingSystem": "Web",
-                         "browserRequirements": "Modern browser with PWA support",
-                         "url": "https://thearkbible.com",
-                         "about": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also offers other functionality, including a 365 day chronological reading plan, a computer text to speech synthesis to listen, so you can listen to the Bible, and a comparison function, so you can compare two different versions of the Bible on the same page.",
-                         "isAccessibleForFree": true,
-                         "image": [
-                              "https://thearkbible.com/images/cavalry-1200x628.webp",
-                              "https://thearkbible.com/images/cavalry-1200x1200.webp"
-                         ]
-                    },
-                    {
-                         "@type": "CreativeWork",
-                         "@id": "https://thearkbible.com/chron.html",
-                         "name": "The Ark Bible 365 Day Chronological Reading Plan",
-                         "creator": {
-                              "@type": "Organization",
-                              "name": "New Hope Ministries"
-                         },
-                         "about": "📜Read the Bible the way the events historically happened in chronological order",
-                         "isAccessibleForFree": true,
-                         "image": [
-                              "https://thearkbible.com/images/cavalry-1200x628.webp",
-                              "https://thearkbible.com/images/cavalry-1200x1200.webp"
-                         ]
-                    },
-                    {
-                         "@type": "Book",
-                         "@id": "https://thearkbible.com/comp.html",
-                         "name": "The Ark Bible",
-                         "author": {
-                              "@type": "Person",
-                              "name": "Various Authors"
-                         },
-                         "publisher": {
-                              "@type": "Organization",
-                              "name": "New Hope Ministries"
-                         },
-                         "about": "☀️The Ark Bible App is an online searchable Bible App. It offers many different versions of the Bible in many different languages. It also offers other functionality, including a 365 day chronological reading plan, a computer text to speech synthesis to listen, so you can listen to the Bible, and a comparison function, so you can compare two different versions of the Bible on the same page.",
-                         "isAccessibleForFree": true,
-                         "image": [
-                              "https://thearkbible.com/images/cavalry-1200x628.webp",
-                              "https://thearkbible.com/images/cavalry-1200x1200.webp"
-                         ]
-                    }
                ]
           }
+
      </script>
+
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
                     document.getElementById('id-copyrighted').textContent = copyrighted;
+                    let inst = localStorage.getItem('installed');
+                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
+                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
+                    };
                }, 300);
           });
           const isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
@@ -166,10 +288,6 @@
           };
      </script>
 
-     <style>
-          .cs-sunshine { position: fixed;  top: 0; left: 0; background-image: url("images/crystal.png"); background-size: cover; /* or 'contain' depending on your design */ background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; }
-          .cs-banner, .cs-header, .cs-menuBtn { background-color: transparent; }
-     </style>
 </head>
 
 <body id="id-body">
@@ -180,16 +298,14 @@
           <div class="cs-loader">✝</div>
      </div>
      <div id="id-noDisplay" class="cs-hidden">
-
           <div id="id-sunshine" class="cs-sunshine">
-               <img id="logo" async src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
+               <img loading="lazy" id="logo" src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
                <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
                     <span class="cs-logoTitle" onclick="bClick(goHome)">The Ark Bible</span>
-                    <div id="id-search" class="cs-search" onclick="aClick('srch.html')" data-nosnippet>
+                    <div id="id-search" class="cs-search" onclick="aClick('/apps/srch.html')" data-nosnippet>
                          <div class="cs-magnifier">⚲</div>
                     </div>
                </div>
-
                <div id="id-header" class="cs-header cs-banner" onclick="openBoxes(event)" data-nosnippet>
                     <div id="id-menu" class="cs-menu">
                          <div class="cs-menu1">
@@ -200,16 +316,14 @@
                          </div>
                     </div>
                </div>
-</div>
+          </div>
           <div id="id-pageContainer" class="cs-pageContainer" onclick="openBoxes(event)">
                <div id="id-searchTop"></div>
                <div id="id-mainPage" class="cs-mainPage">
                     <div id="id-headline" class="cs-headline">Twenty-First Century Version</div>
                     <div id="id-page" class="cs-page" onclick="unHighlight()">
-
                     </div>
-                   <br><br><br>
-
+                    <br><br><br>
                     <div id="id-bottomline" class="cs-bottomLine" data-nosnippet>
                          <div id="id-bottomLastLine" class="cs-bottomLastLine" onclick="lastChapter()">‹ Last</div>
                          <div id="id-bottomTitleLine" class="cs-bottomTitleLine">Genesis 1</div>
@@ -220,7 +334,6 @@
                     <br><br>
                     <div id="id-randomChapter" class="cs-randomChapter" onclick="readRandomChapter()"> Read a Random Chapter </div>
                </div>
-
                <br><br><br><br>
                <div class="cs-bottom">
                     <div id="id-settings" class="cs-settings" data-nosnippet>
@@ -260,7 +373,7 @@
                          <div id="id-endFontScroll"></div>
                     </div>
                     <br>
-                    <a onclick="aClick('comp.html')" target="_blank" class="cs-chat" data-nosnippet> Compare Bible Versions </a>
+                    <a onclick="aClick('apps/comp.html')" target="_blank" class="cs-chat" data-nosnippet> Compare Bible Versions </a>
                     <br id="id-brListen">
                     <a id="id-listen" onclick="synthVoice()" target="_blank" class="cs-chat" data-nosnippet> Listen to the Bible </a>
                     <br>
@@ -270,29 +383,26 @@
                     <br><br>
                     <div class="cs-GodLovesYou">
                          <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
-                         <div data-nosnippet>The TWF version is being actively edited and is subject to change daily.</div>
-                         <div data-nosnippet>If you prefer to read other Bible versions, please feel free to do so.</div>
-
+                         <div>The TWF version is being actively edited and is subject to change daily.</div>
+                         <div>If you prefer to read other Bible versions, please feel free to do so.</div>
                          <div class="cs-northStar">✨</div>
-                         <a onclick="aClick('license.html')" class="cs-copyright" data-nosnippet>
-                              <span>Copyright ©</span>
+                         <a onclick="aClick('license.html')" class="cs-copyright">
+                              <span>Copyright&nbsp;©</span>
                               <span id="id-copyrighted">2018-2025</span>
-                              <span class="cs-copySign"> ● </span>
-                              <span>New Hope Ministries </span>
-                              <span class="cs-copySign"> ● </span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>New Hope Ministries</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
                               <span>MIT License</span>
                          </a>
                          <br><br>
+                         <div id="id-installed">Installed?</div>
                     </div>
                </div>
           </div>
           <div id="id-end" class="cs-end" data-nosnippet>
                <br>
                <p id="id-endLine" class="cs-endLine">
-
-                    <div style="padding-left: 1.5em; padding-right: 1.5em;">
-                    Click Install if you agree to allow The Ark Bible app to be installed and store performance files locally, but you do not have to install this app to use it. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel, no files will be stored locally. If you change your mind, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or by clearing your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. If you allow the files to be stored locally it will dramatically reduce data transfer usage for your internet connection.
-                    </div>
+               <div style="padding-left: 1.5em; padding-right: 1.5em;"> Click Install if you agree to allow The Ark Bible app to be installed and store performance files locally, but you do not have to install this app to use it. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel, no files will be stored locally. If you change your mind, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or by clearing your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. If you allow the files to be stored locally it will dramatically reduce data transfer usage for your internet connection. </div>
                </p>
                <br>
                <div class="cs-endBtnLine">
@@ -300,7 +410,6 @@
                     <button class="cs-endBtn" onclick="closeSave()">Cancel</button>
                </div>
                <br>
-
           </div>
      </div>
      <div id="id-versions" class="cs-versions" data-nosnippet></div>

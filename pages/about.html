@@ -5,18 +5,23 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
-     <link rel="icon" type="image/png" sizes="32x32" href="images/icons/ark-32.png">
-     <link rel="icon" type="image/png" sizes="192x192" href="images/icons/ark-192.png">
-     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/ark-32.png">
+     <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/ark-192.png">
+     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
      <title>About The Ark Bible</title>
 
-     <link rel="stylesheet" type="text/css" href="code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="code/css/html.css">
-     <script async src="code/js/variables.js"></script>
+     <link rel="stylesheet" type="text/css" href="/code/css/variables.css">
+     <link async rel="stylesheet" type="text/css" href="/code/css/html.css">
+     <script async src="/code/js/variables.js"></script>
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
+                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
                     document.getElementById('id-copyrighted').textContent = copyrighted;
+                    let inst = localStorage.getItem('installed');
+                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
+                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
+                    };
                }, 200);
           });
      </script>
@@ -25,9 +30,9 @@
 <body class="cs-noScroll">
      <div class="cs-fixBanner">
           <div class="cs-imgBanner">
-               <img src="images/crystal.webp" class="cs-imgBanner" alt="img">
+               <img loading="lazy" src="/images/headers/crystal.webp" class="cs-imgBanner" alt="img">
                <a class="cs-iconLinkQR cs-imgLogo">
-                    <img async src="images/qr/qr-logo.png" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
+                    <img loading="lazy" src="/images/logos/white-logo-512.png" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
 
                     <span class="cs-logoTitle">About The Ark</span>
                </a>
@@ -58,7 +63,7 @@
                <br>
                <span class="cs-unknown">...God's anonymous servant</span>
           </p>
-          <a class="cs-twfLink" onclick="aClick('twfabout.html');">About the Twenty-First Century Version</a>
+          <a class="cs-twfLink" onclick="aClick('/twfabout.html');">About the Twenty-First Century Version</a>
           <br><br>
           <hr>
           <br>
@@ -67,15 +72,18 @@
                <div>The TWF version is being actively edited and is subject to change daily.</div>
                <div>If you prefer to read other Bible versions, please feel free to do so.</div>
                <div class="cs-northStar">✨</div>
-               <a onclick="aClick('license.html');" class="cs-copyright">
-                    <span>Copyright ©</span>
+               <a onclick="aClick('license.html')" class="cs-copyright">
+                    <span>Copyright&nbsp;©</span>
                     <span id="id-copyrighted">2018-2025</span>
-                    <span class="cs-copySign"> ● </span>
-                    <span>New Hope Ministries </span>
-                    <span class="cs-copySign"> ● </span>
+                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                    <span>New Hope Ministries</span>
+                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
                     <span>MIT License</span>
                </a>
                <br><br>
+               <div id="id-lastEdited">Last Edited:</div>
+               <div id="id-installed">Installed?</div>
+               <br>
           </div>
      </div>
      <br>

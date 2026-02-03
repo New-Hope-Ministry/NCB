@@ -13,17 +13,35 @@ body {
      z-index: 10;
 }
 .cs-hidden { visibility: hidden; }
-.cs-header { position: fixed; left: 0; height: 2rem; width: 100%; background-color: var(--bannerBackground); color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999;}
+
+/* Add Background Image to header*/
+.cs-sunshine { position: fixed; top: 0; left: 0; background-image: url("/images/headers/crystal.png"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; }
+.cs-banner,
+.cs-header,
+.cs-menuBtn { background-color: transparent; }
+/* End Add Background Image to header*/
+
+.cs-header { position: fixed; left: 0; height: 2rem; width: 100%; color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999;}
+
+
 .cs-title { top: 0; height: max-content; padding-left: .8em; font-size: 1.3rem; z-index: 2; }
 .cs-logo { position: fixed; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
 .cs-logoTitle { display: inline-block; position: relative; left: 2em; cursor: pointer; }
 .cs-search { display: flex; cursor: pointer; justify-content: center; align-items: center; position: absolute; color: white; top: 0; right: 5%; height: 1.6rem; width: 1.6rem; line-height: 1.6rem; font-size: 1.6em; padding: .35em; border-radius: 50%; overflow: hidden; z-index: 1; }
 .cs-magnifier { display: flex; cursor: pointer; justify-content: center; align-items: center; rotate: -45deg;color: white; top: 0; z-index: 100; margin: 0; padding: 0; }
-.cs-banner { top: 2rem; text-align: center; border-bottom: 5px solid dimgray;  }
+
+.cs-banner { top: 2rem; text-align: center; border-bottom: 5px solid dimgray; }
+
 .cs-menu { display: flex; position: absolute; left: 0; width: 100%; z-index: 1; }
 .cs-menu1 { position: absolute; left: 50%; transform: translate(-50%); width: max-content; }
-.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; background-color: var(--bannerBackground); color: var(--whiteText); padding: .3em; cursor: pointer; }
+
+.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; color: var(--whiteText); padding: .3em; cursor: pointer; } /* background-color: var(--bannerBackground); */
+
 .cs-menuBtns { padding-right: 2em; }
+
+
+
+
 .cs-pageContainer { width: 100%; z-index: 10; min-height: 100vh; }
 /*.cs-mainPage { min-height: 100vh; }*/
 .cs-mainPage { border-radius: 6px; width: 70%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }

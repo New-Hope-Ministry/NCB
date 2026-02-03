@@ -36,7 +36,6 @@ body {
      left: 0;
      height: 2rem;
      width: 100%;
-     background-color: var(--bannerBackground);
      color: var(--whiteText);
      line-height: 2rem;
      user-select: none;
@@ -45,6 +44,13 @@ body {
 }
 .cs-logo { position: fixed; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
 .cs-logoTitle { display: inline-block; position: relative; left: 1.9em; cursor: pointer; }
+
+/* Add Background Image to header*/
+.cs-sunshine { position: fixed; top: 0; left: 0; background-image: url("/images/headers/crystal.png"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; }
+.cs-banner,
+.cs-header,
+.cs-menuBtn { background-color: transparent; }
+/* End Add Background Image to header*/
 
 .cs-title {
      top: 0;
@@ -75,7 +81,6 @@ body {
      border: none;
      outline: none;
      font-size: 1.1rem;
-     background-color: var(--bannerBackground);
      color: var(--whiteText);
      padding: .3em;
      cursor: pointer;

@@ -5,18 +5,23 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
-     <link rel="icon" type="image/png" sizes="32x32" href="images/icons/ark-32.png">
-     <link rel="icon" type="image/png" sizes="192x192" href="images/icons/ark-192.png">
-     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/ark-32.png">
+     <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/ark-192.png">
+     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
 
      <title>The Ark Bible Copyright Licenses</title>
-     <link rel="stylesheet" type="text/css" href="code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="code/css/html.css">
-     <script async src="code/js/variables.js"></script>
+     <link rel="stylesheet" type="text/css" href="/code/css/variables.css">
+     <link async rel="stylesheet" type="text/css" href="/code/css/html.css">
+     <script async src="/code/js/variables.js"></script>
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
+                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
                     document.getElementById('id-copyrighted').textContent = copyrighted;
+                    let inst = localStorage.getItem('installed');
+                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
+                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
+                    };
                }, 200);
           });
      </script>
@@ -26,10 +31,11 @@
 
      <div class="cs-fixBanner">
           <div class="cs-imgBanner">
-               <img src="images/crystal.webp" class="cs-imgBanner" alt="img">
+               <img loading="lazy" src="/images/headers/crystal.webp" class="cs-imgBanner" alt="img">
                <a class="cs-iconLinkQR cs-imgLogo" onclick="window.location.href = goHome;">
-                    <img async src="images/qr/qr-logo.png" class="cs-iconLink"
+                    <img loading="lazy" src="/images/logos/white-logo-512.png" class="cs-iconLink"
                          title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
+                    <span class="cs-logoTitle">The Ark Licenses</span>
                </a>
           </div>
      </div>
@@ -698,7 +704,7 @@
                <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Young%27s_Literal_Translation">YLT Statement</a>
           </p>
      </div>
-
+     <br><br><br>
      <hr>
      <hr>
      <br><br>
@@ -707,14 +713,16 @@
           <div>The TWF version is being actively edited and is subject to change daily.</div>
           <div class="cs-northStar">✨</div>
           <div style="color: #09b009;">
-               <span>Copyright ©</span>
+               <span>Copyright&nbsp;©</span>
                <span id="id-copyrighted">2018-2025</span>
-               <span class="cs-copySign"> ● </span>
-               <span>New Hope Ministries </span>
-               <span class="cs-copySign"> ● </span>
+               <span class="cs-copySign">&nbsp;●&nbsp;</span>
+               <span>New Hope Ministries</span>
+               <span class="cs-copySign">&nbsp;●&nbsp;</span>
                <span>MIT License</span>
           </div>
           <br><br>
+          <div id="id-lastEdited">Last Edited:</div>
+          <div id="id-installed">Installed?</div>
      </div>
      <br>
 </body>

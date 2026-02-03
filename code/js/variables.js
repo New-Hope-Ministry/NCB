@@ -822,7 +822,7 @@ var languages = [
         "lngc": "hu-HU"
     },
     {
-        "idx": 13,
+        "idx": 12,
         "lid": 53,
         "lng": "Italian - Italiano",
         "lngc": "it-IT"

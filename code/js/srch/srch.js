@@ -55,13 +55,6 @@ var srchVersions = [
         "t": "American Standard Version"
     },
     {
-        "ar": "ASVS",
-        "id": 11,
-        "lid": 34,
-        "rdl": 0,
-        "t": "American Standard Version w/Strong's"
-    },
-    {
         "ar": "AKV",
         "id": 12,
         "lid": 34,
@@ -102,13 +95,6 @@ var srchVersions = [
         "lid": 34,
         "rdl": 0,
         "t": "King James Version"
-    },
-    {
-        "ar": "KJVS",
-        "id": 20,
-        "lid": 34,
-        "rdl": 0,
-        "t": "King James Version w/Strong's"
     },
     {
         "ar": "NWB",
@@ -305,13 +291,6 @@ var srchVersions = [
         "lid": 84,
         "rdl": 0,
         "t": "Spanish Reina Valera Gómez - 2010 - Reina Valera Gómez Española"
-    },
-    {
-        "ar": "SRVS",
-        "id": 64,
-        "lid": 84,
-        "rdl": 0,
-        "t": "Spanish Reina Valera w/Strong's - 1909 - Reina Valera Española con Strong's"
     },
     {
         "ar": "TAB",
@@ -586,7 +565,7 @@ function darkTheme() {
 };
 async function fetchVerses(id) {
 
-     let url = `data/${srchVersions[id].ar}/${srchVersions[id].ar}Verses.json`;
+     let url = `/data/${srchVersions[id].ar}/${srchVersions[id].ar}Verses.json`;
      try {
           const res = await fetch(url);
           if (!res.ok) { throw new Error(res.status); };
