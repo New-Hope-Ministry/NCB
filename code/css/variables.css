@@ -26,3 +26,7 @@
      --gradientDark: #022a69;
 }
 .cs-northStar { font-size: 2em;}
+
+/* Add Background Image to headers */
+     .cs-sunshine { position: fixed; top: 0; left: 0; background-image: url("../../images/headers/crystal.png"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; }
+/* End Add Background Image to header */

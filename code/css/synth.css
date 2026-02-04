@@ -30,12 +30,9 @@ body {
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Add Background Image to header*/
-.cs-sunshine { position: fixed; top: 0; left: 0; background-image: url("/images/headers/crystal.png"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; }
 .cs-banner,
 .cs-header,
 .cs-menuBtn { background-color: transparent; }
-/* End Add Background Image to header*/
 
 .cs-logo { position: fixed; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; cursor: pointer; }
 .cs-logoTitle { display: inline-block; position: relative; left: 2em; cursor: pointer; }
