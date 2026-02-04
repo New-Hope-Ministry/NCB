@@ -77,7 +77,8 @@
 
      <link rel="manifest" href="manifest.webmanifest">
      <link rel="preload" as="image" href="images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="icon" type="image/png" sizes="192x192" href="images/logos/logo-192.png">
+     <link rel="icon" type="image/webp" sizes="192x192" href="images/logos/logo-192.webp">
+     <!--<link rel="icon" type="image/png" sizes="192x192" href="images/logos/logo-192.png">-->
 
      <link rel="stylesheet" type="text/css" href="code/css/variables.css">
      <link rel="stylesheet" type="text/css" href="code/css/index.css">
@@ -300,10 +301,10 @@
      </div>
      <div id="id-noDisplay" class="cs-hidden">
           <div id="id-sunshine" class="cs-sunshine">
-               <img id="logo" src="images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
+               <img id="logo" loading="eager"width="192" height="192" src="images/icons/ark-192.webp" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
                <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
                     <span class="cs-logoTitle" onclick="bClick(goHome)">The Ark Bible</span>
-                    <div id="id-search" class="cs-search" onclick="aClick('/apps/srch.html')" data-nosnippet>
+                    <div id="id-search" class="cs-search" onclick="aClick('apps/srch.html')" data-nosnippet>
                          <div class="cs-magnifier">⚲</div>
                     </div>
                </div>
@@ -340,17 +341,17 @@
                     <div id="id-settings" class="cs-settings" data-nosnippet>
                          <div id="id-col1" class="cs-glossary">
                               <h4 class="cs-glossaryHeaders">Overview</h4>
-                              <a class="cs-glossaryLink" onclick="aClick('about.html')">About The Ark</a>
+                              <a class="cs-glossaryLink" onclick="aClick('pages/about.html')">About The Ark</a>
                               <br><br>
-                              <a class="cs-glossaryLink" onclick="aClick('statement.html')">Statement of Faith</a>
+                              <a class="cs-glossaryLink" onclick="aClick('pages/statement.html')">Statement of Faith</a>
                               <br><br>
-                              <a class="cs-glossaryLink" onclick="aClick('license.html')">Licenses</a>
+                              <a class="cs-glossaryLink" onclick="aClick('pages/license.html')">Licenses</a>
                               <br><br>
-                              <a class="cs-glossaryLink" onclick="aClick('history.html')">Versions History</a>
+                              <a class="cs-glossaryLink" onclick="aClick('pages/history.html')">Versions History</a>
                               <br><br>
-                              <a class="cs-glossaryLink" onclick="aClick('qr.html')" title="The Ark Bible QR Code">Ark QR Code Link</a>
+                              <a class="cs-glossaryLink" onclick="aClick('pages/qr.html')" title="The Ark Bible QR Code">Ark QR Code Link</a>
                               <br><br>
-                              <a class="cs-glossaryLink" onclick="aClick('help.html')" title="Help">Help</a>
+                              <a class="cs-glossaryLink" onclick="aClick('pages/help.html')" title="Help">Help</a>
                          </div>
                          <div id="id-col2" class="cs-glossary">
                               <h4 class="cs-glossaryHeaders">Settings</h4>
