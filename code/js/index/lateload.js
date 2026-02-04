@@ -178,7 +178,7 @@ function synthVoice() {
      if (bid !== null && bid !== 'null') readParams.set('bid', bid);
      if (cn !== null && cn !== 'null') readParams.set('cn', cn);
 
-     let ahref = `../../apps/synth.html?${readParams.toString()}`;
+     let ahref = `apps/synth.html?${readParams.toString()}`;
      if (isLive) { ahref = ahref.replace(".html", ""); };
      window.location.href = ahref;
 };
