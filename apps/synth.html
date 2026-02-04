@@ -9,8 +9,8 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
 
-     <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/ark-32.png">
-     <link rel="icon" type="image/png" sizes="192x192" href="../images/icons/ark-192.png">
+     <link rel="preload" as="image" href="../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
      <link async rel="stylesheet" type="text/css" href="../code/css/variables.css">
@@ -42,7 +42,7 @@
      <div id="top"></div>
 
      <div id="id-sunshine" class="cs-sunshine">
-          <img id="logo" async src="../images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
+          <img id="logo" loading="eager" async src="../images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
 
           <div id="id-header" class="cs-header" onclick="openBox(event)">
                <span class="cs-headerTitle cs-synthTitleHeader cs-logoTitle" onclick="bClick(goHome)">Listen to The Ark Bible</span>
