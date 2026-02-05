@@ -136,8 +136,8 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 @media (min-width: 431px) and (max-width: 540px) {
     .cs-page { margin-top: 2em; width: 90%; }
 }
-@media (max-width: 540px) { .cs-alph { width: 93%; } }
-@media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } .cs-tbl { font-size: .7em; width: 99%; } .cs-iconLink { width:10%; } }
+@media (max-width: 540px) { .cs-alph { width: 93%; } .cs-iconLink { width:10%; } }
+@media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } .cs-tbl { font-size: .7em; width: 99%; } }
 @media (min-width: 541px) and (max-width: 768px) {
     .cs-page { margin-top: 2em; width: 90%; }
 }

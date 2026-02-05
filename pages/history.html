@@ -5,14 +5,19 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
-     <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/ark-32.png">
-     <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/ark-192.png">
-     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+
+     <!-- Pre-fetch -->
+     <link rel="preload" as="image" href="../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="preload" as="image" href="../images/logos/white-logo-512.webp" fetchpriority="high">
+
+     <!-- Favicon & Desktop Icons -->
+     <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
+     <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
      <title>The Ark Bible Versions History</title>
-     <link rel="stylesheet" type="text/css" href="/code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="/code/css/html.css">
-     <script async src="/code/js/variables.js"></script>
+     <link rel="stylesheet" type="text/css" href="../code/css/variables.css">
+     <link async rel="stylesheet" type="text/css" href="../code/css/html.css">
+     <script async src="../code/js/variables.js"></script>
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
@@ -30,9 +35,9 @@
 <body>
      <div class="cs-fixBanner">
           <div class="cs-imgBanner">
-               <img loading="lazy"src="/images/headers/crystal.webp" class="cs-imgBanner" alt="img">
+               <img loading="eager"src="../images/headers/crystal.webp" class="cs-imgBanner" alt="img">
                <a class="cs-iconLinkQR cs-imgLogo" onclick="bClick(goHome);">
-                    <img loading="lazy" src="/images/logos/white-logo-512.png" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
+                    <img loading="eager" src="../images/logos/white-logo-512.webp" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
                     <span class="cs-logoTitle">The Ark Versions History</span>
                </a>
           </div>

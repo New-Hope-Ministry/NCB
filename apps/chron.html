@@ -7,17 +7,20 @@
      <link rel="canonical" href="https://thearkbible.com/chron.html" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
-     <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/ark-32.png">
-     <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/ark-192.png">
-     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+     <!-- Pre-fetch -->
+     <link rel="preload" as="image" href="../images/icons/ark-192.webp" fetchpriority="high">
+
+     <!-- Desktop Icons -->
+     <link rel="icon" href="../images/logos/logo-192.webp" type="image/webp" sizes="192x192">
+     <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
 
-     <link async rel="stylesheet" type="text/css" href="/code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="/code/css/chron.css">
+     <link async rel="stylesheet" type="text/css" href="../code/css/variables.css">
+     <link async rel="stylesheet" type="text/css" href="../code/css/chron.css">
 
-     <script async src="/code/js/variables.js"></script>
-     <script async src="/code/js/chron/chronUtilities.js"></script>
-     <script async src="/code/js/chron/chron.js"></script>
+     <script async src="../code/js/variables.js"></script>
+     <script async src="../code/js/chron/chronUtilities.js"></script>
+     <script async src="../code/js/chron/chron.js"></script>
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
@@ -38,7 +41,7 @@
      <div id="top"></div>
 
      <div id="id-sunshine" class="cs-sunshine">
-          <img loading="lazy" id="logo" src="/images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)"></img>
+          <img loading="eager" id="logo" src="../images/icons/ark-192.webp" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
 
           <div id="id-header" class="cs-header cs-title" onclick="openBox(event)">
                <h1 class="cs-headerTitle cs-chronTitleHeader cs-logoTitle" onclick="bClick(goHome)">Ark Bible 365 Day Chronological Plan</h1>
@@ -85,7 +88,7 @@
                     <div>The TWF version is being actively edited and is subject to change daily.</div>
                     <div>If you prefer to read other Bible versions, please feel free to do so.</div>
                     <div class="cs-northStar">✨</div>
-                    <a onclick="aClick('/license.html')" class="cs-copyright">
+                    <a onclick="aClick('../pages/license.html')" class="cs-copyright">
                          <span>Copyright&nbsp;©</span>
                          <span id="id-copyrighted">2018-2025</span>
                          <span class="cs-copySign">&nbsp;●&nbsp;</span>
