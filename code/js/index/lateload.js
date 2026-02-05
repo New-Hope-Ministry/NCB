@@ -188,7 +188,7 @@ function readChronological() {
      const params = new URLSearchParams(window.location.search);
      const verid = params.get('verid');
 
-     let ahref = `/apps/chron.html?verid=${verid}`;
+     let ahref = `apps/chron.html?verid=${verid}`;
      if (isLive) { ahref = ahref.replace(".html", ""); };
      window.location.href = ahref;
 };
