@@ -8643,7 +8643,7 @@ async function getChapter() {
 async function getVerses() {
 
      let idx = versions.findIndex(rec => rec.id === activeChronVersionID);
-     let url = `/data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
+     let url = `../data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
      activeChronVersionText = `${versions[idx].t} ${versions[idx].ar}`;
 
      try {
