@@ -6,7 +6,11 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
 
+     <!-- Pre-fetch -->
      <link rel="preload" as="image" href="../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="preload" as="image" href="../images/logos/white-logo-512.webp" fetchpriority="high">
+
+     <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
@@ -31,10 +35,10 @@
 <body>
      <div class="cs-fixBanner">
           <div class="cs-imgBanner">
-               <img loading="eager" src="../images/headers/crystal.webp" class="cs-imgBanner" alt="img">
-               <a class="cs-iconLinkQR cs-imgLogo" onclick="bClick(goHome);">
-                    <img loading="eager" src="../images/logos/white-logo-512.png" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
-                    <span class="cs-logoTitle">The Ark Help</span>
+               <img loading="eager" fetchpriority="high" src="../images/headers/crystal.webp" class="cs-imgBanner" alt="img">
+               <a class="cs-iconLinkQR cs-imgLogo" onclick="window.location.href = goHome;">
+                    <img loading="eager" fetchpriority="high" src="../images/logos/white-logo-512.webp" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
+                    <span class="cs-logoTitle">The Ark Licenses</span>
                </a>
           </div>
      </div>
@@ -52,7 +56,7 @@
           <br><br>
           <hr>
           <p id="id-LocalStorage">
-               <span class="cs-title">1. Local Storage</span><br> ⚖️--- If you decide to let The Ark Bible store files locally, all the support files for the application will be stored locally in your browser cache as each page, such as this Help page is accessed. All the version files will be stored locally as you change Bible versions. The first time you use a Bible version listed in the Versions menu or open another page that is part of the app, it will require an internet connection. Once you have accessed a version or another page within the app for the first time, it will also be stored locally. Once stored all version and operational files required by the app will be stored locally with an active internet connection, it will be available offline for future use without an internet connection. After being saved locally the app will not require an internet connection, unless you try to access a version of the Bible that has not yet been saved locally, and it will operate much more efficiently. All of the functional files to make The Ark Bible operational requires approximately 90kb of local storage space. Each version of the Bible for The Ark Bible requires approximately 1.6MB of local storage space. If you went through the entire Versions menu and stored each of the versions locally, it would require approximately 110MB of local storage space. Each version is only stored once, and you must have an active internet connection the first time you access a version. If you decide not to allow files to be stored locally, the app will require an internet connection every time you run it. All this can be reset by either clicking the Reset Defaults link on the main page, or deleting your browser history, and all files will be deleted. If you want to use the app after clicking Reset Defaults or clearing the browser history, all files will have to be downloaded again. If you choose not to allow files to be stored locally, the app will require an internet connection, and all files will have to be downloaded each time the app is used, which will increase bandwidth transfer from the server. Storing the files locally will drastically reduce internet bandwidth usage, which will help spread God's word, because internet bandwidth can be expensive, so please help us spread God's word, and store files locally.
+               <span class="cs-title">1. Local Storage</span><br> ⚖️--- If you decide to let The Ark Bible store files locally, all the support files for the application will be stored locally in your browser cache as each page, such as this Help page is accessed. All the version files will be stored locally as you change Bible versions. The first time you use a Bible version listed in the Versions menu or open another page that is part of the app, it will require an internet connection. Once you have accessed a version or another page within the app for the first time, it will also be stored locally. Once stored all version and operational files required by the app will be stored locally with an active internet connection, it will be available offline for future use without an internet connection. After being saved locally the app will not require an internet connection, unless you try to access a version of the Bible that has not yet been saved locally, and it will operate much more efficiently. All of the functional files to make The Ark Bible operational requires approximately 90kb of local storage space. Each version of the Bible for The Ark Bible requires approximately 1.6MB of local storage space. If you went through the entire Versions menu and stored each of the versions locally, it would require approximately 110MB of local storage space. Each version is only stored once, and you must have an active internet connection the first time you access a version. If you decide not to allow files to be stored locally, the app will require an internet connection every time you run it. All this can be reset by either clicking the Reset Defaults link on the main page, or deleting your browser history, and all files will be deleted. If you want to use the app after clicking Reset Defaults or clearing the browser history, all files will have to be downloaded again. If you choose not to allow files to be stored locally, the app will require an internet connection, and all files will have to be downloaded each time the app is used.
           </p>
           <br>
           <hr>

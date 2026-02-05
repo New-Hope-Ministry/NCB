@@ -76,8 +76,14 @@
      </style>
 
      <link rel="manifest" href="manifest.webmanifest">
+
+     <!-- Pre-fetch -->
      <link rel="preload" as="image" href="images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="icon" type="image/webp" sizes="192x192" href="images/logos/logo-192.webp">
+     <link rel="preload" as="image" href="images/icons/ark-192.webp" fetchpriority="high">
+
+     <!-- Desktop Icons -->
+     <link rel="icon" href="images/logos/logo-192.webp" type="image/webp" sizes="192x192">
+     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
      <!--<link rel="icon" type="image/png" sizes="192x192" href="images/logos/logo-192.png">-->
 
      <link rel="stylesheet" type="text/css" href="code/css/variables.css">
@@ -300,8 +306,9 @@
           <div class="cs-loader">✝</div>
      </div>
      <div id="id-noDisplay" class="cs-hidden">
+
           <div id="id-sunshine" class="cs-sunshine">
-               <img id="logo" loading="eager" width="192" height="192" src="images/icons/ark-192.webp" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <img id="logo" loading="eager" fetchpriority="high" width="192" height="192" src="images/icons/ark-192.webp" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
                <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
                     <span class="cs-logoTitle" onclick="bClick(goHome)">The Ark Bible</span>
                     <div id="id-search" class="cs-search" onclick="aClick('apps/srch.html')" data-nosnippet>
