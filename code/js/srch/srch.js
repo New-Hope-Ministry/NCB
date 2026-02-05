@@ -565,7 +565,7 @@ function darkTheme() {
 };
 async function fetchVerses(id) {
 
-     let url = `/data/${srchVersions[id].ar}/${srchVersions[id].ar}Verses.json`;
+     let url = `../data/${srchVersions[id].ar}/${srchVersions[id].ar}Verses.json`;
      try {
           const res = await fetch(url);
           if (!res.ok) { throw new Error(res.status); };
