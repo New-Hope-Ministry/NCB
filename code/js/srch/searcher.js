@@ -232,7 +232,7 @@
                if (bid !== null && bid !== 'null') readParams.set('bid', bid);
                if (cn !== null && cn !== 'null') readParams.set('cn', cn);
                if (vh !== null && vh !== 'null') readParams.set('vh', vh);
-               const readhref = `/?${readParams.toString()}`;
+               const readhref = `../?${readParams.toString()}`;
                bClick(readhref);
           };
           return true;
