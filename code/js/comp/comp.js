@@ -336,20 +336,12 @@ async function setFontSize() {
 
 
 function testRemover() {
-     localStorage.removeItem('activeFontSizeCount');
-     localStorage.removeItem('activeFontSize');
-     localStorage.removeItem('activeBookID');
-     localStorage.removeItem('activeChapterID');
-     localStorage.removeItem('activeLanguageID');
-     localStorage.removeItem('activeLanguage1ID');
-     localStorage.removeItem('activeVersionID');
-     localStorage.removeItem('activeVersion1ID');
-     localStorage.removeItem('redLetter');
-     localStorage.removeItem('setTheme');
-     removeQueryParam('vh');
-     removeQueryParam('bid');
-     removeQueryParam('cn');
-     removeQueryParam('lid');
-     removeQueryParam('verid');
-     removeQueryParam('verid1');
+     const keys = [
+          'activeFontSizeCount', 'activeFontSize', 'activeBookID', 'activeChapterID',
+          'activeLanguageID', 'activeLanguage1ID', 'activeVersionID', 'activeVersion1ID',
+          'lastCacheCheck', 'paragraphLayout', 'redLetter', 'setTheme', 'installed',
+          'savedLocal', 'chapter', 'version', 'day'
+     ];
+     keys.forEach(k => localStorage.removeItem(k));
+     ['vh', 'bid', 'cn', 'lid', 'verid', 'verid1'].forEach(removeQueryParam);
 };

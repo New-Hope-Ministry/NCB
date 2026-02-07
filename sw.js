@@ -13,8 +13,8 @@ const urlsToCache = [
      'code/css/lateload.css',
      'code/css/media.css',
      'code/css/variables.css',
-     'code/js/index.js',
-     'code/js/utilities.js',
+     'code/js/index/index.js',
+     'code/js/index/utilities.js',
      'code/js/variables.js',
 ];
 

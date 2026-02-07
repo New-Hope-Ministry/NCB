@@ -59,7 +59,7 @@ body {
 .cs-headline,
 .cs-bottomLine { height: 1.5rem; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.35rem; }
 .cs-headline { line-height: 1.5rem; text-align: center; color: var(--headlineColor); }
-.cs-searchPage { text-align: justify; margin: auto; margin-top: 2.5em; width: 80%; }
+.cs-searchPage { text-align: justify; margin: auto; margin-top: 1.5em; width: 80%; }
 .cs-bottom { bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%); z-index: 2; }
 .cs-hrCopyright { width: 98%; margin-left: auto; margin-right: auto; }
 .cs-GodLovesYou { position: relative; text-align: center; width: 80%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; color: var(--whiteText); }
@@ -96,6 +96,7 @@ body {
 .cs-searchChapter:hover { color: #b20303; cursor: pointer; }
 .cs-searchResults { font-size: 1.2rem; text-decoration: underline; color: var(--lightMaroonEmphasis); }
 .cs-noResults { color: var(--greenEmphasis) }
+.cs-resultCount { width: 90%; margin:auto; text-align: center; }
 
 .cs-searchResults:hover { color: red; cursor: pointer; }
 .cs-version:hover,

@@ -14,6 +14,7 @@ var pastSrchSelectedVersionID = null;
 var pastSrchSelectedLanguageID = null;
 
 var srchBoxesAreOpen = false;
+var searchSettingsOpen = false;
 var searchIndex = null;
 var setSrchTheme = '0';
 
@@ -614,6 +615,7 @@ function locateBox(topBox, nextBox, mrgn = 0) {
      };
 };
 function openBox(e = null) {
+
 
     e.preventDefault();
     e.stopPropagation();

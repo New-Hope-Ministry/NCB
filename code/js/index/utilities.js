@@ -219,22 +219,10 @@ function resetDefaults() {
      rotateTheme = false;
      changeTheme();
      theme.textContent = "☀️";
-     if (theme.classList.contains('cs-darkTheme')) {
-          theme.classList.remove('cs-darkTheme');
-     };
+     if (theme.classList.contains('cs-darkTheme')) { theme.classList.remove('cs-darkTheme'); };
      rotateTheme = true;
      changeFontSize('d');
-     localStorage.removeItem('activeFontSizeCount');
-     localStorage.removeItem('activeFontSize');
-     localStorage.removeItem('activeBookID');
-     localStorage.removeItem('activeChapterID');
-     localStorage.removeItem('activeLanguageID');
-     localStorage.removeItem('activeLanguage1ID');
-     localStorage.removeItem('activeVersionID');
-     localStorage.removeItem('activeVersion1ID');
-     localStorage.removeItem('lastCacheCheck');
-     localStorage.removeItem('redLetter');
-     localStorage.removeItem('setTheme');
+     resetKeys();
 
      paragraphLayoutDefault = 0;
      redLetterDefault = 0;
@@ -255,20 +243,15 @@ function resetDefaults() {
      selected(activeChapterID, 'id-chapters');
      selected(`id-lang${activeLanguageID}`, 'id-chapters');
 
-     removeQueryParam('vh');
-     removeQueryParam('verid1');
      setQuerystring('bid', 1);
      setQuerystring('cn', 1);
      setQuerystring('lid', activeLanguageID);
      setQuerystring('verid', activeVersion);
-     document.getElementById('id-MenuBtn4').textContent = '1:';
-     localStorage.removeItem('paragraphLayout');
 
+     document.getElementById('id-MenuBtn4').textContent = '1:';
      document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
      document.getElementById('id-redLetter').textContent = 'Red Letter';
      document.getElementById(defaultVersionID).classList.add('cs-bvSelected');
-     //document.getElementById('id-book1').classList.add('cs-bvSelected');
-     //document.getElementById('id-chapter1').classList.add('cs-bvSelected');
 
      pastSelectedLanguageID = defaultLanguageID;
      pastSelectedVersionID = defaultVersionID;
@@ -277,6 +260,17 @@ function resetDefaults() {
      pastSelectedVerseID = selectedVerseID;
 
      document.getElementById('top').scrollIntoView({ block: 'start' });
+};
+
+function resetKeys() {
+     const keys = [
+          'activeFontSizeCount', 'activeFontSize', 'activeBookID', 'activeChapterID',
+          'activeLanguageID', 'activeLanguage1ID', 'activeVersionID', 'activeVersion1ID',
+          'lastCacheCheck', 'paragraphLayout', 'redLetter', 'setTheme', 'installed',
+          'savedLocal', 'chapter', 'version', 'day'
+     ];
+     keys.forEach(k => localStorage.removeItem(k));
+     ['vh', 'bid', 'cn', 'lid', 'verid', 'verid1'].forEach(removeQueryParam);
 };
 
 function selected(id, container, reset = null) {
@@ -410,27 +404,3 @@ function unHighlight() {
           };
      };
 // End of client Side serviceworker code.
-
-
-
-
-// To be removed later
-     function testRemover() {
-          localStorage.removeItem('activeFontSizeCount');
-          localStorage.removeItem('activeFontSize');
-          localStorage.removeItem('activeBookID');
-          localStorage.removeItem('activeChapterID');
-          localStorage.removeItem('activeLanguageID');
-          localStorage.removeItem('activeLanguage1ID');
-          localStorage.removeItem('activeVersionID');
-          localStorage.removeItem('activeVersion1ID');
-          localStorage.removeItem('redLetter');
-          localStorage.removeItem('setTheme');
-          removeQueryParam('vh');
-          removeQueryParam('bid');
-          removeQueryParam('cn');
-          removeQueryParam('lid');
-          removeQueryParam('verid');
-          removeQueryParam('verid1');
-     };
-// End to be removed later

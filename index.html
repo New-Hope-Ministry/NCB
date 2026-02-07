@@ -279,21 +279,14 @@
      <script>
           document.addEventListener("DOMContentLoaded", function () {
                setTimeout(function () {
+                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
                     document.getElementById('id-copyrighted').textContent = copyrighted;
                     let inst = localStorage.getItem('installed');
                     if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
                          document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
                     };
-               }, 300);
+               }, 200);
           });
-          const isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
-          if (isAppleDevice) {
-               const link = document.createElement('link');
-               link.rel = 'apple-touch-icon';
-               link.sizes = '180x180';
-               link.href = '/images/icons/apple-touch-icon.png';
-               document.head.appendChild(link);
-          };
      </script>
 
 </head>
@@ -356,7 +349,7 @@
                               <br><br>
                               <a class="cs-glossaryLink" onclick="aClick('pages/history.html')">Versions History</a>
                               <br><br>
-                              <a class="cs-glossaryLink" onclick="aClick('pages/qr.html')" title="The Ark Bible QR Code">Ark QR Code Link</a>
+                              <a class="cs-glossaryLink" onclick="aClick('pages/qr.html')" title="The Ark Bible QR Code">Scan QR Code</a>
                               <br><br>
                               <a class="cs-glossaryLink" onclick="aClick('pages/help.html')" title="Help">Help</a>
                          </div>
@@ -404,6 +397,7 @@
                               <span>MIT License</span>
                          </a>
                          <br><br>
+                         <div id="id-lastEdited">Last Edited:</div>
                          <div id="id-installed">Installed?</div>
                     </div>
                </div>

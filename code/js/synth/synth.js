@@ -409,7 +409,6 @@ async function getDefaults() {
      //  The default setTheme is '0', which is the light theme.
      //  The default activeFontSize is 1.06
 
-     //testRemover();
      const params = new URLSearchParams(window.location.search);
 
      let ltr = localStorage.getItem('redLetter');

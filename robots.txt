@@ -3,5 +3,5 @@ Disallow: /code/
 Disallow: /images/
 Disallow: /data/
 Allow: /
-Allow: /data/TWF/TWF.json
+Disallow: /data/TWF/TWF.json
 Sitemap: https://thearkbible.com/sitemap.xml
