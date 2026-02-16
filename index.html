@@ -7,18 +7,6 @@
      <link rel="canonical" href="https://thearkbible.com/index.html" />
      <base href="./">
 
-     <script>
-
-          function translatePage(targetLang) {
-               const url = "https://translate.google.com/translate?sl=auto&tl=" +
-                         targetLang +
-                         "&u=" +
-                         encodeURIComponent(window.location.href);
-               window.location.href = url;
-          };
-          translatePage("fr"); // Example: translate to French
-
-     </script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta name="description" content="☀️ The Ark Bible App is an online searchable Bible App. It offers the Bible in many different versions and languages, and a 365 day chronological reading plan.">
      <meta name="keywords" content="God, Lord, God's Love, Jehovah, Jesus, Ark Bible, The Ark Bible, Bible, Bible App, Bible Archive, Bible Reference, Bible Study, Christ, Christian, Forgiveness, Free Bible, Holy Bible, Read the Bible, Searchable Bible, Search The Bible,, Salvation, Savior, Scripture, Holy Scripture, Study Bible, Study The Bible, King James Version, KJV, Twenty-First Century Version, TWF, Bible 365 day Chronological Reading Plan">
@@ -290,6 +278,11 @@
 
      <script>
           document.addEventListener("DOMContentLoaded", function () {
+               function translatePage(targetLang) {
+                    const url = "https://translate.google.com/translate?sl=auto&tl=" + targetLang + "&u=" + encodeURIComponent(window.location.href);
+                    window.location.href = url;
+               };
+               translatePage("fr"); // Example: translate to French
                setTimeout(function () {
                     document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
                     document.getElementById('id-copyrighted').textContent = copyrighted;
