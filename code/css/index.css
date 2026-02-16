@@ -18,7 +18,7 @@ body {
 .cs-header,
 .cs-menuBtn { background-color: transparent; }
 
-.cs-header { position: fixed; left: 0; height: 2rem; width: 100%; color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999;}
+.cs-header { position: fixed; left: 0; height: 2rem; width: 100%; color: var(--whiteText); line-height: 2rem; user-select: none; overflow: hidden; z-index: 999; }
 
 
 .cs-title { top: 0; height: max-content; padding-left: .8em; font-size: 1.3rem; z-index: 2; }
@@ -32,15 +32,10 @@ body {
 .cs-menu { display: flex; position: absolute; left: 0; width: 100%; z-index: 1; }
 .cs-menu1 { position: absolute; left: 50%; transform: translate(-50%); width: max-content; }
 
-.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; color: var(--whiteText); padding: .3em; cursor: pointer; } /* background-color: var(--bannerBackground); */
-
+.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; color: var(--whiteText); padding: .3em; cursor: pointer; }
 .cs-menuBtns { padding-right: 2em; }
 
-
-
-
 .cs-pageContainer { width: 100%; z-index: 10; min-height: 100vh; }
-/*.cs-mainPage { min-height: 100vh; }*/
 .cs-mainPage { border-radius: 6px; width: 70%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
 .cs-headline,
 .cs-bottomLine { height: max-content; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.25rem; color: var(--headlineColor); }
@@ -55,7 +50,6 @@ body {
 .cs-bottomTitleLine { width: max-content; }
 .cs-readRandom { display: none; }
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #ba0e0e; color: navajowhite; border-radius: 6px; padding: .8em; }
-
 
 .cs-bottom { bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 20%, var(--gradientDark) 90%); z-index: 5; }
 .cs-settings { display: flex; justify-content: space-evenly; bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; padding-left: .8em; background-color: var(--bannerBackground); z-index: 0; }

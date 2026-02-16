@@ -1,6 +1,6 @@
 html { font-size: 110%; }
 html,
-body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; overflow-y: scroll; z-index: 10;background-color: var(--bodyBackground); color: var(--blackText); }
+body { position: relative; margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; overflow-y: scroll; z-index: 10; background-color: var(--bodyBackground); color: var(--blackText); }
 
 p { font-size: 1.06rem; }
 
@@ -54,7 +54,6 @@ p { font-size: 1.06rem; }
 .cs-copyright { color: navy; text-decoration: underline; }
 .cs-copyright,
 .cs-copyright:visited { cursor: pointer; }
-
 .cs-copyright:hover { color: var(--paleMaroonEmphasis); }
 
 .cs-copySign { font-size: .75em; }
