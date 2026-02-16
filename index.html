@@ -278,11 +278,7 @@
 
      <script>
           document.addEventListener("DOMContentLoaded", function () {
-               function translatePage(targetLang) {
-                    const url = "https://translate.google.com/translate?sl=auto&tl=" + targetLang + "&u=" + encodeURIComponent(window.location.href);
-                    window.location.href = url;
-               };
-               translatePage("fr"); // Example: translate to French
+               
                setTimeout(function () {
                     document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
                     document.getElementById('id-copyrighted').textContent = copyrighted;
