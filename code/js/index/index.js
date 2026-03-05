@@ -9,6 +9,32 @@ document.addEventListener("DOMContentLoaded", async () =>  {
      if (rec) { rec = false; rec = await getMenus(); };
 });
 
+window.addEventListener("load", async () => {
+     // load event fires after page is displayed
+     document.getElementById("id-loaderContainer").style.display = 'none';
+     document.getElementById('id-noDisplay').classList.remove('cs-hidden');
+     document.getElementById('id-noDisplay').style.visibility = 'visible';
+
+     if (!paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
+     } else { if (paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Line Layout'; } };
+     if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+     document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+     document.getElementById('id-copyrighted').textContent = copyrighted;
+     if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+
+     if (savedLocal) {
+          if (navigator.onLine) {
+               if ('requestIdleCallback' in window) {
+                    requestIdleCallback(triggerCacheCheck);
+               } else {
+                    setTimeout(() => {
+                         triggerCacheCheck();
+                    }, 3000);
+               };
+          };
+     } else { document.getElementById("id-end").style.display = 'block'; };
+});
+
 async function loadBoxes() {
      loadVersions(changeVersion);
      loadBooks(changeBook);

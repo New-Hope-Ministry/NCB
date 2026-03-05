@@ -27,41 +27,8 @@
      <link rel="stylesheet" type="text/css" href="../code/css/shared/boxes.css">
      <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
-     <script defer src="../code/js/z-shared/shared.js"></script>
-     <script defer src="../code/js/z-shared/boxes.js"></script>
-
-     <script id="id-DOMContentLoaded">
-
-          document.addEventListener("DOMContentLoaded", async () =>  {
-               // DOMContentLoaded event fires before page is displayed
-
-               console.log("DOMContentLoaded");
-               let rec = false;
-               fetchPrefix = '../';
-               rec = await getDefaults();
-               if (rec) { rec = false; rec = await getVersion(); };
-               // getMenus is in shared.js, but it calls setMenu in this apps scripts
-               if (rec) { if (setTheme === '1') { darkTheme(); rotateTheme = false; }; startUp(); getMenus(); };
-          });
-     </script>
-
-     <script id="id-loadBoxes">
-          window.addEventListener("load", async () => {
-               // load event fires after page is displayed
-
-               document.getElementById("id-loaderContainer").style.display = 'none';
-               document.getElementById('id-noDisplay').classList.remove('cs-hidden');
-               document.getElementById('id-noDisplay').style.visibility = 'visible';
-
-               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
-               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-               document.getElementById('id-copyrighted').textContent = copyrighted;
-               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
-
-          });
-     </script>
-
      <script id="id-initialize">
+
           async function loadBoxes() {
                loadVersions(changeVersion);
                loadBooks(changeBook);
@@ -220,6 +187,24 @@
                };
                return true;
           };
+
+     </script>
+
+     <script defer src="../code/js/z-shared/shared.js"></script>
+     <script defer src="../code/js/z-shared/boxes.js"></script>
+     <script defer src="../code/js/z-shared/loadAppEvents.js"></script>
+
+     <script id="id-loadEvents">
+
+          document.addEventListener("DOMContentLoaded", async () =>  {
+               // DOMContentLoaded event fires before page is displayed
+               let rec = false;
+               fetchPrefix = '../';
+               rec = await getDefaults();
+               if (rec) { rec = false; rec = await getVersion(); };
+               if (rec) { getMenus(); };
+          });
+
      </script>
 
 </head>
@@ -227,11 +212,7 @@
 <body id="id-body">
 
      <!-- Remove Visibility: hidden-->
-     <div id="id-loaderContainer">
-          <div id="id-northStarLoader">✨</div>
-          <h1 id="id-loaderTitle">The Ark Bible</h1>
-          <div id="id-loading">✝</div>
-     </div>
+     <div id="id-loader"> </div>
 
      <div id="id-noDisplay" onclick="openBoxes(event); unHighlight(event)">
 
