@@ -601,6 +601,7 @@ async function loadBoxes() {
      loadVersions();
      return true;
 };
+
 function locateBox(topBox, nextBox, mrgn = 0) {
      const firstDiv = document.getElementById(topBox);
      const secondDiv = document.getElementById(nextBox);
@@ -614,6 +615,7 @@ function locateBox(topBox, nextBox, mrgn = 0) {
           secondDiv.style.top = `${firstDivBottom}px`;
      };
 };
+
 function openBox(e = null) {
 
 

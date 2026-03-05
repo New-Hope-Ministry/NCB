@@ -32,13 +32,15 @@
                const docId = doc.vid;
                const text = doc.vt;
                const words = text.split(/\W+/);
-               words.forEach(word => {
-                    const stemmedWord = stemmer(word);
-                    if (!invertedIndex[stemmedWord]) {
-                         invertedIndex[stemmedWord] = [];
-                    };
-                    invertedIndex[stemmedWord].push(docId);
-               });
+               try {
+                    words.forEach(word => {
+                         const stemmedWord = stemmer(word);
+                         if (!invertedIndex[stemmedWord]) {
+                              invertedIndex[stemmedWord] = [];
+                         };
+                         invertedIndex[stemmedWord].push(docId);
+                    });
+               } catch { console.log(docId); };
           });
           return invertedIndex;
      };

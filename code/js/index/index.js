@@ -58,6 +58,7 @@ function darkTheme() {
      document.documentElement.style.setProperty('--gradientLight', '#5d656e');
      document.documentElement.style.setProperty('--gradientDark', '#010914');
      document.documentElement.style.setProperty('--darkGrayEmphasis', '#969595ff');
+
      document.documentElement.style.setProperty('--blueVerse', '#709cdf')
      document.getElementById('id-endLine').style.color = '#010914';
 };
