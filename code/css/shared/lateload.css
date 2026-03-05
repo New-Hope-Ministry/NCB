@@ -1,0 +1,50 @@
+/* Hovers */
+     .cs-menuBtn:hover,
+     .cs-endBtn:hover,
+     .cs-moreSearchResults:hover,
+     .cs-searchChapter:hover,
+     #id-navLastChapter:hover,
+     #id-navNextChapter:hover { color: #b20303; cursor: pointer; }
+
+     .cs-adjustFont1:hover,
+     #id-theme:hover { background-color: #82b4fe; color: white; cursor: pointer; }
+
+     .cs-glossaryLink:hover,
+     .cs-link2:hover,
+     .cs-link3:hover,
+     #id-adjustFont:hover,
+     #id-blueLetterPlan:hover,
+     #id-copyright:hover,
+     #id-paragraphLayout:hover,
+     #id-redLetter:hover,
+     #id-resetDefaults:hover,
+     #id-themeNote:hover { color: var(--paleMaroonEmphasis); }
+
+     #id-iconLink:hover,
+     #id-logoImg:hover { background-color: #eeeea5; }
+
+     .cs-linkBtn:hover,
+     #id-comp:hover,
+     #id-listen:hover,
+     #id-readChron:hover,
+     #id-restart:hover,
+     #id-randomChapter:hover,
+     #id-searchBtn:hover { background-color: #706f6f; color: white;  outline: 3px solid #d40505; cursor: pointer; }
+
+     #id-sortBook:hover { background-color: #dedbdb; outline: 3px solid #f5f5c1; }
+     #id-sortBookHelp:hover { background-color: #dedbdb; outline: 3px solid #f0f03d; }
+
+     .cs-book:hover,
+     .cs-chapter:hover,
+     .cs-chronChapter:hover,
+     .cs-day:hover,
+     .cs-verse:hover,
+     .cs-version:hover { background-color: #8e8c8c; color: white; }
+/* End of Hovers */
+
+/* Selected text */
+::selection { background-color: #4180de; color: white; }
+
+/* Visited */
+
+#id-copyright:visited { color: var(--lightMaroonEmphasis); }

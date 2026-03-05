@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <title>The Ark Bible</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <base href="./">
+
+     <style id="id-loaderStyle">
+          #id-loaderContainer { position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: #2b317f; }
+          #id-northStarLoader { position: fixed; top: 15%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5em; }
+          #id-loaderTitle { position: absolute; top: 20%; width: 100%; min-width: max-content; text-align: center; color: white; font-size: 3em; }
+          #id-loading { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); border: 8px solid var(--mediumGray); border-top: 8px solid var(--lightMaroonEmphasis); border-radius: 50%; background-color: var(--lightMaroonEmphasis); color: white; text-align: center; width: 2em; height: 2em; animation: spin 1.5s linear infinite; }
+          @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+          @media (max-width: 668px) { #id-loaderTitle { font-size: 2em;} }
+     </style>
+
+     <!-- Pre-fetch -->
+     <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/icons/ark-192.webp" fetchpriority="high">
+
+     <!-- Favicon & Desktop Icons -->
+     <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
+     <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
+
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/boxes.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
+
+     <script defer src="../code/js/z-shared/shared.js"></script>
+     <script defer src="../code/js/z-shared/boxes.js"></script>
+
+     <script id="id-DOMContentLoaded">
+
+          document.addEventListener("DOMContentLoaded", async () =>  {
+               // DOMContentLoaded event fires before page is displayed
+
+               console.log("DOMContentLoaded");
+               let rec = false;
+               fetchPrefix = '../';
+               rec = await getDefaults();
+               if (rec) { rec = false; rec = await getVersion(); };
+               // getMenus is in shared.js, but it calls setMenu in this apps scripts
+               if (rec) { if (setTheme === '1') { darkTheme(); rotateTheme = false; }; startUp(); getMenus(); };
+          });
+     </script>
+
+     <script id="id-loadBoxes">
+          window.addEventListener("load", async () => {
+               // load event fires after page is displayed
+
+               document.getElementById("id-loaderContainer").style.display = 'none';
+               document.getElementById('id-noDisplay').classList.remove('cs-hidden');
+               document.getElementById('id-noDisplay').style.visibility = 'visible';
+
+               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-copyrighted').textContent = copyrighted;
+               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+
+          });
+     </script>
+
+     <script id="id-initialize">
+          async function loadBoxes() {
+               loadVersions(changeVersion);
+               loadBooks(changeBook);
+               loadChapters(changeChapter);
+               loadVerses(findVerse, 50);
+               startUp();
+               boxesLoaded = true;
+               return true;
+          };
+
+          async function getDefaults() {
+
+               const params = new URLSearchParams(window.location.search);
+               let vh = params.get('vh');
+               if (vh) { selectedVerseID = `id-verse${vh}`; };
+
+               let verid = params.get('verid');
+               if (verid) { activeVersionID = `id-version${verid}`; };
+               if (!activeVersionID) { activeVersionID = localStorage.getItem("activeVersionID"); };
+               if (!activeVersionID) { activeVersionID = defaultVersionID };
+
+               let bid = params.get('bid');
+               if (bid) { activeBookID = `id-book${bid}`; };
+               if (!activeBookID) { activeBookID = localStorage.getItem("activeBookID"); };
+               if (!activeBookID) { activeBookID = defaultBookID; };
+
+               let cn = params.get('cn');
+               if (cn) { activeChapterID = `id-chapter${cn}`; };
+               if (!activeChapterID) { activeChapterID = localStorage.getItem("activeChapterID"); };
+               if (!activeChapterID) { activeChapterID = defaultChapterID; };
+
+               await getDesignDefaults();
+               return true;
+          };
+
+          async function openBoxes(e = null) {
+
+               stopBubbles(e);
+               let ID = e.target.id;
+               let id = null;
+
+               if (!boxesLoaded) { await loadBoxes(); };
+               let check = await checkID(ID);
+               if (check) { return; };
+
+               const params = new URLSearchParams(window.location.search);
+               let vh = params.get('vh');
+               if (vh) { selectedVerseID = `id-verse${vh}`; };
+
+               switch (ID) {
+                    case "id-MenuBtn1":
+                         id = 'id-versions';
+                         document.getElementById(id).style.display = 'block';
+                         document.getElementById(activeVersionID).scrollIntoView({ block: 'center' });
+                         break;
+                    case "id-MenuBtn2":
+                         id = 'id-books';
+                         document.getElementById(id).style.display = 'block';
+                         document.getElementById(activeBookID).scrollIntoView({ block: 'center' });
+                         break;
+                    case "id-MenuBtn3":
+                         id = 'id-chapters';
+                         document.getElementById(id).style.display = 'block';
+                         document.getElementById(activeChapterID).scrollIntoView({ block: 'center' });
+                         break;
+                    case "id-MenuBtn4":
+                         id = 'id-verses';
+                         document.getElementById(id).style.display = 'block';
+                         if (vh) { selectedVerseID = `id-verse${vh}`; };
+                         if (selectedVerseID) {
+                              selected(selectedVerseID, 'id-verses');
+                              document.getElementById(selectedVerseID).scrollIntoView({ block: 'center' });
+                         } else {
+                              document.getElementById('id-verseLine1').scrollIntoView({ block: 'center' });
+                         };
+                         break;
+                    default:
+                         break;
+               };
+               if (boxesAreOpen) { closeBoxes(); } else { boxesAreOpen = true; };
+          };
+
+          function selected(id, container, reset = null) {
+
+               let unselected = null;
+
+               switch (container) {
+                    case "id-versions":
+                         unselected = pastSelectedVersionID;
+                         pastSelectedVersionID = id;
+                         break;
+                    case "id-books":
+                         unselected = pastSelectedBookID;
+                         pastSelectedBookID = id;
+                         break;
+                    case "id-chapters":
+                         unselected = pastSelectedChapterID;
+                         pastSelectedChapterID = id;
+                         break;
+                    case "id-verses":
+                         unselected = pastSelectedVerseID;
+                         pastSelectedVerseID = id;
+                         if (id === 'id-verse0') { id = null; };
+                         break;
+               };
+               let div = document.getElementById(unselected);
+               if (unselected) { if (div) { div.classList.remove('cs-bvSelected'); }; };
+               let div1 = document.getElementById(id);
+               if (id && !reset) { if (div1) { div1.classList.add('cs-bvSelected'); }; };
+          };
+
+          function setMenu(ID) {
+
+               let val;
+               switch (ID) {
+                    case "id-MenuBtn1":
+                         let vrsn1 = Number(activeVersionID.slice('id-version'.length));
+                         val = getVersionsABR(vrsn1);
+                         break;
+                    case "id-MenuBtn2":
+                         let bid = Number(activeBookID.slice("id-book".length));
+                         val = getBookTitle(bid);
+                         break;
+                    case "id-MenuBtn3":
+                         val = `${Number(activeChapterID.slice("id-chapter".length))}:`;
+                         break;
+                    case "id-MenuBtn4":
+                         if (selectedVerseID) {
+                              val = `${Number(selectedVerseID.slice("id-verse".length))}`;
+                         } else { val = '1'; }
+                         break;
+                    default:
+                         break;
+               };
+               return val;
+          };
+
+          async function startUp() {
+
+               let id = null;
+
+               if (activeVersionID) {
+                    id = Number(activeVersionID.slice("id-version".length));
+                    setQuerystring('verid', id);
+                    selected(activeVersionID, 'id-versions');
+               };
+               if (activeBookID) {
+                    id = Number(activeBookID.slice("id-book".length));
+                    setQuerystring('bid', id);
+                    selected(activeBookID, 'id-books');
+               };
+               if (activeChapterID) {
+                    id = Number(activeChapterID.slice("id-chapter".length));
+                    setQuerystring('cn', id);
+                    selected(activeChapterID, 'id-chapters');
+               };
+               return true;
+          };
+     </script>
+
+</head>
+
+<body id="id-body">
+
+     <!-- Remove Visibility: hidden-->
+     <div id="id-loaderContainer">
+          <div id="id-northStarLoader">✨</div>
+          <h1 id="id-loaderTitle">The Ark Bible</h1>
+          <div id="id-loading">✝</div>
+     </div>
+
+     <div id="id-noDisplay" onclick="openBoxes(event); unHighlight(event)">
+
+          <div id="id-sunshine">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <div id="id-banner" onclick="openBoxes(event); unHighlight(event)">
+                    <div id="id-appTitle">The Ark Bible Template Page</div>
+                    <div id="id-rightIcon" data-nosnippet>❤️</div>
+                    <div id="id-menu">
+                         <button id="id-MenuBtn1" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
+                         <button id="id-MenuBtn2" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Book" translate="no">Genesis</button>
+                         <button id="id-MenuBtn3" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Chapter" translate="no">1:</button>
+                         <button id="id-MenuBtn4" class="cs-menuBtn" onclick="openBoxes(event)" title="Highlight the Selected Verse" translate="no">1</button>
+                    </div>
+               </div>
+
+          </div>
+
+          <div id="id-pageContainer" onclick="openBoxes(event); unHighlight(event)">
+               <div id="top"> </div>
+               <div id="id-mainPage">
+                    <div id="id-headline">Version</div>
+
+                    <div id="id-page" onclick="openBoxes(event); unHighlight(event)">
+
+                    </div>
+
+                    <br><br><br>
+                    <div id="id-navLine" data-nosnippet>
+                         <div id="id-navLastChapter" onclick="lastChapter(event)">‹ Last</div>
+                         <div id="id-navTitle">Genesis 1</div>
+                         <div id="id-navNextChapter" onclick="nextChapter(event)">Next ›</div>
+                    </div>
+
+               </div>
+
+               <br><br>
+               <div id="id-bottom">
+                    <br>
+
+                    <hr id="id-hr1">
+                    <br><br>
+                    <div id="id-GodLovesYou">
+
+                         <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                         <div>The TWF version is being actively edited and is subject to change daily.</div>
+                         <div>If you prefer to read other Bible versions, please feel free to do so.</div>
+                         <div id="id-northStar">✨</div>
+
+                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
+                              <span>Copyright&nbsp;©</span>
+                              <span id="id-copyrighted">2018-2025</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>New Hope Ministries</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>MIT License</span>
+                         </a>
+
+                         <br><br>
+                         <div id="id-lastEdited">Last Edited:</div>
+                         <div id="id-installed">Installed?</div>
+                    </div>
+               </div>
+          </div>
+
+     </div>
+
+     <div id="id-versions" data-nosnippet>
+          <div id="id-versionHeader">Versions</div>
+          <div id="id-versionsBox"></div>
+     </div>
+     <div id="id-books" data-nosnippet>
+          <div id="id-bookHeader">
+               <span>Books</span>
+               <div id="id-sortBook" title="Sort Alphabetically">
+                    <span id="id-heart" onclick="sortBooks(event)">🩵</span>
+               </div>
+          </div>
+          <div id="id-booksBox"></div>
+     </div>
+     <div id="id-chapters" data-nosnippet translate="no">
+          <div id="id-chapterHeader">Chapters</div>
+          <div id="id-chaptersBox"></div>
+     </div>
+     <div id="id-verses" data-nosnippet translate="no">
+          <div id="id-verseHeader">Verses</div>
+          <div id="id-versesBox"></div>
+     </div>
+</body>
+
+</html>

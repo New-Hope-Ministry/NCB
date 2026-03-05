@@ -1,347 +1,250 @@
-var bookSort1 = false;
-var verses1 = [];
-var defaultLanguage1ID = 34; // English
-var defaultVersion1ID = `id-versionA9`; // Version Defaults: AKJ = 9, TWF = 25
-var activeLanguage1ID = null;
-var activeVersion1ID = null;
-var pastSelectedLanguage1ID = null;
-var pastSelectedVersion1ID = null;
+//! Page Variables
+     var verses1 = [];
+// End of Page Variables
 
-window.addEventListener("load", async () => {
+document.addEventListener("DOMContentLoaded", async () =>  {
+     // DOMContentLoaded event fires before page is displayed
 
+     fetchPrefix = '../';
      let rec = false;
      rec = await getDefaults();
-
-     if (rec) { rec = false; rec = await loadLanguages(); };
-     if (rec) { rec = false; rec = await loadLanguages1(); };
-     if (rec) { rec = false; rec = await loadVersions(); };
-     if (rec) { rec = false; rec = await loadVersions1(); };
-     if (rec) { rec = false; rec = await loadBooks(); };
-     if (rec) { rec = false; rec = await loadChapters(); allLoaded = true; };
+     if (!boxesLoaded && rec) { rec = false; rec = await loadBoxes(); };
      if (rec) { rec = false; rec = await getVersion(); };
-     if (rec) { rec = false; rec = await getVersion1(); };
-
-     if (rec && allLoaded) {
-          locateBox('id-header', 'id-mainPage', -10);
-          setTimeout(() => {
-               document.getElementById("id-loader").style.display = 'none';
-               bookWidth();
-          }, 130);
-     };
-     if (rec) {
-          if (setTheme === '1') {
-               darkTheme();
-               rotateTheme = false;
-          };
-          startUp();
-          selected(activeVersion1ID, 'id-versions1');
-     };
-     window.addEventListener("resize", adjustPosition);
+     if (rec) { rec = false; rec = await getCompVersion(); };
+     // getMenus is in shared.js, but it calls setMenu in comp.js
+     if (rec) { rec = false; rec = await getMenus(); };
 });
 
-async function getChapter() {
+//! Page Functions
+     async function getDefaults() {
 
-     let activeBook = Number(activeBookID.slice("id-book".length));
-     let activeChapter = Number(activeChapterID.slice("id-chapter".length));
-     let i = verses.findIndex(rec => rec.bid === activeBook && rec.cn === activeChapter);
+          const params = new URLSearchParams(window.location.search);
+          let bid = params.get('bid');
+          if (bid) { activeBookID = `id-book${bid}`; };
+          if (!activeBookID) { activeBookID = localStorage.getItem("activeBookID"); };
+          if (!activeBookID) { activeBookID = defaultBookID; };
 
-     removeElements('id-page');
-     let h2 = document.createElement('h2');
-     let page = document.getElementById('id-page');
-     document.getElementById('id-MenuBtn2').textContent = document.getElementById(activeBookID).textContent;
-     h2.textContent = `${document.getElementById(activeBookID).textContent} ${activeChapter}`;
-     document.getElementById('id-bottomTitleLine').textContent = h2.textContent;
-     if (isTWF) {
-          let sp2 = document.createElement('span');
-          sp2.classList.add('cs-edited');
-          sp2.textContent =` TWF - Last Edited: ${dateEdited}`
-          h2.appendChild(sp2);
+          let cn = params.get('cn');
+          if (cn) { activeChapterID = `id-chapter${cn}`; };
+          if (!activeChapterID) { activeChapterID = localStorage.getItem("activeChapterID"); };
+          if (!activeChapterID) { activeChapterID = defaultChapterID; };
+
+          let verid = params.get('verid');
+          if (verid) { activeVersionID = `id-version${verid}`; };
+          if (!activeVersionID) { activeVersionID = localStorage.getItem("activeVersionID"); };
+          if (!activeVersionID) { activeVersionID = defaultVersionID };
+
+          let verid1 = params.get('verid1');
+          if (verid1) { activeCompVrsnID = `id-versionA${verid1}`; };
+          if (!activeCompVrsnID) { activeCompVrsnID = localStorage.getItem("activeCompVrsnID"); };
+          if (!activeCompVrsnID) { activeCompVrsnID = defaultCompVrsnID };
+
+          await getDesignDefaults();
+          return true;
      };
-     page.appendChild(h2);
 
-     let p;
-     let pn;
-     let sp;
-     let spa;
-     let vt;
-     let vNum;
-
-     verseCount = 0;
-     while (i < verses.length && verses[i].cn === activeChapter && verses[i].bid === activeBook) {
-          p = document.createElement('p');
-          p.id = `id-p${verses[i].vid}`;
-          pn = verses[i].pn;
-          if (pn > 0 && paragraphLayoutDefault) {
-               while (verses[i].pn === pn) {
-                    sp = document.createElement('span');
-                    sp.id = `id-versNumber${verses[i].vn}`;
-                    if (verses[i].vn === 1) {
-                         vNum = `${verses[i].vn} `;
-                    } else { vNum = ` ${verses[i].vn} `; };
-                    let aVerse = verses[i].vt;
-
-                    if (verses[i].jq === 1) {
-                         sp.innerHTML = JesusQuote(aVerse, vNum);
-                    } else {
-                         spa = document.createElement('span');
-                         spa.classList.add("cs-verseNumber");
-                         spa.textContent = vNum;
-                         vt = document.createTextNode(aVerse);
-                         sp.appendChild(spa);
-                         sp.appendChild(vt);
-                    };
-                    p.appendChild(sp);
-                    i++;
-                    verseCount++;
-               };
-          } else {
-               sp = document.createElement('span');
-               sp.id = `id-versNumber${verses[i].vn}`;
-               vNum = `${verses[i].vn} `;
-               let aVerse = verses[i].vt;
-               if (verses[i].jq === 1) {
-                    sp.innerHTML = JesusQuote(aVerse, vNum);
-               } else {
-                    spa = document.createElement('span');
-                    spa.classList.add("cs-verseNumber");
-                    spa.textContent = vNum;
-                    vt = document.createTextNode(aVerse);
-                    sp.appendChild(spa);
-                    sp.appendChild(vt);
-               };
-               p.classList.add("cs-singleVerse");
-               p.appendChild(sp);
-               i++;
-               verseCount++;
-          };
-          page.appendChild(p);
+     async function loadBoxes() {
+          loadVersions(changeVersion);
+          loadVersions(changeCompVersion, 'id-versions1Box', 'A');
+          loadBooks(changeCompBook);
+          loadChapters(changeCompChapter);
+          startUp();
+          boxesLoaded = true;
+          return true;
      };
-     setFontSize();
-     document.getElementById('id-MenuBtn3').textContent = `${document.getElementById(activeChapterID).textContent}:`;
-     return true;
-};
 
-async function getChapter1() {
+     async function openBoxes(e = null) {
 
-     let activeBook = Number(activeBookID.slice("id-book".length));
-     let activeChapter = Number(activeChapterID.slice("id-chapter".length));
-     let i = verses1.findIndex(rec => rec.bid === activeBook && rec.cn === activeChapter);
+          stopBubbles(e);
+          let ID = e.target.id;
+          let id = null;
 
-     removeElements('id-page1');
-     let h2 = document.createElement('h2');
-     let page = document.getElementById('id-page1');
-     h2.textContent = `${document.getElementById(activeBookID).textContent} ${activeChapter}`;
-     document.getElementById('id-bottomTitleLine').textContent = h2.textContent;
-     if (isTWF) {
-          let sp2 = document.createElement('span');
-          sp2.classList.add('cs-edited');
-          sp2.textContent =` TWF - Last Edited: ${dateEdited}`
-          h2.appendChild(sp2);
-     };
-     page.appendChild(h2);
+          if (!boxesLoaded) { await loadBoxes(); };
+          let check = await checkID(ID);
+          if (check) { return; };
 
-     let p;
-     let pn;
-     let sp;
-     let spa;
-     let vt;
-     let vNum;
-
-     verseCount = 0;
-     while (i < verses1.length && verses1[i].cn === activeChapter && verses1[i].bid === activeBook) {
-          p = document.createElement('p');
-          p.id = `id-pA${verses[i].vid}`;
-          pn = verses[i].pn;
-          if (pn > 0 && paragraphLayoutDefault) {
-               while (verses[i].pn === pn) {
-                    sp = document.createElement('span');
-                    sp.id = `id-versNumberA${verses[i].vn}`;
-                    if (verses[i].vn === 1) {
-                         vNum = `${verses1[i].vn} `;
-                    } else { vNum = ` ${verses1[i].vn} `; };
-                    let aVerse = verses1[i].vt;
-
-                    if (verses1[i].jq === 1) {
-                         sp.innerHTML = JesusQuote(aVerse, vNum);
-                    } else {
-                         spa = document.createElement('span');
-                         spa.classList.add("cs-verseNumber");
-                         spa.textContent = vNum;
-                         vt = document.createTextNode(aVerse);
-                         sp.appendChild(spa);
-                         sp.appendChild(vt);
-                    };
-                    p.appendChild(sp);
-                    i++;
-                    verseCount++;
-               };
-          } else {
-               sp = document.createElement('span');
-               sp.id = `id-versNumberA${verses[i].vn}`;
-               vNum = `${verses[i].vn} `;
-               let aVerse = verses1[i].vt;
-               if (verses1[i].jq === 1) {
-                    sp.innerHTML = JesusQuote(aVerse, vNum);
-               } else {
-                    spa = document.createElement('span');
-                    spa.classList.add("cs-verseNumber");
-                    spa.textContent = vNum;
-                    vt = document.createTextNode(aVerse);
-                    sp.appendChild(spa);
-                    sp.appendChild(vt);
-               };
-               p.classList.add("cs-singleVerse");
-               p.appendChild(sp);
-               i++;
-               verseCount++;
-          };
-          page.appendChild(p);
-     };
-     setFontSize();
-     return true;
-};
-
-async function getDefaults() {
-
-     //testRemover();
-     //return;
-     const params = new URLSearchParams(window.location.search);
-
-     let ltr = localStorage.getItem('redLetter');
-     if (ltr) { redLetterDefault = Number(ltr); };
-
-     let verid = params.get('verid');
-     if (verid) { activeVersionID = `id-version${verid}`; };
-     if (!activeVersionID) { activeVersionID = localStorage.getItem("activeVersionID"); };
-     if (!activeVersionID) { activeVersionID = defaultVersionID };
-     let id = Number(activeVersionID.slice("id-version".length));
-     let i = versions.findIndex(rec => rec.id === id);
-     activeLanguageID = versions[i].lid;
-
-     let bid = params.get('bid');
-     if (bid) { activeBookID = `id-book${bid}`; };
-     if (!activeBookID) { activeBookID = localStorage.getItem("activeBookID"); };
-     if (!activeBookID) { activeBookID = defaultBookID; };
-
-     let cn = params.get('cn');
-     if (cn) { activeChapterID = `id-chapter${cn}`; };
-     if (!activeChapterID) { activeChapterID = localStorage.getItem("activeChapterID"); };
-     if (!activeChapterID) { activeChapterID = defaultChapterID; };
-
-     setTheme = localStorage.getItem("setTheme");
-     activeFontSize = localStorage.getItem("activeFontSize");
-     if (!activeFontSize) { activeFontSize = 1.06; } else { activeFontSize = Number(activeFontSize); };
-     activeFontSizeCount = localStorage.getItem("activeFontSizeCount");
-     if (!activeFontSizeCount) { activeFontSizeCount = 0; } else { activeFontSizeCount = Number(activeFontSizeCount); };
-
-     let verid1 = params.get('verid1');
-     if (verid1) { activeVersion1ID = `id-versionA${verid1}`; };
-     if (!activeVersion1ID) { activeVersion1ID = localStorage.getItem("activeVersion1ID"); };
-     if (!activeVersion1ID) { activeVersion1ID = defaultVersion1ID };
-     let id1 = Number(activeVersion1ID.slice("id-versionA".length));
-     let idx = versions.findIndex(rec => rec.id === id1);
-     activeLanguage1ID = versions[idx].lid;
-
-     return true;
-};
-
-async function getVersion(e = null) {
-
-     let id = null;
-     let chpt;
-     if (e) { id = e.target.id; };
-
-     closeBoxes();
-     document.getElementById("id-loader").style.display = 'block';
-
-     if (!id || id === 'id-resetDefaults') { id = activeVersionID };
-     let aVersion = document.getElementById(id);
-     let idx = Number(aVersion.dataset.index);
-     let url = `../data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
-     if (versions[idx].ar === 'TWF') {isTWF = true} else {isTWF = false};
-     try {
-          const res = await fetch(url);
-          if (!res.ok) { throw new Error(res.status); };
-          verses = await res.json();
-          chpt = await getChapter();
-          activeVersionID = aVersion.id;
-          document.getElementById('id-MenuBtn1').textContent = versions[idx].ar;
-          document.getElementById('id-headline').textContent = versions[idx].t;
-     } catch (error) {
-          let err = error.message;
-          switch (error.message) {
-               case '500':
-                    err = 'Network fetch error: 500A!';
+          switch (ID) {
+               case "id-MenuBtn1":
+                    id = 'id-versions';
+                    document.getElementById(id).style.display = 'block';
+                    document.getElementById(activeVersionID).scrollIntoView({ block: 'center' });
                     break;
-               case '503':
-                    err = 'No internet connection error: 503A!';
+               case "id-MenuBtn2":
+                    id = 'id-books';
+                    document.getElementById(id).style.display = 'block';
+                    document.getElementById(activeBookID).scrollIntoView({ block: 'center' });
                     break;
-          }
-          document.getElementById("id-loader").style.display = 'none';
-          alert(err);
+               case "id-MenuBtn3":
+                    id = 'id-chapters';
+                    document.getElementById(id).style.display = 'block';
+                    document.getElementById(activeChapterID).scrollIntoView({ block: 'center' });
+                    break;
+               case "id-MenuBtn4":
+                    id = 'id-versions1';
+                    document.getElementById(id).style.display = 'block';
+                    document.getElementById(activeVersionID).scrollIntoView({ block: 'center' });
+                    break;
+               default:
+                    break;
+          };
+          if (boxesAreOpen) { closeBoxes(); } else { boxesAreOpen = true; };
      };
-     if (chpt) { document.getElementById("id-loader").style.display = 'none'; };
-     boxesAreOpen = false;
 
-     return true;
-};
+     function selected(id, container, reset = null) {
 
-async function getVersion1(e = null) {
+          let unselected = null;
 
-     let id = null;
-     let chpt;
-     if (e) { id = e.target.id; };
-     if (!id) { id = activeVersion1ID };
-     closeBoxes();
-     document.getElementById("id-loader").style.display = 'block';
+          switch (container) {
+               case "id-books":
+                    unselected = pastSelectedBookID;
+                    pastSelectedBookID = id;
+                    break;
+               case "id-chapters":
+                    unselected = pastSelectedChapterID;
+                    pastSelectedChapterID = id;
+                    break;
+               case "id-versions":
+                    unselected = pastSelectedVersionID;
+                    pastSelectedVersionID = id;
+                    break;
+               case "id-versions1":
+                    unselected = pastSelectedCompVrsnID;
+                    pastSelectedCompVrsnID = id;
+                    break;
+               default:
+                    break;
+          };
 
-     let aVersion = document.getElementById(id);
-     let idx = Number(aVersion.dataset.index);
-     let url = `../data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
-     if (versions[idx].ar === 'TWF') {isTWF = true} else {isTWF = false};
+          let div = document.getElementById(unselected);
+          if (unselected) { if (div) { div.classList.remove('cs-bvSelected'); }; };
+          let div1 = document.getElementById(id);
+          if (id && !reset) { if (div1) { div1.classList.add('cs-bvSelected'); }; };
+     };
 
-     try {
-          const res = await fetch(url);
-          if (!res.ok) { throw new Error(res.status); };
-          verses1 = await res.json();
-          chpt = await getChapter1();
-          activeVersion1ID = aVersion.id;
-          document.getElementById('id-MenuBtn4').textContent = versions[idx].ar;
+     function setMenu(ID) {
+
+          let val;
+          switch (ID) {
+               case "id-MenuBtn1":
+                    let vrsn1 = Number(activeVersionID.slice('id-version'.length));
+                    val = getVersionsABR(vrsn1);
+                    break;
+               case "id-MenuBtn2":
+                    let bid = Number(activeBookID.slice("id-book".length));
+                    val = getBookTitle(bid);
+                    break;
+               case "id-MenuBtn3":
+                    val = `${Number(activeChapterID.slice("id-chapter".length))}:`;
+                    break;
+               case "id-MenuBtn4":
+                    let vrsn2 = Number(activeCompVrsnID.slice('id-versionA'.length));
+                    val = getVersionsABR(vrsn2);
+                    break;
+               default:
+                    break;
+          };
+          return val;
+     };
+
+     async function startUp() {
+
+          let id = null;
+
+          if (activeVersionID) {
+               id = Number(activeVersionID.slice("id-version".length));
+               setQuerystring('verid', id);
+               selected(activeVersionID, 'id-versions');
+          };
+          if (activeCompVrsnID) {
+               id = Number(activeCompVrsnID.slice("id-versionA".length));
+               setQuerystring('verid1', id);
+               selected(activeCompVrsnID, 'id-versions1');
+          };
+          if (activeBookID) {
+               id = Number(activeBookID.slice("id-book".length));
+               setQuerystring('bid', id);
+               selected(activeBookID, 'id-books');
+          };
+          if (activeChapterID) {
+               id = Number(activeChapterID.slice("id-chapter".length));
+               setQuerystring('cn', id);
+               selected(activeChapterID, 'id-chapters');
+          };
+          return true;
+     };
+// End of Page Functions
+
+//! Page Navigation Functions
+     function changeCompBook(e = null) {
+
+          stopBubbles(e);
+          if (e) { activeBookID = e.target.id; };
+          let activeBook = Number(activeBookID.slice("id-book".length));
+          activeChapterID = 'id-chapter1';
+
+          getChapter();
+          getChapter(1, 'A', verses1);
+          loadChapters(changeCompChapter);
+          closeBoxes();
+          selected(activeBookID, 'id-books');
+          selected(activeChapterID, 'id-chapters');
+          setQuerystring('bid', activeBook);
+          setQuerystring('cn', 1);
+          removeQueryParam('vh');
+
+          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
+          boxOpen = 0;
+          // getMenus is in shared.js, but it calls setMenu in comp.js
+          getMenus();
+     };
+
+     function changeCompChapter(e = null) {
+
+          stopBubbles(e);
+          if (e) { activeChapterID = e.target.id; };
+          let activeChapter = Number(activeChapterID.slice("id-chapter".length));
+
+          getChapter();
+          getChapter(1, 'A', verses1);
+
+          closeBoxes();
+          selected(activeChapterID, 'id-chapters');
+          setQuerystring('cn', activeChapter);
+          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
+          boxOpen = 0;
+          // getMenus is in shared.js, but it calls setMenu in comp.js
+          getMenus();
+     };
+
+     async function changeCompVersion(e = null) {
+
+          stopBubbles(e);
+          closeBoxes();
+          let verid1 = await getCompVersion(e);
+          //let activeVersion1 = Number(activeCompVrsnID.slice("id-versionA".length));
+          selected(activeCompVrsnID, 'id-versions1');
+          setQuerystring('cn1', 1);
+          setQuerystring('verid1', verid1);
+          // getMenus is in shared.js, but it calls setMenu in comp.js
+          getMenus();
+          return true;
+     };
+
+     async function getCompVersion(e = null) {
+
+          let id = null;
+
+          if (e) { id = e.target.id; activeCompVrsnID = id; };
+          if (!id || id === 'id-resetDefaults') { id = activeCompVrsnID; };
+
+          let verid1 = Number(id.slice("id-versionA".length));
+          let idx = versions.findIndex(rec => rec.id === verid1);
+          verses1 = await fetchVerses(idx);
+          await getChapter(1, 'A', verses1);
           document.getElementById('id-headline1').textContent = versions[idx].t;
-     } catch (error) {
-          let err = error.message;
-          switch (error.message) {
-               case '500':
-                    err = 'Network fetch error: 500A!';
-                    break;
-               case '503':
-                    err = 'No internet connection error: 503A!';
-                    break;
-          };
-          document.getElementById("id-loader").style.display = 'none';
-          alert(err);
+          boxesAreOpen = false;
+          return verid1;
      };
-     if (chpt) { document.getElementById("id-loader").style.display = 'none'; };
-     boxesAreOpen = false;
-
-     return true;
-};
-
-async function setFontSize() {
-     const allP = document.querySelectorAll('p');
-     for (const ps of allP) {
-          if (ps.id !== 'id-endLine') { ps.style.fontSize = `${activeFontSize}rem`; };
-     };
-};
-
-
-function testRemover() {
-     const keys = [
-          'activeFontSizeCount', 'activeFontSize', 'activeBookID', 'activeChapterID',
-          'activeLanguageID', 'activeLanguage1ID', 'activeVersionID', 'activeVersion1ID',
-          'lastCacheCheck', 'paragraphLayout', 'redLetter', 'setTheme', 'installed',
-          'savedLocal', 'chapter', 'version', 'day'
-     ];
-     keys.forEach(k => localStorage.removeItem(k));
-     ['vh', 'bid', 'cn', 'lid', 'verid', 'verid1'].forEach(removeQueryParam);
-};
+// End of Page Navigation Functions

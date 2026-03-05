@@ -4,98 +4,68 @@
 <head>
      <meta charset="UTF-8">
      <title>The Ark Bible</title>
-     <link rel="canonical" href="https://thearkbible.com/index.html" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
 
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta name="description" content="☀️ The Ark Bible App is an online searchable Bible App. It offers the Bible in many different versions and languages, and a 365 day chronological reading plan.">
      <meta name="keywords" content="God, Lord, God's Love, Jehovah, Jesus, Ark Bible, The Ark Bible, Bible, Bible App, Bible Archive, Bible Reference, Bible Study, Christ, Christian, Forgiveness, Free Bible, Holy Bible, Read the Bible, Searchable Bible, Search The Bible,, Salvation, Savior, Scripture, Holy Scripture, Study Bible, Study The Bible, King James Version, KJV, Twenty-First Century Version, TWF, Bible 365 day Chronological Reading Plan">
 
-     <style>
-          .cs-loaderContainer {
-               position: fixed;
-               left: 0;
-               top: 0;
-               height: 100%;
-               width: 100%;
-               background-color: #2b317f;
-          }
-
-          .cs-northStarLoader {
-               position: fixed;
-               top: 15%;
-               left: 50%;
-               transform: translate(-50%, -50%);
-               font-size: 2.5em;
-          }
-
-          .cs-loaderTitle {
-               position: absolute;
-               /*left: 50%;*/
-               top: 20%;
-               width: 100%;
-               min-width: max-content;
-               text-align: center;
-               /*transform: translate(-50%);*/
-               color: white;
-               font-size: 3em;
-          }
-
-          .cs-loader {
-               position: fixed;
-               top: 50%;
-               left: 50%;
-               transform: translate(-50%, -50%) rotate(0deg);
-               /* initial state */
-               border: 8px solid var(--mediumGray);
-               border-top: 8px solid var(--lightMaroonEmphasis);
-               border-radius: 50%;
-               background-color: var(--lightMaroonEmphasis);
-               color: white;
-               text-align: center;
-               width: 2em;
-               height: 2em;
-               animation: spin 1.5s linear infinite;
-          }
-
-          @keyframes spin {
-               0% {
-                    transform: translate(-50%, -50%) rotate(0deg);
-               }
-
-               100% {
-                    transform: translate(-50%, -50%) rotate(360deg);
-               }
-          }
-
-          @media (max-width: 668px) {
-               .cs-loaderTitle {
-                    font-size: 2em;
-               }
-          }
+     <style id="id-loaderStyle">
+          #id-loaderContainer { position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: #2b317f; }
+          #id-northStarLoader { position: fixed; top: 15%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5em; }
+          #id-loaderTitle { position: absolute; top: 20%; width: 100%; min-width: max-content; text-align: center; color: white; font-size: 3em; }
+          #id-loading { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); border: 8px solid var(--mediumGray); border-top: 8px solid var(--lightMaroonEmphasis); border-radius: 50%; background-color: var(--lightMaroonEmphasis); color: white; text-align: center; width: 2em; height: 2em; animation: spin 1.5s linear infinite; }
+          @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+          @media (max-width: 668px) { #id-loaderTitle { font-size: 2em;} }
      </style>
 
      <link rel="manifest" href="manifest.webmanifest">
-
      <!-- Pre-fetch -->
      <link rel="preload" as="image" href="images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="preload" as="image" href="images/icons/ark-192.webp" fetchpriority="high">
+     <link rel="preload" as="image" href="../images/icons/ark-192.webp" fetchpriority="high">
 
-     <!-- Desktop Icons -->
-     <link rel="icon" href="images/logos/logo-192.webp" type="image/webp" sizes="192x192">
-     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
-     <!--<link rel="icon" type="image/png" sizes="192x192" href="images/logos/logo-192.png">-->
+     <!-- Favicon & Desktop Icons -->
+     <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
+     <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
-     <link rel="stylesheet" type="text/css" href="code/css/variables.css">
-     <link rel="stylesheet" type="text/css" href="code/css/index.css">
-     <link rel="stylesheet" type="text/css" media="print" onload="this.media='all'" href="code/css/media.css">
-     <link rel="stylesheet" type="text/css" media="print" onload="this.media='all'" href="code/css/lateload.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/boxes.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/settings.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/media.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
-     <script async src="code/js/variables.js"></script>
-     <script async src="code/js/index/index.js"></script>
-     <script defer src="code/js/index/utilities.js"></script>
-     <script defer src="code/js/index/lateload.js"></script>
+     <script defer src="../code/js/z-shared/shared.js"></script>
+     <script defer src="../code/js/index/index.js"></script>
+     <script defer src="../code/js/z-shared/boxes.js"></script>
 
+     <script id="id-loadEvent">
+          window.addEventListener("load", async () => {
+               // load event fires after page is displayed
+               document.getElementById("id-loaderContainer").style.display = 'none';
+               document.getElementById('id-noDisplay').classList.remove('cs-hidden');
+               document.getElementById('id-noDisplay').style.visibility = 'visible';
+
+               if (!paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
+               } else { if (paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Line Layout'; } };
+               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-copyrighted').textContent = copyrighted;
+               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+
+               if (savedLocal) {
+                    if (navigator.onLine) {
+                         if ('requestIdleCallback' in window) {
+                              requestIdleCallback(triggerCacheCheck);
+                         } else {
+                              setTimeout(() => {
+                                   triggerCacheCheck();
+                              }, 3000);
+                         };
+                    };
+               } else { document.getElementById("id-end").style.display = 'block'; };
+          });
+     </script>
      <script type="application/ld+json">
           {
                "@context": "https://schema.org",
@@ -131,7 +101,7 @@
                          "description": "An online searchable Bible App with a chronological reading plan, text-to-speech reader, and Bible version comparison tools.",
                          "isAccessibleForFree": true,
                          "image": [
-                         { "@id": "https://thearkbible.com/images/logos/logo-512.webp" }
+                              { "@id": "https://thearkbible.com/images/logos/logo-512.webp" }
                          ],
                          "author": { "@id": "https://thearkbible.com/#organization" },
                          "featureList": [
@@ -142,6 +112,7 @@
                          ],
                          "applicationSubCategory": "Bible Study Tool",
                          "hasPart": [
+                              { "@id": "https://thearkbible.com/apps/srch.html#Bible-searcher" },
                               { "@id": "https://thearkbible.com/apps/chron.html#plan" },
                               { "@id": "https://thearkbible.com/apps/comp.html#comparison-tool" },
                               { "@id": "https://thearkbible.com/apps/synth.html#listen-synth" }
@@ -167,19 +138,19 @@
                          "@type": "CreativeWork",
                          "@id": "https://thearkbible.com/apps/comp.html#comparison-tool",
                          "name": "The Ark Bible Comparison Tool",
-                         "description": "A side-by-side Bible version comparison tool. Study and compare two different versions or languages of the Bible simultaneously on the same page.",
+                         "description": "A side-by-side Bible version comparison tool. Study and compare two different versions of the Bible simultaneously on the same page.",
                          "url": "https://thearkbible.com/apps/comp.html",
                          "author": { "@id": "https://thearkbible.com/#organization" },
                          "isAccessibleForFree": true,
                          "genre": "Religious Study Tool",
                          "image": { "@id": "https://thearkbible.com/images/logos/logo-512.webp" },
-                         "educationalUse": "Comparison and Analysis"
+                         "educationalUse": "Comparison and Analyze different Bible versions."
                     },
                     {
                          "@type": "CreativeWork",
                          "@id": "https://thearkbible.com/apps/synth.html#listen-synth",
                          "name": "Listen to The Ark Bible",
-                         "description": "Have your computer speech synthesis read the Bible to you with The Ark Bible speech synthesis program.",
+                         "description": "Have your browser's speech synthesis function read the Bible to you with The Ark Bible speech synthesis program.",
                          "url": "https://thearkbible.com/apps/synth.html",
                          "author": { "@id": "https://thearkbible.com/#organization" },
                          "isAccessibleForFree": true,
@@ -191,68 +162,66 @@
                          "@type": "BreadcrumbList",
                          "@id": "https://thearkbible.com/#breadcrumb",
                          "itemListElement": [
-                         {
-                              "@type": "ListItem",
-                              "position": 1,
-                              "name": "Home",
-                              "item": "https://thearkbible.com/index.html"
-                         },
-                         {
-                              "@type": "ListItem",
-                              "position": 2,
-                              "name": "Chronological Plan",
-                              "item": "https://thearkbible.com/apps/chron.html"
-                         },
-                         {
-                              "@type": "ListItem",
-                              "position": 3,
-                              "name": "Compare Bible Versions",
-                              "item": "https://thearkbible.com/apps/comp.html"
-                         },
-                         {
-                              "@type": "ListItem",
-                              "position": 4,
-                              "name": "Listen to the Bible",
-                              "item": "https://thearkbible.com/apps/synth.html"
-                         }
+                              {
+                                   "@type": "ListItem",
+                                   "position": 1,
+                                   "name": "Home",
+                                   "item": "https://thearkbible.com/index.html"
+                              },
+                              {
+                                   "@type": "ListItem",
+                                   "position": 2,
+                                   "name": "Chronological Plan",
+                                   "item": "https://thearkbible.com/apps/chron.html"
+                              },
+                              {
+                                   "@type": "ListItem",
+                                   "position": 3,
+                                   "name": "Compare Bible Versions",
+                                   "item": "https://thearkbible.com/apps/comp.html"
+                              },
+                              {
+                                   "@type": "ListItem",
+                                   "position": 4,
+                                   "name": "Listen to the Bible",
+                                   "item": "https://thearkbible.com/apps/synth.html"
+                              },
+                              {
+                                   "@type": "ListItem",
+                                   "position": 5,
+                                   "name": "Search the Bible",
+                                   "item": "https://thearkbible.com/apps/srch.html"
+                              }
                          ]
                     },
                     {
                          "@type": "FAQPage",
                          "@id": "https://thearkbible.com/index.html#faq",
                          "mainEntity": [
-                         {
-                              "@type": "Question",
-                              "name": "Which Bible versions are available on The Ark Bible?",
-                              "acceptedAnswer": {
-                                   "@type": "Answer",
-                                   "text": "The Ark Bible offers many different versions of the Bible in multiple languages. Users can search, read, and compare different translations side-by-side."
+                              {
+                                   "@type": "Question",
+                                   "name": "Which Bible versions are available in The Ark Bible?",
+                                   "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "The Ark Bible offers many different versions of the Bible. Users can search, read, and compare different versions side-by-side."
+                                   }
+                              },
+                              {
+                                   "@type": "Question",
+                                   "name": "Is The Ark Bible app free to use?",
+                                   "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Yes, The Ark Bible is completely free to use. It provides access to searchable scriptures, a 365-day chronological reading plan, and speech synthesis tools at no cost."
+                                   }
+                              },
+                              {
+                                   "@type": "Question",
+                                   "name": "Can I listen to the Bible on The Ark Bible app?",
+                                   "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Yes! The Ark Bible includes a computer text-to-speech synthesis function that allows you to listen to the Bible as you follow along or you are on the go."
+                                   }
                               }
-                         },
-                         {
-                              "@type": "Question",
-                              "name": "Is The Ark Bible app free to use?",
-                              "acceptedAnswer": {
-                                   "@type": "Answer",
-                                   "text": "Yes, The Ark Bible is completely free to use. It provides access to searchable scriptures, a 365-day chronological reading plan, and speech synthesis tools at no cost."
-                              }
-                         },
-                         {
-                              "@type": "Question",
-                              "name": "Can I listen to the Bible on The Ark Bible app?",
-                              "acceptedAnswer": {
-                                   "@type": "Answer",
-                                   "text": "Yes! The Ark Bible includes a computer text-to-speech synthesis function that allows you to listen to the Bible as you follow along or on the go."
-                              }
-                         },
-                         {
-                              "@type": "Question",
-                              "name": "How many different Bible versions are in The Ark Bible app?",
-                              "acceptedAnswer": {
-                                   "@type": { "@type": "Answer" },
-                                   "text": "The Ark Bible currently includes 52 different versions of the Bible in 27 different languages."
-                              }
-                         }
                          ]
                     },
                     {
@@ -275,73 +244,67 @@
           }
 
      </script>
-
-     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-               
-               setTimeout(function () {
-                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-                    document.getElementById('id-copyrighted').textContent = copyrighted;
-                    let inst = localStorage.getItem('installed');
-                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
-                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
-                    };
-               }, 200);
-          });
-     </script>
-
 </head>
 
 <body id="id-body">
-     <div id="top"> </div>
-     <div id="id-loader" class="cs-loaderContainer">
-          <div class="cs-northStarLoader">✨</div>
-          <h1 class="cs-loaderTitle">The Ark Bible</h1>
-          <div class="cs-loader">✝</div>
-     </div>
-     <div id="id-noDisplay" class="cs-hidden">
 
-          <div id="id-sunshine" class="cs-sunshine">
-               <img id="logo" loading="eager" fetchpriority="high" width="192" height="192" src="images/icons/ark-192.webp" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
-               <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
-                    <span class="cs-logoTitle" onclick="bClick(goHome)">The Ark Bible</span>
-                    <div id="id-search" class="cs-search" onclick="aClick('apps/srch.html')" data-nosnippet>
-                         <div class="cs-magnifier">⚲</div>
-                    </div>
-               </div>
-               <div id="id-header" class="cs-header cs-banner" onclick="openBoxes(event)" data-nosnippet>
-                    <div id="id-menu" class="cs-menu">
-                         <div class="cs-menu1">
-                              <button id="id-MenuBtn1" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
-                              <button id="id-MenuBtn2" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Book" translate="no">Genesis</button>
-                              <button id="id-MenuBtn3" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)" title="Select A Chapter" translate="no">1:</button>
-                              <button id="id-MenuBtn4" class="cs-menuBtn" onclick="openBoxes(event)" title="Highlight the Selected Verse" translate="no">1</button>
-                         </div>
+     <div id="id-loaderContainer">
+          <div id="id-northStarLoader">✨</div>
+          <h1 id="id-loaderTitle">The Ark Bible</h1>
+          <div id="id-loading">✝</div>
+     </div>
+
+     <div id="id-noDisplay" onclick="openBoxes(event); unHighlight(event)">
+
+          <div id="id-sunshine">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <div id="id-banner" onclick="openBoxes(event); unHighlight(event)">
+                    <div id="id-appTitle">The Ark Bible</div>
+                    <div id="id-rightIcon" onclick="aClick('apps/srch.html')" data-nosnippet>⚲</div>
+                    <div id="id-menu">
+                         <button id="id-MenuBtn1" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
+                         <button id="id-MenuBtn2" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Book" translate="no">Genesis</button>
+                         <button id="id-MenuBtn3" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Chapter" translate="no">1:</button>
+                         <button id="id-MenuBtn4" class="cs-menuBtn" onclick="openBoxes(event)" title="Highlight the Selected Verse" translate="no">1</button>
                     </div>
                </div>
           </div>
 
-          <div id="id-pageContainer" class="cs-pageContainer" onclick="openBoxes(event)">
-               <div id="id-searchTop"></div>
-               <div id="id-mainPage" class="cs-mainPage">
-                    <div id="id-headline" class="cs-headline">Twenty-First Century Version</div>
-                    <div id="id-page" class="cs-page" onclick="unHighlight()">
-                    </div>
+          <div id="id-pageContainer" onclick="openBoxes(event); unHighlight(event)">
+               <div id="top"> </div>
+               <div id="id1-searchTop"></div>
+               <div id="id-mainPage">
+                    <div id="id-headline">Twenty-First Century Version</div>
+
+                    <div id="id-page" onclick="openBoxes(event); unHighlight(event)"></div>
+
                     <br><br><br>
-                    <div id="id-bottomline" class="cs-bottomLine" data-nosnippet>
-                         <div id="id-bottomLastLine" class="cs-bottomLastLine" onclick="lastChapter()">‹ Last</div>
-                         <div id="id-bottomTitleLine" class="cs-bottomTitleLine">Genesis 1</div>
-                         <div id="id-bottomNextLine" class="cs-bottomNextLine" onclick="nextChapter()">Next ›</div>
+                    <div id="id-navLine" data-nosnippet>
+                         <div id="id-navLastChapter" onclick="lastChapter(event)">‹ Last</div>
+                         <div id="id-navTitle">Genesis 1</div>
+                         <div id="id-navNextChapter" onclick="nextChapter(event)">Next ›</div>
                     </div>
                </div>
-               <div id="id-readRandom" class="cs-readRandom" data-nosnippet>
-                    <br><br>
-                    <div id="id-randomChapter" class="cs-randomChapter" onclick="readRandomChapter()"> Read a Random Chapter </div>
-               </div>
-               <br><br><br><br>
-               <div class="cs-bottom">
-                    <div id="id-settings" class="cs-settings" data-nosnippet>
-                         <div id="id-col1" class="cs-glossary">
+
+               <br><br>
+               <div id="id-randomChapter" onclick="readRandomChapter(event)">Read a Random Chapter</div>
+
+               <br><br>
+               <div id="id-bottom">
+                    <br>
+                    <hr id="id-hr1">
+                    <div id="id-appLinks">
+                         <br>
+                         <a  id="id-comp" onclick="aClick('apps/comp.html')" target="_blank" data-nosnippet> Compare Bible Versions </a>
+                         <br id="id-brListen">
+                         <a id="id-listen" onclick="openListen()" target="_blank" data-nosnippet> Listen to the Bible </a>
+                         <br>
+                         <a id="id-readChron" onclick="readChron()" target="_blank" data-nosnippet> 365 Day Chronological Reading Plan </a>
+                         <br><br>
+                    </div>
+                    <div id="id-settings" data-nosnippet>
+
+                         <div id="id-glossary">
                               <h4 class="cs-glossaryHeaders">Overview</h4>
                               <a class="cs-glossaryLink" onclick="aClick('pages/about.html')">About The Ark</a>
                               <br><br>
@@ -355,42 +318,40 @@
                               <br><br>
                               <a class="cs-glossaryLink" onclick="aClick('pages/help.html')" title="Help">Help</a>
                          </div>
-                         <div id="id-col2" class="cs-glossary">
+                         <div id="id-glossary">
                               <h4 class="cs-glossaryHeaders">Settings</h4>
                               <div>
-                                   <button id="id-theme" title="Change Theme" class="cs-theme" onclick="changeTheme()">☀️</button>
-                                   <span id="id-themeNote" class="cs-themeNote" onclick="changeTheme()" title="Change theme - Light Theme or Dark Theme">Theme</span>
+                                   <button id="id-theme" title="Change Theme" onclick="changeTheme()">☀️</button>
+                                   <span id="id-themeNote" onclick="changeTheme()" title="Change theme - Light Theme or Dark Theme">Theme</span>
                               </div>
-                              <div class="cs-font">
+                              <div id="id-font">
                                    <span class="cs-fontLine">
                                         <span class="cs-adjustFont1" onclick="changeFontSize('-')" title="Increase Font Size">-</span>
                                    </span>
-                                   <span class="cs-adjustFont" onclick="changeFontSize('d')" title="Default Font Size">Font</span>
+                                   <span id="id-adjustFont" onclick="changeFontSize('d')" title="Default Font Size">Font</span>
                                    <span class="cs-fontLine">
                                         <span class="cs-adjustFont1" onclick="changeFontSize('+')" title="Decrease Font Size">+</span>
                                    </span>
                               </div>
-                              <div id="id-redLetter" class="cs-redLetter" onclick="redLetter()" title="Set color of Jesus' quotes - Red Letter or Black Letter">Red Letter</div>
-                              <div id="id-paragraphLayout" class="cs-paragraphLayout" onclick="paragraphLayout()" title="Set format of text layout - Paragraph or Single Line">Paragraph Layout</div>
-                              <div id="id-resetDefaults" class="cs-resetDefaults" onclick="resetDefaults()" title="Reset Defaults to Original">Reset Defaults</div>
+                              <div id="id-redLetter" onclick="redLetter()" title="Set color of Jesus' quotes - Red Letter or Black Letter">Red Letter</div>
+
+                              <div id="id-paragraphLayout" onclick="paragraphLayout()" title="Set format of text layout - Paragraph or Single Line">Paragraph Layout</div>
+                              <div id="id-resetDefaults" onclick="resetDefaults()" title="Reset Defaults to Original">Reset Defaults</div>
                          </div>
-                         <div id="id-endFontScroll"></div>
+                         <!--<div id="id-endFontScroll"></div>-->
                     </div>
+
                     <br>
-                    <a onclick="aClick('apps/comp.html')" target="_blank" class="cs-chat" data-nosnippet> Compare Bible Versions </a>
-                    <br id="id-brListen">
-                    <a id="id-listen" onclick="synthVoice()" target="_blank" class="cs-chat" data-nosnippet> Listen to the Bible </a>
-                    <br>
-                    <a id="id-readChronological" class="cs-readChronological" onclick="readChronological()" data-nosnippet> 365 Day Chronological Reading Plan </a>
-                    <br>
-                    <hr class="cs-hrCopyright">
+                    <hr id="id-hr1">
                     <br><br>
-                    <div class="cs-GodLovesYou">
+                    <div id="id-GodLovesYou">
+
                          <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
                          <div>The TWF version is being actively edited and is subject to change daily.</div>
                          <div>If you prefer to read other Bible versions, please feel free to do so.</div>
-                         <div class="cs-northStar">✨</div>
-                         <a onclick="aClick('pages/license.html')" class="cs-copyright">
+                         <div id="id-northStar">✨</div>
+
+                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
                               <span>Copyright&nbsp;©</span>
                               <span id="id-copyrighted">2018-2025</span>
                               <span class="cs-copySign">&nbsp;●&nbsp;</span>
@@ -398,30 +359,57 @@
                               <span class="cs-copySign">&nbsp;●&nbsp;</span>
                               <span>MIT License</span>
                          </a>
+
                          <br><br>
                          <div id="id-lastEdited">Last Edited:</div>
                          <div id="id-installed">Installed?</div>
                     </div>
                </div>
           </div>
-          <div id="id-end" class="cs-end" data-nosnippet>
-               <br>
-               <p id="id-endLine" class="cs-endLine">
-               <div style="padding-left: 1.5em; padding-right: 1.5em;"> Click Install if you agree to allow The Ark Bible app to be installed and store performance files locally, but you do not have to install this app to use it. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel, no files will be stored locally. If you change your mind, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or by clearing your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. If you allow the files to be stored locally it will dramatically reduce data transfer usage for your internet connection. </div>
-               </p>
-               <br>
-               <div class="cs-endBtnLine">
-                    <button class="cs-endBtn" onclick="saveLocal()">Install</button>
-                    <button class="cs-endBtn" onclick="closeSave()">Cancel</button>
-               </div>
-               <br>
-          </div>
+
      </div>
-     <div id="id-versions" class="cs-versions" data-nosnippet></div>
-     <div id="id-languages" class="cs-languages" data-nosnippet></div>
-     <div id="id-books" class="cs-books" data-nosnippet></div>
-     <div id="id-chapters" class="cs-chapters" data-nosnippet></div>
-     <div id="id-verses" class="cs-verses" data-nosnippet></div>
+
+     <div id="id-versions" data-nosnippet>
+          <div id="id-versionHeader">Versions</div>
+          <div id="id-versionsBox"></div>
+     </div>
+     <div id="id-books" data-nosnippet>
+          <div id="id-bookHeader">
+               <span>Books</span>
+               <div id="id-sortBook" title="Sort Alphabetically">
+                    <span id="id-heart" onclick="sortBooks(event)">🩵</span>
+               </div>
+          </div>
+          <div id="id-booksBox"></div>
+     </div>
+     <div id="id-chapters" data-nosnippet translate="no">
+          <div id="id-chapterHeader">Chapters</div>
+          <div id="id-chaptersBox"></div>
+     </div>
+     <div id="id-verses" data-nosnippet translate="no">
+          <div id="id-verseHeader">Verses</div>
+          <div id="id-versesBox"></div>
+     </div>
+
+     <style>
+          #id-end { display: none; position: fixed; bottom: 0; left: 0; width: 100%; height: max-content; background-color: #f1f2f3; border-top: 3px solid #9b9a9a; color: var(--gradientDark); z-index: 11; }
+          #id-endLine { position: relative; width: 85%; top: 10%; margin: auto; font-size: .9rem; }
+          #id-endMsg { padding-left: 1.5em; padding-right: 1.5em; width: 94%; margin: auto; text-align: justify; }
+          #id-endBtnLine { display: flex; justify-content: space-evenly; top: 1%; width: 50%; margin: auto; }
+          .cs-endBtn { display: block; position: relative; background-color: #9b9a9a; color: white; width: 5em; height: 2em; border: none; cursor: pointer; margin: auto; font-weight: 550; }
+     </style>
+     <div id="id-end" data-nosnippet>
+          <br>
+          <div id="id-endLine">
+               <p id="id-endMsg">
+                    Click Install if you agree to allow The Ark Bible app to be installed and store performance files locally, but you do not have to install this app to use it. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel, no files will be stored locally. If you change your mind, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or by clearing your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. If you allow the files to be stored locally it will dramatically reduce data transfer usage for your internet connection.
+               </p>
+          <br>
+          <div id="id-endBtnLine">
+               <button class="cs-endBtn" onclick="saveLocal()">Install</button>
+               <button class="cs-endBtn" onclick="closeSave()">Cancel</button>
+          </div>
+          <br><br>
      </div>
 </body>
 

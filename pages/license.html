@@ -1,734 +1,272 @@
 <!DOCTYPE html>
-<html lang="en" class="cs-noScroll">
+<html lang="en">
 
 <head>
      <meta charset="UTF-8">
+     <title>The Ark Bible</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
 
      <!-- Pre-fetch -->
-     <link rel="preload" as="image" href="../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="preload" as="image" href="../images/logos/white-logo-512.webp" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/icons/ark-192.webp" fetchpriority="high">
 
-     <!-- Desktop Icons -->
-     <link rel="icon" href="../images/logos/logo-192.webp" type="image/webp" sizes="192x192">
+     <!-- Favicon & Desktop Icons -->
+     <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
-     <title>The Ark Bible Copyright Licenses</title>
-     <link rel="stylesheet" type="text/css" href="../code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="../code/css/pages.css">
-     <script async src="../code/js/variables.js"></script>
-     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-               setTimeout(function () {
-                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-                    document.getElementById('id-copyrighted').textContent = copyrighted;
-                    let inst = localStorage.getItem('installed');
-                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
-                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
-                    };
-               }, 200);
+     <!-- Stylesheet links -->
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/settings.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/pages/pages.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
+
+     <!-- Javascript links -->
+     <script defer src="../code/js/z-shared/shared.js"></script>
+
+     <script id="id-DOMContentLoaded">
+
+          document.addEventListener("DOMContentLoaded", async () =>  {
+               // DOMContentLoaded event fires before page is displayed
+               let rec = false;
+               rec = await getDesignDefaults();
           });
      </script>
+
+     <script id="id-load">
+          window.addEventListener("load", async () => {
+               // load event fires after page is displayed
+
+               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-copyrighted').textContent = copyrighted;
+               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+          });
+     </script>
+
 </head>
 
-<body>
+<body id="id-body">
 
-     <div class="cs-fixBanner">
-          <div class="cs-imgBanner">
-               <img loading="eager" fetchpriority="high" src="../images/headers/crystal.webp" class="cs-imgBanner" alt="img">
-               <a class="cs-iconLinkQR cs-imgLogo" onclick="window.location.href = goHome;">
-                    <img loading="eager" fetchpriority="high" src="../images/logos/white-logo-512.webp" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
-                    <span class="cs-logoTitle">The Ark Licenses</span>
-               </a>
+     <div id="id-display">
+          <div id="id-sunshine">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <div id="id-banner">
+                    <div id="id-pagesTitle">The Ark Bible Copyright Licenses</div>
+                    <div id="id-rightIcon" data-nosnippet>❤️</div>
+               </div>
           </div>
-     </div>
-     <div class="cs-page">
 
-          <h2 class="cs-contentsTitle">The Ark Bible Copyrights</h2>
-          <p>
-               <span class="cs-title">The Ark Bible Copyright License</span>
-               <br>
-               Copyright <span class="cs-copySign">©</span>&nbsp;&nbsp;2018-2025 - New Hope Ministries - MIT License
-               <br>
-               Permission is hereby granted, free of charge, to any person obtaining a copy of "The Ark Bible" software and associated documentation files which is collectively called (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-               <br><br>
-               The above copyright notice and this permission notice shall be included in all
-               copies or substantial portions of the Software.
-               <br><br>
-               PLEASE DO NOT NAME YOUR APPLICATION "THE ARK BIBLE"
-               <br>
-               IF YOU MAKE ANY CHANGES TO THIS SOFTWARE PLEASE CHANGE THE NAME OF YOUR APPLICATION IN ORDER TO PREVENT CONFUSION !!!
-               <br><br>
-               THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUt NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-          </p>
+          <style id="id-PagesStyles">
 
-          <hr>
-          <hr>
-          <br><br><br>
-          <h3 class="cs-contentsTitle">Other Bible Copyright Notices</h3>
-          <p>
-               Here is a partial list of Bible versions and language translations along with their copyright notices and licenses from around the world.
-               <br><br>
-               <a target="_blank" href="https://ebible.org/scriptures/copyright.php">Bible Copyright Information</a>
-               <br><br>
-               Here is the list of all the Creative Commons open source copyright notices.
-               <br>
-               <a class="cs-underlineLink" href="https://creativecommons.org/licenses/">Creative Commons 4.0 License</a>
-          </p>
+          </style>
 
-          <hr>
-          <br><br>
-          <h3 class="cs-contentsTitle">The Ark Bible Copyright Notices</h3>
-          <p>
-               The following is a list of the copyright licenses for all the Bible versions that are included in "The Ark Bible" application. All versions of the Bible in The Ark Bible app are in the public domain, or released under copyleft or open source Creative Commons licenses.
-          </p>
+          <div id="id-pageContainer" >
+               <div id="top"> </div>
+               <div id="id-mainPage">
+                    <div id="id-headline">Ark Copyrights</div>
+                    <div id="id-page">
+                         <br>
+                         <h4 id="id-contentsTitle">And Jesus said, "Do not judge others, or you will be judged."<span class="cs-signed">...Matthew 7:1</span></h4>
+                         <hr>
+                         
+                         <div id="id-ARKLicense">
+                              <p class="cs-title">The Ark Bible Copyright License:</p>
+                              <p>Copyright <span class="cs-copySign">©</span>&nbsp;&nbsp;2018-2025 - New Hope Ministries - MIT License</p>
+                              <p>
+                                   Permission is hereby granted, free of charge, to any person obtaining a copy of "The Ark Bible" software and associated documentation files which is collectively called (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                                   <br><br>
+                                   The above copyright notice and this permission notice shall be included in all
+                                   copies or substantial portions of the Software.
+                                   <br><br>
+                                   PLEASE DO NOT NAME YOUR APPLICATION "THE ARK BIBLE"
+                                   <br>
+                                   IF YOU MAKE ANY CHANGES TO THIS SOFTWARE PLEASE CHANGE THE NAME OF YOUR APPLICATION IN ORDER TO PREVENT CONFUSION !!!
+                                   <br><br>
+                                   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUt NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                              </p>
+                         </div>
+                         <hr>
+                         <hr>
 
-          <hr>
-          <br>
-          <span class="cs-title">Albanian Bible - Shqip Bibla (ALB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Albanian Bible - Shqip Bibla (ALB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from the BibleSupersearch website.
+                         <div id="id-VersionsLicense">
+                              <p class="cs-title">Bible Versions Copyright Notices:</h2>
+                              <p>
+                                   Below is a list of the copyright licenses for all the Bible versions that are included in "The Ark Bible" application. All versions of the Bible in The Ark Bible app are in the public domain, or released under copyleft or open source Creative Commons licenses.
+                              </p>
+                              <p>Here is the list of all the Creative Commons open source copyright notices.</p>
+                              <a  class="cs-link2" href="https://creativecommons.org/licenses/">Creative Commons 4.0 License</a>
+                         </div>
+                         <br>
+                         <hr>
+
+                         <div id="id-AKJLicense">
+                              <p class="cs-title">American King James Version (AKJ)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The American King James Version (AKJ) of the Bible was placed in the public domain by its author Michael Peter (Stone) Engelbrite on November 8, 1999, which allows anyone to freely copy, distribute, or even modify it, as long as the core message remains unchanged.
+                              </p>
+                              <a class="cs-link2" href="https://studybible.info/version/AKJV">AKJ Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-ASVLicense">
+                              <p class="cs-title">American Standard Version (ASV)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The American Standard Version (ASV) entered the public domain on January 1, 1957 when its copyright expired. It is in the public domain worldwide due to its age, where works published before January 1, 1929, or its authors have been dead for over 100 years, which places them in the public domain. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
+                              </p>
+                              <a class="cs-link2" href="https://en.wikipedia.org/wiki/American_Standard_Version">ASV Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-AKVLicense">
+                              <p class="cs-title">Authorized King James Version (AKV)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The Authorized King James Version (AKV) is in the public domain in most countries of the world. In the United Kingdom, the right to print, publish and distribute it is a royal prerogative, and the Royal Crown licenses publishers to reproduce it under letters of patent. In England, Wales, and Northern Ireland, the letters of patent are held by the King's Printer, and in Scotland, they are held by the Scottish Bible Board. The office of the King's Printer has been associated with the right to reproduce the Bible for centuries, with the earliest known reference was in 1577. Since this work is in the public domain, it can be freely used, reproduced, and distributed everywhere except the United Kingdom.
+                              </p>
+                              <a class="cs-link2" href="https://ebible.org/find/show.php?id=eng-kjv2006">AKV Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-BSBLicense">
+                              <p class="cs-title">Berean Standard Bible (BSB)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The Berean Standard Bible (BSB) was officially placed into the public domain as of April 30, 2023. It is available for free online, reflecting the publishers' belief that the Scriptures should be freely studied and shared. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
+                              </p>
+                              <a class="cs-link2" href="https://berean.bible/licensing.htm">BSB Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-DBYLicense">
+                              <p class="cs-title">Darby English Bible (DBY)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The Darby English Bible (DBY) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
+                              </p>
+                              <a class="cs-link2" href="https://en.wikipedia.org/wiki/Darby_Bible#References">DBY Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-DRBLicense">
+                              <p class="cs-title">Douay-Rheims Bible (DRB)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The Douay-Rheims Bible (DRB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
+                              </p>
+                              <a class="cs-link2" href="https://en.wikipedia.org/wiki/Douay%E2%80%93Rheims_Bible">DRB Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-ERVLicense">
+                              <p class="cs-title">English Revised Version (ERV)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The English Revised Version (ERV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
+                              </p>
+                              <a class="cs-link2" href="https://en.wikipedia.org/wiki/Revised_Version">ERV Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-KJVLicense">
+                              <p class="cs-title">King James Version (KJV)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The King James Version (KJV) is in the public domain in most countries of the world. In the United Kingdom, the right to print, publish and distribute it is a royal prerogative, and the Royal Crown licenses publishers to reproduce it under letters of patent. In England, Wales, and Northern Ireland, the letters of patent are held by the King's Printer, and in Scotland, they are held by the Scottish Bible Board. The office of the King's Printer has been associated with the right to reproduce the Bible for centuries, with the earliest known reference was in 1577. Since this work is in the public domain, it can be freely used, reproduced, and distributed everywhere except the United Kingdom.
+                              </p>
+                              <a class="cs-link2" href="https://www.gutenberg.org/ebooks/10">KJV Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-NWBLicense">
+                              <p class="cs-title">Noah Webster's Bible (NWB)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The Noah Webster's Bible (NWB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
+                              </p>
+                              <a class="cs-link2" href="https://en.wikipedia.org/wiki/Webster%27s_Revision">NWB Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-SLTLicense">
+                              <p class="cs-title">Smith's Literal Translation (SLT)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The Smith's Literal Translation (SLT) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
+                              </p>
+                              <a class="cs-link2" href="https://en.wikipedia.org/wiki/Julia_E._Smith_Parker_Translation">SLT Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-TWFLicense">
+                              <p class="cs-title">Twenty-First Century Version (TWF)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   I am placing the Twenty-First Century Version (TWF) of the Bible in the public domain as of September 3, 2025. I have decided to enter it into the public domain, because God told me to... God's servant.
+                              </p>
+                              <a class="cs-link2" onclick="aClick('twfabout.html')">TWF Statement</a>
+                         </div>
+
+                         <br>
+                         <hr>
+                         <div id="id-YLTLicense">
+                              <p class="cs-title">Young's Literal Translation (YLT)</p>
+                              <p class="cs-title1">Copyright - Public Domain</p>
+                              <p>
+                                   The Young's Literal Translation (YLT) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
+                              </p>
+                              <a class="cs-link2" href="https://en.wikipedia.org/wiki/Young%27s_Literal_Translation">YLT Statement</a>
+                         </div>
+                         <br>
+                         <hr>
+                    </div>
+                    <br><br><br>
+
+               </div>
+
                <br><br>
-               <a class="cs-twfLink" target="_blank" href="https://www.biblesupersearch.com/unbound-downloads/">BibleSuperSearch</a>
-               <br><br>
-               <a class="cs-twfLink" target="_blank" href="https://www.biola.edu/talbot/unbound/">Biola University Unbound Bible Statement</a>
-          </p>
+               <div id="id-bottom">
+                    <br>
 
-          <hr>
-          <br>
-          <span class="cs-title">American King James Version (AKJ)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The American King James Version (AKJ) of the Bible was placed in the public domain by its author Michael Peter (Stone) Engelbrite on November 8, 1999, which allows anyone to freely copy, distribute, or even modify it, as long as the core message remains unchanged.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://studybible.info/version/AKJV">AKJ Statement</a>
-          </p>
+                    <hr id="id-hr1">
+                    <br><br>
+                    <div id="id-GodLovesYou">
 
-          <hr>
-          <br>
-          <span class="cs-title">American Standard Version (ASV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The American Standard Version (ASV) entered the public domain on January 1, 1957 when its copyright expired. It is in the public domain worldwide due to its age, where works published before January 1, 1929, or its authors have been dead for over 100 years, which places them in the public domain. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" target="_blank" href="https://en.wikipedia.org/wiki/American_Standard_Version">ASV Statement</a>
-          </p>
+                         <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                         <div>The TWF version is being actively edited and is subject to change daily.</div>
+                         <div>If you prefer to read other Bible versions, please feel free to do so.</div>
+                         <div id="id-northStar">✨</div>
 
-          <hr>
-          <br>
-          <span class="cs-title">American Standard Version w'Strong's (ASVS)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The American Standard Version w'Strong's (ASVS) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. It is not known when or who added the Strong's Concordance numbers to the text for this version. The text for this version was downloaded from the BibleSupersearch website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.biblesupersearch.com/bible-downloads/">ASVS Statement</a>
-          </p>
+                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
+                              <span>Copyright&nbsp;©</span>
+                              <span id="id-copyrighted">2018-2025</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>New Hope Ministries</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>MIT License</span>
+                         </a>
 
-          <hr>
-          <br>
-          <span class="cs-title">Arabic Smith Van Dyke (العربية) (AVD)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Arabic Smith Van Dyke - 1865 - (العربية) (AVD) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://archive.org/details/svd_20220402">AVD Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Authorized King James Version (AKV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Authorized King James Version (AKV) is in the public domain in most countries of the world. In the United Kingdom, the right to print, publish and distribute it is a royal prerogative, and the Royal Crown licenses publishers to reproduce it under letters of patent. In England, Wales, and Northern Ireland, the letters of patent are held by the King's Printer, and in Scotland, they are held by the Scottish Bible Board. The office of the King's Printer has been associated with the right to reproduce the Bible for centuries, with the earliest known reference was in 1577. Since this work is in the public domain, it can be freely used, reproduced, and distributed everywhere except the United Kingdom.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://ebible.org/find/show.php?id=eng-kjv2006">AKV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Berean Standard Bible (BSB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Berean Standard Bible (BSB) was officially placed into the public domain as of April 30, 2023. It is available for free online, reflecting the publishers' belief that the Scriptures should be freely studied and shared. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://berean.bible/licensing.htm">BSB Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Bishop's Bible (BBB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Bishop's Bible (BBB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Bishops%27_Bible">BBB Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Chinese Union Simplified Version - 简体中文联盟 (CUS)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Chinese Union Version Simplified (CUS) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from the BibleSupersearch website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Chinese_Union_Version">CUS Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Chinese Union Simplified Version w/Strong's - 中國聯合會（簡體）Zhōngguó liánhé huì (jiǎntǐ) (CUSS)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Chinese Union Simplified Version w'Strongs (CUSS) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from the BibleSupersearch website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.biblesupersearch.com/unbound-downloads/">CUSS Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Chinese Union Traditional Version - 繁體中文聯會 (CUT)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Chinese Union Traditional Version (CUT) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from the BibleSupersearch website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Chinese_Union_Version">CUT Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Chinese Union Traditional Version w/Strong's (CUTS) - 繁体中文聯合 Fántǐ zhōngwén liánhé</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Chinese Union Traditional Version (CUT) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from the BibleSupersearch website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Chinese_Union_Version">CUT Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Coverdale Bible (CBV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Coverdale Bible (CBV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikisource.org/wiki/Bible_(Coverdale)">CBV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Czech Bible of Kralice - 1613 - Czech Bible Kralická (CZK)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Czech Bible of Kralice - 1613 - Czech Bible Kralická (CZK) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://ebible.org/details.php?id=ces1613">CZK Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Darby English Bible (DBY)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Darby English Bible (DBY) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Darby_Bible#References">DBY Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Douay-Rheims Bible (DRB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Douay-Rheims Bible (DRB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Douay%E2%80%93Rheims_Bible">DRB Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Dutch Staten Bible Translation - Dutch Staten Vertaling Statenbijbel (DSV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Dutch Staten Bible Translation - Dutch Staten Vertaling Statenbijbel (DSV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Statenvertaling">DSV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">English Revised Version (ERV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The English Revised Version (ERV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.bible-researcher.com/erv.html">ERV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">French Louis Segond Version - 1910 - Version française de Louis Segond (FLS)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The French Louis Segond Version - 1910 - Version française de Louis Segond (FLS) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://fr.wikipedia.org/wiki/Bible_Segond">FLS Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">French Martin Version - 1744 - Version Martin française (FMT)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The French Martin Version - 1744 - Version Martin française (FMT) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Bible_translations_into_French">FMT Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">French Ostervald Version - 1996 - Version française d'Ostervald (FOS)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The French Ostervald Version - 1996 - Version française d'Ostervald (FOS) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from the eBible.org website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://archive.org/details/revision_bible_francaise/1Corinthiens%20complet/">FOS Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Geneva Bible (GNV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Geneva Bible (GNV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Geneva_Bible">GNV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">German Elberfelder Version - 1871 - Deutsche Elberfelder Version (GEL)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The German Elberfelder Version - 1871 - Deutsche Elberfelder Version (GEL) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://de.wikipedia.org/wiki/Elberfelder_Bibel">GEL Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">German Elberfelder Version - 1905 - Deutsche Elberfelder Version (GER)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The German Elberfelder Version - 1905 - Deutsche Elberfelder Version (GER) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://de.wikipedia.org/wiki/Elberfelder_Bibel">GER Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">German Luther Bible - 1545 - Deutsche Lutherbibel (GLB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The German Luther Bible - 1545 - Deutsche Lutherbibel (GLB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Luther_Bible">GLB Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">German Luther Bible - 1912 - Deutsche Lutherbibel (GLU)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The German Luther Bible - 1912 - Deutsche Lutherbibel (GLU) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Luther_Bible">GLU Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">German Schlachter Bible - 1951 - Deutsche Schlachter-Bibel (GSH)</span>
-          <br>
-          <span>Copyright - Creative Commons 4.0</span>
-          <p>
-               The German Schlachter Bible - 1951 - Deutsche Schlachter-Bibel (GSH) is under copyright by the Genfer Bibelgesellschaft. It is made available under the Creative Commons Attribution 4.0 license, which allows redistribution and adaptation with proper attribution. The German Schlachter Bible - 1951 - Deutsche Schlachter-Bibel (GSH) was derived from the 1951 Schlachter Bible and is not endorsed by the Genfer Bibelgesellschaft in any way.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://creativecommons.org/licenses/by/4.0/">GSH Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Hindi Revised Version - 2025 - हिंदी संशोधित संस्करण (HIR)</span>
-          <br>
-          <span>Copyright - Creative Commons 4.0</span>
-          <p>
-               The Indian Revised Version (IRV) Bible is Copyright © 2017, 2018, 2019 by Bridge Connectivity Solutions. It is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0), which means, you may share, redistribute, and adapt the translation. You must credit the original source, any adaptations must be shared under the same license, and revisions must clearly indicate changes and not imply endorsement by the original authors. The Hindi Revised Version - 2025 - हिंदी भारतीय संशोधित संस्करण (HIR) is derived from the 2018 Indian Revised Version (IRV) bible, and carries the same copyright. Changes were made to the Hindi Revised Version - 2025 - हिंदी संशोधित संस्करण (HIR), and is not endorsed by the original authors in any way.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://ebible.org/details.php?id=hin2017">IRV Statement</a>
-               <br><br>
-               <a class="cs-twfLink" onclick="alert('Hindi Revised Version - 2025 - हिंदी भारतीय संशोधित संस्करण (HIR) is copyrighted under the Creative Commons 4.0 License, and is not endorsed by Bridge Connectivity Solutions Pvt. Ltd. in any way.')" class="cs-underlineLink">HIR Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Hungarian Karoli Version - Karoli Vizsoly Bible (HKV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Hungarian Karoli Version - Karoli Vizsoly Bible (HKV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Vizsoly_Bible">HKV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Italian Giovanni Diodati Version - 1649 - Versione Giovanni italiana Diodati (ITV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Italian Giovanni Diodati Version - 1649 - Versione Giovanni italiana Diodati (ITV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Giovanni_Diodati">ITV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Japanese Bungo-yaku Taishō-kaiyaku New Testament - 1950 - 日本文語訳 大正改訳 (NT) 明治訳 (JBY)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Japanese Bungo-yaku Taishō-kaiyaku New Testament - 1950 - 日本文語訳 大正改訳 (NT) 明治訳 (JBY) was first published in 1917, and later reprinted in 1950. It is in the public domain worldwide because Japanese copyright law generally protects works for 70 years after the author's death or 70 years after publication for corporate-authored works. The primary translators have been deceased for well over a century, and the original publication date of the revised work is also well past the copyright protection period.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.bible-discovery.com/bible-license-japbungo.php">JBY Statement</a><br><br>
-
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Japanese Colloquial Bible - 1955 - 日本語代替聖書 (JKY)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Japanese Colloquial Bible - 1955 - 日本語代替聖書 (JKY) Bible is in the public domain since its copyright expired on January 1, 2006 and was not renewed. The text for this version was downloaded from the BibleSuperSearch website, which was downloaded from the mysword Bible website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.bible-discovery.com/bible-license-japkougo.php">JKY Statement</a><br><br>
-               <a target="_blank" class="cs-twfLink" href="https://mysword.info/download-mysword/bibles">JKY Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Kamano-Kafe Bible - Kamano-Kafe Baepol (KBQ)</span>
-          <br>
-          <span>Copyright © 2022 Tyndale Bible Translators</span>
-          <p>
-               The Kamano-Kafe Bible - Kamano-Kafe Baepol Bible (KBQ) is copyright under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0). The text for this version was downloaded from the ebible.org website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://ebible.org/study/content/texts/kbq/about.html">KBQ Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">King James Version (KJV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The King James Version (KJV) is in the public domain in most countries of the world. In the United Kingdom, the right to print, publish and distribute it is a royal prerogative, and the Royal Crown licenses publishers to reproduce it under letters of patent. In England, Wales, and Northern Ireland, the letters of patent are held by the King's Printer, and in Scotland, they are held by the Scottish Bible Board. The office of the King's Printer has been associated with the right to reproduce the Bible for centuries, with the earliest known reference was in 1577. Since this work is in the public domain, it can be freely used, reproduced, and distributed everywhere except the United Kingdom.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.gutenberg.org/ebooks/10">KJV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">King James Version w'Strong's (KJVS)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The King James Version w/Strong's (KJVS) is in the public domain in most countries of the world. In the United Kingdom, the right to print, publish and distribute it is a royal prerogative, and the Royal Crown licenses publishers to reproduce it under letters of patent. In England, Wales, and Northern Ireland, the letters of patent are held by the King's Printer, and in Scotland, they are held by the Scottish Bible Board. The office of the King's Printer has been associated with the right to reproduce the Bible for centuries, with the earliest known reference was in 1577. Since this work is in the public domain, it can be freely used, reproduced, and distributed everywhere except in the United Kingdom.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.gutenberg.org/ebooks/10">KJV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Korean Bible Version - 한국어 성경 번역 (KBV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Korean Bible Version - 한국어 성경 번역 (KBV) is believed to be in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. Verification of the copyright status of the Korean Bible Version - 한국어 성경 번역 (KBV) is extremely vague on the internet.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Bible_translations_into_Korean">KBV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Maori Bible Version - 1868 - Te Paipera Tapu (MAO)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Maori Bible Version - 1868 - Te Paipera Tapu (MAO) Bible is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from files that originated with the Unbound Bible Project.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.biblesupersearch.com/bible-downloads/">MAO Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Noah Webster's Bible (NWB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Noah Webster's Bible (NWB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Webster%27s_Revision">NWB Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Old Finnish Bible - 1776 - Vuoden raamattu (FIN)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Old Finnish Bible - 1776 - Vuoden raamattu (FIN) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Bible_translations_into_Finnish">FIN Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Old Persian Translation - 1895 - ترجمه فارسی باستان (OPT)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Old Persian Translation - 1895 - ترجمه فارسی باستان (OPT) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://find.bible/bibles/PESOPV/">OPT Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Polish Bible of Gdansk - 1881 - Polska Biblia Gdanska (PBV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Polish Bible of Gdansk - 1881 - Polska Biblia Gdanska (PBV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://dev.find.bible/bibles/POLG81/?locale=ko/">PBV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Polish New Gdansk Bible - 2012 - Polska Nowa Biblia Gdańska (PBN)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Polish New Gdansk Bible - 2012 - Polska Nowa Biblia Gdańska (PBN) Bible has conflicting information about its copyright status available on the internet. But, it is believed that the Polish Bible of Gdansk - 1881 - Polska Biblia Gdanska (PBV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://pl.wikipedia.org/wiki/Nowa_Biblia_gda%C5%84ska">PBN Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Portuguese Free Bible - Bíblia em Português Grátis (PTB)</span>
-          <br>
-          <span>Copyright - Creative Commons 3.0</span>
-          <p>
-               The Portuguese Free Bible - Bíblia em Português Grátis (PTB)e is released under the Creative Commons Attribution 3.0 Brazil License. This means that you may freely share and redistribute the text. Proper attribution to the authors and source is required. If you modify the text, you must indicate that changes were made. The license allows for both personal and commercial use, as long as attribution is maintained.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://sites.google.com/site/biblialivre/">PTB Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Portuguese João Ferreira de Almeida Revised and Updated - João Ferreira de Almeida Revisado e Atualizado (PTA)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Portuguese João Ferreira de Almeida Revised and Updated - João Ferreira de Almeida Revisado e Atualizado (PTA) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this work was downloaded from the Bible supersearch website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.biblesupersearch.com/unbound-downloads/">PTA Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Romanian Cornilescu Version - Versiunea Cornilescu în limba română (RCV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Romanian Cornilescu Version - Versiunea Cornilescu în limba română (RCV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this work was downloaded from the Bible supersearch website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.biblesupersearch.com/unbound-downloads/">RCV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Russian Synodal Bible - 1876 - Русская Синодальная Библия (RSB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Russian Synodal Bible - 1876 - Русская Синодальная Библия (RSB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Russian_Synodal_Bible">RSB Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Smith's Literal Translation (SLT)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Smith's Literal Translation (SLT) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Julia_E._Smith_Parker_Translation">SLT Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Spanish Reina Valera - 1909 - Reina Valera Española (SRV)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Spanish Reina Valera - 1909 - Reina Valera Española (SRV) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://awmach.org/bibles/BVA/license">SRV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Spanish Reina Valera Gómez - 2004 - Reina Valera Gómez Española (SRG)</span>
-          <br>
-          <span>Copyright - Non-Commercial</span>
-          <p>
-               The Spanish Reina Valera Gómez - 2004 - Reina Valera Gómez Española (SRG) is Copyright© 2004 by Dr. Humberto Gómez Caballero, all rights reserved, but with a generous distribution policy: Churches and organizations may freely print or reproduce the Spanish Reina Valera Gómez - 2004 - Reina Valera Gómez Española (SRG) for non-commercial use, as long as the text remains unchanged. Commercial reproduction or modification is strictly prohibited. This copyright is held to protect the integrity of the translation, not to restrict free access to the Bible for ministry purposes.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://evanbible.com/downloads/rvg_2004.pdf">SRG Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Spanish Reina Valera Gómez - 2010 - Reina Valera Gómez Española (SRZ)</span>
-          <br>
-          <span>Copyright - Non-Commercial</span>
-          <p>
-               The Spanish Reina Valera Gómez - 2010 - Reina Valera Gómez Española (SRZ) carries a non-commercial Copyright © 2010 by Dr. Humberto Gómez Caballero, but churches and organizations may freely print or distribute it for non-commercial use, provided the text remains unchanged. No royalties are required for free distribution, but commercial reproduction or modification is not permitted.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://evanbible.com/downloads/rvg_2004.pdf">SRZ Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Spanish Reina Valera w/Strong's - 1909 - Reina Valera Española con Strong's (SRVS)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Spanish Reina Valera w/Strong's - 1909 - Reina Valera Española con Strong's (SRVS) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://www.biblesupersearch.com/unbound-downloads/">SRVS Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Tagalog Bible - 1905 - Ang Tagalog Biblia (TAB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Tagalog Bible - 1905 - Ang Tagalog Biblia (TAB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://bible-discovery.com/bible-license-tagangbiblia.php">TAB Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Turkish Bible Version - Türkçe İncil Versiyonu (TVB)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Turkish Bible Version - Türkçe İncil Versiyonu (TVB) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from the BibleSupersearch website.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://translation.bible/wp-content/uploads/2024/06/nilson-1966-western-turkish-versions-of-the-bible.pdf">TVB Statement</a>
-          </p>
-
-          <hr>
-          <br><br>
-          <p>
-               <span class="cs-title">Twenty-First Century Version (TWF)</span>
-               <br>
-               Copyright - Public Domain
-               <p>
-                    I am placing the Twenty-First Century Version (TWF) of the Bible in the public domain as of September 3, 2025. I have decided to enter it into the public domain, because God told me to... God's servant.
-               </p>
-               <a class="cs-twfLink" target="_blank" onclick="aClick('twfabout.html')">TWF Statement</a>
-          </p>
-
-          <hr>
-          <br><br>
-          <p>
-               <span class="cs-title">Vietnamese Cadman Version - 1934 - Phiên bản Cadman Việt Nam (VCV)</span>
-               <br>
-               Copyright - Public Domain
-               <p>
-                    The Vietnamese Cadman Version - 1934 - Phiên bản Cadman Việt Nam (VCV) is in the public domain worldwide because the New Testament copyright expired January 1, 2019, and the Old Testament copyright expired on January 1, 2021. Since this work is in the public domain, it can be freely used, reproduced, and distributed. The text for this version was downloaded from the ebible.org website.
-               </p>
-               <a class="cs-twfLink" target="_blank" href="https://ebible.org/vie1934/copyright.htm">VCV Statement</a>
-          </p>
-
-          <hr>
-          <br>
-          <span class="cs-title">Young's Literal Translation (YLT)</span>
-          <br>
-          <span>Copyright - Public Domain</span>
-          <p>
-               The Young's Literal Translation (YLT) is in the public domain worldwide because it was not copyrighted, or it was placed in the public domain by its author or authors, or it was published before January 1, 1929, or its author or authors have been dead for over 100 years. Since this work is in the public domain, it can be freely used, reproduced, and distributed.
-               <br><br>
-               <a target="_blank" class="cs-twfLink" href="https://en.wikipedia.org/wiki/Young%27s_Literal_Translation">YLT Statement</a>
-          </p>
-     </div>
-     <br><br><br>
-     <hr>
-     <hr>
-     <br><br>
-     <div class="cs-GodLovesYou cs-GodLovesYouPages">
-          <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
-          <div>The TWF version is being actively edited and is subject to change daily.</div>
-          <div class="cs-northStar">✨</div>
-          <div style="color: #09b009;">
-               <span>Copyright&nbsp;©</span>
-               <span id="id-copyrighted">2018-2025</span>
-               <span class="cs-copySign">&nbsp;●&nbsp;</span>
-               <span>New Hope Ministries</span>
-               <span class="cs-copySign">&nbsp;●&nbsp;</span>
-               <span>MIT License</span>
+                         <br><br>
+                         <div id="id-lastEdited">Last Edited:</div>
+                         <div id="id-installed">Installed?</div>
+                    </div>
+               </div>
           </div>
-          <br><br>
-          <div id="id-lastEdited">Last Edited:</div>
-          <div id="id-installed">Installed?</div>
+
      </div>
-     <br>
+
 </body>
 
 </html>

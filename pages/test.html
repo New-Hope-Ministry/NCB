@@ -1,26 +1,64 @@
-          <br><br><br><br>
-          <div id="id-bottom">
-               <br>
-               <hr id="id-hrCopyright">
-               <br><br>
-               <div id="id-GodLovesYou">
+<!DOCTYPE html>
+<html lang="en">
 
-                    <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
-                    <div>The TWF version is being actively edited and is subject to change daily.</div>
-                    <div>If you prefer to read other Bible versions, please feel free to do so.</div>
-                    <div id="id-northStar">✨</div>
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script>
+          /*
+               function resetKeys() {
+                    const keys = [
+                         'activeFontSizeCount', 'activeFontSize', 'activeBookID', 'activeChapterID',
+                         'activeVersionID', 'activeCompVrsnID', 'lastCacheCheck', 'paragraphLayout', 'redLetter', 'setTheme', 'installed', 'savedLocal', 'chapter', 'version', 'day'
+                    ];
+                    keys.forEach(k => localStorage.removeItem(k));
+                    ['vh', 'bid', 'cn', 'lid', 'verid', 'verid1'].forEach(removeQueryParam);
+               };
+          */
+     </script>
 
-                    <a id="id-copyright" onclick="aClick('../pages/license.html')">
-                         <span>Copyright&nbsp;©</span>
-                         <span id="id-copyrighted">2018-2025</span>
-                         <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                         <span>New Hope Ministries</span>
-                         <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                         <span>MIT License</span>
-                    </a>
+     <style>
+          .cs-btnBackground { padding: .5em; padding-bottom: .4em; border-top-left-radius: 6px;  border-top-right-radius: 6px; }
+     </style>
+</head>
 
-                    <br><br>
-                    <div id="id-lastEdited">Last Edited:</div>
-                    <div id="id-installed">Installed?</div>
-               </div>
-          </div>
+<body>
+
+     table { border-collapse: collapse; width: 98%; margin: auto; }
+     th, td { border: 1px solid black; padding: .2em; text-align: left; }
+     th { background-color: var(--bannerBackground); color: var(--whiteText)}
+     tr:nth-child(even) { background-color: #f2f2f2; }
+      <table id="id-oldTable" border="1">
+          <thead>
+               <tr>
+                    <th>BookID</th>
+                    <th>Book</th>
+                    <th>Status</th>
+                    <th>Chapters</th>
+                    <th>Verses</th>
+                    <th>Total OT Chapters Edited</th>
+               </tr>
+          </thead>
+          <tbody>
+               <tr>
+                    <td>1</td>
+                    <td>~Genesis</td>
+                    <td>Working Draft - 31:1</td>
+                    <td>50</td>
+                    <td>1533</td>
+                    <td>50</td>
+               </tr>
+               <tr>
+                    <td>2</td>
+                    <td>Exodus</td>
+                    <td>Rough Draft</td>
+                    <td>40</td>
+                    <td>1213</td>
+                    <td>90</td>
+               </tr>
+          </tbody>
+     </table>
+</body>
+
+</html>

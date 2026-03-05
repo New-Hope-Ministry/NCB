@@ -9,27 +9,33 @@
 
      <!-- Pre-fetch -->
      <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="preload" as="image" href="../images/icons/ark-192.webp" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/icons/ark-192.webp" fetchpriority="high">
+
      <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
+     <!-- Stylesheet links -->
      <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
-     <link rel="stylesheet" type="text/css" href="../code/css/shared/boxes.css">
-     <link rel="stylesheet" type="text/css" href="../code/css/apps/comp.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/settings.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/pages/pages.css">
      <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
+     <!-- Javascript links -->
      <script defer src="../code/js/z-shared/shared.js"></script>
-     <script defer src="../code/js/z-shared/boxes.js"></script>
-     <script defer src="../code/js/comp/comp.js"></script>
 
-     <script id="id-loadEvent">
+     <script id="id-DOMContentLoaded">
+
+          document.addEventListener("DOMContentLoaded", async () =>  {
+               // DOMContentLoaded event fires before page is displayed
+               let rec = false;
+               rec = await getDesignDefaults();
+          });
+     </script>
+
+     <script id="id-load">
           window.addEventListener("load", async () => {
                // load event fires after page is displayed
-
-               document.getElementById("id-loader").style.display = 'none';
-               document.getElementById('id-noDisplay').classList.remove('cs-hidden');
-               document.getElementById('id-noDisplay').style.visibility = 'visible';
 
                if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
                document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
@@ -42,55 +48,43 @@
 
 <body id="id-body">
 
-     <div id="id-loader"></div>
-
-     <div id="id-noDisplay" onclick="openBoxes(event);">
-
+     <div id="id-display">
           <div id="id-sunshine">
                <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
                <div id="id-banner">
-                    <div id="id-appTitle">Compare Ark Bible Versions</div>
+                    <div id="id-pagesTitle">The Ark Bible Pages Template</div>
                     <div id="id-rightIcon" data-nosnippet>❤️</div>
-                    <div id="id-menu">
-                         <button id="id-MenuBtn1" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
-
-                         <button id="id-MenuBtn2" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Book" translate="no">Genesis</button>
-
-                         <button id="id-MenuBtn3" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Chapter" translate="no">1:</button>
-
-                         <button id="id-MenuBtn4" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Version" translate="no">AKJ</button>
-                    </div>
                </div>
-
           </div>
 
-          <div id="id-pageContainer">
+          <style id="id-PagesStyles">
+
+          </style>
+
+          <div id="id-pageContainer" >
                <div id="top"> </div>
-               <span id="id-headline">Version</span>
-               <span id="id-headline1">Version1</span>
-               <span id="id-navTitleSpan">
-                    <span id="id-spanFlex">
+               <div id="id-mainPage">
+                    <div id="id-headline">Pages Template File</div>
+                    <div id="id-page">
 
-                         <div id="id-mainPage">
-                              <div id="id-page" onclick="unHighlight()"></div>
-                              <br><br><br><br><br>
+                         <div id="id-HeadlineHelp">
+                              <!--<h2 id="id-contentsTitle">Help</h2>-->
+                              <p>
+                                   The Ark Bible is an open-source Bible application project, that can be freely distributed by anyone for use in spreading God's holy word. The Ark Bible contains 12 English language versions of the Bible.
+                              </p>
                          </div>
+                         <br>
+                         <hr>
 
-                         <div id="id-mainPage1">
-                              <div id="id-page1" onclick="unHighlight()"></div>
-                              <br><br><br><br><br>
-                         </div>
-
-                    </span>
-
-                    <div id="id-navLine" data-nosnippet>
-                         <div id="id-navTitle">Genesis 1</div>
                     </div>
-               </span>
-               <br><br>
+                    <br><br><br>
 
+               </div>
+
+               <br><br>
                <div id="id-bottom">
                     <br>
+
                     <hr id="id-hr1">
                     <br><br>
                     <div id="id-GodLovesYou">
@@ -112,33 +106,10 @@
                          <br><br>
                          <div id="id-lastEdited">Last Edited:</div>
                          <div id="id-installed">Installed?</div>
-                         <br><br>
                     </div>
                </div>
           </div>
 
-     </div>
-
-     <div id="id-versions" data-nosnippet>
-          <div id="id-versionHeader">Versions</div>
-          <div id="id-versionsBox"></div>
-     </div>
-     <div id="id-books" data-nosnippet>
-          <div id="id-bookHeader">
-               <span>Books</span>
-               <div id="id-sortBook" title="Sort Alphabetically">
-                    <span id="id-heart" onclick="sortBooks(event)">🩵</span>
-               </div>
-          </div>
-          <div id="id-booksBox"></div>
-     </div>
-     <div id="id-chapters" data-nosnippet translate="no">
-          <div id="id-chapterHeader">Chapters</div>
-          <div id="id-chaptersBox"></div>
-     </div>
-     <div id="id-versions1" data-nosnippet translate="no">
-          <div id="id-version1Header">Version-B</div>
-          <div id="id-versions1Box"></div>
      </div>
 
 </body>

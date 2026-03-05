@@ -1,0 +1,11 @@
+#id-searchContainer { border-radius: 6px; width: 90%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
+#id-searchTitle { width: 90%; margin: auto; text-align: center; }
+#id-searchCase { width: 90%; margin: auto; text-align: center; font-size: .9em; }
+#id-searchPage { text-align: justify; margin: auto; margin-top: 1.5em; width: 99%; }
+#id-searchBox { height: 2.5em; max-width: 84%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; padding-right: 3em; font-size: 1.3rem; z-index: 12; white-space: nowrap; overflow-x: scroll; overflow-y: hidden; }
+#id-searchBox[contenteditable="true"]:empty:before { content: attr(data-placeholder); color: gray; font-style: italic; }
+#id-searchBtn { color: white; background-color: red; padding: .6em; border-radius: 6px; width: 10%; margin: auto; margin-top: .6em; font-size: 1.1em; z-index: 12; text-align: center; border: 2px solid black; cursor: pointer; }
+#id-resultCount { width: 90%; margin:auto; text-align: center; }
+.cs-moreSearchResults { font-size: 1.2rem; text-decoration: underline; color: var(--lightMaroonEmphasis); }
+.cs-searchVerse { margin-top: -.1em; }
+.cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--navyEmphasis); }

@@ -1,98 +1,141 @@
 <!DOCTYPE html>
-<html lang="en" class="cs-noScroll">
+<html lang="en">
 
 <head>
      <meta charset="UTF-8">
+     <title>The Ark Bible</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
 
      <!-- Pre-fetch -->
      <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="preload" as="image" href="../images/logos/white-logo-512.webp" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/icons/ark-192.webp" fetchpriority="high">
 
      <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
-     <title>About The Ark Bible</title>
+     <!-- Stylesheet links -->
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/settings.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/pages/pages.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
-     <link rel="stylesheet" type="text/css" href="../code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="../code/css/pages.css">
-     <script async src="../code/js/variables.js"></script>
-     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-               setTimeout(function () {
-                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-                    document.getElementById('id-copyrighted').textContent = copyrighted;
-                    let inst = localStorage.getItem('installed');
-                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
-                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
-                    };
-               }, 200);
+     <!-- Javascript links -->
+     <script defer src="../code/js/z-shared/shared.js"></script>
+
+     <script id="id-DOMContentLoaded">
+
+          document.addEventListener("DOMContentLoaded", async () =>  {
+               // DOMContentLoaded event fires before page is displayed
+               let rec = false;
+               rec = await getDesignDefaults();
           });
      </script>
+
+     <script id="id-load">
+          window.addEventListener("load", async () => {
+               // load event fires after page is displayed
+
+               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-copyrighted').textContent = copyrighted;
+               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+          });
+     </script>
+
 </head>
 
-<body class="cs-noScroll">
-     <div class="cs-fixBanner">
-          <div class="cs-imgBanner">
-               <img loading="eager" src="../images/headers/crystal.webp" class="cs-imgBanner" alt="img">
-               <a class="cs-iconLinkQR cs-imgLogo">
-                    <img loading="eager" src="../images/logos/white-logo-512.webp" class="cs-iconLink" title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
+<body id="id-body">
 
-                    <span class="cs-logoTitle">About The Ark</span>
-               </a>
-
+     <div id="id-display">
+          <div id="id-sunshine">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <div id="id-banner">
+                    <div id="id-pagesTitle">About The Ark Bible</div>
+                    <div id="id-rightIcon" data-nosnippet>❤️</div>
+               </div>
           </div>
 
-     </div>
-     <div class="cs-page">
+          <div id="id-pageContainer" >
+               <div id="top"> </div>
+               <div id="id-mainPage">
+                    <div id="id-headline">About</div>
+                    <div id="id-page">
+                         <br>
+                         <h4 id="id-contentsTitle">If you love something, let it go! If it loves you, it will return! <span class="cs-signed">...unknown speaker</span></h4>
+                         <hr>
 
-          <h3 class="cs-contentsTitle">If you love something, let it go! If it loves you, it will return! <span class="cs-unknown">...unknown speaker</span></h3>
-          <br>
-               The wise old saying above is not Biblical, but it has been with me for my whole entire life, and there is hardly a day goes by that I do not think of it. I believe that this is precisely what Jesus was trying to tell us when he said, "For whosoever desires to save his own life will lose it, but whoever loses his life for my sake will find it." This profound statement can be found in Matthew 16:25 and similar verses are found in Mark 8:35 and Luke 9:24. Essentially, I feel that Jesus is trying to teach us that, if we prioritize ourselves and focus solely on preserving our own life, our worldly existence, and our own comfort, we will ultimately lose what truly matters, which is our spiritual life and eternal salvation. <br>
-               <br>
-               Self-sacrifice: By surrendering our life to God's purpose, following his teachings, and serving others, we will paradoxically gain true life, which is a spiritual and eternal existence. It is not an accident that I have omitted all personal information about myself in the construction of The Ark Bible, I have done this because I do not seek worldly rewards, but I seek only to serve God. I assure you that this is not some AI concoction, but I am a man with many years of searching for God before I began the hard work of building the Ark for God. <br><br>
+                         <div id="id-HeadlineAbout">
+                              <p>
+                                   The wise old saying above is not Biblical, but it has been part of my life since I was a child, and hardly a day goes by that I do not think of it. I believe this is precisely what Jesus was trying to tell us when he said, "For whosoever desires to save his own life will lose it, but whoever loses his life for my sake will find it." This profound statement can be found in Matthew 16:25 and similar verses are found in Mark 8:35 and Luke 9:24. Essentially, I feel that Jesus is trying to teach us that, if we prioritize ourselves and focus solely on preserving our own life, our worldly existence, and our own comfort we will ultimately lose what truly matters, which is our spiritual life and eternal salvation. By surrendering our life to God's purpose, following his teachings, and serving others we will find true life, which is a spiritual and eternal existence. I have omitted all personal information about myself in the construction of The Ark Bible because I do not seek worldly rewards. I seek only to serve God, and I spent many years learning and searching for God before the work of building God's new Ark began.
+                              </p>
+                              <a class="cs-linkBtn" onclick="aClick('twfabout.html');">About the Twenty-First Century Version</a>
 
-               So why do I do this work? <br>
-               <span class="cs-title">Because God says, he searches all hearts for truth:</span><br>
-               🪶--- 1 Chronicles 28:9 "And you my son Solomon, know your father God and serve him with a perfect heart and with a willing mind. Because the Lord searches all hearts, and understands all the imaginations and thoughts. If you seek him, you will find him, but if you forsake him he will throw you away forever." <br>
-               🪶--- Jeremiah 17:10 "I, the Lord, search the heart and examine the soul to reward every man according to his ways and everything he deserves." <br>
-               🪶--- Psalm 139:23 "O God, search me and know my heart, try me and know my thoughts."
-               <br>
-               <br>
+                         </div>
+                         <br>
+                         <hr>
+                         <div id="id-WhyAbout">
+                              <p>
+                                   <span class="cs-title">Why do I do this work?</span><br><br>
+                                   Because God says he searches all hearts for truth:<br>
+                                   🪶--- 1 Chronicles 28:9 "And you my son Solomon, know your father God and serve him with a perfect heart and with a willing mind. Because the Lord searches all hearts, and understands all the imaginations and thoughts. If you seek him, you will find him, but if you forsake him he will throw you away forever." <br>
+                                   🪶--- Jeremiah 17:10 "I, the Lord, search the heart and examine the soul to reward every man according to his ways and everything he deserves." <br>
+                                   🪶--- Psalm 139:23 "O God, search me and know my heart, try me and know my thoughts."
+                              </p>
+                         </div>
+                         <br>
+                         <hr>
 
-               <span class="cs-title">Why build another Ark?:</span><br>
-               God has revealed to me that he wants somewhere to store his true word on the cloud before the storm comes and the books are unsealed. <br>
-               🪶--- Daniel 12:9 "And the Lord said, 'Go your way Daniel, because the words are closed and sealed until the time of the end.'" <br>
-               🪶--- Isaiah 29:10-11 "10. Because the Lord has poured out a spirit of deep sleep and closed the eyes of your prophets and rulers, and he has covered the wise. 11. All visions have become like a sealed book, which is delivered to educated men and when they are asked to read it, they reply, 'I cannot, because it is sealed.'"
-               <br>
-               <span class="cs-unknown">...God's anonymous servant</span>
-          </p>
-          <a class="cs-twfLink" onclick="aClick('twfabout.html');">About the Twenty-First Century Version</a>
-          <br><br>
-          <hr>
-          <br>
-          <div class="cs-GodLovesYou cs-GodLovesYouPages">
-               <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
-               <div>The TWF version is being actively edited and is subject to change daily.</div>
-               <div>If you prefer to read other Bible versions, please feel free to do so.</div>
-               <div class="cs-northStar">✨</div>
-               <a onclick="aClick('license.html')" class="cs-copyright">
-                    <span>Copyright&nbsp;©</span>
-                    <span id="id-copyrighted">2018-2025</span>
-                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                    <span>New Hope Ministries</span>
-                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                    <span>MIT License</span>
-               </a>
+                         <div id="id-WhyAboutAnother">
+                              <p>
+                                   <span class="cs-title">Why build another Ark?:</span><br><br>
+                                   God has revealed to me that he wants somewhere to store his true word on the cloud before the storm comes and the books are unsealed. <br>
+                                   🪶--- Daniel 12:9 "And the Lord said, 'Go your way Daniel, because the words are closed and sealed until the time of the end.'" <br>
+                                   🪶--- Isaiah 29:10-11 "10. Because the Lord has poured out a spirit of deep sleep and closed the eyes of your prophets and rulers, and he has covered the wise. 11. All visions have become like a sealed book, which is delivered to educated men and when they are asked to read it, they reply, 'I cannot, because it is sealed.'"
+                                   <br>
+                                   <span class="cs-signed">...God's anonymous servant</span>
+                              </p>
+                         </div>
+                         <br>
+                         <hr>
+
+                    </div>
+                    <br><br>
+
+               </div>
+
                <br><br>
-               <div id="id-lastEdited">Last Edited:</div>
-               <div id="id-installed">Installed?</div>
-               <br>
+               <div id="id-bottom">
+                    <br>
+
+                    <hr id="id-hr1">
+                    <br><br>
+                    <div id="id-GodLovesYou">
+
+                         <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                         <div>The TWF version is being actively edited and is subject to change daily.</div>
+                         <div>If you prefer to read other Bible versions, please feel free to do so.</div>
+                         <div id="id-northStar">✨</div>
+
+                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
+                              <span>Copyright&nbsp;©</span>
+                              <span id="id-copyrighted">2018-2025</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>New Hope Ministries</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>MIT License</span>
+                         </a>
+
+                         <br><br>
+                         <div id="id-lastEdited">Last Edited:</div>
+                         <div id="id-installed">Installed?</div>
+                    </div>
+               </div>
           </div>
+
      </div>
-     <br>
+
 </body>
 
 </html>

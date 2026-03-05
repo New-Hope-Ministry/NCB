@@ -3,112 +3,142 @@
 
 <head>
      <meta charset="UTF-8">
-     <title>The Ark Bible Chronological Reading Plan</title>
-     <link rel="canonical" href="https://thearkbible.com/chron.html" />
+     <title>The Ark Bible</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
-     <!-- Pre-fetch -->
-     <link rel="preload" as="image" href="../images/icons/ark-192.webp" fetchpriority="high">
 
-     <!-- Desktop Icons -->
-     <link rel="icon" href="../images/logos/logo-192.webp" type="image/webp" sizes="192x192">
+     <!-- Pre-fetch -->
+     <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/icons/ark-192.webp" fetchpriority="high">
+
+     <!-- Favicon & Desktop Icons -->
+     <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/boxes.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
-     <link async rel="stylesheet" type="text/css" href="../code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="../code/css/chron.css">
+     <script defer src="../code/js/z-shared/shared.js"></script>
+     <script defer src="../code/js/z-shared/boxes.js"></script>
+     <script defer src="../code/js/chron/chronPlan.js"></script>
+     <script defer src="../code/js/chron/chron.js"></script>
 
-     <script async src="../code/js/variables.js"></script>
-     <script async src="../code/js/chron/chronUtilities.js"></script>
-     <script async src="../code/js/chron/chron.js"></script>
-     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-               setTimeout(function () {
-                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-                    document.getElementById('id-copyrighted').textContent = copyrighted;
-                    let inst = localStorage.getItem('installed');
-                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
-                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
-                    };
-               }, 200);
+     <script id="id-loadEvent">
+          window.addEventListener("load", async () => {
+               // load event fires after page is displayed
+
+               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+
+               document.getElementById("id-loader").style.display = 'none';
+               document.getElementById('id-noDisplay').classList.remove('cs-hidden');
+               document.getElementById('id-noDisplay').style.visibility = 'visible';
+               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-copyrighted').textContent = copyrighted;
+
+               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+
           });
      </script>
+<style>
 
+</style>
 </head>
 
-<body>
-     <div id="id-loader" class="cs-loader"> </div>
-     <div id="top"></div>
+<body id="id-body">
+     <div id="id-loader"> </div>
 
-     <div id="id-sunshine" class="cs-sunshine">
-          <img loading="eager" id="logo" src="../images/icons/ark-192.webp" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+     <div id="id-noDisplay" onclick="openBoxes(event); unHighlight(event)">
 
-          <div id="id-header" class="cs-header cs-title" onclick="openBox(event)">
-               <h1 class="cs-headerTitle cs-chronTitleHeader cs-logoTitle" onclick="bClick(goHome)">Ark Bible 365 Day Chronological Plan</h1>
+          <div id="id-sunshine">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <div id="id-banner" onclick="openBoxes(event); unHighlight(event)">
+                    <div id="id-appTitle">Ark Bible 365 Day Chronological Plan</div>
+                    <div id="id-rightIcon" data-nosnippet title="God Loves You!" alt="God Loves You!">❤️</div>
+                    <div id="id-menu">
+                         <button id="id-MenuBtn1" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
+
+                         <button id="id-MenuBtn2" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Day" translate="no">Day: 1</button>
+
+                         <button id="id-MenuBtn3" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Chapter" translate="no">Genesis: 1</button>
+                    </div>
+               </div>
+
           </div>
 
-          <div id="id-header1" class="cs-header cs-banner">
-               <div id="id-menu" class="cs-menu cs-chronMenu">
-                    <div class="cs-menu1" translate="no">
-                         <button id="id-ChronBtn1" class="cs-menuBtn cs-menuBtn1 cs-chronMenu" onclick="openBox(event)"
-                              title="Select A Version" translate="no">TWF</button>
-                         <button id="id-ChronBtn2" class="cs-menuBtn cs-menuBtn1 cs-chronMenu" onclick="openBox(event)"
-                              title="Select A Day" translate="no">Day 1</button>
-                         <button id="id-ChronBtn3" class="cs-menuBtn cs-menuBtn2 cs-chronMenu" onclick="openBox(event)"
-                              title="Select A Chapter" translate="no">Genesis 1</button>
-                         <button id="id-ChronBtn3" class="cs-menuBtn cs-menuBtn2 cs-chronMenu" onclick="restart(event)"
-                              title="Restart" translate="no">Restart</button>
+          <div id="id-pageContainer" onclick="openBoxes(event); unHighlight(event)">
+               <div id="top"> </div>
+               <div id="id-mainPage">
+                    <div id="id-headline">Version</div>
+
+                    <div id="id-page" onclick="openBoxes(event); unHighlight(event)">
+
+                    </div>
+
+                    <br><br><br>
+                    <div id="id-navLine" data-nosnippet>
+                         <div id="id-navLastChapter" onclick="chronLastChapter(event)">‹ Last</div>
+                         <div id="id-navTitle">Genesis 1</div>
+                         <div id="id-navNextChapter" onclick="chronNextChapter(event)">Next ›</div>
+                    </div>
+
+               </div>
+
+               <br><br>
+               <div id="id-bottom">
+                    <div id="id-appLinks">
+                         <br>
+                         <a id="id-restart" onclick="restart(event)" target="_blank" data-nosnippet>Restart Reading Plan</a>
+                         <br>
+                    </div>
+                    <br>
+
+                    <div id="id-GodLovesYou">
+
+                         <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                         <div>The TWF version is being actively edited and is subject to change daily.</div>
+                         <div>If you prefer to read other Bible versions, please feel free to do so.</div>
+                         <div id="id-northStar">✨</div>
+
+                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
+                              <span>Copyright&nbsp;©</span>
+                              <span id="id-copyrighted">2018-2025</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>New Hope Ministries</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>MIT License</span>
+                         </a>
+
+                         <br><br>
+                         <div id="id-lastEdited">Last Edited:</div>
+                         <div id="id-installed">Installed?</div>
                     </div>
                </div>
           </div>
-     </div>
-
-     <div id="id-pageContainer" class="cs-pageContainer" onclick="openBox(event)">
-          <div id="id-mainPage" class="cs-mainPage">
-
-               <div id="id-headline" class="cs-headline"></div>
-               <div id="id-page" class="cs-page"></div>
-
-               <br><br><br><br><br>
-               <div id="id-bottomTitleLine" class="cs-bottomLine"></div>
-          </div>
-          <br><br>
-          <div class="cs-bottom">
-               <br>
-               <hr class="cs-hrCopyright">
-               <br><br>
-               <div class="cs-GodLovesYou">
-                    <div class="cs-blueLtr">
-                         The Ark Bible 365 Day Chronological Reading plan comes from the Blue Letter Bible - Daily Bible Reading Program Chronological Plan.
-                         <br>
-                         <a class="cs-blueLtrLink"
-                              onclick="bClick('https://www.blueletterbible.org/assets/pdf/dbrp/1Yr_ChronologicalPlan.pdf')">Blue Letter Bible Chronological Reading Plan</a>
-                    </div><br>
-                    <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
-                    <div>The TWF version is being actively edited and is subject to change daily.</div>
-                    <div>If you prefer to read other Bible versions, please feel free to do so.</div>
-                    <div class="cs-northStar">✨</div>
-                    <a onclick="aClick('../pages/license.html')" class="cs-copyright">
-                         <span>Copyright&nbsp;©</span>
-                         <span id="id-copyrighted">2018-2025</span>
-                         <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                         <span>New Hope Ministries</span>
-                         <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                         <span>MIT License</span>
-                    </a>
-                    <br><br>
-                    <div id="id-lastEdited">Last Edited:</div>
-                    <div id="id-installed">Installed?</div>
-               </div>
-          </div>
 
      </div>
 
+     <style>
+          #id-chapterHeader,
+          #id-dayHeader,
+          #id-versionHeader { padding-left: .5em; padding-right: .5em;  }
+          .cs-chapter { padding: .3em; padding-left: .6em; padding-right: .6em; font-size: 1.2rem; top: 0; }
+     </style>
+
+     <div id="id-versions" data-nosnippet>
+          <div id="id-versionHeader">Versions</div>
+          <div id="id-versionsBox"></div>
+     </div>
+
+     <div id="id-days" data-nosnippet>
+          <div id="id-dayHeader">Days</div>
+          <div id="id-daysBox"></div>
+     </div>
+
+     <div id="id-chapters" data-nosnippet translate="no">
+          <div id="id-chapterHeader">Chapters &nbsp;</div>
+          <div id="id-chaptersBox"></div>
+     </div>
 </body>
-
-<div id="id-chronVersions" class="cs-versions" translate="no"></div>
-<div id="id-languages" class="cs-languages"></div>
-<div id="id-chronDays" class="cs-chronDays" translate="no"></div>
-<div id="id-chronChapters" class="cs-chronChapters" translate="no"></div>
 
 </html>

@@ -1,0 +1,20 @@
+
+#id-rightIcon { font-size: 1.4rem; }
+#id-synth { position: fixed; top: 4.2em; height: 3.5em; min-width: 100%; width: 100%; background-color: #cc4c55;}
+#id-progressContainer { position: relative; top: .5em; width: 80%; background: #dedcdc; height: .6em; overflow: hidden; border-radius: 10px; margin: auto; }
+#id-progressBar { width: 0%; height: 100%; background: var(--headlineBackground); transition: width 0.1s linear; border-radius: 10px; }
+#id-speechBtns { display: flex; justify-content: center; width: 70%; margin: auto; }
+#id-stopSpeech { padding: .3em; display: none; margin-right: .5em; margin-top: 1em; cursor: pointer; }
+#id-startOver { font-weight: 600; margin-right: -.2em; }
+#id-startSpeech { padding: .3em; margin-left: .5em; margin-top: 1em; cursor: pointer; }
+#id-pauseSpeech { display: none; padding: .3em; margin-left: .5em; margin-top: 1em; font-weight: 600; cursor: pointer; }
+#id-synthCheckBox { position: absolute; right: 2em; top: 1.9em; }
+#id-playCheckBoxLbl { font-size: .9rem; color: white; }
+#id-pageContainer { top: 7.7em; }
+.cs-playCheckBox { outline: 3px solid red !important; }
+
+/* ************** Media Queries ***************** */
+     /* Width */
+          @media (max-width: 600px) { #id-rightIcon { right: 1em; top: 1.5em;} }
+      /* End Width */
+/* ************** End Media Queries ***************** */

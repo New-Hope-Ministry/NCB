@@ -3,134 +3,141 @@
 
 <head>
      <meta charset="UTF-8">
-     <title>Ark Bible Speech Synthesizer</title>
-     <link rel="canonical" href="https://thearkbible.com/synth.html" />
-
+     <title>The Ark Bible</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
 
-     <link rel="preload" as="image" href="../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <!-- Pre-fetch -->
+     <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="preload" as="image" href="../images/icons/ark-192.webp" fetchpriority="high">
+     <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
-     <link async rel="stylesheet" type="text/css" href="../code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="../code/css/synth.css">
-     <link defer rel="stylesheet" type="text/css" href="../code/css/lateload.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/apps/synth.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/boxes.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
-     <script async src="../code/js/variables.js"></script>
-     <script async src="../code/js/synth/synthLoadTables.js"></script>
-     <script async src="../code/js/synth/synth.js"></script>
-     <script defer src="../code/js/synth/synthUtilities.js"></script>
-     <script defer src="../code/js/synth/synthLateLoad.js"></script>
-     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-               setTimeout(function () {
-                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-                    document.getElementById('id-copyrighted').textContent = copyrighted;
-                    let inst = localStorage.getItem('installed');
-                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
-                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
-                    };
-               }, 200);
+     <script defer src="../code/js/z-shared/shared.js"></script>
+     <script defer src="../code/js/z-shared/boxes.js"></script>
+     <script defer src="../code/js/synth/synth.js"></script>
+
+     <script id="id-loadEvent">
+
+          window.addEventListener("load", async () => {
+               // load event fires after page is displayed
+
+               document.getElementById("id-loader").style.display = 'none';
+               document.getElementById('id-noDisplay').classList.remove('cs-hidden');
+               document.getElementById('id-noDisplay').style.visibility = 'visible';
+
+               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+
+               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-copyrighted').textContent = copyrighted;
+
+               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
           });
+
      </script>
 
 </head>
 
-<body>
-     <div id="id-loader" class="cs-loader"> </div>
-     <div id="top"></div>
+<body id="id-body">
 
-     <div id="id-sunshine" class="cs-sunshine">
-          <img id="logo" loading="eager" async src="../images/icons/ark-192.png" class="cs-logo" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+     <div id="id-loader"></div>
+     <div id="id-noDisplay" onclick="openBoxes(event);">
 
-          <div id="id-header" class="cs-header" onclick="openBox(event)">
-               <span class="cs-headerTitle cs-synthTitleHeader cs-logoTitle" onclick="bClick(goHome)">Listen to The Ark Bible</span>
-               <div id="id-player" class="cs-player" title="Listen to The Ark Bible" onclick="startSpeech()">
-                    <div class="cs-playerBtn">🔊</div>
-               </div>
-          </div>
-
-          <div id="id-header1" class="cs-header cs-banner" onclick="openBox(event)">
-               <div id="id-menu" class="cs-menu cs-synthMenu">
-                    <div class="cs-menu1" translate="no">
-                         <button id="id-SynthBtn1" class="cs-menuBtn cs-menuBtn1 cs-synthMenu" onclick="openBox(event)"
-                              title="Select A Version" translate="no">TWF</button>
-                         <button id="id-SynthBtn2" class="cs-menuBtn cs-menuBtn1 cs-synthMenu" onclick="openBox(event)"
-                              title="Select A Day" translate="no">Genesis</button>
-                         <button id="id-SynthBtn3" class="cs-menuBtn cs-menuBtn2 cs-synthMenu" onclick="openBox(event)"
-                              title="Select A Chapter" translate="no">1:</button>
+          <div id="id-sunshine">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <div id="id-banner">
+                    <div id="id-appTitle">Listen to The Ark Bible</div>
+                    <div id="id-rightIcon" data-nosnippet data-nosnippet onclick="startSpeech()">🔊</div>
+                    <div id="id-menu">
+                         <button id="id-MenuBtn1" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
+                         <button id="id-MenuBtn2" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Book" translate="no">Genesis</button>
+                         <button id="id-MenuBtn3" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Chapter" translate="no">1:</button>
                     </div>
                </div>
           </div>
-     </div>
 
-     <div id="id-synth" class="cs-synth">
-          <div id="id-progressContainer" class="cs-progressContainer">
-               <div id="id-progressBar" class="cs-progressBar"></div>
-          </div>
-          <div class="cs-speechBtns">
-               <button id="id-stopSpeech" class="cs-stopSpeech" onclick="stopSpeech()" translate="no"><span
-                         class="cs-startOver">|</span>◄</button>
-               <button id="id-startSpeech" class="cs-startSpeech" onclick="startSpeech()" translate="no">►</button>
-               <button id="id-pauseSpeech" class="cs-pauseSpeech" onclick="pauseSpeech()" translate="no">||</button>
-          </div>
-          <div class="cs-synthCheckBox">
-               <labelfor="id-palyCheckBox" class="cs-plaCheckBoxLbl" >Continuous Play</label>
-               <input id="id-playCheckBox" type="checkbox">
-          </div>
-     </div>
-
-
-     <div id="id-pageContainer" class="cs-pageContainer">
-
-          <div id="id-searchTop"></div>
-          <div id="id-mainPage" class="cs-mainPage">
-               <div id="id-headline" class="cs-headline">Genesis</div>
-
-               <div id="id-page" class="cs-page"></div>
-
-               <br><br><br><br><br>
-               <div class="cs-bottomLine">
-                    <div id="id-bottomTitleLine" class="cs-bottomTitleLine">Genesis 1</div>
+          <div id="id-synth">
+               <div id="id-progressContainer">
+                    <div id="id-progressBar"></div>
                </div>
-
+               <div id="id-speechBtns">
+                    <button id="id-stopSpeech" onclick="stopSpeech()" translate="no">
+                         <span id="id-startOver">|</span>◄</button>
+                    <button id="id-startSpeech" onclick="startSpeech()" translate="no">►</button>
+                    <button id="id-pauseSpeech" onclick="pauseSpeech()" translate="no">||</button>
+               </div>
+               <div id="id-synthCheckBox">
+                    <label id="id-playCheckBoxLbl" for="id-playCheckBox" >Continuous Play</label>
+                    <input id="id-playCheckBox" type="checkbox" onclick="checkboxChecked(event);">
+               </div>
           </div>
 
-          <br><br><br><br>
-          <div class="cs-bottom">
+          <div id="id-pageContainer">
+               <div id="top"> </div>
+               <div id="id-mainPage">
 
+                    <div id="id-headline">Genesis</div>
+                    <div id="id-page" onclick="unHighlight()"></div>
+                    <br><br><br><br><br>
+                    <div id="id-navLine" data-nosnippet>
+                         <div id="id-navTitle">Genesis 1</div>
+                    </div>
+               </div>
                <br><br>
-               <div class="cs-help" onclick="aClick('../pages/help.html')" title="Help">Help</div>
-
-               <br>
-               <hr class="cs-hrCopyright">
-               <br><br>
-               <div class="cs-GodLovesYou">
-                    <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
-                    <div>The TWF version is being actively edited and is subject to change daily.</div>
-                    <div>If you prefer to read other Bible versions, please feel free to do so.</div>
-                    <div class="cs-northStar">✨</div>
-                    <a onclick="aClick('../pages/license.html')" class="cs-copyright">
-                         <span>Copyright&nbsp;©</span>
-                         <span id="id-copyrighted">2018-2025</span>
-                         <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                         <span>New Hope Ministries</span>
-                         <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                         <span>MIT License</span>
-                    </a>
+               <div id="id-bottom">
+                    <br><br><br>
+                    <hr id="id-hr1">
                     <br><br>
-                    <div id="id-lastEdited">Last Edited:</div>
-                    <div id="id-installed">Installed?</div>
+                    <div id="id-GodLovesYou">
+
+                         <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                         <div>The TWF version is being actively edited and is subject to change daily.</div>
+                         <div>If you prefer to read other Bible versions, please feel free to do so.</div>
+                         <div id="id-northStar">✨</div>
+
+                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
+                              <span>Copyright&nbsp;©</span>
+                              <span id="id-copyrighted">2018-2025</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>New Hope Ministries</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>MIT License</span>
+                         </a>
+
+                         <br><br>
+                         <div id="id-lastEdited">Last Edited:</div>
+                         <div id="id-installed">Installed?</div>
+                    </div>
                </div>
+               <br><br>
           </div>
+
      </div>
 
 </body>
-<div style="display: none;" id="id-voices"></div>
-<div id="id-versions" class="cs-versions"></div>
-<div id="id-languages" class="cs-languages"></div>
-<div id="id-books" class="cs-books"></div>
-<div id="id-chapters" class="cs-chapters"></div>
+     <div id="id-versions" data-nosnippet="">
+          <div id="id-versionHeader">Versions</div>
+          <div id="id-versionsBox"></div>
+     </div>
 
+     <div id="id-books" data-nosnippet="">
+          <div id="id-bookHeader">
+               <span>Books</span>
+               <div id="id-sortBook" title="Sort Alphabetically">
+                    <span id="id-heart" onclick="sortBooks(event)">🩵</span>
+               </div>
+          </div>
+          <div id="id-booksBox"></div>
+     </div>
+
+    <div id="id-chapters" data-nosnippet translate="no">
+          <div id="id-chapterHeader">Chapters</div>
+          <div id="id-chaptersBox"></div>
+     </div>
 </html>

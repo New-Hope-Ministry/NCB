@@ -1,0 +1,62 @@
+#id-books,
+#id-chapters,
+#id-chrons,
+#id-days,
+#id-verses,
+#id-versions,
+#id-versions1 { display: none; position: absolute; left: 50%; top: 4.25em; height: max-content; min-height: 25%; max-height: 80%; transform: translateX(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--darkShadowGray); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; overflow: hidden; overflow-y: scroll; max-width: 100%; width: max-content; z-index: 10; border: 1px solid var(--darkShadowGray); border-top: none; }
+#id-books { width: 20em; }
+
+#id-bookHeader,
+#id-chapterHeader,
+#id-dayHeader,
+#id-verseHeader,
+#id-versionHeader,
+#id-version1Header { position: sticky; top: 0; padding: .35em; padding-left: .8em; font-size: 1.3em; font-weight: 550; background-color: var(--headerBackground); color: var(--whiteText); user-select: none; width: 100%; z-index: 1; overflow: hidden; }
+
+#id-sortBook { display: flex; position: absolute; justify-content: center; align-items: center; right: 13%; top: 50%; transform: translateY(-50%); margin: 0; width: 1.2em; height: 1.2em; line-height: 1.2em; padding: .3em; font-size: .7rem; border: 2px solid #434242; border-radius: 50%; background-color: white; }
+
+#id-heart { display: flex; position: absolute; justify-content: center; align-items: center; height: 100%; width: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%); cursor: pointer; }
+
+/* Dynamically added classes */
+     .cs-book,
+     .cs-version,
+     .cs-chronChapter { padding: .3em; padding-left: .6em; padding-right: .6em; font-size: 1.2rem; top: 0; cursor: pointer; }
+     .cs-lastLine { position: absolute; text-align: center; left: 50%; transform: translate(-50%); padding-bottom: 1.5em; }
+
+     .cs-bookLine { position: relative; display: flex; }
+     .cs-book { width: 50%; white-space: nowrap; }
+     .cs-bookRight { border-right: 1px solid black; }
+     .cs-bvSelected { background-color: #8e8c8c; color: white; }
+     .cs-endBook { padding: .3em; padding-left: .6em; padding-right: .6em; width: 50%; font-size: 1.2rem; }
+     /*.cs-lockScroll { overflow:hidden; }*/
+
+     .cs-dayLine,
+     .cs-verseLine,
+     .cs-chapterLine { position: relative; display: flex; gap: .5em; width: max-content; margin: 0 auto; margin-top: .5em; padding-left: .5em; padding-right: .5em; }
+     .cs-day,
+     .cs-verse,
+     .cs-chapter { display: flex; align-items: center; justify-content: center; font-size: 1.3em; height: 1.8em; width: 1.8em; border: 1px solid red; border-radius: 4px; cursor: pointer; }
+/* End of Dynamically added classes */
+
+/* ************** Media Queries ***************** */
+     @media (max-width: 600px) {
+          #id-books,
+          #id-versions,
+          #id-versions1 { width: 99%; }
+     }
+     @media (max-height: 1500px) {
+          #id-books,
+          #id-chapters,
+          #id-verses,
+          #id-versions,
+          #id-versions1 { max-height: 55%; }
+     }
+     @media (max-height: 1200px) {
+          #id-books,
+          #id-chapters,
+          #id-verses,
+          #id-versions,
+          #id-versions1 { max-height: 70%; }
+     }
+/* ************** End Media Queries ***************** */

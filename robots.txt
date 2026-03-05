@@ -2,6 +2,5 @@ User-agent: *
 Disallow: /code/
 Disallow: /images/
 Disallow: /data/
-Allow: /
-Disallow: /data/TWF/TWF.json
+Allow: /data/TWF/TWF.json
 Sitemap: https://thearkbible.com/sitemap.xml

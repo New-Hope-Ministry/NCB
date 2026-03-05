@@ -1,0 +1,29 @@
+div#id-pageContainer { top: 6.5em; overflow: hidden; overflow-y: scroll; -ms-overflow-style: none; scrollbar-width: none; }
+div#id-pageContainer::-webkit-scrollbar { display: none; }
+
+#id-spanFlex { height: 100%; width: 100%; display: flex; }
+
+#id-mainPage,
+#id-mainPage1 { top: 0; max-height: 100%; overflow: hidden; overflow-y: scroll; border-radius: 0%; flex: 0 0 50vw; width: 50vw; }
+#id-mainPage1 { flex: 1; border-left: 4px solid var(--darkGray); }
+
+div { overflow: hidden; overflow-y: scroll; -ms-overflow-style: none; scrollbar-width: none; }
+div::-webkit-scrollbar { display: none; }
+
+div#id-mainPage,
+div#id-mainPage1 { overflow-y: scroll; -ms-overflow-style: auto; scrollbar-width: auto; scrollbar-color: #888 #f1f1f1; }
+div#id-mainPage::-webkit-scrollbar,
+div#id-mainPage1::-webkit-scrollbar { display: block !important; width: 16px !important; }
+div#id-mainPage::-webkit-scrollbar-track,
+div#id-mainPage1::-webkit-scrollbar-track { background: #f1f1f1 !important; }
+div#id-mainPage::-webkit-scrollbar-thumb,
+div#id-mainPage1::-webkit-scrollbar-thumb { background: #888 !important; border-radius: 1px; }
+div#id-mainPage::-webkit-scrollbar-thumb:hover,
+div#id-mainPage1::-webkit-scrollbar-thumb:hover { background: #555 !important; }
+
+#id-page,
+#id-page1 { width: 92%; }
+
+#id-headline,
+#id-headline1 { position: fixed; border-bottom: 4px solid var(--darkGray); top: 3.56em;  width: 50%; z-index: 10; }
+#id-headline1 { left: 50%; border-left: 4px solid var(--darkGray); }

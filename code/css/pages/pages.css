@@ -1,0 +1,40 @@
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid black; padding: .2em; text-align: left; }
+th { background-color: var(--gradientDark); color: var(--whiteText); border-right: 1px solid white; padding-left: .4em; padding-top: .3em; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+.cs-thNoRightBorder { border-right: none; }
+
+.cs-btnBackground { display: flex; align-items: center; gap: 1em; padding: .5em; padding-left: 1.2em; padding-right: 1.2em; padding-bottom: .4em; border-top-left-radius: 6px; border-top-right-radius: 6px; background-color: var(--gradientDark); color: var(--whiteText); max-width: max-content; }
+.cs-display { display: inline; padding-left: .3em; }
+.cs-h2 { width: 90%; height: 10%; margin: auto; text-align: center; color: var(--greenEmphasis); }
+.cs-link { display: block; position: relative; margin-top: .8em; margin-bottom: -.8em; }
+.cs-link1 { display: block; position: relative; margin-bottom: -.3em; }
+.cs-link2 { height: max-content; color: var(--navyEmphasis); font-size: 1.1em; text-decoration: none; cursor: pointer; }
+.cs-link3 { height: max-content; color: var(--navyEmphasis); cursor: pointer; }
+.cs-lessMargin { margin-top: -.3em; }
+.cs-lessMarginBottom { margin-bottom: -.01em; }
+.cs-lesserMargin { position: relative; margin-top: -.8em; }
+.cs-magnifier { display: inline-block; padding: 0; padding-left: .4em; padding-right: .4em; border-radius: 50%; justify-content: center; align-items: center; rotate: -45deg; font-size: 1.5em; cursor: pointer; z-index: 100; background-color: var(--gradientDark); color: white; }
+
+.cs-qrcode { display: block; position: relative; top: 50%; height: 192px; width: 192px; margin: auto; cursor: pointer; }
+.cs-qrText { width: 50%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; text-align: center; }
+.cs-signed { color: var(--cs-edited); font-size: .7em; }
+.cs-title { height: max-content; font-size: 1.1em; font-weight: 550; color: var(--redEmphasis); margin-bottom: .5em; margin-top: .7em; }
+.cs-title1 { color: var(--greenEmphasis); font-weight: 550; font-size: .9em; }
+.cs-linkBtn { margin-left: .3em; margin-right: auto; }
+
+#id-adjustFont { padding: 0; }
+#id-blueLetterPlan { display: block; position: relative; color: var(--aLinkDarkColor); width: 95%; max-width: max-content; margin: auto; text-align: center; font-size: .9em; cursor: pointer; }
+#id-contentsTitle { color: var(--greenEmphasis); width: 100%; }
+#id-HeadlineAbout { padding-bottom: .3em; }
+#id-font,
+#id-redLetter,
+#id-paragraphLayout,
+#id-resetDefaults { margin-top: 0; }
+#id-page { margin-top: -.3em; }
+#id-pagesTitle { position: absolute; top: 50%; transform: translateY(-50%); left: 3.5em; width: max-content; color: var(--whiteText); font-size: 1.4rem; }
+#id-sortBookHelp { display: inline-flex; justify-content: center; align-items: center; height: 1.2em; width: 1.2em;  padding: .3em; cursor: pointer; border: 2px solid #434242; border-radius: 50%; background-color: white; }
+#id-themeNote { position: relative; padding-left: 0; }
+#id-watershed { color: red; font-size: .8em; padding: .5em; border-radius: 6px; background-color: aquamarine; width: 79%; max-width: 95%; margin: auto; margin-top: -.5em; overflow: hidden; line-height: 1.5rem; text-align: center; justify-content: space-evenly; word-wrap: break-word; overflow-wrap: break-word;}
+
+@media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } .cs-tbl { font-size: .7em; width: 99%; } }

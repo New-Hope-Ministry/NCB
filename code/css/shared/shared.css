@@ -1,0 +1,122 @@
+:root {
+     --headerImg: url("../../../images/headers/crystal.webp");
+     --aBlueLinkColor: #82b4fe;
+     --aLinkColor: #bed8fe;
+     --aLinkDarkColor: navy;
+     --aLinkColorDark: #f45b5b;
+     --blackText: #3a3939;
+     --blueVerse: #0202d8;
+     --bodyBackground: #eee;
+     --cs-edited: #545353;
+     --darkGray: #545353;
+     --darkShadowGray: #949292;
+     --gradientDark: #102952;
+     --gradientLight: #1b53ae;
+     --greenEmphasis: #045004;
+     --headerBackground: #c02b31;
+     --headlineBackground: #8e8c8c;
+     --headlineColor: white;
+
+     --lightGrayEmphasis: #757575;
+     --lightGreenEmphasis: #07f007;
+     --lightMaroonEmphasis: #ba0e0e;
+     --lighterMaroonEmphasis: #f10e0e;
+     --mainBackground: white;
+     --maroonEmphasis: #530306;
+     --mediumDarkGray: #858282;
+     --mediumGray: #c3c1c1;
+     --navyEmphasis: navy;
+     --paleMaroonEmphasis: #f45b5b;
+     --redEmphasis: #7f0000;
+     --verseNumber: #0505da;
+     --whiteText: white;
+}
+
+/* Add Background Image to headers */
+     #id-sunshine { position: fixed; top: 0; left: 0; background-image: var(--headerImg); background-size: cover; background-position: center; background-repeat: no-repeat; height: 4rem; width: 100%; z-index: 1200; aspect-ratio: 1200 / 100; border-bottom: 5px solid var(--darkGray); }
+/* End Add Background Image to header */
+
+html { font-size: 110%; }
+html,
+body { position: relative; margin: 0; padding: 0; width: 100%; height: 100%; z-index: 10; background-color: var(--bodyBackground); color: var(--blackText); }
+div { overflow: hidden; overflow-y: scroll; -ms-overflow-style: none; scrollbar-width: none; }
+div::-webkit-scrollbar { display: none; }
+
+p { font-size: 1.06rem; }
+
+#id-loader { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); border: 8px solid var(--mediumGray); border: 8px solid var(--headlineBackground); border-top: 8px solid var(--gradientDark); border-radius: 50%; width: 2em; height: 2em; animation: spin-small 2s linear infinite; z-index: 20; }
+@keyframes spin-small {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+#id-noDisplay { visibility: hidden; }
+#id-logoImg { position: absolute; top: 50%; left: 1em; transform: translateY(-50%); width: 2.5em; height: auto; border-radius: 50%; padding: .3em; cursor: pointer; user-select: none;  z-index: 10; }
+
+#id-rightIcon { position: absolute; top: .3em; right: 3.5em; color: white; rotate: -45deg; font-size: 1.6rem; cursor: pointer; }
+#id-banner { position: fixed; top: 0; left: 0; height: 4rem; width: 100%; background-color: transparent; }
+#id-appTitle { position: absolute; top: .6em; left: 3.5em; width: max-content; color: var(--whiteText); font-size: 1.4rem; }
+
+#id-menu { display: flex; position: absolute; top: 2.6em; left: 50%; transform: translateX(-50%); width: max-content; color: var(--whiteText); cursor: pointer; user-select: none; gap: 1em; }
+.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1rem; color: var(--whiteText); cursor: pointer; background-color: transparent; }
+
+#id-pageContainer { position: fixed; left: 0; top: 4.2em; height: calc(100vh - 4.2em); width: 100%; overflow: hidden; overflow-y: auto; z-index: 10; }
+div#id-pageContainer { overflow-y: scroll; -ms-overflow-style: auto; scrollbar-width: auto; scrollbar-color: #888 #f1f1f1; }
+/* Chrome, Edge, and Safari */
+div#id-pageContainer::-webkit-scrollbar { display: block !important; width: 16px !important; }
+div#id-pageContainer::-webkit-scrollbar-track { background: #f1f1f1 !important; }
+div#id-pageContainer::-webkit-scrollbar-thumb { background: #888 !important; border-radius: 10px; }
+div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !important; }
+
+#id-mainPage,
+#id-mainPage1 { position: relative; border-radius: 6px; top: .5em; width: 80%; background-color: var(--mainBackground); color: var(--blackText); margin: auto; overflow: hidden; }
+
+#id-headline, #id-headline1 { line-height: 1.5rem; text-align: center; }
+#id-headline,
+#id-headline1,
+#id-navLine { display: flex; align-items: center; justify-content: space-evenly; font-size: 1.2rem; height: max-content; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em;; color: var(--headlineColor); user-select: none; }
+#id-navLastChapter { visibility: hidden; }
+#id-navNextChapter { visibility: hidden; }
+#id-navTitle { width: max-content; }
+
+#id-page,
+#id-page1 { text-align: justify; margin: auto; margin-top: 2.5em; width: 85%; }
+
+#id-bottom { position: relative; height: max-content; width: 100%; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%); z-index: 10; }
+#id-hr1 { width: 98%; margin: auto; }
+#id-northStar { font-size: 2em; }
+#id-copyright { color: var(--aLinkColor); text-decoration: underline; cursor: pointer; }
+#id-GodLovesYou { width: 80%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; color: var(--whiteText); text-align: center; }
+
+#id-appLinks { border-bottom: 5px solid var(--darkGray); }
+
+.cs-linkBtn,
+#id-comp,
+#id-listen,
+#id-restart,
+#id-readChron,
+#id-randomChapter { display: flex; text-decoration: none; height: 2em; width: 20em; background-color: var(--aBlueLinkColor); color: #131212; border-radius: 6px; margin: auto; justify-content: center; align-items: center; }
+#id-randomChapter { background-color: #b63f47; color: white; }
+
+.cs-edited { font-size: .4em; color: var(--cs-edited); }
+.cs-emphasis { color: var(--lighterMaroonEmphasis); }
+.cs-emphasisBlue { color: var(--blueVerse); }
+.cs-singleVerse { margin-top: -.5em; z-index: 100; }
+.cs-verseNumber { margin-right: .5em; color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }
+.cs-copySign { font-size: .75em; }
+.cs-highlight { background-color: #4180de; }
+.cs1-theme { cursor: pointer; border: none; padding-bottom: .3em; border-radius: 3px; }
+.cs1-themeNote { position: absolute; padding-left: 1em; vertical-align: middle; text-decoration: underline; font-size: .9rem; cursor: pointer; }
+.cs-darkTheme { background-color: #3d3636; color: white; }
+
+/* ************** Media Queries ***************** */
+     /* Width */
+          @media (max-width: 600px) { #id-rightIcon { right: 1em; top: 1.2em;} }
+          @media (max-width: 768px) { #id-page, #id-page1 { width: 90%; } }
+          @media (max-width: 920px) { #id-mainPage, #id-mainPage1 { border-radius: 0; width: 100%; } }
+     /* End Width */
+
+     /* Height */
+          @media (max-height: 920px) { #id-books,#id-chapters, #id-verses, #id-versions, #id-versions1 { max-height: 60%; } }
+     /* End Height */
+/* ************** End Media Queries ***************** */

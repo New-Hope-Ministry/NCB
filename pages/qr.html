@@ -1,80 +1,120 @@
 <!DOCTYPE html>
-<html lang="en" class="cs-noScroll">
+<html lang="en">
 
 <head>
      <meta charset="UTF-8">
+     <title>The Ark Bible</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
 
      <!-- Pre-fetch -->
-     <link rel="preload" as="image" href="../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="preload" as="image" href="../images/logos/white-logo-512.webp" fetchpriority="high">
-     <link rel="preload" as="image" href="../images/qr/qr-code.webp" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/icons/ark-192.webp" fetchpriority="high">
 
      <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
-     <title>The Ark Bible QR Code</title>
-     <link async rel="stylesheet" type="text/css" href="../code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="../code/css/pages.css">
-     <script async src="../code/js/variables.js"></script>
-     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-               setTimeout(function () {
-                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-                    document.getElementById('id-copyrighted').textContent = copyrighted;
-                    let inst = localStorage.getItem('installed');
-                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
-                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
-                    };
-               }, 200);
+     <!-- Stylesheet links -->
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/settings.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/pages/pages.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
+
+     <!-- Javascript links -->
+     <script defer src="../code/js/z-shared/shared.js"></script>
+
+     <script id="id-DOMContentLoaded">
+
+          document.addEventListener("DOMContentLoaded", async () =>  {
+               // DOMContentLoaded event fires before page is displayed
+               let rec = false;
+               rec = await getDesignDefaults();
           });
      </script>
+
+     <script id="id-load">
+          window.addEventListener("load", async () => {
+               // load event fires after page is displayed
+
+               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-copyrighted').textContent = copyrighted;
+               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+          });
+     </script>
+
 </head>
 
-<body class="cs-noScroll">
-     <div class="cs-fixBanner">
-          <div class="cs-imgBanner">
-               <img loading="eager" src="../images/headers/crystal.webp" class="cs-imgBanner" alt="img">
-               <a class="cs-iconLinkQR cs-imgLogo" onclick="window.location.href = goHome;">
-                    <img loading="eager" src="../images/logos/white-logo-512.webp" class="cs-iconLink"
-                         title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
-                    <span class="cs-logoTitle">The Ark QR Code</span>
-               </a>
+<body id="id-body">
+
+     <div id="id-display">
+          <div id="id-sunshine">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <div id="id-banner">
+                    <div id="id-pagesTitle">The Ark Bible QR Code</div>
+                    <div id="id-rightIcon" data-nosnippet>❤️</div>
+               </div>
           </div>
-     </div>
-     <br><br>
-     <div class="cs-page" style="top: .5em;">
 
-          <h3 class="cs-h2">The Ark Bible QR Code</h3>
-          <h3 class="cs-h2"><a href="https://thearkbible.com">https://thearkbible.com</a></h3>
-          <br>
+          <style id="id-PagesStyles">
 
-          <a class="cs-iconA" onclick="window.location.href = goHome;">
-               <img loading="eager" src="../images/qr/qr-code.webp" id="id-qrcode" class="cs-qrcode" alt="The Ark Bible QR Code link" title="The Ark Bible QR Code link">
-          </a>
-          <p class="cs-qrText">Scan the QR code with the camera on your device, when the link pops up in your camera, click it and if your device supports this functionality, "The Ark Bible" will open in your default browser.</p>
-          <hr>
+          </style>
 
-          <div class="cs-GodLovesYou cs-GodLovesYouPages">
-               <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
-               <div>The TWF version is being actively edited and is subject to change daily.</div>
-               <div>If you prefer to read other Bible versions, please feel free to do so.</div>
-               <div class="cs-northStar">✨</div>
-               <a onclick="aClick('license.html')" class="cs-copyright">
-                    <span>Copyright&nbsp;©</span>
-                    <span id="id-copyrighted">2018-2025</span>
-                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                    <span>New Hope Ministries</span>
-                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                    <span>MIT License</span>
-               </a>
+          <div id="id-pageContainer" >
+               <div id="top"> </div>
+               <div id="id-mainPage">
+                    <div id="id-headline">QR Code</div>
+                    <div id="id-page">
+                         <br>
+                         <h4 class="cs-h2">As they ate Jesus said, "Truly I tell you that one of you will betray me."<span class="cs-signed">...Matthew 26:21</span></h4>
+                         <hr>
+                         <div id="id-QRHelp">
+                              <h3 class="cs-h2"><a class="cs-link3" href="https://thearkbible.com">https://thearkbible.com</a></h3><br>
+                              <a onclick="window.location.href = goHome;">
+                                   <img id="id-qrcode" class="cs-qrcode" loading="eager" src="../images/qr/qr-code.webp" alt="The Ark Bible QR Code link" title="The Ark Bible QR Code link">
+                              </a>
+                              <p class="cs-qrText">
+                                   Scan the QR code with the camera on your device, when the link pops up in your camera, click it and if your device supports this functionality, "The Ark Bible" will open in your default browser.
+                              </p>
+                         </div>
+                         <br>
+                         <hr>
+
+                    </div>
+                    <br><br><br>
+
+               </div>
+
                <br><br>
-               <div id="id-lastEdited">Last Edited:</div>
-               <div id="id-installed">Installed?</div>
+               <div id="id-bottom">
+                    <br>
+
+                    <hr id="id-hr1">
+                    <br><br>
+                    <div id="id-GodLovesYou">
+
+                         <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                         <div>The TWF version is being actively edited and is subject to change daily.</div>
+                         <div>If you prefer to read other Bible versions, please feel free to do so.</div>
+                         <div id="id-northStar">✨</div>
+
+                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
+                              <span>Copyright&nbsp;©</span>
+                              <span id="id-copyrighted">2018-2025</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>New Hope Ministries</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>MIT License</span>
+                         </a>
+
+                         <br><br>
+                         <div id="id-lastEdited">Last Edited:</div>
+                         <div id="id-installed">Installed?</div>
+                    </div>
+               </div>
           </div>
-          <br>
+
      </div>
 
 </body>

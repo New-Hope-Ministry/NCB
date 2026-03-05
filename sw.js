@@ -9,13 +9,14 @@ var updateVar = true;
 
 const urlsToCache = [
      'manifest.webmanifest',
-     'code/css/index.css',
-     'code/css/lateload.css',
-     'code/css/media.css',
-     'code/css/variables.css',
+     'code/css/shared/shared.css',
+     'code/css/shared/boxes.css',
+     'code/css/shared/settings.css',
+     'code/css/shared/media.css',
+     'code/css/shared/lateload.css',
+     'code/js/z-shared/shared.js',
      'code/js/index/index.js',
-     'code/js/index/utilities.js',
-     'code/js/variables.js',
+     'code/js/z-shared/boxes.js'
 ];
 
 self.addEventListener('install', event => {

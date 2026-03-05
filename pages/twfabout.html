@@ -1,669 +1,736 @@
 <!DOCTYPE html>
-<html lang="en" class="cs-noScroll">
+<html lang="en">
 
 <head>
      <meta charset="UTF-8">
+     <title>The Ark Bible</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <base href="./">
 
      <!-- Pre-fetch -->
-     <link rel="preload" as="image" href="../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="preload" as="image" href="../images/logos/white-logo-512.webp" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
+     <link rel="preload" as="image" href="../../images/icons/ark-192.webp" fetchpriority="high">
 
      <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
 
-     <title>About The Twenty-First Century Version of the Bible</title>
-     <link rel="stylesheet" type="text/css" href="../code/css/variables.css">
-     <link async rel="stylesheet" type="text/css" href="../code/css/pages.css">
-     <script async src="../code/js/variables.js"></script>
-     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-               setTimeout(function () {
-                    document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-                    document.getElementById('id-copyrighted').textContent = copyrighted;
-                    let inst = localStorage.getItem('installed');
-                    if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else {
-                         document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!';
-                    };
-               }, 200);
+     <!-- Stylesheet links -->
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/settings.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/pages/pages.css">
+     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
+
+     <!-- Javascript links -->
+     <script defer src="../code/js/z-shared/shared.js"></script>
+
+     <script id="id-DOMContentLoaded">
+
+          document.addEventListener("DOMContentLoaded", async () =>  {
+               // DOMContentLoaded event fires before page is displayed
+               let rec = false;
+               rec = await getDesignDefaults();
           });
      </script>
+
+     <script id="id-load">
+          window.addEventListener("load", async () => {
+               // load event fires after page is displayed
+
+               if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+               document.getElementById('id-topLastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
+               document.getElementById('id-copyrighted').textContent = copyrighted;
+               if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+          });
+     </script>
+
 </head>
 
-<body class="cs-pagesBody">
+<body id="id-body">
 
-     <div class="cs-fixBanner">
-          <div class="cs-imgBanner">
-               <img loading="eager" src="../images/headers/crystal.webp" class="cs-imgBanner" alt="img">
-               <a class="cs-iconLinkQR cs-imgLogo" onclick="bClick(goHome);">
-                    <img loading="eager" src="../images/logos/white-logo-512.webp" class="cs-iconLink"
-                         title="Home - The Ark Bible Cross Icon" alt="Home - The Ark Bible Cross Icon">
-
-                    <span class="cs-logoTitle">About the TWF Version</span>
-               </a>
+     <div id="id-display">
+          <div id="id-sunshine">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <div id="id-banner">
+                    <div id="id-pagesTitle">About the TWF Version</div>
+                    <div id="id-rightIcon" data-nosnippet>❤️</div>
+               </div>
           </div>
-     </div>
-     <div class="cs-page">
 
-          <h3 class="cs-contentsTitle">About The Twenty-First Century Version</h3>
-          <hr>
-          <br>
-          <h5 class="cs-watershed">Friday December 5th 2025, was a watershed day for the ARK, after more than 7 years, the foundation is laid, and the Old Testament is finally edited to the rough draft stage!</h5>
+          <style id="id-PagesStyles">
 
-          <h5>My Testimony: Why is a new Bible version needed?</h5>
-          Work on the Twenty-First Century Version (TWF) Bible was begun in 2018, shortly after I experienced an extended stay in the hospital, where I saw God writing on my hospital room window with his finger. This work actually began when I was a child just learning to read, but I didn't realize that until recently. My father gave me a set of books called "The Master's Library," which was the Bible divided up into a set of books kind of like a set of encyclopedias. It was illustrated and all the archaic language from the King James Version had been updated and written so that a child could understand it. I feel very strongly that God called me to this work, and I am sure since I am an imperfect sinner, my interpretation of the Scriptures will also be imperfect.
-          <br><br>
-          The Holy Spirit is my guiding light in this endeavor, and has revealed to me that God wants a new scripture with a much kinder and forgiving tone than the traditional Scriptures. The foundation for the Twenty-First Century Version is the King James Version which was published in 1611. I would also like to thank the Bereans for the Berean Standard Version which I have used extensively to help me understand the 1611 olde English language.
-          <br><br>
-          This is not a word for word Bible translation, it is my interpretation of what the Bible is saying, and a faithful interpretation of what the Holy Spirit is trying to show me. I pray over and try to analyze these verses for what God is truly saying with the help of the Holy Spirit, then I rewrite it in such a way that modern readers can understand it. I try to use modern twenty-first century English grammar and I try to proplerly structure the sentences so that modern readers understand what God's word is saying.
-          <br><br>
-          There are many verses in the older scriptures that seem to me to have incomplete information, leaving the reader with the need to fill in the blank. I have prayed over and researched each one of these verses and asked God to fill in the blanks for me, and I believe he has done this to my understanding. Still some verses have required more extensive prayer and research to understand these scriptures, and some verses I still do not understand.
-          <br><br>
-          I have done a lot of praying over the Twenty-First Century Version of the Bible, and I have found that just as Ecclesiastes 12:8 says, "And the teacher says, 'Everything is meaningless vanity, this too is completely meaningless vanity, like chasing the wind!'" My whole entire life the Lord has given my heart a desire to leave this world a better place than it was when I arrived. Someone once called me a pastor, then God showed me that I am not a pastor, but I am a future. I hope to one day hear "Well done, good and faithful servant." The Twenty-First Century Version of the Bible is a Bible translation for you too, if you want it. And God, I want to thank you for your help, and I want to thank you for this little piece of wind to chase. I pray this work is what you asked of me, and I also pray that it brings glory to your name! The TWF is God's Living Word.
-          <br>
-          <span class="cs-unknown">...God's anonymous servant</span>
-          <br><br>
-          <span id="id-lastEdited"></span>
-          <br><br>
+          </style>
 
-          <hr>
+          <div id="id-pageContainer" >
+               <div id="top"> </div><br>
+               <h5 id="id-watershed">Friday December 5th 2025, was a watershed day for the ARK, after more than 7 years, the keel is laid and the Old Testament is finally in the rough draft stage!</h5>
+               <div id="id-mainPage">
+                    <div id="id-headline">About The Twenty-First Century Version</div>
+                    <div id="id-page">
+                         <br>
+                         <h4 id="id-contentsTitle">Furthermore Jesus said, "The Son of Man is also the Lord of the Sabbath."<span class="cs-signed">...Luke 6:5</span></h4>
+                         <hr>
 
-          <h5>Current Editing Status:</h5>
-          The "Book" field and the "Status" field in the Old Testament and New Testament tables indicates the editing status of each book and chapter of the Twenty-First Century version of the Bible. <br><br>
-          🖋️--- An asterick * written in the "Book" field indicates the book that is currently being edited to the Rough Draft stage. <br>
-          🖋️--- A tilde ~ written in the "Book" field indicates the book that is currently being edited to the Working Draft stage. <br>
-          🖋️--- "Altered by algorythm, but not human edited" written in the "Status" field indicates that certain phrases in that book have been altered by computer algorythm but have not been edited by a person, some of these books could contain inaccuracies which will be mostly fixed by the "Editing Finished" stage. <br>
-          🖋️--- "Rough Draft" written in the "Status" field means that the initial editing on that chapter is finished and is ready for structural editing, grammar checks, and spell checking. <br>
-          🖋️--- "Working Draft" written in the "Status" field means that the structural editing on that chapter is in progress and it is not quite ready for final editing, grammar checks, and spell checking. <br>
-          🖋️--- "Editing Finished" written in the "Status" field means that the structural editing on that chapter is finished, grammar checks are finished, and spell checking is finished. Some slight error corrections may occur in the future, but basic sentence structure is complete. <br>
-          🖋️--- Numbers such as "1:2" written in the "Status" field indicates which chapters and verses of a particular book in the Twenty-First Century Version are being actively edited.
-          <br><br>
-          The Twenty-First Century version of the Bible contains 39 Old Testament books and 27 New Testament books, for
-          a total of 66 books. The "Chapters" field lists the total number of chapters for each book, for a total of 929 Old Testament chapters and 260 New Testament chapters, with a total of 1189 chapters altogether. The "Verses" field lists the total number of verses for each book, for a total of 23,145 Old Testament verses and 7,957 New Testament verses, with a total of 31,102 verses altogether.
+                         <div id="id-TestimonyTWFAbout">
+                              <h4 id="id-contentsTitle">My TWF Version Testimony:</h4>
+                              <p>
+                                   Work on the Twenty-First Century Version (TWF) Bible actually began when I was a child just learning to read, but I didn't realize then. My father gave me a set of books called "The Master's Library," which was the Bible divided up into a set of books kind of like a set of encyclopedias. It was illustrated and all the language from the King James Version had been updated and it was written so that a child could easily understand it. In 2018 I experienced an extended stay in the hospital, where I saw God writing on my hospital room window with his finger. I feel very strongly that God called me to this work, and I am sure since I am an imperfect sinner, my interpretation of the Scriptures will also be imperfect. The Holy Spirit is my guiding light in this endeavor, and he tells me that God wants a new scripture with a much kinder and forgiving tone than the traditional Scriptures. The foundation for the Twenty-First Century Version is the King James Version which was published in 1611.
+                              </p>
+                              <p>
+                                   This is not a word for word Bible translation, it is my interpretation of what the Bible is saying, and a faithful interpretation of what the Holy Spirit is showing me. I pray over and try to analyze these verses for what God is truly saying with the help of the Holy Spirit, then I rewrite it in such a way that modern readers can understand it. I try to use modern twenty-first century English grammar and I try to proplerly structure the sentences so that modern readers understand what God's word is saying.
+                              </p>
+                              <p>
+                                   There are many verses in the older scriptures that seem to me to have incomplete information, leaving the reader with the need to fill in the blank. I have prayed over and researched each one of these verses and asked God to fill in the blanks for me, and I believe he has done this to my understanding. Still some verses have required more extensive prayer and research to understand these scriptures, and some verses I still do not understand.
+                              </p>
+                              <p>
+                                   I have done a lot of praying over the Twenty-First Century Version of the Bible, and I have found that just as Ecclesiastes 12:8 says, "And the teacher says, 'Everything is meaningless vanity, this too is completely meaningless vanity, like chasing the wind!'" My whole entire life the Lord has given my heart a desire to leave this world a better place than it was when I arrived. Someone once called me a pastor, then God showed me that I am not a pastor, but I am a future. I hope to one day hear "Well done, good and faithful servant." The Twenty-First Century Version of the Bible is a Bible translation for you too, if you want it. And God, I want to thank you for your help, and I want to thank you for this little piece of wind to chase. I pray this work is what you asked of me, and I also pray that it brings glory to your name! The TWF is God's Living Word. <span class="cs-unknown">...God's anonymous servant</span>
+                                   <br><br>
+                                   <span id="id-topLastEdited"></span>
+                              </p>
+                         </div>
+                         <br>
+                         <hr>
 
-          <h5>Old Testament:</h5>
-          <table id="id-oldTable" border="1" class="cs-tbl">
-               <thead>
-                    <tr>
-                         <th>BookID</th>
-                         <th>Book</th>
-                         <th>Status</th>
-                         <th>Chapters</th>
-                         <th>Verses</th>
-                         <th>Total OT Chapters Edited</th>
-                    </tr>
-               </thead>
-               <tbody>
-                    <tr>
-                         <td>1</td>
-                         <td>~Genesis</td>
-                         <td>Working Draft - 31:1</td>
-                         <td>50</td>
-                         <td>1533</td>
-                         <td>50</td>
-                    </tr>
-                    <tr>
-                         <td>2</td>
-                         <td>Exodus</td>
-                         <td>Rough Draft</td>
-                         <td>40</td>
-                         <td>1213</td>
-                         <td>90</td>
-                    </tr>
-                    <tr>
-                         <td>3</td>
-                         <td>Leviticus</td>
-                         <td>Rough Draft</td>
-                         <td>27</td>
-                         <td>1213</td>
-                         <td>117</td>
-                    </tr>
-                    <tr>
-                         <td>4</td>
-                         <td>Numbers</td>
-                         <td>Rough Draft</td>
-                         <td>36</td>
-                         <td>1288</td>
-                         <td>153</td>
-                    </tr>
-                    <tr>
-                         <td>5</td>
-                         <td>Deuteronomy</td>
-                         <td>Rough Draft</td>
-                         <td>34</td>
-                         <td>959</td>
-                         <td>187</td>
-                    </tr>
-                    <tr>
-                         <td>6</td>
-                         <td>Joshua</td>
-                         <td>Rough Draft</td>
-                         <td>24</td>
-                         <td>658</td>
-                         <td>211</td>
-                    </tr>
-                    <tr>
-                         <td>7</td>
-                         <td>Judges</td>
-                         <td>Rough Draft</td>
-                         <td>21</td>
-                         <td>618</td>
-                         <td>232</td>
-                    </tr>
-                    <tr>
-                         <td>8</td>
-                         <td>Ruth</td>
-                         <td>Rough Draft</td>
-                         <td>4</td>
-                         <td>85</td>
-                         <td>236</td>
-                    </tr>
-                    <tr>
-                         <td>9</td>
-                         <td>1 Samuel</td>
-                         <td>Rough Draft</td>
-                         <td>31</td>
-                         <td>810</td>
-                         <td>267</td>
-                    </tr>
-                    <tr>
-                         <td>10</td>
-                         <td>2 Samuel</td>
-                         <td>Rough Draft</td>
-                         <td>24</td>
-                         <td>695</td>
-                         <td>291</td>
-                    </tr>
-                    <tr>
-                         <td>11</td>
-                         <td>1 Kings</td>
-                         <td>Rough Draft</td>
-                         <td>22</td>
-                         <td>816</td>
-                         <td>313</td>
-                    </tr>
-                    <tr>
-                         <td>12</td>
-                         <td>2 Kings</td>
-                         <td>Rough Draft</td>
-                         <td>25</td>
-                         <td>719</td>
-                         <td>335</td>
-                    </tr>
-                    <tr>
-                         <td>13</td>
-                         <td>1 Chronicles</td>
-                         <td>Rough Draft</td>
-                         <td>29</td>
-                         <td>942</td>
-                         <td>364</td>
-                    </tr>
-                    <tr>
-                         <td>14</td>
-                         <td>2 Chronicles</td>
-                         <td>Rough Draft</td>
-                         <td>36</td>
-                         <td>822</td>
-                         <td>400</td>
-                    </tr>
-                    <tr>
-                         <td>15</td>
-                         <td>Ezra</td>
-                         <td>Rough Draft</td>
-                         <td>10</td>
-                         <td>280</td>
-                         <td>410</td>
-                    </tr>
-                    <tr>
-                         <td>16</td>
-                         <td>Nehemiah</td>
-                         <td>Rough Draft</td>
-                         <td>13</td>
-                         <td>406</td>
-                         <td>423</td>
-                    </tr>
-                    <tr>
-                         <td>17</td>
-                         <td>Esther</td>
-                         <td>Rough Draft</td>
-                         <td>13</td>
-                         <td>167</td>
-                         <td>436</td>
-                    </tr>
-                    <tr>
-                         <td>18</td>
-                         <td>Job</td>
-                         <td>Rough Draft</td>
-                         <td>42</td>
-                         <td>1070</td>
-                         <td>478</td>
-                    </tr>
-                    <tr>
-                         <td>19</td>
-                         <td>Psalms</td>
-                         <td>Rough Draft</td>
-                         <td>150</td>
-                         <td>2461</td>
-                         <td>628</td>
-                    </tr>
-                    <tr>
-                         <td>20</td>
-                         <td>Proverbs</td>
-                         <td>Rough Draft</td>
-                         <td>31</td>
-                         <td>915</td>
-                         <td>659</td>
-                    </tr>
-                    <tr>
-                         <td>21</td>
-                         <td>Ecclesiastes</td>
-                         <td>Rough Draft</td>
-                         <td>12</td>
-                         <td>222</td>
-                         <td>671</td>
-                    </tr>
-                    <tr>
-                         <td>22</td>
-                         <td>Song of Solomon</td>
-                         <td>Rough Draft</td>
-                         <td>8</td>
-                         <td>117</td>
-                         <td>679</td>
-                    </tr>
-                    <tr>
-                         <td>23</td>
-                         <td>Isaiah</td>
-                         <td>Rough Draft</td>
-                         <td>66</td>
-                         <td>1292</td>
-                         <td>745</td>
-                    </tr>
-                    <tr>
-                         <td>24</td>
-                         <td>Jeremiah</td>
-                         <td>Rough Draft</td>
-                         <td>52</td>
-                         <td>1364</td>
-                         <td>797</td>
-                    </tr>
-                    <tr>
-                         <td>25</td>
-                         <td>Lamentations</td>
-                         <td>Rough Draft</td>
-                         <td>5</td>
-                         <td>154</td>
-                         <td>802</td>
-                    </tr>
-                    <tr>
-                         <td>26</td>
-                         <td>Ezekiel</td>
-                         <td>Rough Draft</td>
-                         <td>48</td>
-                         <td>1273</td>
-                         <td>850</td>
-                    </tr>
-                    <tr>
-                         <td>27</td>
-                         <td>Daniel</td>
-                         <td>Rough Draft</td>
-                         <td>12</td>
-                         <td>357</td>
-                         <td>862</td>
-                    </tr>
-                    <tr>
-                         <td>28</td>
-                         <td>Hosea</td>
-                         <td>Rough Draft</td>
-                         <td>14</td>
-                         <td>197</td>
-                         <td>876</td>
-                    </tr>
-                    <tr>
-                         <td>29</td>
-                         <td>Joel</td>
-                         <td>Rough Draft</td>
-                         <td>3</td>
-                         <td>73</td>
-                         <td>879</td>
-                    </tr>
-                    <tr>
-                         <td>30</td>
-                         <td>Amos</td>
-                         <td>Rough Draft</td>
-                         <td>9</td>
-                         <td>146</td>
-                         <td>888</td>
-                    </tr>
-                    <tr>
-                         <td>31</td>
-                         <td>Obadiah</td>
-                         <td>Rough Draft</td>
-                         <td>1</td>
-                         <td>21</td>
-                         <td>889</td>
-                    </tr>
-                    <tr>
-                         <td>32</td>
-                         <td>Johnah</td>
-                         <td>Rough Draft</td>
-                         <td>4</td>
-                         <td>48</td>
-                         <td>893</td>
-                    </tr>
-                    <tr>
-                         <td>33</td>
-                         <td>Micah</td>
-                         <td>Rough Draft</td>
-                         <td>4</td>
-                         <td>105</td>
-                         <td>897</td>
-                    </tr>
-                    <tr>
-                         <td>34</td>
-                         <td>Nahum</td>
-                         <td>Rough Draft</td>
-                         <td>3</td>
-                         <td>47</td>
-                         <td>900</td>
-                    </tr>
-                    <tr>
-                         <td>35</td>
-                         <td>Habakkuk</td>
-                         <td>Rough Draft</td>
-                         <td>3</td>
-                         <td>56</td>
-                         <td>903</td>
-                    </tr>
-                    <tr>
-                         <td>36</td>
-                         <td>Zephaniah</td>
-                         <td>Rough Draft</td>
-                         <td>3</td>
-                         <td>53</td>
-                         <td>906</td>
-                    </tr>
-                    <tr>
-                         <td>37</td>
-                         <td>Haggai</td>
-                         <td>Rough Draft</td>
-                         <td>2</td>
-                         <td>38</td>
-                         <td>908</td>
-                    </tr>
-                    <tr>
-                         <td>38</td>
-                         <td>Zechariah</td>
-                         <td>Rough Draft</td>
-                         <td>14</td>
-                         <td>211</td>
-                         <td>922</td>
-                    </tr>
-                    <tr>
-                         <td>39</td>
-                         <td>Malachi</td>
-                         <td>Rough Draft</td>
-                         <td>4</td>
-                         <td>55</td>
-                         <td>926</td>
-                    </tr>
-               </tbody>
-          </table>
+                         <div id="id-EditStatusAbout">
+                              <h4 id="id-contentsTitle">Current Editing Status:</h4>
+                              <p>
+                                   The "Book" field and the "Status" field in the Old Testament and New Testament tables indicates the editing status of each book and chapter of the Twenty-First Century version of the Bible.
+                              </p>
+                              <p class="cs-lesserMargin">
+                                   🖋️--- An asterick * written in the "Book" field indicates the book that is currently being edited to the Rough Draft stage.
+                              </p>
+                              <p class="cs-lesserMargin">
+                                   🖋️--- A tilde ~ written in the "Book" field indicates the book that is currently being edited to the Working Draft stage.
+                              </p>
+                              <p class="cs-lesserMargin">
+                                   🖋️--- "Altered by algorythm, but not human edited" written in the "Status" field indicates that certain phrases in that book have been altered by computer algorythm but have not been edited by a person, some of these books could contain inaccuracies which will be mostly fixed by the "Editing Finished" stage.
+                              </p>
+                              <p class="cs-lesserMargin">
+                                   🖋️--- "Rough Draft" written in the "Status" field means that the initial editing on that chapter is finished and is ready for structural editing, grammar checks, and spell checking.
+                              </p>
+                              <p class="cs-lesserMargin">
+                                   🖋️--- "Working Draft" written in the "Status" field means that the structural editing on that chapter is in progress and it is not quite ready for final editing, grammar checks, and spell checking.
+                              </p>
+                              <p class="cs-lesserMargin">
+                                   🖋️--- "Editing Finished" written in the "Status" field means that the structural editing on that chapter is finished, grammar checks are finished, and spell checking is finished. Some slight error corrections may occur in the future, but basic sentence structure is complete.
+                              </p>
+                              <p class="cs-lesserMargin">
+                                   🖋️--- Numbers such as "1:2" written in the "Status" field indicates which chapters and verses of a particular book in the Twenty-First Century Version are being actively edited.
+                              </p>
 
-          <hr>
-          <h5>New Testament:</h5>
-          <table id="id-newTable" border="1" class="cs-tbl">
-               <thead>
-                    <tr>
-                         <th>BookID</th>
-                         <th>Book</th>
-                         <th>Status</th>
-                         <th>Chapters</th>
-                         <th>Verses</th>
-                         <th>Total NT Chapters Edited</th>
-                    </tr>
-               </thead>
-               <tbody>
-                    <tr>
-                         <td>40</td>
-                         <td>Matthew</td>
-                         <td>Rough Draft</td>
-                         <td>28</td>
-                         <td>1071</td>
-                         <td>28</td>
-                    </tr>
-                    <tr>
-                         <td>41</td>
-                         <td>Mark</td>
-                         <td>Rough Draft</td>
-                         <td>16</td>
-                         <td>678</td>
-                         <td>44</td>
-                    </tr>
-                    <tr>
-                         <td>42</td>
-                         <td>Luke</td>
-                         <td>Rough Draft</td>
-                         <td>24</td>
-                         <td>1151</td>
-                         <td>702</td>
-                    </tr>
-                    <tr>
-                         <td>43</td>
-                         <td>John</td>
-                         <td>Rough Draft</td>
-                         <td>21</td>
-                         <td>879</td>
-                         <td>723</td>
-                    </tr>
-                    <tr>
-                         <td>44</td>
-                         <td>*Acts</td>
-                         <td>19:1</td>
-                         <td>28</td>
-                         <td>1007</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>45</td>
-                         <td>Romans</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>16</td>
-                         <td>433</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>46</td>
-                         <td>1 Corinthians</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>16</td>
-                         <td>437</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>47</td>
-                         <td>2 Corinthians</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>13</td>
-                         <td>257</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>48</td>
-                         <td>Galatians</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>6</td>
-                         <td>149</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>49</td>
-                         <td>Ephesians</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>6</td>
-                         <td>155</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>50</td>
-                         <td>Philippians</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>4</td>
-                         <td>104</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>51</td>
-                         <td>Colossians</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>4</td>
-                         <td>95</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>52</td>
-                         <td>1 Thessalonians</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>5</td>
-                         <td>89</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>53</td>
-                         <td>2 Thessalonians</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>3</td>
-                         <td>47</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>54</td>
-                         <td>1 Timothy</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>6</td>
-                         <td>113</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>55</td>
-                         <td>2 Timothy</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>4</td>
-                         <td>83</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>56</td>
-                         <td>Titus</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>3</td>
-                         <td>46</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>57</td>
-                         <td>Philemon</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>1</td>
-                         <td>25</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>58</td>
-                         <td>Hebrews</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>13</td>
-                         <td>303</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>59</td>
-                         <td>James</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>5</td>
-                         <td>108</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>60</td>
-                         <td>1 Peter</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>5</td>
-                         <td>105</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>61</td>
-                         <td>2 Peter</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>3</td>
-                         <td>61</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>62</td>
-                         <td>1 John</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>5</td>
-                         <td>105</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>63</td>
-                         <td>2 John</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>1</td>
-                         <td>13</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>64</td>
-                         <td>3 John</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>1</td>
-                         <td>14</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>65</td>
-                         <td>Jude</td>
-                         <td>Altered by algorythm, but not human edited</td>
-                         <td>1</td>
-                         <td>25</td>
-                         <td></td>
-                    </tr>
-                    <tr>
-                         <td>66</td>
-                         <td>Revelation</td>
-                         <td>3:1</td>
-                         <td>22</td>
-                         <td>404</td>
-                         <td></td>
-                    </tr>
-               </tbody>
-          </table>
+                         </div>
+                         <br>
+                         <hr>
 
-          <hr>
-          <br><br>
-          <div class="cs-GodLovesYou cs-GodLovesYouPages">
-               <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
-               <div>The TWF version is being actively edited and is subject to change daily.</div>
-               <div>If you prefer to read other Bible versions, please feel free to do so.</div>
-               <div class="cs-northStar">✨</div>
-               <a onclick="aClick('license.html')" class="cs-copyright">
-                    <span>Copyright&nbsp;©</span>
-                    <span id="id-copyrighted">2018-2025</span>
-                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                    <span>New Hope Ministries</span>
-                    <span class="cs-copySign">&nbsp;●&nbsp;</span>
-                    <span>MIT License</span>
-               </a>
+                         <div id="id-TablesTWFAbout">
+                              <h4 id="id-contentsTitle" class="cs-lessMarginBottom">Old Testament:</h4>
+                              <table id="id-oldTable" border="1" class="cs-tbl">
+                                   <thead>
+                                        <tr>
+                                             <th>BookID</th>
+                                             <th>Book</th>
+                                             <th>Status</th>
+                                             <th>Chapters</th>
+                                             <th>Verses</th>
+                                             <th class="cs-thNoRightBorder">Edited OT Chapters</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td>1</td>
+                                             <td>~Genesis</td>
+                                             <td>Working Draft - 31:1</td>
+                                             <td>50</td>
+                                             <td>1533</td>
+                                             <td>50</td>
+                                        </tr>
+                                        <tr>
+                                             <td>2</td>
+                                             <td>Exodus</td>
+                                             <td>Rough Draft</td>
+                                             <td>40</td>
+                                             <td>1213</td>
+                                             <td>90</td>
+                                        </tr>
+                                        <tr>
+                                             <td>3</td>
+                                             <td>Leviticus</td>
+                                             <td>Rough Draft</td>
+                                             <td>27</td>
+                                             <td>1213</td>
+                                             <td>117</td>
+                                        </tr>
+                                        <tr>
+                                             <td>4</td>
+                                             <td>Numbers</td>
+                                             <td>Rough Draft</td>
+                                             <td>36</td>
+                                             <td>1288</td>
+                                             <td>153</td>
+                                        </tr>
+                                        <tr>
+                                             <td>5</td>
+                                             <td>Deuteronomy</td>
+                                             <td>Rough Draft</td>
+                                             <td>34</td>
+                                             <td>959</td>
+                                             <td>187</td>
+                                        </tr>
+                                        <tr>
+                                             <td>6</td>
+                                             <td>Joshua</td>
+                                             <td>Rough Draft</td>
+                                             <td>24</td>
+                                             <td>658</td>
+                                             <td>211</td>
+                                        </tr>
+                                        <tr>
+                                             <td>7</td>
+                                             <td>Judges</td>
+                                             <td>Rough Draft</td>
+                                             <td>21</td>
+                                             <td>618</td>
+                                             <td>232</td>
+                                        </tr>
+                                        <tr>
+                                             <td>8</td>
+                                             <td>Ruth</td>
+                                             <td>Rough Draft</td>
+                                             <td>4</td>
+                                             <td>85</td>
+                                             <td>236</td>
+                                        </tr>
+                                        <tr>
+                                             <td>9</td>
+                                             <td>1 Samuel</td>
+                                             <td>Rough Draft</td>
+                                             <td>31</td>
+                                             <td>810</td>
+                                             <td>267</td>
+                                        </tr>
+                                        <tr>
+                                             <td>10</td>
+                                             <td>2 Samuel</td>
+                                             <td>Rough Draft</td>
+                                             <td>24</td>
+                                             <td>695</td>
+                                             <td>291</td>
+                                        </tr>
+                                        <tr>
+                                             <td>11</td>
+                                             <td>1 Kings</td>
+                                             <td>Rough Draft</td>
+                                             <td>22</td>
+                                             <td>816</td>
+                                             <td>313</td>
+                                        </tr>
+                                        <tr>
+                                             <td>12</td>
+                                             <td>2 Kings</td>
+                                             <td>Rough Draft</td>
+                                             <td>25</td>
+                                             <td>719</td>
+                                             <td>335</td>
+                                        </tr>
+                                        <tr>
+                                             <td>13</td>
+                                             <td>1 Chronicles</td>
+                                             <td>Rough Draft</td>
+                                             <td>29</td>
+                                             <td>942</td>
+                                             <td>364</td>
+                                        </tr>
+                                        <tr>
+                                             <td>14</td>
+                                             <td>2 Chronicles</td>
+                                             <td>Rough Draft</td>
+                                             <td>36</td>
+                                             <td>822</td>
+                                             <td>400</td>
+                                        </tr>
+                                        <tr>
+                                             <td>15</td>
+                                             <td>Ezra</td>
+                                             <td>Rough Draft</td>
+                                             <td>10</td>
+                                             <td>280</td>
+                                             <td>410</td>
+                                        </tr>
+                                        <tr>
+                                             <td>16</td>
+                                             <td>Nehemiah</td>
+                                             <td>Rough Draft</td>
+                                             <td>13</td>
+                                             <td>406</td>
+                                             <td>423</td>
+                                        </tr>
+                                        <tr>
+                                             <td>17</td>
+                                             <td>Esther</td>
+                                             <td>Rough Draft</td>
+                                             <td>13</td>
+                                             <td>167</td>
+                                             <td>436</td>
+                                        </tr>
+                                        <tr>
+                                             <td>18</td>
+                                             <td>Job</td>
+                                             <td>Rough Draft</td>
+                                             <td>42</td>
+                                             <td>1070</td>
+                                             <td>478</td>
+                                        </tr>
+                                        <tr>
+                                             <td>19</td>
+                                             <td>Psalms</td>
+                                             <td>Rough Draft</td>
+                                             <td>150</td>
+                                             <td>2461</td>
+                                             <td>628</td>
+                                        </tr>
+                                        <tr>
+                                             <td>20</td>
+                                             <td>Proverbs</td>
+                                             <td>Rough Draft</td>
+                                             <td>31</td>
+                                             <td>915</td>
+                                             <td>659</td>
+                                        </tr>
+                                        <tr>
+                                             <td>21</td>
+                                             <td>Ecclesiastes</td>
+                                             <td>Rough Draft</td>
+                                             <td>12</td>
+                                             <td>222</td>
+                                             <td>671</td>
+                                        </tr>
+                                        <tr>
+                                             <td>22</td>
+                                             <td>Song of Solomon</td>
+                                             <td>Rough Draft</td>
+                                             <td>8</td>
+                                             <td>117</td>
+                                             <td>679</td>
+                                        </tr>
+                                        <tr>
+                                             <td>23</td>
+                                             <td>Isaiah</td>
+                                             <td>Rough Draft</td>
+                                             <td>66</td>
+                                             <td>1292</td>
+                                             <td>745</td>
+                                        </tr>
+                                        <tr>
+                                             <td>24</td>
+                                             <td>Jeremiah</td>
+                                             <td>Rough Draft</td>
+                                             <td>52</td>
+                                             <td>1364</td>
+                                             <td>797</td>
+                                        </tr>
+                                        <tr>
+                                             <td>25</td>
+                                             <td>Lamentations</td>
+                                             <td>Rough Draft</td>
+                                             <td>5</td>
+                                             <td>154</td>
+                                             <td>802</td>
+                                        </tr>
+                                        <tr>
+                                             <td>26</td>
+                                             <td>Ezekiel</td>
+                                             <td>Rough Draft</td>
+                                             <td>48</td>
+                                             <td>1273</td>
+                                             <td>850</td>
+                                        </tr>
+                                        <tr>
+                                             <td>27</td>
+                                             <td>Daniel</td>
+                                             <td>Rough Draft</td>
+                                             <td>12</td>
+                                             <td>357</td>
+                                             <td>862</td>
+                                        </tr>
+                                        <tr>
+                                             <td>28</td>
+                                             <td>Hosea</td>
+                                             <td>Rough Draft</td>
+                                             <td>14</td>
+                                             <td>197</td>
+                                             <td>876</td>
+                                        </tr>
+                                        <tr>
+                                             <td>29</td>
+                                             <td>Joel</td>
+                                             <td>Rough Draft</td>
+                                             <td>3</td>
+                                             <td>73</td>
+                                             <td>879</td>
+                                        </tr>
+                                        <tr>
+                                             <td>30</td>
+                                             <td>Amos</td>
+                                             <td>Rough Draft</td>
+                                             <td>9</td>
+                                             <td>146</td>
+                                             <td>888</td>
+                                        </tr>
+                                        <tr>
+                                             <td>31</td>
+                                             <td>Obadiah</td>
+                                             <td>Rough Draft</td>
+                                             <td>1</td>
+                                             <td>21</td>
+                                             <td>889</td>
+                                        </tr>
+                                        <tr>
+                                             <td>32</td>
+                                             <td>Johnah</td>
+                                             <td>Rough Draft</td>
+                                             <td>4</td>
+                                             <td>48</td>
+                                             <td>893</td>
+                                        </tr>
+                                        <tr>
+                                             <td>33</td>
+                                             <td>Micah</td>
+                                             <td>Rough Draft</td>
+                                             <td>4</td>
+                                             <td>105</td>
+                                             <td>897</td>
+                                        </tr>
+                                        <tr>
+                                             <td>34</td>
+                                             <td>Nahum</td>
+                                             <td>Rough Draft</td>
+                                             <td>3</td>
+                                             <td>47</td>
+                                             <td>900</td>
+                                        </tr>
+                                        <tr>
+                                             <td>35</td>
+                                             <td>Habakkuk</td>
+                                             <td>Rough Draft</td>
+                                             <td>3</td>
+                                             <td>56</td>
+                                             <td>903</td>
+                                        </tr>
+                                        <tr>
+                                             <td>36</td>
+                                             <td>Zephaniah</td>
+                                             <td>Rough Draft</td>
+                                             <td>3</td>
+                                             <td>53</td>
+                                             <td>906</td>
+                                        </tr>
+                                        <tr>
+                                             <td>37</td>
+                                             <td>Haggai</td>
+                                             <td>Rough Draft</td>
+                                             <td>2</td>
+                                             <td>38</td>
+                                             <td>908</td>
+                                        </tr>
+                                        <tr>
+                                             <td>38</td>
+                                             <td>Zechariah</td>
+                                             <td>Rough Draft</td>
+                                             <td>14</td>
+                                             <td>211</td>
+                                             <td>922</td>
+                                        </tr>
+                                        <tr>
+                                             <td>39</td>
+                                             <td>Malachi</td>
+                                             <td>Rough Draft</td>
+                                             <td>4</td>
+                                             <td>55</td>
+                                             <td>926</td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+
+                              <hr>
+                              <h4 id="id-contentsTitle" class="cs-lessMarginBottom">New Testament:</h4>
+                              <table id="id-newTable" border="1" class="cs-tbl">
+                                   <thead>
+                                        <tr>
+                                             <th>BookID</th>
+                                             <th>Book</th>
+                                             <th>Status</th>
+                                             <th>Chapters</th>
+                                             <th>Verses</th>
+                                             <th class="cs-thNoRightBorder">Edited NT Chapters</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td>40</td>
+                                             <td>Matthew</td>
+                                             <td>Rough Draft</td>
+                                             <td>28</td>
+                                             <td>1071</td>
+                                             <td>28</td>
+                                        </tr>
+                                        <tr>
+                                             <td>41</td>
+                                             <td>Mark</td>
+                                             <td>Rough Draft</td>
+                                             <td>16</td>
+                                             <td>678</td>
+                                             <td>44</td>
+                                        </tr>
+                                        <tr>
+                                             <td>42</td>
+                                             <td>Luke</td>
+                                             <td>Rough Draft</td>
+                                             <td>24</td>
+                                             <td>1151</td>
+                                             <td>702</td>
+                                        </tr>
+                                        <tr>
+                                             <td>43</td>
+                                             <td>John</td>
+                                             <td>Rough Draft</td>
+                                             <td>21</td>
+                                             <td>879</td>
+                                             <td>723</td>
+                                        </tr>
+                                        <tr>
+                                             <td>44</td>
+                                             <td>*Acts</td>
+                                             <td>19:1</td>
+                                             <td>28</td>
+                                             <td>1007</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>45</td>
+                                             <td>Romans</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>16</td>
+                                             <td>433</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>46</td>
+                                             <td>1 Corinthians</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>16</td>
+                                             <td>437</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>47</td>
+                                             <td>2 Corinthians</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>13</td>
+                                             <td>257</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>48</td>
+                                             <td>Galatians</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>6</td>
+                                             <td>149</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>49</td>
+                                             <td>Ephesians</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>6</td>
+                                             <td>155</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>50</td>
+                                             <td>Philippians</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>4</td>
+                                             <td>104</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>51</td>
+                                             <td>Colossians</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>4</td>
+                                             <td>95</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>52</td>
+                                             <td>1 Thessalonians</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>5</td>
+                                             <td>89</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>53</td>
+                                             <td>2 Thessalonians</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>3</td>
+                                             <td>47</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>54</td>
+                                             <td>1 Timothy</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>6</td>
+                                             <td>113</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>55</td>
+                                             <td>2 Timothy</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>4</td>
+                                             <td>83</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>56</td>
+                                             <td>Titus</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>3</td>
+                                             <td>46</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>57</td>
+                                             <td>Philemon</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>1</td>
+                                             <td>25</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>58</td>
+                                             <td>Hebrews</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>13</td>
+                                             <td>303</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>59</td>
+                                             <td>James</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>5</td>
+                                             <td>108</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>60</td>
+                                             <td>1 Peter</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>5</td>
+                                             <td>105</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>61</td>
+                                             <td>2 Peter</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>3</td>
+                                             <td>61</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>62</td>
+                                             <td>1 John</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>5</td>
+                                             <td>105</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>63</td>
+                                             <td>2 John</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>1</td>
+                                             <td>13</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>64</td>
+                                             <td>3 John</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>1</td>
+                                             <td>14</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>65</td>
+                                             <td>Jude</td>
+                                             <td>Altered by algorythm, but not human edited</td>
+                                             <td>1</td>
+                                             <td>25</td>
+                                             <td></td>
+                                        </tr>
+                                        <tr>
+                                             <td>66</td>
+                                             <td>Revelation</td>
+                                             <td>3:1</td>
+                                             <td>22</td>
+                                             <td>404</td>
+                                             <td></td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+
+                              <hr>
+                              <div id="id-TechnicalTWFAbout">
+                                   <h4 id="id-contentsTitle">TWF Technical Stuff:</h4>
+                                   <p>
+                                        The Twenty-First Century version of the Bible contains 39 Old Testament books and 27 New Testament books, for
+                                        a total of 66 books. The "Chapters" field lists the total number of chapters for each book, for a total of 929 Old Testament chapters and 260 New Testament chapters, with a total of 1189 chapters altogether. The "Verses" field lists the total number of verses for each book, for a total of 23,145 Old Testament verses and 7,957 New Testament verses, with a total of 31,102 verses altogether.
+                                   </p>
+
+                              </div>
+                              <hr>
+                              <hr>
+                         </div>
+
+                    </div>
+                    <br>
+               </div>
+
                <br><br>
-               <div id="id-lastEdited">Last Edited:</div>
-               <div id="id-installed">Installed?</div>
+               <div id="id-bottom">
+                    <br>
+
+                    <hr id="id-hr1">
+                    <br><br>
+                    <div id="id-GodLovesYou">
+
+                         <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                         <div>The TWF version is being actively edited and is subject to change daily.</div>
+                         <div>If you prefer to read other Bible versions, please feel free to do so.</div>
+                         <div id="id-northStar">✨</div>
+
+                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
+                              <span>Copyright&nbsp;©</span>
+                              <span id="id-copyrighted">2018-2025</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>New Hope Ministries</span>
+                              <span class="cs-copySign">&nbsp;●&nbsp;</span>
+                              <span>MIT License</span>
+                         </a>
+
+                         <br><br>
+                         <div id="id-lastEdited">Last Edited:</div>
+                         <div id="id-installed">Installed?</div>
+                    </div>
+               </div>
           </div>
-          <br>
+
      </div>
 
 </body>
