@@ -23,21 +23,21 @@
      <link rel="manifest" href="manifest.webmanifest">
      <!-- Pre-fetch -->
      <link rel="preload" as="image" href="images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
-     <link rel="preload" as="image" href="../images/icons/ark-192.webp" fetchpriority="high">
+     <link rel="preload" as="image" href="images/icons/ark-192.webp" fetchpriority="high">
 
      <!-- Favicon & Desktop Icons -->
-     <link rel="icon" type="image/webp" sizes="192x192" href="../images/logos/logo-192.webp">
-     <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
+     <link rel="icon" type="image/webp" sizes="192x192" href="images/logos/logo-192.webp">
+     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
 
-     <link rel="stylesheet" type="text/css" href="../code/css/shared/shared.css">
-     <link rel="stylesheet" type="text/css" href="../code/css/shared/boxes.css">
-     <link rel="stylesheet" type="text/css" href="../code/css/shared/settings.css">
-     <link rel="stylesheet" type="text/css" href="../code/css/shared/media.css">
-     <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
+     <link rel="stylesheet" type="text/css" href="code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="code/css/shared/boxes.css">
+     <link rel="stylesheet" type="text/css" href="code/css/shared/settings.css">
+     <link rel="stylesheet" type="text/css" href="code/css/shared/media.css">
+     <link rel="stylesheet" type="text/css" href="code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
-     <script defer src="../code/js/z-shared/shared.js"></script>
-     <script defer src="../code/js/index/index.js"></script>
-     <script defer src="../code/js/z-shared/boxes.js"></script>
+     <script defer src="code/js/z-shared/shared.js"></script>
+     <script defer src="code/js/index/index.js"></script>
+     <script defer src="code/js/z-shared/boxes.js"></script>
 
      <script id="id-loadEvent">
           window.addEventListener("load", async () => {
@@ -257,7 +257,7 @@
      <div id="id-noDisplay" onclick="openBoxes(event); unHighlight(event)">
 
           <div id="id-sunshine">
-               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
+               <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
                <div id="id-banner" onclick="openBoxes(event); unHighlight(event)">
                     <div id="id-appTitle">The Ark Bible</div>
                     <div id="id-rightIcon" onclick="aClick('apps/srch.html')" data-nosnippet>⚲</div>
@@ -351,7 +351,7 @@
                          <div>If you prefer to read other Bible versions, please feel free to do so.</div>
                          <div id="id-northStar">✨</div>
 
-                         <a id="id-copyright" onclick="aClick('../pages/license.html')">
+                         <a id="id-copyright" onclick="aClick('pages/license.html')">
                               <span>Copyright&nbsp;©</span>
                               <span id="id-copyrighted">2018-2025</span>
                               <span class="cs-copySign">&nbsp;●&nbsp;</span>
