@@ -38,6 +38,7 @@
           #id-navLine { font-size: 1.1rem; }
      }
      @media (max-width: 480px) {
+          html { font-size: 100%; }
           .cs-headerTitle { font-size: 1em; }
           .cs-menu1 { position: absolute; left: 25%; transform: translate(-25%); }
           .cs-books,
@@ -48,9 +49,15 @@
           .cs-searchPage { width: 95%; }
           .cs-searchContainer { width: 100%; }
           .cs-searchBtn { width: 20%; }
+          #id-comp,
+          #id-listen,
+          #id-restart,
+          #id-readChron,
+          #id-randomChapter { font-size: .8em; width: 15em; padding-left: 1em; padding-right: 1em; }
      }
      @media (max-width: 380px) { .cs-search { right: 10%; } }
      @media (max-width: 348px) {
+          html { font-size: 95%; }
           .cs-day,
           .cs-verse,
           .cs-chapter { font-size: 1.2em; height: 1.6em; width: 1.6em; }

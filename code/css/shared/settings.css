@@ -1,5 +1,5 @@
 
-#id-settings { display: flex; gap: 24em; justify-content: space-evenly; bottom: 0; left: 0; height: max-content; width: 100%; background-color: var(--gradientDark); z-index: 0; }
+#id-settings { display: flex; gap: 0; justify-content: space-evenly; bottom: 0; left: 0; height: max-content; background-color: var(--gradientDark); z-index: 0; }
 #id-glossary,
 #id-glossary1 { position: relative; margin-top: .9em; padding-bottom: 2em; color: var(--whiteText); z-index: 0; }
 
