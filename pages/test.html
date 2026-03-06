@@ -26,40 +26,16 @@
 
 <body>
 
-     table { border-collapse: collapse; width: 98%; margin: auto; }
-     th, td { border: 1px solid black; padding: .2em; text-align: left; }
-     th { background-color: var(--bannerBackground); color: var(--whiteText)}
-     tr:nth-child(even) { background-color: #f2f2f2; }
-      <table id="id-oldTable" border="1">
-          <thead>
-               <tr>
-                    <th>BookID</th>
-                    <th>Book</th>
-                    <th>Status</th>
-                    <th>Chapters</th>
-                    <th>Verses</th>
-                    <th>Total OT Chapters Edited</th>
-               </tr>
-          </thead>
-          <tbody>
-               <tr>
-                    <td>1</td>
-                    <td>~Genesis</td>
-                    <td>Working Draft - 31:1</td>
-                    <td>50</td>
-                    <td>1533</td>
-                    <td>50</td>
-               </tr>
-               <tr>
-                    <td>2</td>
-                    <td>Exodus</td>
-                    <td>Rough Draft</td>
-                    <td>40</td>
-                    <td>1213</td>
-                    <td>90</td>
-               </tr>
-          </tbody>
-     </table>
+
+      <div id="id-appLinks">
+          <br>
+          <a id="id-comp" onclick="aClick('apps/comp.html')" target="_blank" data-nosnippet=""> Compare Bible Versions </a>
+          <br>
+          <a id="id-listen" onclick="openListen()" target="_blank" data-nosnippet=""> Listen to the Bible </a>
+          <br>
+          <a id="id-readChron" onclick="readChron()" target="_blank" data-nosnippet=""> 365 Day Chronological Reading Plan </a>
+          <br><br>
+     </div>
 </body>
 
 </html>

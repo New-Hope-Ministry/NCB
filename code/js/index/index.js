@@ -1,20 +1,30 @@
-document.addEventListener("DOMContentLoaded", async () =>  {
+/*document.addEventListener("DOMContentLoaded", async () =>  {
      // DOMContentLoaded event fires before page is displayed
      console.log("DOMContentLoaded");
      let rec = false;
      rec = await getDefaults();
      if (rec) { rec = false; rec = await getVersion(); };
 
-     // getMenus is in shared.js, but it calls setMenu in index.js
      if (rec) { rec = false; rec = await getMenus(); };
-});
+});*/
+let domReadyPromise = (async () => {
+    return new Promise(async resolve => {
+        document.addEventListener("DOMContentLoaded", async () => {
+          // DOMContentLoaded event fires before page is displayed
+
+            let rec = await getDefaults();
+            if (rec) rec = await getVersion();
+            if (rec) rec = await getMenus();
+            resolve();
+        });
+    });
+})();
+
 
 window.addEventListener("load", async () => {
      // load event fires after page is displayed
-     document.getElementById("id-loaderContainer").style.display = 'none';
-     document.getElementById('id-noDisplay').classList.remove('cs-hidden');
-     document.getElementById('id-noDisplay').style.visibility = 'visible';
 
+     await domReadyPromise;
      if (!paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
      } else { if (paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Line Layout'; } };
      if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
@@ -33,6 +43,8 @@ window.addEventListener("load", async () => {
                };
           };
      } else { document.getElementById("id-end").style.display = 'block'; };
+     document.getElementById("id-loaderContainer").style.display = 'none';
+     document.getElementById('id-noDisplay').style.visibility = 'visible';
 });
 
 async function loadBoxes() {

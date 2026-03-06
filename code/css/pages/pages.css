@@ -9,7 +9,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 .cs-h2 { width: 90%; height: 10%; margin: auto; text-align: center; color: var(--greenEmphasis); }
 .cs-link { display: block; position: relative; margin-top: .8em; margin-bottom: -.8em; }
 .cs-link1 { display: block; position: relative; margin-bottom: -.3em; }
-.cs-link2 { height: max-content; color: var(--navyEmphasis); font-size: 1.1em; text-decoration: none; cursor: pointer; }
+.cs-link2 { height: max-content; color: var(--navyEmphasis); font-size: 1.1em; text-decoration: underline; cursor: pointer; }
 .cs-link3 { height: max-content; color: var(--navyEmphasis); cursor: pointer; }
 .cs-lessMargin { margin-top: -.3em; }
 .cs-lessMarginBottom { margin-bottom: -.01em; }
@@ -19,7 +19,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 .cs-qrcode { display: block; position: relative; top: 50%; height: 192px; width: 192px; margin: auto; cursor: pointer; }
 .cs-qrText { width: 50%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; text-align: center; }
 .cs-signed { color: var(--cs-edited); font-size: .7em; }
-.cs-title { height: max-content; font-size: 1.1em; font-weight: 550; color: var(--redEmphasis); margin-bottom: .5em; margin-top: .7em; }
+.cs-title { height: max-content; font-size: 1.1em; font-weight: 550; color: var(--redEmphasis); margin-bottom: .5em; margin-top: 1em; }
 .cs-title1 { color: var(--greenEmphasis); font-weight: 550; font-size: .9em; }
 .cs-linkBtn { margin-left: .3em; margin-right: auto; }
 

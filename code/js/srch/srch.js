@@ -1,23 +1,24 @@
-document.addEventListener("DOMContentLoaded", async () => {
-      // DOMContentLoaded event fires before page is displayed
+let domReadyPromise = (async () => {
+     return new Promise(async resolve => {
+          document.addEventListener("DOMContentLoaded", async () => {
+               // DOMContentLoaded event fires before page is displayed
 
-     fetchPrefix = '../';
-     let rec = false;
-     let i = null;
+               fetchPrefix = '../';
+               let i = null;
+               let rec = await getDefaults();
+               if (activeVersionID) {
+                    let id = Number(activeVersionID.slice("id-version".length));
+                    i = versions.findIndex(rec => rec.id === id);
+                    document.getElementById('id-searchVersion').textContent = `${versions[i].t} - ${versions[i].ar}`;
+               };
+               if (rec) { verses = await fetchVerses(i); };
+               if (rec) { await getMenus(); };
+               resolve();
+          });
+     });
+})();
 
-     rec = await getDefaults();
-     if (activeVersionID) {
-          let id = Number(activeVersionID.slice("id-version".length));
-          i = versions.findIndex(rec => rec.id === id);
-          document.getElementById('id-searchVersion').textContent = `${versions[i].t} - ${versions[i].ar}`;
-     };
-
-     if (rec) { verses = await fetchVerses(i); };
-     // getMenus is in shared.js, but it calls setMenu in srch.js
-     if (rec) { await getMenus(); };
-});
-
-//! Page Functions
+// Page Functions
      async function getDefaults() {
 
           const params = new URLSearchParams(window.location.search);
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async () => {
      };
 // End of Page Functions
 
-//! Simple full text search engine
+// Simple full text search engine
      var searchIndex = null;
      const stemmer = word => word.toLowerCase();
 

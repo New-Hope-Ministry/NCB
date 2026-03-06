@@ -1,21 +1,24 @@
-//! Page Variables
+// Page Variables
      var verses1 = [];
 // End of Page Variables
 
-document.addEventListener("DOMContentLoaded", async () =>  {
-     // DOMContentLoaded event fires before page is displayed
+let domReadyPromise = (async () => {
+    return new Promise(async resolve => {
+          document.addEventListener("DOMContentLoaded", async () => {
+               // DOMContentLoaded event fires before page is displayed
 
-     fetchPrefix = '../';
-     let rec = false;
-     rec = await getDefaults();
-     if (!boxesLoaded && rec) { rec = false; rec = await loadBoxes(); };
-     if (rec) { rec = false; rec = await getVersion(); };
-     if (rec) { rec = false; rec = await getCompVersion(); };
-     // getMenus is in shared.js, but it calls setMenu in comp.js
-     if (rec) { rec = false; rec = await getMenus(); };
-});
+               fetchPrefix = '../';
+               let rec = await getDefaults();
+               if (!boxesLoaded && rec) { rec = false; rec = await loadBoxes(); };
+               if (rec) { rec = false; rec = await getVersion(); };
+               if (rec) { rec = false; rec = await getCompVersion(); };
+               if (rec) { rec = false; rec = await getMenus(); };
+               resolve();
+          });
+    });
+})();
 
-//! Page Functions
+// Page Functions
      async function getDefaults() {
 
           const params = new URLSearchParams(window.location.search);
@@ -174,7 +177,7 @@ document.addEventListener("DOMContentLoaded", async () =>  {
      };
 // End of Page Functions
 
-//! Page Navigation Functions
+// Page Navigation Functions
      function changeCompBook(e = null) {
 
           stopBubbles(e);

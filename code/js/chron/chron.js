@@ -1,17 +1,16 @@
 var newday = false;
+let domReadyPromise = (async () => {
+    return new Promise(async resolve => {
+        document.addEventListener("DOMContentLoaded", async () => {
+               // DOMContentLoaded event fires before page is displayed
 
-document.addEventListener("DOMContentLoaded", async () =>  {
-     // DOMContentLoaded event fires before page is displayed
-
-     //restart();
-     console.log("DOMContentLoaded");
-     let rec = false;
-     fetchPrefix = '../';
-     rec = await getDefaults();
-     if (rec) { rec = false; rec = await getVersion(); };
-     // getMenus is in shared.js, but it calls setMenu in chron.js
-     //if (rec) { if (setTheme === '1') { darkTheme(); rotateTheme = false; }; getMenus(); };
-});
+               fetchPrefix = '../';
+               let rec = await getDefaults();
+               if (rec) { rec = false; rec = await getVersion(); };
+               resolve();
+        });
+    });
+})();
 
 async function changeChronChapter(e = null) {
 

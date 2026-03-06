@@ -111,7 +111,7 @@ self.addEventListener('fetch', event => {
 
                     const cachedResponse = await versionCache.match(url);
                     if (cachedResponse) {
-                         //! Start Here
+                         // Start Here
                          //const cntEncode = cachedResponse.headers.get('Content-Encoding')
                          return cachedResponse;
                     };

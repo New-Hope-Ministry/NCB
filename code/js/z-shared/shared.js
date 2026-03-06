@@ -14,7 +14,7 @@ var verses = [];
      The default activeChapterID is 'id-chapter1', which is the first chapter from the book of the activeBookID.
      The default setTheme is '0', which is the light theme.
      The default activeFontSize is 1.06*/
-//! End of Default Value Definitions!
+// End of Default Value Definitions!
 
 // Keep the defaults here!
      const defaultBookID = `id-book1`;
@@ -23,7 +23,7 @@ var verses = [];
      const defaultFontSize = 1.06;
      const defaultVersionID = `id-version11`; // Version Defaults: KJV = 8, TWF = 11
      const defaultCompVrsnID = `id-versionA1`; // Compare Version Defaults: AKJ = 1, TWF = 11
-//! End of Keep the defaults here!
+// End of Keep the defaults here!
 
 var bookSort = false;
 var boxesLoaded = false;
@@ -585,6 +585,7 @@ async function checkID(id) {
           'id-appTitle',
           'id-banner',
           'id-glossary',
+          'id-glossary1',
           'id-GodLovesYou',
           'id-page',
           'id-pageContainer',
@@ -895,7 +896,7 @@ function lightTheme() {
      theme.style.setProperty('--bodyBackground', '#f3f3f3');
      theme.style.setProperty('--cs-edited', '#545353');
      theme.style.setProperty('--darkGray', '#545353');
-     theme.style.setProperty('--gradientLight', '#1b53ae');
+     theme.style.setProperty('--gradientLight', '#0e4194');
      theme.style.setProperty('--gradientDark', '#102952');
      theme.style.setProperty('--greenEmphasis', '#045004');
      theme.style.setProperty('--lighterMaroonEmphasis', '#ba0e0e');

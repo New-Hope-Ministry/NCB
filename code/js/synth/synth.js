@@ -11,28 +11,28 @@ let progressBar;
 let synth = null;
 let voices;
 
-document.addEventListener("DOMContentLoaded", async () =>  {
-     // DOMContentLoaded event fires before page is displayed
+let domReadyPromise = (async () => {
+     return new Promise(async resolve => {
+          document.addEventListener("DOMContentLoaded", async () => {
+               // DOMContentLoaded event fires before page is displayed
 
-     fetchPrefix = '../';
-     let rec = false;
-     rec = await getDefaults();
-     if (rec) { rec = false; rec = await getVersion(); };
-
-     if (rec) { if (setTheme === '1') { darkTheme(); rotateTheme = false; }; startUp(); };
-     if ('speechSynthesis' in window) {
-          progressBar = document.getElementById("id-progressBar");
-          synth = window.speechSynthesis;
-          if (speechSynthesis.onvoiceschanged !== undefined) {
-               // Some browsers may load voices asynchronously, so you need to wait for the voiceschanged event to fire.
-               speechSynthesis.onvoiceschanged = listVoices;
-          } else {
-               listVoices();
-          };
-     };
-     // getMenus is in shared.js, but it calls setMenu in synth.js
-     if (rec) { rec = false; rec = await getMenus(); };
-});
+               fetchPrefix = '../';
+               let rec = await getDefaults();
+               if (rec) { rec = false; rec = await getVersion(); };
+               if (rec) { if (setTheme === '1') { darkTheme(); rotateTheme = false; }; startUp(); };
+               if ('speechSynthesis' in window) {
+                    progressBar = document.getElementById("id-progressBar");
+                    synth = window.speechSynthesis;
+                    if (speechSynthesis.onvoiceschanged !== undefined) {
+                         // Some browsers may load voices asynchronously, so you need to wait for the voiceschanged event to fire.
+                         speechSynthesis.onvoiceschanged = listVoices;
+                    } else { listVoices(); };
+               };
+               if (rec) { rec = false; rec = await getMenus(); };
+               resolve();
+          });
+     });
+})();
 
 window.onbeforeunload = (event) => {
      if (synth) {
@@ -41,7 +41,7 @@ window.onbeforeunload = (event) => {
      };
 };
 
-//! Page Functions
+// Page Functions
      function checkboxChecked(e = null) {
 
           if (e) {
@@ -204,7 +204,7 @@ window.onbeforeunload = (event) => {
      };
 // End of Page Functions
 
-//! Speech Functions
+// Speech Functions
      function countWords(str) {
           const matches = str.match(/\b\w+\b/g);
           return matches ? matches.length : 0;
