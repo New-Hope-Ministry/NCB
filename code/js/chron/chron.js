@@ -7,6 +7,7 @@ let domReadyPromise = (async () => {
                fetchPrefix = '../';
                let rec = await getDefaults();
                if (rec) { rec = false; rec = await getVersion(); };
+               if (rec) { await getMenus(); };
                resolve();
         });
     });
@@ -25,16 +26,7 @@ async function changeChronChapter(e = null) {
      return true;
 };
 
-function chronDay() {
-
-     let bid = Number(activeBookID.slice("id-book".length));
-     let cn = Number(activeChapterID.slice("id-chapter".length));
-     let i = chronPlan.findIndex(rec => rec.bid === bid && rec.cn === cn);
-     let day = chronPlan[i].dy;
-     return day;
-};
-
-async function changeDay(e = null) {
+async function changeChronDay(e = null) {
 
      stopBubbles(e);
      closeBoxes();
@@ -100,20 +92,26 @@ async function chronNextLast(bid, cn, dayid, loadChpts) {
      selected(activeDayID, 'id-days');
      setQuerystring('bid', bid);
      setQuerystring('cn', cn);
-     // getMenus is in shared.js, but it calls setMenu in chron.js
+
      getMenus();
+     localStorage.setItem("activeChronBookID", activeBookID);
      localStorage.setItem("activeChronChapterID", activeChapterID);
      document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
+};
+
+function getChronDay() {
+
+     let bid = Number(activeBookID.slice("id-book".length));
+     let cn = Number(activeChapterID.slice("id-chapter".length));
+     let i = chronPlan.findIndex(rec => rec.bid === bid && rec.cn === cn);
+     let day = chronPlan[i].dy;
+     return day;
 };
 
 async function getDefaults() {
 
      const params = new URLSearchParams(window.location.search);
-//localStorage.clear();
-     let verid = params.get('verid');
-     if (verid) { activeVersionID = `id-version${verid}`; };
-     if (!activeVersionID) { activeVersionID = localStorage.getItem("activeChronVersionID"); };
-     if (!activeVersionID) { activeVersionID = defaultVersionID };
+     //localStorage.clear();
 
      let bid = params.get('bid');
      if (bid) { activeBookID = `id-book${bid}`; };
@@ -125,15 +123,19 @@ async function getDefaults() {
      if (!activeChapterID) { activeChapterID = localStorage.getItem("activeChronChapterID"); };
      if (!activeChapterID) { activeChapterID = defaultChapterID; };
 
-     await getDesignDefaults();
+     let verid = params.get('verid');
+     if (verid) { activeVersionID = `id-version${verid}`; };
+     if (!activeVersionID) { activeVersionID = localStorage.getItem("activeChronVersionID"); };
+     if (!activeVersionID) { activeVersionID = defaultVersionID };
 
+     await getDesignDefaults();
      return true;
 };
 
 async function loadBoxes() {
 
-     await loadVersions(changeVersion);
-     await loadDays(changeDay);
+     await loadVersions(changeVersion); //changeVersion() is in shared.js
+     await loadDays(changeChronDay);
      await loadChronChapters(changeChronChapter);
      await startUp();
      boxesLoaded = true;
@@ -181,7 +183,7 @@ async function loadDays(func) {
 async function loadChronChapters(func) {
      // loadChronChapters() loads the plan chapters for the chose day
 
-     let day = await chronDay();;
+     let day = await getChronDay();;
      let chaptersBox = document.getElementById('id-chaptersBox');
      let i = chronPlan.findIndex(rec => rec.dy === day);
 
@@ -225,7 +227,7 @@ async function openBoxes(e = null) {
           case "id-MenuBtn2":
                id = 'id-days';
                document.getElementById(id).style.display = 'block';
-               let activeDayID = `id-day${chronDay()}`;
+               let activeDayID = `id-day${getChronDay()}`;
                document.getElementById(activeDayID).scrollIntoView({ block: 'center' });
                break;
           case "id-MenuBtn3":
@@ -276,7 +278,7 @@ function setMenu(ID) {
                val = getVersionsABR(vrsn1);
                break;
           case "id-MenuBtn2":
-               let day = chronDay();
+               let day = getChronDay();
                val = `Day: ${day}`
                break;
           case "id-MenuBtn3":
@@ -303,7 +305,7 @@ async function startUp() {
      if (activeBookID) {
           id = Number(activeBookID.slice("id-book".length));
           setQuerystring('bid', id);
-          let activeDayID = `id-day${chronDay()}`;
+          let activeDayID = `id-day${getChronDay()}`;
           selected(activeDayID, 'id-days');
      };
      if (activeChapterID) {
