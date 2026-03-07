@@ -496,6 +496,7 @@ async function lastChapter(e = null) {
           loadChpts = true;
      };
      nextLast(bid, cn, loadChpts);
+     return true;
 };
 
 async function nextChapter(e = null) {
@@ -516,6 +517,7 @@ async function nextChapter(e = null) {
           loadChpts = true;
      };
      nextLast(bid, cn, loadChpts);
+     return true;
 };
 
 async function nextLast(bid, cn, loadChpts) {
@@ -580,6 +582,15 @@ async function changeVersion(e = null) {
 async function checkID(id) {
 
      // Used by openBoxes() to check for exempt element ids.
+     const menuIDs = [
+          'id-MenuBtn1',
+          'id-MenuBtn2',
+          'id-MenuBtn3',
+          'id-MenuBtn4'
+     ];
+     if (menuIDs.includes(id)) { return false; } else { closeBoxes(); return true; };
+
+     /*
      const exactIDs = [
           'id-appLinks',
           'id-appTitle',
@@ -604,6 +615,7 @@ async function checkID(id) {
           partialIDs.some(part => id.includes(part))
      ) { closeBoxes(); return true; };
      return false;
+     */
 };
 
 function darkTheme() {
@@ -805,7 +817,7 @@ async function getDesignDefaults() {
 };
 
 async function getMenus() {
-     // getMenus is in shared.js, but it calls setMenu in the app.js files
+     // getMenus is in shared.js, but it calls setMenu in each app.js files
      const indices = [1, 2, 3, 4];
      indices.forEach(i => {
 

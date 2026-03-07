@@ -97,7 +97,7 @@ window.onbeforeunload = (event) => {
 
      async function openBoxes(e = null) {
 
-          stopBubbles(e);
+          await stopBubbles(e);
           let ID = e.target.id;
           let id = null;
 
@@ -129,6 +129,7 @@ window.onbeforeunload = (event) => {
                     break;
           };
           if (boxesAreOpen) { closeBoxes(); } else { boxesAreOpen = true; };
+          stopSpeech();
      };
 
      function selected(id, container, reset = null) {

@@ -53,7 +53,6 @@ async function chronLastChapter(e = null) {
      let i = chronPlan.findIndex(rec => rec.bid === bid && rec.cn === cn);
      let idx = Number(chronPlan[i].cid);
      idx = idx - 2;
-     //if (idx < 0) { idx = 0; };
 
      bid = chronPlan[idx].bid;
      cn = chronPlan[idx].cn;
@@ -135,7 +134,7 @@ async function getDefaults() {
 
 async function loadBoxes() {
 
-     await loadVersions(changeChronVersion); //changeVersion() is in shared.js
+     await loadVersions(changeChronVersion);
      await loadDays(changeChronDay);
      await loadChronChapters(changeChronChapter);
      await startUp();

@@ -1,12 +1,3 @@
-/*document.addEventListener("DOMContentLoaded", async () =>  {
-     // DOMContentLoaded event fires before page is displayed
-     console.log("DOMContentLoaded");
-     let rec = false;
-     rec = await getDefaults();
-     if (rec) { rec = false; rec = await getVersion(); };
-
-     if (rec) { rec = false; rec = await getMenus(); };
-});*/
 let domReadyPromise = (async () => {
     return new Promise(async resolve => {
         document.addEventListener("DOMContentLoaded", async () => {
@@ -19,7 +10,6 @@ let domReadyPromise = (async () => {
         });
     });
 })();
-
 
 window.addEventListener("load", async () => {
      // load event fires after page is displayed

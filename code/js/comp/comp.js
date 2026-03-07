@@ -235,6 +235,25 @@ let domReadyPromise = (async () => {
           return true;
      };
 
+     async function compLastChapter(e = null) {
+
+          stopBubbles(e);
+          await lastChapter(e);
+          await getChapter(1, 'A', verses1);
+          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
+     };
+
+
+     async function compNextChapter(e = null) {
+
+          stopBubbles(e);
+          await nextChapter(e);
+          await getChapter(1, 'A', verses1);
+          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
+     };
+
      async function getCompVersion(e = null) {
 
           let id = null;

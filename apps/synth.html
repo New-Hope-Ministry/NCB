@@ -34,7 +34,7 @@
                <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="../images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
                <div id="id-banner">
                     <div id="id-appTitle">Listen to The Ark Bible</div>
-                    <div id="id-rightIcon" data-nosnippet data-nosnippet onclick="startSpeech()">🔊</div>
+                    <div id="id-rightIcon" data-nosnippet onclick="startSpeech()">🔊</div>
                     <div id="id-menu">
                          <button id="id-MenuBtn1" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Version" translate="no">TWF</button>
                          <button id="id-MenuBtn2" class="cs-menuBtn" onclick="openBoxes(event)" title="Select A Book" translate="no">Genesis</button>
@@ -67,7 +67,9 @@
                     <div id="id-page" onclick="unHighlight()"></div>
 
                     <div id="id-navLine" data-nosnippet>
+                         <div id="id-navLastChapter" onclick="lastChapter(event)">‹ Last</div>
                          <div id="id-navTitle">Genesis 1</div>
+                         <div id="id-navNextChapter" onclick="nextChapter(event)">Next ›</div>
                     </div>
                </div>
 
@@ -95,12 +97,12 @@
      </div>
 
 </body>
-     <div id="id-versions" data-nosnippet="">
+     <div id="id-versions" data-nosnippet>
           <div id="id-versionHeader">Versions</div>
           <div id="id-versionsBox"></div>
      </div>
 
-     <div id="id-books" data-nosnippet="">
+     <div id="id-books" data-nosnippet>
           <div id="id-bookHeader">
                <span>Books</span>
                <div id="id-sortBook" title="Sort Alphabetically">

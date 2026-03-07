@@ -28,7 +28,6 @@
      <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
      <script id="id-initialize">
-
           async function loadBoxes() {
                loadVersions(changeVersion);
                loadBooks(changeBook);
@@ -187,7 +186,6 @@
                };
                return true;
           };
-
      </script>
 
      <script defer src="../code/js/z-shared/shared.js"></script>
@@ -195,16 +193,19 @@
      <script defer src="../code/js/z-shared/loadAppEvents.js"></script>
 
      <script id="id-loadEvents">
+          let domReadyPromise = (async () => {
+               return new Promise(async resolve => {
+                    document.addEventListener("DOMContentLoaded", async () => {
+                         // DOMContentLoaded event fires before page is displayed
 
-          document.addEventListener("DOMContentLoaded", async () =>  {
-               // DOMContentLoaded event fires before page is displayed
-               let rec = false;
-               fetchPrefix = '../';
-               rec = await getDefaults();
-               if (rec) { rec = false; rec = await getVersion(); };
-               if (rec) { getMenus(); };
-          });
-
+                         fetchPrefix = '../';
+                         let rec = await getDefaults();
+                         if (rec) rec = await getVersion();
+                         if (rec) rec = await getMenus();
+                         resolve();
+                    });
+               });
+          })();
      </script>
 
 </head>
