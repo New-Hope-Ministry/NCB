@@ -36,25 +36,31 @@ async function changeChronDay(e = null) {
      chronNextLast(chronPlan[i].bid, chronPlan[i].cn, dayid, true);
 };
 
+async function changeChronVersion(e = null) {
+
+     stopBubbles(e);
+     changeVersion(e);
+     localStorage.setItem("activeChronVersionID", activeVersionID);
+     return true;
+};
+
 async function chronLastChapter(e = null) {
 
      stopBubbles(e);
      if (!boxesLoaded) { await loadBoxes(); };
      let bid = Number(activeBookID.slice("id-book".length));
-     let cn = Number(activeChapterID.slice("id-chapter".length)) - 1;
-
-     let loadChpts = false;
-     if (cn < 1) {
-          bid--;
-          if (bid < 1) { bid = 1; };
-          let books = getBooksVolume(bid);
-          let i = books.findIndex(rec => rec.id === bid);
-          cn = books[i].c;
-          loadChpts = true;
-     };
+     let cn = Number(activeChapterID.slice("id-chapter".length));
      let i = chronPlan.findIndex(rec => rec.bid === bid && rec.cn === cn);
-     let dayid = chronPlan[i].dy;
-     chronNextLast(bid, cn, dayid, true);
+     let idx = Number(chronPlan[i].cid);
+     idx = idx - 2;
+     //if (idx < 0) { idx = 0; };
+
+     bid = chronPlan[idx].bid;
+     cn = chronPlan[idx].cn;
+     let day = chronPlan[idx].dy;
+
+     chronNextLast(bid, cn, day, true);
+     return;
 };
 
 async function chronNextChapter(e = null) {
@@ -62,21 +68,16 @@ async function chronNextChapter(e = null) {
      stopBubbles(e);
      if (!boxesLoaded) { await loadBoxes(); };
      let bid = Number(activeBookID.slice("id-book".length));
-     let cn = Number(activeChapterID.slice("id-chapter".length)) + 1;
-     let books = getBooksVolume(bid);
-     let i = books.findIndex(rec => rec.id === bid);
-     chs = books[i].c;
+     let cn = Number(activeChapterID.slice("id-chapter".length));
+     let i = chronPlan.findIndex(rec => rec.bid === bid && rec.cn === cn);
+     let idx = Number(chronPlan[i].cid);
 
-     let loadChpts = false;
-     if (cn > chs) {
-          bid++;
-          cn = 1;
-          if (bid > 66) { bid = 66; };
-          loadChpts = true;
-     };
-     let idx = chronPlan.findIndex(rec => rec.bid === bid && rec.cn === cn);
-     let dayid = chronPlan[idx].dy;
-     chronNextLast(bid, cn, dayid, true);
+     bid = chronPlan[idx].bid;
+     cn = chronPlan[idx].cn;
+     let day = chronPlan[idx].dy;
+
+     chronNextLast(bid, cn, day, true);
+     return;
 };
 
 async function chronNextLast(bid, cn, dayid, loadChpts) {
@@ -104,7 +105,7 @@ function getChronDay() {
      let bid = Number(activeBookID.slice("id-book".length));
      let cn = Number(activeChapterID.slice("id-chapter".length));
      let i = chronPlan.findIndex(rec => rec.bid === bid && rec.cn === cn);
-     let day = chronPlan[i].dy;
+     let day = Number(chronPlan[i].dy);
      return day;
 };
 
@@ -134,7 +135,7 @@ async function getDefaults() {
 
 async function loadBoxes() {
 
-     await loadVersions(changeVersion); //changeVersion() is in shared.js
+     await loadVersions(changeChronVersion); //changeVersion() is in shared.js
      await loadDays(changeChronDay);
      await loadChronChapters(changeChronChapter);
      await startUp();
@@ -183,7 +184,7 @@ async function loadDays(func) {
 async function loadChronChapters(func) {
      // loadChronChapters() loads the plan chapters for the chose day
 
-     let day = await getChronDay();;
+     let day = await getChronDay();
      let chaptersBox = document.getElementById('id-chaptersBox');
      let i = chronPlan.findIndex(rec => rec.dy === day);
 
@@ -329,16 +330,9 @@ async function restart(e = null) {
      localStorage.removeItem('activeChronChapterID');
      localStorage.removeItem("activeChronVersionID");
 
-
-
      selected(defaultChapterID, 'id-chapters');
      selected(defaultDayID, 'id-days');
      selected(defaultVersionID, 'id-versions');
-
-     //let bid = Number(defaultBookID.slice("id-book".length));
-     //let cn = Number(defaultChapterID.slice("id-chapter".length));
-     //setQuerystring('bid', bid);
-     //setQuerystring('cn', cn);
 
      pastSelectedChapterID = null;
      pastSelectedDayID = null;
@@ -349,7 +343,6 @@ async function restart(e = null) {
 
      document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
      startUp();
-     // getMenus is in shared.js, but it calls setMenu in chron.js
      getMenus();
      removeAllQueries();
      return true;
