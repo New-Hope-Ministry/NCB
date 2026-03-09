@@ -120,13 +120,30 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 .cs-darkTheme { background-color: #3d3636; color: white; }
 
 /* ************** Media Queries ***************** */
-     /* Width */
-          @media (max-width: 600px) { #id-rightIcon { right: 1em; top: 1.2em;} }
-          @media (max-width: 768px) { #id-page, #id-page1 { width: 90%; } }
+     /*? Media Query Widths */
+          /*@media (max-width: 1920px) { }
+          @media (max-width: 1440px) { }
+          @media (max-width: 1280px) { }
+          @media (max-width: 1025px) { }*/
           @media (max-width: 920px) { #id-mainPage, #id-mainPage1 { border-radius: 0; width: 100%; } }
-     /* End Width */
+          @media (max-width: 768px) { #id-navLine { font-size: 1.1rem; } #id-page, #id-page1 { width: 90%; } }
+          @media (max-width: 600px) { #id-rightIcon { right: 1em; top: 1.2em;} }
+          @media (max-width: 480px) { html { font-size: 103%; } #id-page { width: 90%; } #id-comp, #id-listen, #id-restart, #id-readChron, #id-randomChapter { font-size: .8em; width: 15em; padding-left: 1em; padding-right: 1em; } }
+          @media (max-width: 380px) { #id-comp, #id-listen, #id-restart, #id-readChron, #id-randomChapter { font-size: .6em; } }
+          @media (max-width: 348px) { html { font-size: 95%; } }
+          @media (max-width: 295px) { .cs-search { right: 6%; } }
+     /*? End Media Query Widths */
 
-     /* Height */
-          @media (max-height: 920px) { #id-books,#id-chapters, #id-verses, #id-versions, #id-versions1 { max-height: 60%; } }
-     /* End Height */
+     /*? Media Query Heights */
+          @media (max-height: 1368px) { .cs-mainPage, .cs-mainPage1 { margin-top: .5em; } }
+          @media (max-height: 1280px) { }
+          @media (max-height: 1080px) { #id-page, #id-page1 { margin-top: .5em; } }
+          @media (max-height: 920px) {#id-books,#id-chapters, #id-verses, #id-versions, #id-versions1 { max-height: 60%; } }
+          /*@media (max-height: 1024px) { }
+          @media (max-height: 741px) { }
+          @media (max-height: 668px) { }
+          @media (max-height: 600px) { }
+          @media (max-height: 568px) { }
+          @media (max-height: 480px) { }*/
+     /*? End Media Query Heights */
 /* ************** End Media Queries ***************** */

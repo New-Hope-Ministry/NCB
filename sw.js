@@ -9,10 +9,9 @@ var updateVar = true;
 
 const urlsToCache = [
      'manifest.webmanifest',
+     'code/css/apps/settings.css',
      'code/css/shared/shared.css',
      'code/css/shared/boxes.css',
-     'code/css/shared/settings.css',
-     'code/css/shared/media.css',
      'code/css/shared/lateload.css',
      'code/js/z-shared/shared.js',
      'code/js/index/index.js',

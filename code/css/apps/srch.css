@@ -6,6 +6,7 @@
 #id-searchBox[contenteditable="true"]:empty:before { content: attr(data-placeholder); color: gray; font-style: italic; }
 #id-searchBtn { color: white; background-color: red; padding: .6em; border-radius: 6px; width: 10%; margin: auto; margin-top: .6em; font-size: 1.1em; z-index: 12; text-align: center; border: 2px solid black; cursor: pointer; }
 #id-resultCount { width: 90%; margin:auto; text-align: center; }
+#id-searchResults { min-height: 67vh; }
 .cs-moreSearchResults { font-size: 1.2rem; text-decoration: underline; color: var(--lightMaroonEmphasis); }
 .cs-searchVerse { margin-top: -.1em; }
 .cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--navyEmphasis); }
