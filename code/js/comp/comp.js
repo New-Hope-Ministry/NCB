@@ -198,7 +198,7 @@ let domReadyPromise = (async () => {
           document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
           document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
           boxOpen = 0;
-          // getMenus is in shared.js, but it calls setMenu in comp.js
+
           getMenus();
      };
 
@@ -217,7 +217,7 @@ let domReadyPromise = (async () => {
           document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
           document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
           boxOpen = 0;
-          // getMenus is in shared.js, but it calls setMenu in comp.js
+
           getMenus();
      };
 
@@ -225,12 +225,10 @@ let domReadyPromise = (async () => {
 
           stopBubbles(e);
           closeBoxes();
+
           let verid1 = await getCompVersion(e);
-          //let activeVersion1 = Number(activeCompVrsnID.slice("id-versionA".length));
           selected(activeCompVrsnID, 'id-versions1');
-          setQuerystring('cn1', 1);
           setQuerystring('verid1', verid1);
-          // getMenus is in shared.js, but it calls setMenu in comp.js
           getMenus();
           return true;
      };
