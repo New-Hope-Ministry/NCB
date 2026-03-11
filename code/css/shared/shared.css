@@ -106,7 +106,7 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 
 #id-randomChapter { background-color: #b63f47; color: white; margin-top: 2.5em; }
 #id-restart { margin-top: 1.5em; }
-#id-bottomPad { height: 5em; width: 5%; margin: auto; color: white; text-align: center; }
+#id-bottomPad { height: 4em; width: 5%; margin: auto; color: white; text-align: center; }
 
 .cs-edited { font-size: .4em; color: var(--cs-edited); }
 .cs-emphasis { color: var(--lighterMaroonEmphasis); }
