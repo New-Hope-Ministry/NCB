@@ -38,7 +38,7 @@
 
 html { font-size: 110%; }
 html,
-body { position: relative; margin: 0; padding: 0; width: 100%; height: 100%; z-index: 10; background-color: var(--bodyBackground); color: var(--blackText); }
+body { position: relative; margin: 0; padding: 0; width: 100%; height: 100dvh; z-index: 10; background-color: var(--bodyBackground); color: var(--blackText); }
 div { overflow: hidden; overflow-y: scroll; -ms-overflow-style: none; scrollbar-width: none; }
 div::-webkit-scrollbar { display: none; }
 
@@ -60,7 +60,7 @@ p { font-size: 1.06rem; }
 #id-menu { display: flex; position: absolute; top: 2.6em; left: 50%; transform: translateX(-50%); width: max-content; color: var(--whiteText); cursor: pointer; user-select: none; gap: 1em; }
 .cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1rem; color: var(--whiteText); cursor: pointer; background-color: transparent; }
 
-#id-pageContainer { position: fixed; left: 0; top: 4.2em; height: calc(100vh - 4.2em); width: 100%; overflow: hidden; overflow-y: auto; z-index: 10; }
+#id-pageContainer { position: fixed; left: 0; top: 4.2em; height: calc(100dvh - 4.2em); width: 100%; overflow: hidden; overflow-y: auto; z-index: 10; }
 div#id-pageContainer { overflow-y: scroll; -ms-overflow-style: auto; scrollbar-width: auto; scrollbar-color: #888 #f1f1f1; }
 /* Chrome, Edge, and Safari */
 div#id-pageContainer::-webkit-scrollbar { display: block !important; width: 16px !important; }
@@ -83,11 +83,11 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 #id-page,
 #id-page1 { text-align: justify; margin: auto; margin-bottom: 3em; margin-top: 2.5em; width: 85%; }
 
-#id-bottom { position: relative; height: max-content; width: 100%; margin-top: 2em; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%); z-index: 10; }
+#id-bottom { position: relative; height: max-content; width: 100%; margin-top: 2em; background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%); z-index: 10; }
 
 #id-northStar { font-size: 2em; }
 #id-copyright { color: var(--aLinkColor); text-decoration: underline; cursor: pointer; }
-#id-GodLovesYou { width: 80%; margin-left: auto; margin-right: auto; padding-bottom: 2.3em; padding-top: 2.5em; bottom: 0; font-size: .8rem; color: var(--whiteText); text-align: center; }
+#id-GodLovesYou { width: 80%; margin-left: auto; margin-right: auto; padding-bottom: 2.3em; padding-top: 2.5em; font-size: .8rem; color: var(--whiteText); text-align: center; }
 #id-lastEdited { padding-top: 2em; }
 .cs-installed { padding-bottom: 4em; }
 
@@ -106,10 +106,12 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 
 #id-randomChapter { background-color: #b63f47; color: white; margin-top: 2.5em; }
 #id-restart { margin-top: 1.5em; }
+#id-bottomPad { height: 5em; width: 5%; margin: auto; color: white; text-align: center; }
 
 .cs-edited { font-size: .4em; color: var(--cs-edited); }
 .cs-emphasis { color: var(--lighterMaroonEmphasis); }
 .cs-emphasisBlue { color: var(--blueVerse); }
+.cs-h2 { width: 90%; height: 10%; margin: auto; text-align: center; color: var(--greenEmphasis); }
 .cs-hr1 { width: 100%; margin: auto; margin-top: 1.2em; }
 .cs-singleVerse { margin-top: -.5em; z-index: 100; }
 .cs-verseNumber { margin-right: .5em; color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }

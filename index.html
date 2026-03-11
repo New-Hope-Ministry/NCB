@@ -319,6 +319,7 @@
                          <div id="id-lastEdited">Last Edited:</div>
                          <div id="id-installed">Installed?</div>
                     </div>
+                    <div id="id-bottomPad"> ... </div>
                </div>
           </div>
      </div>
@@ -346,7 +347,7 @@
      </div>
 
      <style>
-          #id-end { display: none; position: fixed; bottom: 0; left: 0; width: 100%; height: max-content; background-color: #f1f2f3; border-top: 3px solid #9b9a9a; color: var(--gradientDark); z-index: 11; }
+          #id-end { display: none; position: fixed; left: 0; top: 4.25em; width: 100%; height: max-content; background-color: #f1f2f3; border-bottom: 5px solid #9b9a9a; border-top: 5px solid #9b9a9a; color: var(--gradientDark); z-index: 11; }
           #id-endLine { position: relative; width: 85%; top: 10%; margin: auto; font-size: .9rem; margin-top: 1.5em; }
           #id-endMsg { padding-left: 1.5em; padding-right: 1.5em; width: 94%; margin: auto; text-align: justify; }
           #id-endBtnLine { display: flex; justify-content: space-evenly; top: 1%; width: 50%; margin: auto; margin-top: 1.5em; margin-bottom: 1.5em; }
@@ -355,7 +356,8 @@
      <div id="id-end" data-nosnippet>
           <div id="id-endLine">
                <p id="id-endMsg">
-                    Click Install if you agree to allow The Ark Bible app to be installed and store performance files locally, but you do not have to install this app to use it. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel, no files will be stored locally. If you change your mind, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or by clearing your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. If you allow the files to be stored locally it will dramatically reduce data transfer usage for your internet connection.
+                    <h3 class="cs-h2">The Ark Bible Installation</h3>
+                    You do not have to install The Ark Bible app to use it, but if you click Install you agree to allow this app to be installed and store local files on your device. If you click Cancel, no files will be stored locally. The Ark Bible app does not collect or store any personal or tracking data whether it is installed or not. If you change your mind later, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or by clearing your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. If you allow the files to be stored locally it will reduce data usage for your internet connection.
                </p>
                <div id="id-endBtnLine">
                     <button class="cs-endBtn" onclick="saveLocal()">Install</button>
