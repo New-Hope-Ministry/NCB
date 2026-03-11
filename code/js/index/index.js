@@ -15,12 +15,20 @@ window.addEventListener("load", async () => {
      // load event fires after page is displayed
 
      await domReadyPromise;
-     if (!paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
-     } else { if (paragraphLayoutDefault) { document.getElementById('id-paragraphLayout').textContent = 'Line Layout'; } };
+     let paraLayout = document.getElementById('id-paragraphLayout');
+     let lastEdit = document.getElementById('id-lastEdited');
+     let cpyRight = document.getElementById('id-copyrighted');
+     let installed = document.getElementById('id-installed');
+     let ldr = document.getElementById("id-loaderContainer");
+     let noDisplay = document.getElementById('id-noDisplay');
+     let end = document.getElementById("id-end");
+
      if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
-     document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-     document.getElementById('id-copyrighted').textContent = copyrighted;
-     if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+     if (paraLayout) { if (!paragraphLayoutDefault) { paraLayout.textContent = 'Paragraph Layout';
+     } else { if (paragraphLayoutDefault) { paraLayout.textContent = 'Line Layout'; } }; };
+     if (lastEdit) { lastEdit.textContent = `Last Date Edited: ${dateEdited}`; };
+     if (cpyRight) { cpyRight.textContent = copyrighted; };
+     if (installed) { if (inst) { installed.textContent = 'The Ark Bible is Installed!'; } else { installed.textContent = 'The Ark Bible is Not Installed!'; }; };
 
      if (savedLocal) {
           if (navigator.onLine) {
@@ -32,9 +40,11 @@ window.addEventListener("load", async () => {
                     }, 3000);
                };
           };
-     } else { document.getElementById("id-end").style.display = 'block'; };
-     document.getElementById("id-loaderContainer").style.display = 'none';
-     document.getElementById('id-noDisplay').style.visibility = 'visible';
+     } else { if (end) { end.style.display = 'block'; }; };
+
+     if (ldr) { ldr.style.display = 'none'; };
+     if (noDisplay) { noDisplay.style.visibility = 'visible'; };
+
 });
 
 async function loadBoxes() {

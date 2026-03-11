@@ -1,14 +1,28 @@
-document.addEventListener("DOMContentLoaded", async () =>  {
-     // DOMContentLoaded event fires before page is displayed
-     let rec = false;
-     rec = await getDesignDefaults();
-});
+let domReadyPromise = (async () => {
+    return new Promise(async resolve => {
+          document.addEventListener("DOMContentLoaded", async () =>  {
+               // DOMContentLoaded event fires before page is displayed
+               let rec = false;
+               rec = await getDesignDefaults();
+               resolve();
+          });
+    });
+})();
+
 
 window.addEventListener("load", async () => {
      // load event fires after page is displayed
 
+     await domReadyPromise;
+     
+     let lastEdit = document.getElementById('id-lastEdited');
+     let cpyRight = document.getElementById('id-copyrighted');
+     let topLastEdit = document.getElementById('id-topLastEdited');
+     let installed = document.getElementById('id-installed');
+
      if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
-     document.getElementById('id-lastEdited').textContent = `Last Date Edited: ${dateEdited}`;
-     document.getElementById('id-copyrighted').textContent = copyrighted;
-     if (inst) { document.getElementById('id-installed').textContent = 'The Ark Bible is Installed!'; } else { document.getElementById('id-installed').textContent = 'The Ark Bible is Not Installed!'; };
+     if (lastEdit) { lastEdit.textContent = `Last Date Edited: ${dateEdited}`; };
+     if (cpyRight) { cpyRight.textContent = copyrighted; };
+     if (topLastEdit) { topLastEdit.textContent = `Last Date Edited: ${dateEdited}`; };
+     if (installed) { if (inst) { installed.textContent = 'The Ark Bible is Installed!'; } else { installed.textContent = 'The Ark Bible is Not Installed!'; }; };
 });
