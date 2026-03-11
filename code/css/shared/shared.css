@@ -112,6 +112,7 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 .cs-emphasis { color: var(--lighterMaroonEmphasis); }
 .cs-emphasisBlue { color: var(--blueVerse); }
 .cs-h2 { width: 90%; height: 10%; margin: auto; text-align: center; color: var(--greenEmphasis); }
+.cs-h3 { display: block; font-weight: 550; }
 .cs-hr1 { width: 100%; margin: auto; margin-top: 1.2em; }
 .cs-singleVerse { margin-top: -.5em; z-index: 100; }
 .cs-verseNumber { margin-right: .5em; color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }
