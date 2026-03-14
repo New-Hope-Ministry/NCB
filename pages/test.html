@@ -7,16 +7,19 @@
      <title>Document</title>
 
      <script>
-          /*
+
                function resetKeys() {
                     const keys = [
                          'activeFontSizeCount', 'activeFontSize', 'activeBookID', 'activeChapterID',
                          'activeVersionID', 'activeCompVrsnID', 'lastCacheCheck', 'paragraphLayout', 'redLetter', 'setTheme', 'installed', 'savedLocal', 'chapter', 'version', 'day'
                     ];
-                    keys.forEach(k => localStorage.removeItem(k));
-                    ['vh', 'bid', 'cn', 'lid', 'verid', 'verid1'].forEach(removeQueryParam);
+                    for (const k of keys) { localStorage.removeItem(k); };
+
+                    const vals = ['vh', 'bid', 'cn', 'lid', 'verid', 'verid1'];
+                    for (const v of vals) { removeQueryParam(v); };
+
                };
-          */
+
      </script>
 
      <style>

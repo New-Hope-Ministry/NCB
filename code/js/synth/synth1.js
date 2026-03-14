@@ -1,3 +1,4 @@
+
 const updateInterval = 100;
 
 let boxChecked = false;
@@ -8,6 +9,7 @@ let playPause = true;
 let progress = 0;
 let progressBar;
 let synth = null;
+let timeout;
 let voices;
 
 let domReadyPromise = (async () => {
@@ -40,17 +42,25 @@ window.onbeforeunload = (event) => {
      };
 };
 
+const observer = new MutationObserver(() => {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(() => {
+      observer.disconnect();
+      callback();
+    }, 200); // waits for translation to finish updating
+  });
+
 // Page Functions
-     function checkboxChecked(e = null, ckid) {
+     function checkboxChecked(e = null) {
 
-          let id;
-          if (e) { e.stopPropagation(); id = e.target.id; } else { id = ckid };
+          if (e) { e.stopPropagation(); };
 
+          let id = e.target.id;
           let aBox = document.getElementById(id);
 
           if (boxChecked) {
                aBox.classList.remove('cs-playCheckBox');
-               document.getElementById('id-playCheckBox').checked = false;
                boxChecked = false;
           } else {
                aBox.classList.add('cs-playCheckBox');
@@ -260,40 +270,63 @@ window.onbeforeunload = (event) => {
           for (const el of elements) {
                let x = el.id.slice("id-avers".length);
                textSpeech += ` Verse ${x}:.....${el.textContent}`;
-               //break;
+               break;
           };
 
           return true;
      };
 
+     async function waitForTranslation() {
+          const target = document.getElementById('id-page');
+          if (!target) return;
+
+          return new Promise((resolve) => {
+               let timeout;
+               const observer = new MutationObserver(() => {
+                    clearTimeout(timeout);  // Every time the translator changes a word, we reset the timer
+                    timeout = setTimeout(async () => {
+                         observer.disconnect();  // 1. Stop listening so we don't trigger ourselves
+                         //await loadSpeechText();
+                         resolve();
+                    }, 300);
+               });
+
+               observer.observe(target, {characterData: true, subtree: true, childList: true})
+          });
+     };
+
      async function nextSynthChapter() {
+          let rec = await nextSynth;
+          return true;
+     };
 
-          await delay(300);
-          let activeBook = Number(activeBookID.slice("id-book".length));
-          let books = getBooksVolume(activeBook);
-          let i = books.findIndex(rec => rec.id === activeBook);
-          let chapters = books[i].c;
-          let chapter = Number(document.getElementById(activeChapterID).textContent) + 1;
-          if (activeBook === 66 && chapter === 23) { return false; };
+     async function nextSynth() {
+          setTimeout(async () => {
 
-          if (chapter > chapters) { activeBook++; chapter = 1; };
-          activeBookID = `id-book${activeBook}`;
-          activeChapterID = `id-chapter${chapter}`;
-          books = getBooksVolume(activeBook);
-          i = books.findIndex(rec => rec.id === activeBook);
-          chapterCount = books[i].c;
+               let activeBook = Number(activeBookID.slice("id-book".length));
+               let books = getBooksVolume(activeBook);
+               let i = books.findIndex(rec => rec.id === activeBook);
+               let chapters = books[i].c;
+               let chapter = Number(document.getElementById(activeChapterID).textContent) + 1;
 
-          await getChapter();
-          await delay(300);
-          await loadChapters(changeChapter);
-          await loadSpeechText();
+               if (chapter > chapters) { activeBook++; chapter = 1; };
+               activeBookID = `id-book${activeBook}`;
+               activeChapterID = `id-chapter${chapter}`;
+               books = getBooksVolume(activeBook);
+               i = books.findIndex(rec => rec.id === activeBook);
+               chapterCount = books[i].c;
 
-          selected(activeBookID, 'id-books');
-          selected(activeChapterID, 'id-chapters');
+               await getChapter();
+               await loadChapters(changeChapter);
+               await waitForTranslation();
 
-          document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
-          // getMenus is in shared.js, but it calls setMenu in synth.js
-          getMenus();
+               selected(activeBookID, 'id-books');
+               selected(activeChapterID, 'id-chapters');
+
+               document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
+               getMenus();
+
+          }, 300);
           return true;
      };
 
@@ -317,7 +350,7 @@ window.onbeforeunload = (event) => {
           };
      };
 
-     async function speakOut() {
+     function speakOut() {
 
           if (isPaused) {
                synth.resume();
@@ -339,35 +372,31 @@ window.onbeforeunload = (event) => {
           isPaused = false;
 
           speechSynthesis.cancel();
-          await delay(300);
+          setTimeout(() => {
 
-          utter = new SpeechSynthesisUtterance();
-          utter.text = textSpeech;
-          utter.rate = 1;
-          progress = 0;
-          estimatedDuration = estimateDuration(textSpeech.trim(), utter.rate);
-          progressBar.style.width = "0%";
-          utter.onstart = () => { updateBar(); };
+               utter = new SpeechSynthesisUtterance();
+               utter.text = textSpeech;
+               utter.rate = 1;
+               progress = 0;
+               estimatedDuration = estimateDuration(textSpeech.trim(), utter.rate);
+               progressBar.style.width = "0%";
 
-          await new Promise(resolve => {
+               utter.onstart = () => { updateBar(); };
                utter.onend = () => {
                     progressBar.style.width = "100%";
                     stopSpeech();
-                    resolve();
+                    if (document.getElementById('id-playCheckBox').checked) {
+                         nextSynthChapter();
+                         setTimeout(() => {
+                              startChapter();
+                         }, 100);
+                    };
                };
                synth.speak(utter);
-          });
-          if (document.getElementById('id-playCheckBox').checked) {
-               let res = await nextSynthChapter();
-               if (!res) { stopSpeech(); checkboxChecked(null,'id-playCheckBox'); return; };
-               let newText = textSpeech;
-               textSpeech = newText.replace("Twenty-First Century Version: ", "");
-               await delay(300);
-               startChapter();
-          };
+          }, 300);
      };
 
-     async function startChapter() {
+     function startChapter() {
 
           if (isPaused) {
                synth.resume();
@@ -378,7 +407,7 @@ window.onbeforeunload = (event) => {
                playPause = false;
                isPaused = false;
                return;
-          }
+          };
 
           if (synth.speaking) return;
 
@@ -390,46 +419,38 @@ window.onbeforeunload = (event) => {
 
           let activeVersion = Number(activeVersionID.slice("id-version".length));
           let i = versions.findIndex(rec => rec.id === activeVersion);
-
           speechSynthesis.cancel();
+          setTimeout(() => {
 
-          await delay(300);
+               utter = new SpeechSynthesisUtterance();
+               utter.text = textSpeech.replace(`${versions[i].t}: `, "");
+               utter.rate = 1;
+               progress = 0;
+               estimatedDuration = estimateDuration(textSpeech.trim(), utter.rate);
+               progressBar.style.width = "0%";
 
-          utter = new SpeechSynthesisUtterance();
-          utter.text = textSpeech.replace(`${versions[i].t}: `, "");
-          utter.rate = 1;
-
-          progress = 0;
-          estimatedDuration = estimateDuration(textSpeech.trim(), utter.rate);
-          progressBar.style.width = "0%";
-
-          utter.onstart = () => updateBar();
-
-          // Wait for speech to finish
-          await new Promise(resolve => {
+               utter.onstart = () => { updateBar(); };
                utter.onend = () => {
                     progressBar.style.width = "100%";
                     stopSpeech();
-                    resolve();
+                    if (document.getElementById('id-playCheckBox').checked) {
+                         nextSynthChapter();
+                         let newText = textSpeech;
+                         textSpeech = '';
+                         textSpeech = newText.replace("Twenty-First Century Version: ", "");
+                         setTimeout(() => {
+                              startChapter();
+                         }, 300);
+                    };
                };
                synth.speak(utter);
-          });
-
-          // After speech finishes
-          if (document.getElementById('id-playCheckBox').checked) {
-               let res = await nextSynthChapter();
-               if (!res) { stopSpeech(); checkboxChecked(null,'id-playCheckBox'); return; };
-               let newText = textSpeech;
-               textSpeech = newText.replace("Twenty-First Century Version: ", "");
-               await delay(300);
-               startChapter();
-          };
+          }, 300);
      };
 
      async function startSpeech() {
 
           if (!boxesLoaded) { await loadBoxes(); };
-          await loadSpeechText();
+          let x = await loadSpeechText();
           speakOut();
      };
 

@@ -640,6 +640,8 @@ function darkTheme() {
      theme.style.setProperty('--whiteText', '#dcdde4');
 };
 
+const delay = (ms) => new Promise(res => setTimeout(res, ms));
+
 async function fetchVerses(idx) {
 
      let url = `${fetchPrefix}data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
@@ -719,65 +721,69 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
      h2.textContent = `${getBookTitle(activeBook)} ${activeChapter}`;
      document.getElementById(`id-navTitle`).textContent = h2.textContent;
 
-     if (isTWF) {
-          let sp2 = document.createElement('span');
-          sp2.classList.add('cs-edited');
-          sp2.textContent = ` TWF - Last Edited: ${dateEdited}`;
-          h2.appendChild(sp2);
-     };
+     if (isTWF) { let sp2 = document.createElement('span'); sp2.classList.add('cs-edited'); sp2.textContent = ` TWF - Last Edited: ${dateEdited}`; h2.appendChild(sp2); };
      page.appendChild(h2);
+
 
      let p;
      let pn;
      let sp;
      let spa;
-     let vt;
-     let vNum;
+     let aVerse;
      let verseCount = 0;
 
      while (i < wrkVerses.length && wrkVerses[i].cn === activeChapter && wrkVerses[i].bid === activeBook) {
           p = document.createElement('p');
           p.id = `id-p${wrkVerses[i].vid}`;
           pn = wrkVerses[i].pn;
+
+          let newParagraph = false;
           if (pn > 0 && paragraphLayoutDefault) {
                while (wrkVerses[i].pn === pn) {
-                    sp = document.createElement('span');
-                    sp.id = `id-versNumber${AA}${wrkVerses[i].vn}`;
-                    if (wrkVerses[i].vn === 1) {
-                         vNum = `${wrkVerses[i].vn} `;
-                    } else { vNum = ` ${wrkVerses[i].vn} `; };
-                    let aVerse = wrkVerses[i].vt;
 
-                    if (wrkVerses[i].jq === 1) {
-                         sp.innerHTML = JesusQuote(aVerse, vNum);
-                    } else {
-                         spa = document.createElement('span');
-                         spa.classList.add("cs-verseNumber");
-                         spa.textContent = vNum;
-                         vt = document.createTextNode(aVerse);
-                         sp.appendChild(spa);
-                         sp.appendChild(vt);
-                    };
+                    sp = document.createElement('span');
+                    sp.id = `id-vers${AA}${wrkVerses[i].vn}`;
+
+                    spa = document.createElement('span');
+                    spa.id = `id-versNum${AA}${wrkVerses[i].vn}`;
+                    spa.classList.add("cs-verseNumber");
+                    aVerse = wrkVerses[i].vt;
+                    if (newParagraph) { let spa1 = document.createElement('span'); spa1.classList.add("cs-versePadding"); p.appendChild(spa1); };
+                    newParagraph = true;
+                    spa.textContent = `${wrkVerses[i].vn} `;
+                    sp.appendChild(spa);
+
+                    spa = document.createElement('span');
+                    spa.id = `id-avers${AA}${wrkVerses[i].vn}`;
+
+                    if (wrkVerses[i].jq === 1) { spa.innerHTML = JesusQuote(aVerse);
+                    } else { spa.textContent = aVerse; };
+
+                    sp.appendChild(spa);
                     p.appendChild(sp);
                     i++;
                     verseCount++;
                };
           } else {
+
                sp = document.createElement('span');
-               sp.id = `id-versNumber${AA}${wrkVerses[i].vn}`;
-               vNum = `${wrkVerses[i].vn} `;
-               let aVerse = wrkVerses[i].vt;
-               if (wrkVerses[i].jq === 1) {
-                    sp.innerHTML = JesusQuote(aVerse, vNum);
-               } else {
-                    spa = document.createElement('span');
-                    spa.classList.add("cs-verseNumber");
-                    spa.textContent = vNum;
-                    vt = document.createTextNode(aVerse);
-                    sp.appendChild(spa);
-                    sp.appendChild(vt);
-               };
+               sp.id = `id-vers${AA}${wrkVerses[i].vn}`;
+
+               spa = document.createElement('span');
+               spa.id = `id-versNum${AA}${wrkVerses[i].vn}`;
+               spa.classList.add("cs-verseNumber");
+               spa.textContent = `${wrkVerses[i].vn} `;
+               sp.appendChild(spa);
+
+               aVerse = wrkVerses[i].vt;
+               spa = document.createElement('span');
+               spa.id = `id-avers${AA}${wrkVerses[i].vn}`;
+
+               if (wrkVerses[i].jq === 1) { spa.innerHTML = JesusQuote(aVerse);
+               } else { spa.textContent = aVerse; };
+
                p.classList.add("cs-singleVerse");
+               sp.appendChild(spa);
                p.appendChild(sp);
                i++;
                verseCount++;
@@ -817,16 +823,16 @@ async function getDesignDefaults() {
 };
 
 async function getMenus() {
+
      // getMenus is in shared.js, but it calls setMenu in each app.js files
      const indices = [1, 2, 3, 4];
-     indices.forEach(i => {
+     for (const i of indices) {
 
           const mnuBtn = document.getElementById(`id-MenuBtn${i}`);
-          if (mnuBtn) {
-               const val = setMenu(`id-MenuBtn${i}`);
-               mnuBtn.textContent = `${val}`;
-          };
-     });
+          if (!mnuBtn) continue;
+          const val = setMenu(`id-MenuBtn${i}`);
+          mnuBtn.textContent = `${val}`;
+     };
      return true;
 };
 
@@ -884,19 +890,23 @@ function getVersionsABR(vrsn) {
 
 function isNumeric(value) { return !isNaN(value) && !isNaN(parseFloat(value)); };
 
-function JesusQuote(aVerse, vNum) {
+function JesusQuote(aVerse) {
 
-     if (redLetterDefault === 0) {
-          aVerse = aVerse.replaceAll('`', '');
-          aVerse = aVerse.replaceAll('´', '');
-     } else if (redLetterDefault === 1) {
-          aVerse = aVerse.replaceAll('`', '<span class="cs-emphasis">');
-          aVerse = aVerse.replaceAll('´', '</span>');
-     } else if (redLetterDefault === 2) {
-          aVerse = aVerse.replaceAll('`', '<span class="cs-emphasisBlue">');
-          aVerse = aVerse.replaceAll('´', '</span>');
+     switch (redLetterDefault) {
+          case 0:
+               aVerse = aVerse.replaceAll('`', '');
+               aVerse = aVerse.replaceAll('´', '');
+               break;
+          case 1:
+               aVerse = aVerse.replaceAll('`', '<span class="cs-jqRed">');
+               aVerse = aVerse.replaceAll('´', '</span>');
+               break;
+          case 2:
+               aVerse = aVerse.replaceAll('`', '<span class="cs-jqBlue">');
+               aVerse = aVerse.replaceAll('´', '</span>');
+               break;
      };
-     return `<span class="cs-verseNumber">${vNum}</span>${aVerse}`;
+     return aVerse;
 };
 
 function lightTheme() {
@@ -916,7 +926,7 @@ function lightTheme() {
      theme.style.setProperty('--navyEmphasis', 'navy');
      theme.style.setProperty('--redEmphasis', '#7f0000');
      theme.style.setProperty('--searchResults', '#ba0e0e');
-     theme.style.setProperty('--verseNumber', '#0505da');
+     theme.style.setProperty('--verseNumber', '#0909a9');
      theme.style.setProperty('--whiteText', 'white');
 };
 
@@ -1007,7 +1017,7 @@ async function stopBubbles(e = null) {
 };
 
 function toggleTheme() {
-     let theme = document.getElementById("id-theme");
+     let theme = document.getElementById("id-themeBtn");
      if(theme) { theme.classList.toggle("cs-darkTheme"); };
      if(theme) { theme.textContent = theme.classList.contains("cs-darkTheme") ? "🌙" : "☀️"; };
 };
@@ -1019,7 +1029,7 @@ function unHighlight(e = null) {
      removeQueryParam('vh');
      let btn = document.getElementById('id-MenuBtn4');
      if (btn) { btn.textContent = '1'; };
-     if(selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).classList.remove('cs-highlight'); };
+     if(selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
      selectedVerseNumberID = null;
      selectedVerseID = null;
      pastSelectedVerseID = null;
@@ -1029,8 +1039,9 @@ function verseHighlight(id) {
 
      let vh = document.getElementById(id).textContent;
      document.getElementById('id-MenuBtn4').textContent = vh;
-     selectedVerseNumberID = `id-versNumber${vh}`;
-     const spa = document.getElementById(selectedVerseNumberID);
+     if(selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
+     selectedVerseNumberID = `id-versNum${vh}`;
+     const spa = document.getElementById(selectedVerseNumberID).parentElement;
      spa.classList.add('cs-highlight');
 
      const selection = window.getSelection();

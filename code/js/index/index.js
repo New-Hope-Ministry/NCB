@@ -326,7 +326,7 @@ async function triggerCacheCheck() {
           let confirmed = confirm('You are about to reset all saved settings and file storage settings. Changes will take effect immediately. Click OK to continue or Cancel to abort!');
           if (!confirmed) { return; };
 
-          let theme = document.getElementById("id-theme");
+          let theme = document.getElementById("id-themeBtn");
 
           rotateTheme = false;
           changeTheme();

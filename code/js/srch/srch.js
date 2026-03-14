@@ -134,20 +134,20 @@ let domReadyPromise = (async () => {
      function createIndex(data) {
           // Create Inverted Index without stopwords, stopwords can be added if wanted
           const invertedIndex = {};
-          data.forEach(doc => {
+          for (const doc of data) {
                const docId = doc.vid;
                const text = doc.vt;
                const words = text.split(/\W+/);
                try {
-                    words.forEach(word => {
+                    for (const word of words) {
                          const stemmedWord = stemmer(word);
                          if (!invertedIndex[stemmedWord]) {
                               invertedIndex[stemmedWord] = [];
                          };
                          invertedIndex[stemmedWord].push(docId);
-                    });
+                    };
                } catch { console.log(docId); };
-          });
+          };
 
           return invertedIndex;
      };
@@ -260,6 +260,7 @@ let domReadyPromise = (async () => {
                a.dataset.cn = verses[idx].cn;
                a.dataset.vn = verses[idx].vn;
                a.classList.add('cs-searchChapter');
+               a.setAttribute("translate", "no");
                p.appendChild(a);
                br = document.createElement('br');
                p.appendChild(br);
@@ -293,6 +294,7 @@ let domReadyPromise = (async () => {
                a.classList.add('cs-moreSearchResults');
                a.addEventListener("click", getMoreResults);
                a.textContent = 'More Results';
+               a.setAttribute("translate", "no");
                aSearch.appendChild(a);
                br = document.createElement('br');
                aSearch.appendChild(br);

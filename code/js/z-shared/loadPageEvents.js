@@ -14,13 +14,13 @@ window.addEventListener("load", async () => {
      // load event fires after page is displayed
 
      await domReadyPromise;
-     
+     if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
+
      let lastEdit = document.getElementById('id-lastEdited');
      let cpyRight = document.getElementById('id-copyrighted');
      let topLastEdit = document.getElementById('id-topLastEdited');
      let installed = document.getElementById('id-installed');
 
-     if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
      if (lastEdit) { lastEdit.textContent = `Last Date Edited: ${dateEdited}`; };
      if (cpyRight) { cpyRight.textContent = copyrighted; };
      if (topLastEdit) { topLastEdit.textContent = `Last Date Edited: ${dateEdited}`; };

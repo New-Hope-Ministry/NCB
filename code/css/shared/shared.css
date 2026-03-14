@@ -29,6 +29,7 @@
      --paleMaroonEmphasis: #f45b5b;
      --redEmphasis: #7f0000;
      --verseNumber: #0505da;
+     --verseNumber: #0909a9;
      --whiteText: white;
 }
 
@@ -109,13 +110,18 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 #id-bottomPad { height: 4em; width: 5%; margin: auto; color: white; text-align: center; }
 
 .cs-edited { font-size: .4em; color: var(--cs-edited); }
-.cs-emphasis { color: var(--lighterMaroonEmphasis); }
-.cs-emphasisBlue { color: var(--blueVerse); }
+.cs-emphasisRed { color: var(--lighterMaroonEmphasis); }
 .cs-h2 { width: 90%; height: 10%; margin: auto; text-align: center; color: var(--greenEmphasis); }
 .cs-h3 { display: block; font-weight: 550; }
 .cs-hr1 { width: 100%; margin: auto; margin-top: 1.2em; }
+.cs-jqRed { color: var(--lighterMaroonEmphasis); }
+.cs-jqBlue { color: var(--blueVerse); }
 .cs-singleVerse { margin-top: -.5em; z-index: 100; }
-.cs-verseNumber { margin-right: .5em; color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }
+.cs-verseNumber { color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }
+.cs-verseNumber1 { margin-right: .3em; }
+.cs-verseNumber2 { padding-left: .3em; }
+.cs-versePadding { padding: .23em; }
+
 .cs-copySign { font-size: .75em; }
 .cs-highlight { background-color: #4180de; }
 .cs1-theme { cursor: pointer; border: none; padding-bottom: .3em; border-radius: 3px; }

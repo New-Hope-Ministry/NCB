@@ -2,12 +2,12 @@ function closeBoxes() {
 
     // List of IDs to hide
      const boxIds = [ 'id-books', 'id-chapters','id-chrons', 'id-days', 'id-verses','id-versions', 'id-versions1' ];
-
-    boxIds.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) { element.style.display = 'none'; };
-    });
+     for (const id of boxIds) {
+          const element = document.getElementById(id);
+          if (element) { element.style.display = 'none'; };
+     };
     boxesAreOpen = false;
+    
 };
 
 async function loadBooks(chgBook, box = 'id-booksBox') {
@@ -27,8 +27,6 @@ async function loadBooks(chgBook, box = 'id-booksBox') {
           div1.id = `id-book${oldBooks[i].id}`;
           div1.classList.add('cs-book');
           div1.classList.add('cs-bookRight');
-          div1.dataset.bid = oldBooks[i].id;
-          //div1.dataset.chapters = oldBooks[i].c;
           div1.textContent = oldBooks[i].t;
           div1.setAttribute("translate", "no");
           div.appendChild(div1);
@@ -38,8 +36,6 @@ async function loadBooks(chgBook, box = 'id-booksBox') {
                div1.addEventListener("click", chgBook);
                div1.id = `id-book${newBooks[ii].id}`;
                div1.classList.add('cs-book');
-               div1.dataset.bid = newBooks[ii].id;
-               //div1.dataset.chapters = newBooks[ii].c;
                div1.textContent = newBooks[ii].t;
           } else {
                div1 = document.createElement('div');
@@ -154,7 +150,6 @@ async function loadVersions(chgVersion, box = 'id-versionsBox', urlPrefix = '') 
           div = document.createElement("div");
           div.addEventListener("click", chgVersion);
           div.id = `id-version${urlPrefix}${versions[i].id}`;
-          div.dataset.index = i;
           div.textContent = `${versions[i].t} - ${versions[i].ar}`;
           div.classList.add("cs-version");
           div.setAttribute("translate", "no");
