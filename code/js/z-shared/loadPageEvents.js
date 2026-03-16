@@ -21,8 +21,8 @@ window.addEventListener("load", async () => {
      let topLastEdit = document.getElementById('id-topLastEdited');
      let installed = document.getElementById('id-installed');
 
-     if (lastEdit) { lastEdit.textContent = `Last Date Edited: ${dateEdited}`; };
+     if (lastEdit) { lastEdit.textContent = `Date Last Edited: ${dateEdited}`; };
      if (cpyRight) { cpyRight.textContent = copyrighted; };
-     if (topLastEdit) { topLastEdit.textContent = `Last Date Edited: ${dateEdited}`; };
+     if (topLastEdit) { topLastEdit.textContent = `Date Last Edited: ${dateEdited}`; };
      if (installed) { if (inst) { installed.textContent = 'The Ark Bible is Installed!'; } else { installed.textContent = 'The Ark Bible is Not Installed!'; }; };
 });

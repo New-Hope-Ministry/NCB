@@ -6,15 +6,6 @@
      <title>The Ark Bible</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <style id="id-loaderStyle">
-          #id-loaderContainer { position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: #2b317f; }
-          #id-northStarLoader { position: fixed; top: 15%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5em; }
-          #id-loaderTitle { position: absolute; top: 20%; width: 100%; min-width: max-content; text-align: center; color: white; font-size: 3em; }
-          #id-loading { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); border: 8px solid var(--mediumGray); border-top: 8px solid var(--lightMaroonEmphasis); border-radius: 50%; background-color: var(--lightMaroonEmphasis); color: white; text-align: center; width: 2em; height: 2em; animation: spin 1.5s linear infinite; }
-          @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
-          @media (max-width: 668px) { #id-loaderTitle { font-size: 2em;} }
-     </style>
-
      <!-- Pre-fetch -->
      <link rel="preload" as="image" href="../../images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
      <link rel="preload" as="image" href="../../images/icons/ark-192.webp" fetchpriority="high">
@@ -28,6 +19,7 @@
      <link rel="stylesheet" type="text/css" href="../code/css/shared/lateload.css" media="print" onload="this.media='all'">
 
      <script id="id-initialize">
+          // These functions can be customized for each app page
           async function loadBoxes() {
                loadVersions(changeVersion);
                loadBooks(changeBook);
@@ -211,7 +203,9 @@
 </head>
 
 <body id="id-body">
-     <div id="id-loader"> </div>
+
+     <div id="id-loader">✝</div>
+
      <div id="id-noDisplay" onclick="openBoxes(event); unHighlight(event)">
 
           <div id="id-sunshine">

@@ -110,7 +110,9 @@ let domReadyPromise = (async () => {
 
      async function changeSearchVersion(e = null) {
 
-          document.getElementById("id-loader").style.display = 'block';
+
+          let loader = document.getElementById("id-loader");
+          if (loader) { loader.style.display = 'block'; };
           stopBubbles(e);
           closeBoxes();
           activeVersionID = e.target.id;
@@ -123,11 +125,11 @@ let domReadyPromise = (async () => {
           // getMenus is in shared.js, but it calls setMenu in srch.js
           getMenus();
           if (document.getElementById('id-searchBox').textContent === '') {
-               if (verses) { document.getElementById("id-loader").style.display = 'none'; };
+               if (verses) { if (loader) { loader.style.display = 'none'; }; };
                return;
           };
           searcher();
-          if (verses) { document.getElementById("id-loader").style.display = 'none'; };
+          if (verses) { if (loader) { loader.style.display = 'none'; }; };
           return true;
      };
 
@@ -150,6 +152,150 @@ let domReadyPromise = (async () => {
           };
 
           return invertedIndex;
+     };
+
+     function getMoreLnk(more) {
+
+          let a = document.createElement('a');
+          a.id = `id-moreSearchResults${more}`;
+          a.classList.add('cs-moreSearchResults');
+          a.addEventListener("click", getMoreResults);
+          a.textContent = 'More Results';
+          a.setAttribute("translate", "no");
+          return a;
+     };
+
+     function getMoreResults(e = null) {
+
+          let loader = document.getElementById("id-loader");
+          loader.style.display = 'block';
+          if (e) {
+               stopBubbles(e);
+               let id = e.target.id
+               document.getElementById(id).remove();
+               let nid = `id-moreResultsText${id.slice("id-moreSearchResults".length)}`;
+               document.getElementById(nid).remove();
+               document.getElementById('id-br1').remove();
+               document.getElementById('id-br2').remove();
+               document.getElementById('id-br3').remove();
+          };
+          delay(30);
+          getSearchVerses();
+          loader.style.display = 'none';
+     };
+
+     async function getSearchChapter(e = null) {
+
+          if (e) {
+               stopBubbles(e);
+               let id = e.target.id;
+               let bid = document.getElementById(id).dataset.bid;
+               let cn = document.getElementById(id).dataset.cn;
+               let vh = document.getElementById(id).dataset.vn;
+               let verid = Number(activeVersionID.slice("id-version".length));
+
+               const readParams = new URLSearchParams();
+               if (verid !== null && verid !== 'null') readParams.set('verid', verid);
+               if (bid !== null && bid !== 'null') readParams.set('bid', bid);
+               if (cn !== null && cn !== 'null') readParams.set('cn', cn);
+               if (vh !== null && vh !== 'null') readParams.set('vh', vh);
+               const readhref = `../?${readParams.toString()}`;
+               bClick(readhref);
+          };
+          return true;
+     };
+
+     function getSearchLnk(id, idx) {
+
+          let a = document.createElement('a');
+          a.addEventListener("click", getSearchChapter);
+          a.id = `id-searchVerse${id}`;
+          a.textContent = setSearchChapter(idx);
+          a.dataset.bid = verses[idx].bid;
+          a.dataset.cn = verses[idx].cn;
+          a.dataset.vn = verses[idx].vn;
+          a.classList.add('cs-searchChapter');
+          a.setAttribute("translate", "no");
+          return a;
+     };
+
+     function getSearchVerses(result = searchResults) {
+
+          let a;
+          let br;
+          let hr;
+          let p;
+          let sp;
+          let idx = 0;
+          let i = searchResultIndex + 30;
+
+          let aSearch = document.getElementById('id-searchResults');
+          if (result.length - searchResultIndex < 30) { i = result.length; };
+
+          document.getElementById('id-resultCount').textContent = `There are ${result.length} search results.`;
+
+          while (searchResultIndex < i && i <= result.length) {
+               p = document.createElement('p');
+               p.classList.add('cs-searchVerse');
+               idx = result[searchResultIndex] - 1;
+               a = getSearchLnk(verses[idx].vid, idx);
+               p.appendChild(a);
+               br = document.createElement('br');
+               p.appendChild(br);
+               sp = document.createElement('span');
+               sp.textContent = `${verses[idx].vt.replace(/[`´]/g, '')}`
+               p.appendChild(sp);
+               aSearch.appendChild(p);
+               searchResultIndex++;
+          };
+          hr = document.createElement('hr');
+          aSearch.appendChild(hr);
+          br = document.createElement('br');
+          br.id = 'id-br1';
+          aSearch.appendChild(br);
+
+          let z = result.length - searchResultIndex;
+          if (z === 0) {
+               let txt;
+               if (result.length === 0) { txt = 'There are no matching results!';
+               } else { txt = 'There are no more results!'; };
+               p = document.createElement('p');
+               p.classList.add('cs-noResults');
+               p.textContent = txt;
+          } else {
+               a = getMoreLnk(z)
+               aSearch.appendChild(a);
+               br = document.createElement('br');
+               aSearch.appendChild(br);
+               br = document.createElement('br');
+               aSearch.appendChild(br);
+               p = document.createElement('p');
+               p.id = `id-moreResultsText${z}`;
+               p.textContent = `There are ${z} more results.`;
+          };
+          aSearch.appendChild(p);
+          br = document.createElement('br');
+          br.id = 'id-br2';
+          aSearch.appendChild(br);
+          br = document.createElement('br');
+          br.id = 'id-br3';
+          aSearch.appendChild(br);
+     };
+
+     async function searcher() {
+
+          let loader = document.getElementById("id-loader");
+          let searchData = document.getElementById('id-searchBox').textContent;
+          if (searchData === '') { return; };
+
+          loader.style.display = 'block';
+          delay(30);
+          searchResultIndex = 0;
+          if (!searchIndex) { if(verses) { searchIndex = createIndex(verses); }; };
+          searchResults = searchPhrase(searchIndex, searchData);
+          removeElements('id-searchResults');
+          getSearchVerses(searchResults);
+          loader.style.display = 'none';
      };
 
      function searchFocus() {
@@ -230,149 +376,5 @@ let domReadyPromise = (async () => {
           let vn = verses[idx].vn;
 
           return `${getBookTitle(bid)} ${cn}:${vn}`;
-     };
-
-     function getSearchVerses(result = searchResults) {
-
-          let a;
-          let p;
-          let hr;
-          let vt;
-          let br;
-          let nt;
-          let idx = 0;
-          let i = searchResultIndex + 30;
-
-          let aSearch = document.getElementById('id-searchResults');
-          if (result.length - searchResultIndex < 30) { i = result.length; };
-
-          document.getElementById('id-resultCount').textContent = `There are ${result.length} search results.`;
-
-          while (searchResultIndex < i && i <= result.length) {
-               p = document.createElement('p');
-               p.classList.add('cs-searchVerse');
-               a = document.createElement('a');
-               a.addEventListener("click", getSearchChapter);
-               idx = result[searchResultIndex] - 1;
-               a.id = `id-searchVerse${verses[idx].vid}`;
-               a.textContent = setSearchChapter(idx);
-               a.dataset.bid = verses[idx].bid;
-               a.dataset.cn = verses[idx].cn;
-               a.dataset.vn = verses[idx].vn;
-               a.classList.add('cs-searchChapter');
-               a.setAttribute("translate", "no");
-               p.appendChild(a);
-               br = document.createElement('br');
-               p.appendChild(br);
-               nt = verses[idx].vt.replace('`', '');
-               nt = nt.replace('´', '');
-               vt = document.createTextNode(nt);
-               p.appendChild(vt);
-               aSearch.appendChild(p);
-               searchResultIndex++;
-          };
-          hr = document.createElement('hr');
-          aSearch.appendChild(hr);
-          br = document.createElement('br');
-          br.id = 'id-br1';
-          aSearch.appendChild(br);
-
-          let z = result.length - searchResultIndex;
-          if (z === 0) {
-               let txt;
-               if (result.length === 0) {
-                    txt = `There are no matching results!`;
-               } else {
-                    txt = `There are no more results!`;
-               };
-               p = document.createElement('p');
-               p.classList.add('cs-noResults');
-               p.textContent = txt;
-          } else {
-               a = document.createElement('a');
-               a.id = `id-moreSearchResults${z}`;
-               a.classList.add('cs-moreSearchResults');
-               a.addEventListener("click", getMoreResults);
-               a.textContent = 'More Results';
-               a.setAttribute("translate", "no");
-               aSearch.appendChild(a);
-               br = document.createElement('br');
-               aSearch.appendChild(br);
-               br = document.createElement('br');
-               aSearch.appendChild(br);
-               p = document.createElement('p');
-               p.id = `id-moreResultsText${z}`;
-               p.textContent = `There are ${z} more results.`;
-          };
-          aSearch.appendChild(p);
-          br = document.createElement('br');
-          br.id = 'id-br2';
-          aSearch.appendChild(br);
-          br = document.createElement('br');
-          br.id = 'id-br3';
-          aSearch.appendChild(br);
-     };
-
-     function getMoreResults(e = null) {
-
-          if (e) {
-               e.preventDefault();
-               e.stopPropagation();
-               e.stopImmediatePropagation();
-               let id = e.target.id
-               document.getElementById(id).remove();
-               let nid = id.slice("id-moreSearchResults".length);
-               id = `id-moreResultsText${nid}`;
-               document.getElementById(id).remove();
-               document.getElementById('id-br1').remove();
-               document.getElementById('id-br2').remove();
-               document.getElementById('id-br3').remove();
-          }
-          document.getElementById("id-loader").style.display = 'block';
-          setTimeout(function () {
-               getSearchVerses();
-               document.getElementById("id-loader").style.display = 'none';
-          }, 30);
-
-     };
-
-     async function getSearchChapter(e = null) {
-
-          if (e) {
-               e.preventDefault();
-               e.stopPropagation();
-               e.stopImmediatePropagation();
-               let id = e.target.id;
-               let bid = document.getElementById(id).dataset.bid;
-               let cn = document.getElementById(id).dataset.cn;
-               let vh = document.getElementById(id).dataset.vn;
-               let verid = Number(activeVersionID.slice("id-version".length));
-
-               const readParams = new URLSearchParams();
-               if (verid !== null && verid !== 'null') readParams.set('verid', verid);
-               if (bid !== null && bid !== 'null') readParams.set('bid', bid);
-               if (cn !== null && cn !== 'null') readParams.set('cn', cn);
-               if (vh !== null && vh !== 'null') readParams.set('vh', vh);
-               const readhref = `../?${readParams.toString()}`;
-               bClick(readhref);
-          };
-          return true;
-     };
-
-     async function searcher() {
-
-          let searchData = document.getElementById('id-searchBox').textContent;
-          if (searchData === '') { return; };
-
-          //document.getElementById("id-loader").style.display = 'block';
-
-          setTimeout(function () {
-               searchResultIndex = 0;
-               if (!searchIndex) { if(verses) { searchIndex = createIndex(verses); }; };
-               searchResults = searchPhrase(searchIndex, searchData);
-               removeElements('id-searchResults');
-               getSearchVerses(searchResults);
-               document.getElementById("id-loader").style.display = 'none';
-          }, 30);
      };
 // End of Simple full text search engine

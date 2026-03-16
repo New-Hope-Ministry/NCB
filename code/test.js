@@ -149,63 +149,130 @@ function speakIfNotTranslated(text) {
     }
 }
 
-//🧩 Putting It All Together
-//MutationObserver detects translation activity.
-//Speech pauses automatically during translation.
-//Speech resumes only when translation stops.
-//If the user did NOT translate the page, speech starts immediately.
+// I have a json array with 31102 verses in it structured like wrkVerses, it works perfect until it gets to verse 31102 and this line of code, while (wrkVerses[i].pn === pn) { then it returns this error. shared.js:741 Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'pn'), What's causing the error?
+const wrkVerses = [
+     {
+        "bid": 66,
+        "cn": 22,
+        "jq": 0,
+        "pn": 2,
+        "vid": 31100,
+        "vn": 19,
+        "vt": "And if a man takes away from the words of this book of prophecy, God will remove his part from the Book of Life, and from the holy city, and from the things which are written in this book.'"
+    },
+    {
+        "bid": 66,
+        "cn": 22,
+        "jq": 1,
+        "pn": 3,
+        "vid": 31101,
+        "vn": 20,
+        "vt": "And Jesus the one who testifies these things says, '`I will surely come soon!´' Amen. Even so, come Lord Jesus."
+    },
+    {
+        "bid": 66,
+        "cn": 22,
+        "jq": 0,
+        "pn": 3,
+        "vid": 31102,
+        "vn": 21,
+        "vt": "May the grace of our Lord Jesus Christ be with you all. Amen.\""
+    }
+]
+async function getChapter(A1 = '', AA = '', verses1 = null) {
 
+     let p;
+     let pn;
+     let sp;
+     let spa;
+     let sp2;
+     let aVerse;
+     let verseCount = 0;
+     let wrkVerses;
 
+     if (A1 === '') { wrkVerses = verses; } else { wrkVerses = verses1; };
+     // verses1 is used by comp.html
 
+     let activeBook = Number(activeBookID.slice("id-book".length));
+     let activeChapter = Number(activeChapterID.slice("id-chapter".length));
+     let i = wrkVerses.findIndex(rec => rec.bid === activeBook && rec.cn === activeChapter);
 
+     removeElements(`id-page${A1}`);
+     let page = document.getElementById(`id-page${A1}`);
+     let h2 = document.createElement('h2');
+     h2.textContent = `${getBookTitle(activeBook)} ${activeChapter}`;
+     document.getElementById(`id-navTitle`).textContent = h2.textContent;
 
-     function startChapter1() {
+     if (isTWF) { sp2 = document.createElement('span'); sp2.classList.add('cs-edited'); sp2.textContent = ` TWF - Last Edited: ${dateEdited}`; h2.appendChild(sp2); };
+     page.appendChild(h2);
+     let x = Number(wrkVerses.length);
+     while (i < x && wrkVerses[i].cn === activeChapter && wrkVerses[i].bid === activeBook) {
+          p = document.createElement('p');
+          p.id = `id-p${wrkVerses[i].vid}`;
+          pn = wrkVerses[i].pn;
 
-          if (isPaused) {
-               synth.resume();
-               updateBar();
-               document.getElementById('id-pauseSpeech').style.display = 'block';
-               document.getElementById('id-startSpeech').style.display = 'none';
-               document.getElementById('id-stopSpeech').style.display = 'block';
-               playPause = false;
-               isPaused = false;
-               return;
-          };
+          let newParagraph = false;
+          if (pn > 0 && paragraphLayoutDefault) {
+               while (i < wrkVerses.length && wrkVerses[i].pn === pn) {
+                    console.log(`Verse: ${wrkVerses[i].vn}, idx: ${i}, pn: ${pn}, wvpn: ${wrkVerses[i].pn}`);
+                    sp = document.createElement('span');
+                    sp.id = `id-vers${AA}${wrkVerses[i].vn}`;
+                    spa = document.createElement('span');
+                    spa.id = `id-versNum${AA}${wrkVerses[i].vn}`;
+                    spa.classList.add("cs-verseNumber");
+                    aVerse = wrkVerses[i].vt;
+                    if (newParagraph) { let spa1 = document.createElement('span'); spa1.classList.add("cs-versePadding"); p.appendChild(spa1); };
+                    newParagraph = true;
+                    spa.textContent = `${wrkVerses[i].vn} `;
+                    sp.appendChild(spa);
 
-          if (synth.speaking) return;
+                    spa = document.createElement('span');
+                    spa.id = `id-avers${AA}${wrkVerses[i].vn}`;
 
-          document.getElementById('id-pauseSpeech').style.display = 'block';
-          document.getElementById('id-startSpeech').style.display = 'none';
-          document.getElementById('id-stopSpeech').style.display = 'block';
-          playPause = false;
-          isPaused = false;
+                    if (wrkVerses[i].jq === 1) { spa.innerHTML = JesusQuote(aVerse);
+                    } else { spa.textContent = aVerse; };
 
-          let activeVersion = Number(activeVersionID.slice("id-version".length));
-          let i = versions.findIndex(rec => rec.id === activeVersion);
-          speechSynthesis.cancel();
-          setTimeout(() => {
-
-               utter = new SpeechSynthesisUtterance();
-               utter.text = textSpeech.replace(`${versions[i].t}: `, "");
-               utter.rate = 1;
-               progress = 0;
-               estimatedDuration = estimateDuration(textSpeech.trim(), utter.rate);
-               progressBar.style.width = "0%";
-
-               utter.onstart = () => { updateBar(); };
-               utter.onend = () => {
-                    progressBar.style.width = "100%";
-                    stopSpeech();
-                    if (document.getElementById('id-playCheckBox').checked) {
-                         nextSynthChapter();
-                         let newText = textSpeech;
-                         textSpeech = '';
-                         textSpeech = newText.replace("Twenty-First Century Version: ", "");
-                         setTimeout(() => {
-                              startChapter();
-                         }, 100);
-                    };
+                    sp.appendChild(spa);
+                    p.appendChild(sp);
+                    i++;
+                    verseCount++;
                };
-               synth.speak(utter);
-          }, 300);
+          } else {
+
+               sp = document.createElement('span');
+               sp.id = `id-vers${AA}${wrkVerses[i].vn}`;
+
+               spa = document.createElement('span');
+               spa.id = `id-versNum${AA}${wrkVerses[i].vn}`;
+               spa.classList.add("cs-verseNumber");
+               spa.textContent = `${wrkVerses[i].vn} `;
+               sp.appendChild(spa);
+
+               aVerse = wrkVerses[i].vt;
+               spa = document.createElement('span');
+               spa.id = `id-avers${AA}${wrkVerses[i].vn}`;
+
+               if (wrkVerses[i].jq === 1) { spa.innerHTML = JesusQuote(aVerse);
+               } else { spa.textContent = aVerse; };
+
+               p.classList.add("cs-singleVerse");
+               sp.appendChild(spa);
+               p.appendChild(sp);
+               i++;
+               verseCount++;
+          };
+          page.appendChild(p);
      };
+
+     let aVersesBox = document.getElementById('id-versesBox');
+     if (aVersesBox) { loadVerses(findVerse, verseCount); };
+
+     let btmLastLine = document.getElementById(`id-navLastChapter${A1}`);
+     if (btmLastLine) { if (activeBook === 1 && activeChapter === 1) { btmLastLine.style.visibility = 'hidden'; } else { btmLastLine.style.visibility = 'visible'; }; };
+
+     let btmNextLine = document.getElementById(`id-navNextChapter${A1}`);
+     if (btmNextLine) { if (activeBook === 66 && activeChapter === 22) { btmNextLine.style.visibility = 'hidden'; } else { btmNextLine.style.visibility = 'visible'; }; };
+
+     setFontSize();
+     return true;
+};

@@ -28,6 +28,7 @@
      --navyEmphasis: navy;
      --paleMaroonEmphasis: #f45b5b;
      --redEmphasis: #7f0000;
+     --tblBorder: #858282;
      --verseNumber: #0505da;
      --verseNumber: #0909a9;
      --whiteText: white;
@@ -45,7 +46,7 @@ div::-webkit-scrollbar { display: none; }
 
 p { font-size: 1.06rem; }
 
-#id-loader { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); border: 8px solid var(--mediumGray); border: 8px solid var(--headlineBackground); border-top: 8px solid var(--gradientDark); border-radius: 50%; width: 2em; height: 2em; animation: spin-small 2s linear infinite; z-index: 20; }
+#id-loader { position: fixed; top: 50%; left: 50%; background-color: var(--lightMaroonEmphasis); color: white; transform: translate(-50%, -50%) rotate(0deg); border: 8px solid var(--headlineBackground); border-top: 8px solid var(--gradientDark); border-radius: 50%; text-align: center; width: 2em; height: 2em; animation: spin-small 2s linear infinite; z-index: 20; }
 @keyframes spin-small {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to   { transform: translate(-50%, -50%) rotate(360deg); }
@@ -75,7 +76,7 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 #id-headline, #id-headline1 { line-height: 1.5rem; text-align: center; }
 #id-headline,
 #id-headline1,
-#id-navLine { display: flex; align-items: center; justify-content: space-evenly; font-size: 1.2rem; height: max-content; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em;; color: var(--headlineColor); user-select: none; }
+#id-navLine { display: flex; align-items: center; justify-content: space-evenly; font-size: 1.2rem; height: max-content; width: 100%; background-color: var(--headlineBackground); color: var(--headlineColor); padding: .3em; user-select: none; }
 /*#id-navLine { margin-top: 3em; }*/
 #id-navLastChapter { visibility: hidden; }
 #id-navNextChapter { visibility: hidden; }
@@ -155,4 +156,11 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
           @media (max-height: 568px) { }
           @media (max-height: 480px) { }*/
      /*? End Media Query Heights */
+
+      /*? Media Query Print */
+          @media print {
+               #id-headline,
+               #id-navTitle { color: #000000 !important; -webkit-print-color-adjust: exact; /* Ensures browsers don't override the color */ print-color-adjust: exact; background-color: var(--mainBackground); }
+          }
+     /*? End Media Query Print */
 /* ************** End Media Queries ***************** */

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <!--<title>Print Tester</title>-->
+     <link rel="stylesheet" type="text/css" href="code/css/shared/shared.css">
+     <link rel="stylesheet" type="text/css" href="code/css/apps/settings.css">
+     <link rel="stylesheet" type="text/css" href="code/css/shared/boxes.css">
+     <link rel="stylesheet" type="text/css" href="code/css/shared/lateload.css" media="print" onload="this.media='all'">
+
+    <script>
+        function printSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const printWindow = window.open('');
+            let styles = '';
+            const elements = document.querySelectorAll('link[rel="stylesheet"], style');
+            for (const el of elements) { styles += el.outerHTML; };
+
+            printWindow.document.open();
+            printWindow.document.write('<html><head><title>Print Preview</title>');
+            printWindow.document.write(styles);
+            printWindow.document.write('<\/head><body>');
+            printWindow.document.write(section.outerHTML);
+            printWindow.document.write('<\/body><\/html>');
+            printWindow.document.close(); // Important to close the stream
+
+            // This part must be INSIDE the <script> tag
+            printWindow.onload = () => {
+                printWindow.focus();
+                printWindow.print();
+                printWindow.close();
+            };
+        }; // Close the function
+    </script>
+    <style>
+          @media print {
+               #id-headline,
+               #id-navTitle { color: #000000 !important; -webkit-print-color-adjust: exact; /* Ensures browsers don't override the color */ print-color-adjust: exact; background-color: var(--mainBackground); }
+          }
+    </style>
+</head>
+
+<body>
+
+     <div id="id-mainPage">
+          <div id="id-headline">Twenty-First Century Version</div>
+          <div id="id-page" onclick="openBoxes(event); unHighlight(event)">
+               <h2>Genesis 1<span class="cs-edited"> TWF - Last Edited: 3-16-2026</span></h2>
+               <p id="id-p1" style="font-size: 1.06rem;">
+                    <span id="id-vers1">
+                         <span id="id-versNum1" class="cs-verseNumber">1 </span>
+                         <span id="id-avers1">In the beginning, God created heaven and earth.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers2">
+                         <span id="id-versNum2" class="cs-verseNumber">2 </span>
+                         <span id="id-avers2">The earth was void and without form, darkness covered the face of the deep, and God's Spirit moved over the waters.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers3">
+                         <span id="id-versNum3" class="cs-verseNumber">3 </span>
+                         <span id="id-avers3">And God said, "Let there be light," and there was light.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers4">
+                         <span id="id-versNum4" class="cs-verseNumber">4 </span>
+                         <span id="id-avers4">God saw that the light was good, and he separated the light from the darkness.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers5">
+                         <span id="id-versNum5" class="cs-verseNumber">5 </span><span id="id-avers5">God called the light day and he called the darkness night, and that morning and that evening were the first day.</span>
+                    </span>
+               </p>
+               <p id="id-p6" style="font-size: 1.06rem;">
+                    <span id="id-vers6">
+                         <span id="id-versNum6" class="cs-verseNumber">6 </span>
+                         <span id="id-avers6">And God said, "Let there be a firmament in the middle of the waters, and it will divide the waters from the waters."</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers7">
+                         <span id="id-versNum7" class="cs-verseNumber">7 </span>
+                         <span id="id-avers7">Then God made the firmament and divided the waters under the firmament from the waters above the firmament, and it was so.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers8">
+                         <span id="id-versNum8" class="cs-verseNumber">8 </span>
+                         <span id="id-avers8">God called the firmament heaven, and that morning and that evening were the second day.</span>
+                    </span>
+               </p>
+               <p id="id-p9" style="font-size: 1.06rem;">
+                    <span id="id-vers9">
+                         <span id="id-versNum9" class="cs-verseNumber">9 </span>
+                         <span id="id-avers9">And God said, "Let the waters under heaven be gathered together into one place and let the dry land appear," and it was so.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers10">
+                         <span id="id-versNum10" class="cs-verseNumber">10 </span>
+                         <span id="id-avers10">Then God named the dry land earth and he named the waters the seas, and God saw that it was good.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers11">
+                         <span id="id-versNum11" class="cs-verseNumber">11 </span>
+                         <span id="id-avers11">And God said, "Let the earth bring forth every kind of seed bearing plant, including grass, herbs, and fruit trees, each with their own kind of seed," and it was so.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers12">
+                         <span id="id-versNum12" class="cs-verseNumber">12 </span>
+                         <span id="id-avers12">And the earth brought forth all the seed bearing plants, including every kind of grass, herb, and fruit tree that there was, and God saw that it was good.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers13">
+                         <span id="id-versNum13" class="cs-verseNumber">13 </span>
+                         <span id="id-avers13">And that morning and that evening were the third day.</span>
+                    </span>
+               </p>
+               <p id="id-p14" style="font-size: 1.06rem;">
+                    <span id="id-vers14">
+                         <span id="id-versNum14" class="cs-verseNumber">14 </span>
+                         <span id="id-avers14">And God said, "Let there be lights in the heavens to divide the day from the night and let them be a sign for the seasons, to separate the days, months, and years.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers15">
+                         <span id="id-versNum15" class="cs-verseNumber">15 </span><span id="id-avers15">Let the lights in the heavens give light on the earth," and it was so.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers16">
+                         <span id="id-versNum16" class="cs-verseNumber">16 </span>
+                         <span id="id-avers16">Then God made two great lights, the sun to rule the day, and the moon and stars to rule the night.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers17">
+                         <span id="id-versNum17" class="cs-verseNumber">17 </span>
+                         <span id="id-avers17">God placed the lights in the heavens to give light to the earth.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers18">
+                         <span id="id-versNum18" class="cs-verseNumber">18 </span>
+                         <span id="id-avers18">And to divide the light from the darkness and rule over the days and nights, and God saw that it was good.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers19">
+                         <span id="id-versNum19" class="cs-verseNumber">19 </span>
+                         <span id="id-avers19">And that morning and that evening were the fourth day.</span>
+                    </span>
+               </p>
+               <p id="id-p20" style="font-size: 1.06rem;">
+                    <span id="id-vers20">
+                         <span id="id-versNum20" class="cs-verseNumber">20 </span>
+                         <span id="id-avers20">And God said, "Let the waters bring forth abundant life with living creatures that move and birds that fly in the heavens above the earth."</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers21">
+                         <span id="id-versNum21" class="cs-verseNumber">21 </span>
+                         <span id="id-avers21">Then God created an abundance of great whales and every kind of living moving creature that lived in the waters, plus every type of winged bird that flew above the earth, and God saw that it was good.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers22">
+                         <span id="id-versNum22" class="cs-verseNumber">22 </span>
+                         <span id="id-avers22">And God blessed them and said, "Be fruitful, multiply, and fill the waters of the seas with abundant life, and let the birds multiply abundantly upon the earth."</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers23">
+                         <span id="id-versNum23" class="cs-verseNumber">23 </span>
+                         <span id="id-avers23">And that morning and that evening were the fifth day.</span>
+                    </span>
+               </p>
+               <p id="id-p24" style="font-size: 1.06rem;">
+                    <span id="id-vers24">
+                         <span id="id-versNum24" class="cs-verseNumber">24 </span>
+                         <span id="id-avers24">And God said, "Let the earth bring forth every kind of living creature including cattle, animals, reptiles, and every other living thing on earth," and it was so.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers25">
+                         <span id="id-versNum25" class="cs-verseNumber">25 </span>
+                         <span id="id-avers25">God created animals of every kind, including cattle, reptiles, and every other living thing on the earth, and God saw that it was good.</span>
+                    </span>
+               </p>
+               <p id="id-p26" style="font-size: 1.06rem;">
+                    <span id="id-vers26">
+                         <span id="id-versNum26" class="cs-verseNumber">26 </span>
+                         <span id="id-avers26">And God said, "Let's make man in our image, a man who looks like us, and man will preserve and control all the fish, birds, cattle, reptiles, and every other living thing on earth."</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers27">
+                         <span id="id-versNum27" class="cs-verseNumber">27 </span>
+                         <span id="id-avers27">So God created man in his image, both male and female.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers28">
+                         <span id="id-versNum28" class="cs-verseNumber">28 </span>
+                         <span id="id-avers28">Then God blessed them and said, "Be fruitful, multiply, and replenish the earth; Take control of the fish, birds, and every other living thing on earth."</span>
+                    </span>
+               </p>
+               <p id="id-p29" style="font-size: 1.06rem;">
+                    <span id="id-vers29">
+                         <span id="id-versNum29" class="cs-verseNumber">29 </span>
+                         <span id="id-avers29">And God said, "Behold, I've given you every green herb and every fruit tree on the earth that produces seed for you to eat.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers30">
+                         <span id="id-versNum30" class="cs-verseNumber">30 </span>
+                         <span id="id-avers30">I've given you every living thing on the earth, including every beast and bird, the reptiles, green herbs for food, and every other living thing on the earth," and it was so.</span>
+                    </span>
+                    <span class="cs-versePadding"></span>
+                    <span id="id-vers31">
+                         <span id="id-versNum31" class="cs-verseNumber">31 </span>
+                         <span id="id-avers31">And God saw that everything he'd created was very good, and that morning and that evening were the sixth day.</span>
+                    </span>
+               </p>
+          </div>
+          <div id="id-navLine" data-nosnippet>
+               <div id="id-navLastChapter" onclick="lastChapter(event)">‹ Last</div>
+               <div id="id-navTitle">Genesis 1</div>
+               <div id="id-navNextChapter" onclick="nextChapter(event)">Next ›</div>
+          </div>
+     </div>
+
+     <br><br>
+     <button onclick="printSection('id-mainPage')" style="margin-left: 2em;">Print This Section</button>
+     <br><br>
+</body>
+</html>

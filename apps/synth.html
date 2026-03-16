@@ -26,6 +26,8 @@
 </head>
 
 <body id="id-body">
+     <div id="id-chpt" style="display: none;">Chapter</div>
+     <div id="id-vers" style="display: none;">Verse</div>
 
      <div id="id-loader"></div>
      <div id="id-noDisplay" onclick="openBoxes(event);">
@@ -63,13 +65,13 @@
                <div id="top"> </div>
                <div id="id-mainPage">
 
-                    <div id="id-headline">Genesis</div>
+                    <div id="id-headline">TWF</div>
                     <div id="id-page" onclick="unHighlight()"></div>
 
                     <div id="id-navLine" data-nosnippet>
-                         <div id="id-navLastChapter" onclick="lastChapter(event)">‹ Last</div>
+                         <div id="id-navLastChapter" onclick="lastSynthChpt(event)">‹ Last</div>
                          <div id="id-navTitle">Genesis 1</div>
-                         <div id="id-navNextChapter" onclick="nextChapter(event)">Next ›</div>
+                         <div id="id-navNextChapter" onclick="nextSynthChpt(event)">Next ›</div>
                     </div>
                </div>
 

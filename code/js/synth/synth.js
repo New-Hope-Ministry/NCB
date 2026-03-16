@@ -222,6 +222,13 @@ window.onbeforeunload = (event) => {
      };
 
      // Wait for the voices to be loaded
+     async function lastSynthChpt(e = null) {
+
+          stopBubbles(e);
+          stopSpeech();
+          await delay(300);
+          lastChapter(e);
+     };
      function listVoices() {
 
           voices = speechSynthesis.getVoices();
@@ -246,20 +253,24 @@ window.onbeforeunload = (event) => {
 
      async function loadSpeechText() {
 
-          let activeBook = Number(activeBookID.slice("id-book".length));
+          //let activeBook = Number(activeBookID.slice("id-book".length));
           let activeChapter = Number(activeChapterID.slice("id-chapter".length));
           let activeVersion = Number(activeVersionID.slice("id-version".length));
           let idx = versions.findIndex(rec => rec.id === activeVersion);
-          let book = getBookTitle(activeBook);
+          //let book = getBookTitle(activeBook);
+          let book = document.getElementById('id-navTitle').textContent.replace(/\s*\d+$/, "").trim();
+          let chpt = document.getElementById('id-chpt').textContent;
+          let vers = document.getElementById('id-vers').textContent;
+          const title = document.getElementById('id-headline').textContent
 
           textSpeech = '';
           if (versions[idx].ar === 'DRB') { textSpeech = `Doooey Rheems Bible: ${book}: Chapter ${activeChapter}: `;
-          } else { textSpeech = `${versions[idx].t}: ${book}: Chapter ${activeChapter}: `; };
+          } else { textSpeech = `${title}: ${book}: ${chpt} ${activeChapter}: `; };
 
           const elements = document.querySelectorAll('[id*="id-avers"]');
           for (const el of elements) {
                let x = el.id.slice("id-avers".length);
-               textSpeech += ` Verse ${x}:.....${el.textContent}`;
+               textSpeech += ` ${vers} ${x}:.....${el.textContent}`;
                //break;
           };
 
@@ -291,10 +302,18 @@ window.onbeforeunload = (event) => {
           selected(activeBookID, 'id-books');
           selected(activeChapterID, 'id-chapters');
 
-          document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
           // getMenus is in shared.js, but it calls setMenu in synth.js
           getMenus();
           return true;
+     };
+
+     async function nextSynthChpt(e = null) {
+
+          stopBubbles(e);
+          stopSpeech();
+          await delay(300);
+          nextChapter(e);
      };
 
      function pauseSpeech() {
@@ -456,4 +475,23 @@ window.onbeforeunload = (event) => {
                if (progress >= estimatedDuration) { clearInterval(interval) };
           }, updateInterval);
      };
+
+     /*async function waitForTranslation() {
+          const target = document.getElementById('id-page');
+          if (!target) return;
+
+          return new Promise((resolve) => {
+               let timeout;
+               const observer = new MutationObserver(() => {
+                    clearTimeout(timeout);  // Every time the translator changes a word, we reset the timer
+                    timeout = setTimeout(async () => {
+                         observer.disconnect();  // 1. Stop listening so we don't trigger ourselves
+                         //await loadSpeechText();
+                         resolve();
+                    }, 300);
+               });
+
+               observer.observe(target, {characterData: true, subtree: true, childList: true})
+          });
+     };*/
 // End of Speech Functions

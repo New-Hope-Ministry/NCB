@@ -195,8 +195,8 @@ let domReadyPromise = (async () => {
           setQuerystring('cn', 1);
           removeQueryParam('vh');
 
-          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
-          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
+          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
           boxOpen = 0;
 
           getMenus();
@@ -214,8 +214,8 @@ let domReadyPromise = (async () => {
           closeBoxes();
           selected(activeChapterID, 'id-chapters');
           setQuerystring('cn', activeChapter);
-          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
-          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
+          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
           boxOpen = 0;
 
           getMenus();
@@ -238,8 +238,8 @@ let domReadyPromise = (async () => {
           stopBubbles(e);
           await lastChapter(e);
           await getChapter(1, 'A', verses1);
-          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
-          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
+          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
      };
 
 
@@ -248,8 +248,8 @@ let domReadyPromise = (async () => {
           stopBubbles(e);
           await nextChapter(e);
           await getChapter(1, 'A', verses1);
-          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "smooth" });
-          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
+          document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
      };
 
      async function getCompVersion(e = null) {

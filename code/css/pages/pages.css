@@ -1,7 +1,7 @@
 table { border-collapse: collapse; width: 100%; }
-th, td { border: 1px solid black; padding: .2em; text-align: left; }
+th, td { border: 1px solid var(--tblBorder); padding: .2em; text-align: left; }
 th { background-color: var(--gradientDark); color: var(--whiteText); border-right: 1px solid white; padding-left: .4em; padding-top: .3em; }
-tr:nth-child(even) { background-color: #f2f2f2; }
+tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 .cs-thNoRightBorder { border-right: none; }
 
 .cs-btnBackground { display: flex; align-items: center; gap: 1em; padding: .5em; padding-left: 1.2em; padding-right: 1.2em; padding-bottom: .4em; border-top-left-radius: 6px; border-top-right-radius: 6px; background-color: var(--gradientDark); color: var(--whiteText); max-width: max-content; }
@@ -19,6 +19,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 .cs-qrcode { display: block; position: relative; top: 50%; height: 192px; width: 192px; margin: auto; cursor: pointer; }
 .cs-qrText { width: 50%; margin-left: auto; margin-right: auto; font-size: .8rem; text-align: center; }
 .cs-signed { color: var(--cs-edited); font-size: .7em; }
+.cs-tblHeadline { line-height: 1.5rem; text-align: center; border-top-left-radius: 6px; border-top-right-radius: 6px; overflow: hidden; font-size: 1.2rem; background-color: var(--headlineBackground); background-color: #b63f47; color: var(--headlineColor); padding: .3em; }
 .cs-title { height: max-content; font-size: 1.1em; font-weight: 550; color: var(--redEmphasis); margin-bottom: .5em; margin-top: 1em; }
 .cs-title1 { color: var(--greenEmphasis); font-weight: 550; font-size: .9em; }
 .cs-linkBtn { margin-left: .3em; margin-right: auto; }
@@ -37,4 +38,4 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 #id-themeNote { position: relative; padding-left: 0; }
 #id-watershed { color: red; font-size: .8em; padding: .5em; border-radius: 6px; background-color: aquamarine; width: 79%; max-width: 95%; margin: auto; margin-top: -.5em; overflow: hidden; line-height: 1.5rem; text-align: center; justify-content: space-evenly; word-wrap: break-word; overflow-wrap: break-word;}
 
-@media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } .cs-tbl { font-size: .7em; width: 99%; } }
+@media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } .cs-tbl { font-size: .7em; } }

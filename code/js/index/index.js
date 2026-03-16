@@ -26,25 +26,19 @@ window.addEventListener("load", async () => {
      if (setTheme === '1') { darkTheme(); toggleTheme(); rotateTheme = false; };
      if (paraLayout) { if (!paragraphLayoutDefault) { paraLayout.textContent = 'Paragraph Layout';
      } else { if (paragraphLayoutDefault) { paraLayout.textContent = 'Line Layout'; } }; };
-     if (lastEdit) { lastEdit.textContent = `Last Date Edited: ${dateEdited}`; };
+     if (lastEdit) { lastEdit.textContent = `Date Last Edited: ${dateEdited}`; };
      if (cpyRight) { cpyRight.textContent = copyrighted; };
      if (installed) { if (inst) { installed.textContent = 'The Ark Bible is Installed!'; } else { installed.textContent = 'The Ark Bible is Not Installed!'; }; };
 
      if (savedLocal) {
           if (navigator.onLine) {
-               if ('requestIdleCallback' in window) {
-                    requestIdleCallback(triggerCacheCheck);
-               } else {
-                    setTimeout(() => {
-                         triggerCacheCheck();
-                    }, 3000);
-               };
+               if ('requestIdleCallback' in window) { requestIdleCallback(triggerCacheCheck);
+               } else { await delay(3000); triggerCacheCheck(); };
           };
      } else { if (end) { end.style.display = 'block'; }; };
 
      if (ldr) { ldr.style.display = 'none'; };
      if (noDisplay) { noDisplay.style.visibility = 'visible'; };
-
 });
 
 async function loadBoxes() {
@@ -367,7 +361,7 @@ async function triggerCacheCheck() {
           pastSelectedChapterID = defaultChapterID;
           pastSelectedVerseID = selectedVerseID;
 
-          document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
+          document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
           // getMenus is in shared.js, but it calls setMenu in index.js
           getMenus();
      };

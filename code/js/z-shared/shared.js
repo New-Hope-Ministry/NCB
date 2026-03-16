@@ -1,5 +1,6 @@
+/*******************************/
 // Golbal Variables
-const dateEdited = '3-10-2026';
+const dateEdited = '3-16-2026';
 const copyrighted = '2018-2026';
 const goHome = 'https://thearkbible.com';
 const isLive = false;
@@ -8,21 +9,21 @@ var localVoices = [];
 var verses = [];
 
 // Default Value Definitions!
-      //? The default values are used when resetting the Ark to its initial state
-     /*The default activeVersionID is 'id-version21', which is the Twenty-First Century Version.
-     The default activeBookID is 'id-book1', which is Genesis.
-     The default activeChapterID is 'id-chapter1', which is the first chapter from the book of the activeBookID.
-     The default setTheme is '0', which is the light theme.
-     The default activeFontSize is 1.06*/
+//? The default values are used when resetting the Ark to its initial state
+/*The default activeVersionID is 'id-version21', which is the Twenty-First Century Version.
+The default activeBookID is 'id-book1', which is Genesis.
+The default activeChapterID is 'id-chapter1', which is the first chapter from the book of the activeBookID.
+The default setTheme is '0', which is the light theme.
+The default activeFontSize is 1.06*/
 // End of Default Value Definitions!
 
 // Keep the defaults here!
-     const defaultBookID = `id-book1`;
-     const defaultChapterID = `id-chapter1`;
-     const defaultDayID = `id-day1`;
-     const defaultFontSize = 1.06;
-     const defaultVersionID = `id-version11`; // Version Defaults: KJV = 8, TWF = 11
-     const defaultCompVrsnID = `id-versionA1`; // Compare Version Defaults: AKJ = 1, TWF = 11
+const defaultBookID = `id-book1`;
+const defaultChapterID = `id-chapter1`;
+const defaultDayID = `id-day1`;
+const defaultFontSize = 1.06;
+const defaultVersionID = `id-version11`; // Version Defaults: KJV = 8, TWF = 11
+const defaultCompVrsnID = `id-versionA1`; // Compare Version Defaults: AKJ = 1, TWF = 11
 // End of Keep the defaults here!
 
 var bookSort = false;
@@ -56,412 +57,412 @@ var selectedVerseID = null;
 var selectedVerseNumberID = null;
 
 const oldBooks = [
-    {
-        "c": 50,
-        "id": 1,
-        "t": "Genesis"
-    },
-    {
-        "c": 40,
-        "id": 2,
-        "t": "Exodus"
-    },
-    {
-        "c": 27,
-        "id": 3,
-        "t": "Leviticus"
-    },
-    {
-        "c": 36,
-        "id": 4,
-        "t": "Numbers"
-    },
-    {
-        "c": 34,
-        "id": 5,
-        "t": "Deuteronomy"
-    },
-    {
-        "c": 24,
-        "id": 6,
-        "t": "Joshua"
-    },
-    {
-        "c": 21,
-        "id": 7,
-        "t": "Judges"
-    },
-    {
-        "c": 4,
-        "id": 8,
-        "t": "Ruth"
-    },
-    {
-        "c": 31,
-        "id": 9,
-        "t": "1 Samuel"
-    },
-    {
-        "c": 24,
-        "id": 10,
-        "t": "2 Samuel"
-    },
-    {
-        "c": 22,
-        "id": 11,
-        "t": "1 Kings"
-    },
-    {
-        "c": 25,
-        "id": 12,
-        "t": "2 Kings"
-    },
-    {
-        "c": 29,
-        "id": 13,
-        "t": "1 Chronicles"
-    },
-    {
-        "c": 36,
-        "id": 14,
-        "t": "2 Chronicles"
-    },
-    {
-        "c": 10,
-        "id": 15,
-        "t": "Ezra"
-    },
-    {
-        "c": 13,
-        "id": 16,
-        "t": "Nehemiah"
-    },
-    {
-        "c": 10,
-        "id": 17,
-        "t": "Esther"
-    },
-    {
-        "c": 42,
-        "id": 18,
-        "t": "Job"
-    },
-    {
-        "c": 150,
-        "id": 19,
-        "t": "Psalms"
-    },
-    {
-        "c": 31,
-        "id": 20,
-        "t": "Proverbs"
-    },
-    {
-        "c": 12,
-        "id": 21,
-        "t": "Ecclesiastes"
-    },
-    {
-        "c": 8,
-        "id": 22,
-        "t": "Song of Solomon"
-    },
-    {
-        "c": 66,
-        "id": 23,
-        "t": "Isaiah"
-    },
-    {
-        "c": 52,
-        "id": 24,
-        "t": "Jeremiah"
-    },
-    {
-        "c": 5,
-        "id": 25,
-        "t": "Lamentations"
-    },
-    {
-        "c": 48,
-        "id": 26,
-        "t": "Ezekiel"
-    },
-    {
-        "c": 12,
-        "id": 27,
-        "t": "Daniel"
-    },
-    {
-        "c": 14,
-        "id": 28,
-        "t": "Hosea"
-    },
-    {
-        "c": 3,
-        "id": 29,
-        "t": "Joel"
-    },
-    {
-        "c": 9,
-        "id": 30,
-        "t": "Amos"
-    },
-    {
-        "c": 1,
-        "id": 31,
-        "t": "Obadiah"
-    },
-    {
-        "c": 4,
-        "id": 32,
-        "t": "Jonah"
-    },
-    {
-        "c": 7,
-        "id": 33,
-        "t": "Micah"
-    },
-    {
-        "c": 3,
-        "id": 34,
-        "t": "Nahum"
-    },
-    {
-        "c": 3,
-        "id": 35,
-        "t": "Habakkuk"
-    },
-    {
-        "c": 3,
-        "id": 36,
-        "t": "Zephaniah"
-    },
-    {
-        "c": 2,
-        "id": 37,
-        "t": "Haggai"
-    },
-    {
-        "c": 14,
-        "id": 38,
-        "t": "Zechariah"
-    },
-    {
-        "c": 4,
-        "id": 39,
-        "t": "Malachi"
-    }
+     {
+          "c": 50,
+          "id": 1,
+          "t": "Genesis"
+     },
+     {
+          "c": 40,
+          "id": 2,
+          "t": "Exodus"
+     },
+     {
+          "c": 27,
+          "id": 3,
+          "t": "Leviticus"
+     },
+     {
+          "c": 36,
+          "id": 4,
+          "t": "Numbers"
+     },
+     {
+          "c": 34,
+          "id": 5,
+          "t": "Deuteronomy"
+     },
+     {
+          "c": 24,
+          "id": 6,
+          "t": "Joshua"
+     },
+     {
+          "c": 21,
+          "id": 7,
+          "t": "Judges"
+     },
+     {
+          "c": 4,
+          "id": 8,
+          "t": "Ruth"
+     },
+     {
+          "c": 31,
+          "id": 9,
+          "t": "1 Samuel"
+     },
+     {
+          "c": 24,
+          "id": 10,
+          "t": "2 Samuel"
+     },
+     {
+          "c": 22,
+          "id": 11,
+          "t": "1 Kings"
+     },
+     {
+          "c": 25,
+          "id": 12,
+          "t": "2 Kings"
+     },
+     {
+          "c": 29,
+          "id": 13,
+          "t": "1 Chronicles"
+     },
+     {
+          "c": 36,
+          "id": 14,
+          "t": "2 Chronicles"
+     },
+     {
+          "c": 10,
+          "id": 15,
+          "t": "Ezra"
+     },
+     {
+          "c": 13,
+          "id": 16,
+          "t": "Nehemiah"
+     },
+     {
+          "c": 10,
+          "id": 17,
+          "t": "Esther"
+     },
+     {
+          "c": 42,
+          "id": 18,
+          "t": "Job"
+     },
+     {
+          "c": 150,
+          "id": 19,
+          "t": "Psalms"
+     },
+     {
+          "c": 31,
+          "id": 20,
+          "t": "Proverbs"
+     },
+     {
+          "c": 12,
+          "id": 21,
+          "t": "Ecclesiastes"
+     },
+     {
+          "c": 8,
+          "id": 22,
+          "t": "Song of Solomon"
+     },
+     {
+          "c": 66,
+          "id": 23,
+          "t": "Isaiah"
+     },
+     {
+          "c": 52,
+          "id": 24,
+          "t": "Jeremiah"
+     },
+     {
+          "c": 5,
+          "id": 25,
+          "t": "Lamentations"
+     },
+     {
+          "c": 48,
+          "id": 26,
+          "t": "Ezekiel"
+     },
+     {
+          "c": 12,
+          "id": 27,
+          "t": "Daniel"
+     },
+     {
+          "c": 14,
+          "id": 28,
+          "t": "Hosea"
+     },
+     {
+          "c": 3,
+          "id": 29,
+          "t": "Joel"
+     },
+     {
+          "c": 9,
+          "id": 30,
+          "t": "Amos"
+     },
+     {
+          "c": 1,
+          "id": 31,
+          "t": "Obadiah"
+     },
+     {
+          "c": 4,
+          "id": 32,
+          "t": "Jonah"
+     },
+     {
+          "c": 7,
+          "id": 33,
+          "t": "Micah"
+     },
+     {
+          "c": 3,
+          "id": 34,
+          "t": "Nahum"
+     },
+     {
+          "c": 3,
+          "id": 35,
+          "t": "Habakkuk"
+     },
+     {
+          "c": 3,
+          "id": 36,
+          "t": "Zephaniah"
+     },
+     {
+          "c": 2,
+          "id": 37,
+          "t": "Haggai"
+     },
+     {
+          "c": 14,
+          "id": 38,
+          "t": "Zechariah"
+     },
+     {
+          "c": 4,
+          "id": 39,
+          "t": "Malachi"
+     }
 ];
 const newBooks = [
-    {
-        "c": 28,
-        "id": 40,
-        "t": "Matthew"
-    },
-    {
-        "c": 16,
-        "id": 41,
-        "t": "Mark"
-    },
-    {
-        "c": 24,
-        "id": 42,
-        "t": "Luke"
-    },
-    {
-        "c": 21,
-        "id": 43,
-        "t": "John"
-    },
-    {
-        "c": 28,
-        "id": 44,
-        "t": "Acts"
-    },
-    {
-        "c": 16,
-        "id": 45,
-        "t": "Romans"
-    },
-    {
-        "c": 16,
-        "id": 46,
-        "t": "1 Corinthians"
-    },
-    {
-        "c": 13,
-        "id": 47,
-        "t": "2 Corinthians"
-    },
-    {
-        "c": 6,
-        "id": 48,
-        "t": "Galatians"
-    },
-    {
-        "c": 6,
-        "id": 49,
-        "t": "Ephesians"
-    },
-    {
-        "c": 4,
-        "id": 50,
-        "t": "Philippians"
-    },
-    {
-        "c": 4,
-        "id": 51,
-        "t": "Colossians"
-    },
-    {
-        "c": 5,
-        "id": 52,
-        "t": "1 Thessalonians"
-    },
-    {
-        "c": 3,
-        "id": 53,
-        "t": "2 Thessalonians"
-    },
-    {
-        "c": 6,
-        "id": 54,
-        "t": "1 Timothy"
-    },
-    {
-        "c": 4,
-        "id": 55,
-        "t": "2 Timothy"
-    },
-    {
-        "c": 3,
-        "id": 56,
-        "t": "Titus"
-    },
-    {
-        "c": 1,
-        "id": 57,
-        "t": "Philemon"
-    },
-    {
-        "c": 13,
-        "id": 58,
-        "t": "Hebrews"
-    },
-    {
-        "c": 5,
-        "id": 59,
-        "t": "James"
-    },
-    {
-        "c": 5,
-        "id": 60,
-        "t": "1 Peter"
-    },
-    {
-        "c": 3,
-        "id": 61,
-        "t": "2 Peter"
-    },
-    {
-        "c": 5,
-        "id": 62,
-        "t": "1 John"
-    },
-    {
-        "c": 1,
-        "id": 63,
-        "t": "2 John"
-    },
-    {
-        "c": 1,
-        "id": 64,
-        "t": "3 John"
-    },
-    {
-        "c": 1,
-        "id": 65,
-        "t": "Jude"
-    },
-    {
-        "c": 22,
-        "id": 66,
-        "t": "Revelation"
-    }
+     {
+          "c": 28,
+          "id": 40,
+          "t": "Matthew"
+     },
+     {
+          "c": 16,
+          "id": 41,
+          "t": "Mark"
+     },
+     {
+          "c": 24,
+          "id": 42,
+          "t": "Luke"
+     },
+     {
+          "c": 21,
+          "id": 43,
+          "t": "John"
+     },
+     {
+          "c": 28,
+          "id": 44,
+          "t": "Acts"
+     },
+     {
+          "c": 16,
+          "id": 45,
+          "t": "Romans"
+     },
+     {
+          "c": 16,
+          "id": 46,
+          "t": "1 Corinthians"
+     },
+     {
+          "c": 13,
+          "id": 47,
+          "t": "2 Corinthians"
+     },
+     {
+          "c": 6,
+          "id": 48,
+          "t": "Galatians"
+     },
+     {
+          "c": 6,
+          "id": 49,
+          "t": "Ephesians"
+     },
+     {
+          "c": 4,
+          "id": 50,
+          "t": "Philippians"
+     },
+     {
+          "c": 4,
+          "id": 51,
+          "t": "Colossians"
+     },
+     {
+          "c": 5,
+          "id": 52,
+          "t": "1 Thessalonians"
+     },
+     {
+          "c": 3,
+          "id": 53,
+          "t": "2 Thessalonians"
+     },
+     {
+          "c": 6,
+          "id": 54,
+          "t": "1 Timothy"
+     },
+     {
+          "c": 4,
+          "id": 55,
+          "t": "2 Timothy"
+     },
+     {
+          "c": 3,
+          "id": 56,
+          "t": "Titus"
+     },
+     {
+          "c": 1,
+          "id": 57,
+          "t": "Philemon"
+     },
+     {
+          "c": 13,
+          "id": 58,
+          "t": "Hebrews"
+     },
+     {
+          "c": 5,
+          "id": 59,
+          "t": "James"
+     },
+     {
+          "c": 5,
+          "id": 60,
+          "t": "1 Peter"
+     },
+     {
+          "c": 3,
+          "id": 61,
+          "t": "2 Peter"
+     },
+     {
+          "c": 5,
+          "id": 62,
+          "t": "1 John"
+     },
+     {
+          "c": 1,
+          "id": 63,
+          "t": "2 John"
+     },
+     {
+          "c": 1,
+          "id": 64,
+          "t": "3 John"
+     },
+     {
+          "c": 1,
+          "id": 65,
+          "t": "Jude"
+     },
+     {
+          "c": 22,
+          "id": 66,
+          "t": "Revelation"
+     }
 ];
 const versions = [
-    {
-        "ar": "AKJ",
-        "id": 1,
-        "rdl": 0,
-        "t": "American King James Version"
-    },
-    {
-        "ar": "ASV",
-        "id": 2,
-        "rdl": 0,
-        "t": "American Standard Version"
-    },
-    {
-        "ar": "AKV",
-        "id": 3,
-        "rdl": 0,
-        "t": "Authorized King James Version"
-    },
-    {
-        "ar": "BSB",
-        "id": 4,
-        "rdl": 0,
-        "t": "Berean Standard Bible"
-    },
-    {
-        "ar": "DBY",
-        "id": 5,
-        "rdl": 0,
-        "t": "Darby English Bible"
-    },
-    {
-        "ar": "DRB",
-        "id": 6,
-        "rdl": 0,
-        "t": "Douay-Rheims Bible"
-    },
-    {
-        "ar": "ERV",
-        "id": 7,
-        "rdl": 0,
-        "t": "English Revised Version"
-    },
-    {
-        "ar": "KJV",
-        "id": 8,
-        "rdl": 0,
-        "t": "King James Version"
-    },
-    {
-        "ar": "NWB",
-        "id": 9,
-        "rdl": 0,
-        "t": "Noah Webster's Bible"
-    },
-    {
-        "ar": "SLT",
-        "id": 10,
-        "rdl": 0,
-        "t": "Smith's Literal Translation"
-    },
-    {
-        "ar": "TWF",
-        "id": 11,
-        "rdl": 1,
-        "t": "Twenty-First Century Version"
-    },
-    {
-        "ar": "YLT",
-        "id": 12,
-        "rdl": 0,
-        "t": "Young's Literal Translation"
-    }
+     {
+          "ar": "AKJ",
+          "id": 1,
+          "rdl": 0,
+          "t": "American King James Version"
+     },
+     {
+          "ar": "ASV",
+          "id": 2,
+          "rdl": 0,
+          "t": "American Standard Version"
+     },
+     {
+          "ar": "AKV",
+          "id": 3,
+          "rdl": 0,
+          "t": "Authorized King James Version"
+     },
+     {
+          "ar": "BSB",
+          "id": 4,
+          "rdl": 0,
+          "t": "Berean Standard Bible"
+     },
+     {
+          "ar": "DBY",
+          "id": 5,
+          "rdl": 0,
+          "t": "Darby English Bible"
+     },
+     {
+          "ar": "DRB",
+          "id": 6,
+          "rdl": 0,
+          "t": "Douay-Rheims Bible"
+     },
+     {
+          "ar": "ERV",
+          "id": 7,
+          "rdl": 0,
+          "t": "English Revised Version"
+     },
+     {
+          "ar": "KJV",
+          "id": 8,
+          "rdl": 0,
+          "t": "King James Version"
+     },
+     {
+          "ar": "NWB",
+          "id": 9,
+          "rdl": 0,
+          "t": "Noah Webster's Bible"
+     },
+     {
+          "ar": "SLT",
+          "id": 10,
+          "rdl": 0,
+          "t": "Smith's Literal Translation"
+     },
+     {
+          "ar": "TWF",
+          "id": 11,
+          "rdl": 1,
+          "t": "Twenty-First Century Version"
+     },
+     {
+          "ar": "YLT",
+          "id": 12,
+          "rdl": 0,
+          "t": "Young's Literal Translation"
+     }
 ];
 
 // Shared Functions
@@ -481,6 +482,7 @@ function cClick(ahref) {
 
 async function lastChapter(e = null) {
 
+     // Navigates the page to the previous chapter
      stopBubbles(e);
      if (!boxesLoaded) { await loadBoxes(); };
      let bid = Number(activeBookID.slice("id-book".length));
@@ -501,6 +503,7 @@ async function lastChapter(e = null) {
 
 async function nextChapter(e = null) {
 
+     // Navigates the page to the next chapter
      stopBubbles(e);
      if (!boxesLoaded) { await loadBoxes(); };
      let bid = Number(activeBookID.slice("id-book".length));
@@ -522,6 +525,7 @@ async function nextChapter(e = null) {
 
 async function nextLast(bid, cn, loadChpts) {
 
+     // Called by lastChapter() and nextChapter() to change the chapter
      activeBookID = `id-book${bid}`;
      activeChapterID = `id-chapter${cn}`;
      closeBoxes();
@@ -535,11 +539,12 @@ async function nextLast(bid, cn, loadChpts) {
      setQuerystring('cn', cn);
      // getMenus is in shared.js, but it calls setMenu in the apps.js
      getMenus();
-     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
+     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
 };
 
 function changeBook(e = null) {
 
+     // Change the active Bible book
      stopBubbles(e);
      if (e) { activeBookID = e.target.id; };
      let bid = Number(activeBookID.slice("id-book".length));
@@ -548,6 +553,7 @@ function changeBook(e = null) {
 
 function changeChapter(e = null) {
 
+     // Change the active Bible chapter
      stopBubbles(e);
      if (e) { activeChapterID = e.target.id; };
      let bid = Number(activeBookID.slice("id-book".length));
@@ -557,13 +563,9 @@ function changeChapter(e = null) {
 
 async function changeVersion(e = null) {
 
+     // Change the active Bible version
      stopBubbles(e);
      closeBoxes();
-     let div = document.createElement("div");
-     div.id = 'id-versionLoader';
-     div.classList.add('cs-loader');
-     div.textContent ='✝';
-     document.body.appendChild(div);
 
      let rec = false;
      rec = await getVersion(e);
@@ -581,7 +583,7 @@ async function changeVersion(e = null) {
 
 async function checkID(id) {
 
-     // Used by openBoxes() to check for exempt element ids.
+     // Used by openBoxes() to check if the element id matches a Menu Button.
      const menuIDs = [
           'id-MenuBtn1',
           'id-MenuBtn2',
@@ -591,6 +593,7 @@ async function checkID(id) {
      if (menuIDs.includes(id)) { return false; } else { closeBoxes(); return true; };
 
      /*
+     // Used by openBoxes() to check for exempt element ids.
      const exactIDs = [
           'id-appLinks',
           'id-appTitle',
@@ -644,12 +647,16 @@ const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
 async function fetchVerses(idx) {
 
+     // Fetch the Verses.json file from the server, based on which version it is
+     let loader = document.getElementById("id-loader");
+     loader.style.display = 'block';
      let url = `${fetchPrefix}data/${versions[idx].ar}/${versions[idx].ar}Verses.json`;
      try {
           const res = await fetch(url);
-          if (!res.ok) { throw new Error(res.status); };
+          if (!res.ok) { if (loader) { loader.style.display = 'none'; }; throw new Error(res.status); };
           let versesFetched = await res.json();
           if (versions[idx].ar === 'TWF') { isTWF = true } else { isTWF = false };
+          if (loader) { loader.style.display = 'none'; };
           return versesFetched;
      } catch (error) {
           switch (error.message) {
@@ -660,7 +667,6 @@ async function fetchVerses(idx) {
                     err = 'No internet connection error: 503A!';
                     break;
           };
-          document.getElementById("id-loader").style.display = 'none';
           alert(error.message);
      };
      return false;
@@ -668,6 +674,7 @@ async function fetchVerses(idx) {
 
 function findVerse(e = null) {
 
+     // Finds and highlights a verse on the page
      stopBubbles(e);
      closeBoxes();
      let id;
@@ -680,9 +687,11 @@ function findVerse(e = null) {
 
 function getBookChapterCount() {
 
+     // Get the number of chapters for each book from the books array based on old or new testament
      let books = [];
      let id = Number(activeBookID.slice("id-book".length));
-     if (id < 40) { books = oldBooks;
+     if (id < 40) {
+          books = oldBooks;
      } else { books = newBooks; };
      let idx = books.findIndex(rec => rec.id === id);
      return books[idx].c;
@@ -690,8 +699,10 @@ function getBookChapterCount() {
 
 function getBookTitle(id) {
 
+     // Get the title of the book from the books array based on old or new testament
      let books = [];
-     if (id < 40) { books = oldBooks;
+     if (id < 40) {
+          books = oldBooks;
      } else { books = newBooks; };
      let idx = books.findIndex(rec => rec.id === id);
      return books[idx].t;
@@ -699,106 +710,132 @@ function getBookTitle(id) {
 
 function getBooksVolume(id) {
 
+     // Return an array of books based on whether it is old or new testament
      let books = [];
-     if (id < 40) { books = oldBooks;
+     if (id < 40) {
+          books = oldBooks;
      } else { books = newBooks; };
      return books;
 };
 
 async function getChapter(A1 = '', AA = '', verses1 = null) {
 
-     let wrkVerses;
-     if (A1 === '') { wrkVerses = verses; } else { wrkVerses = verses1; };
-     // verses1 is used by comp.html
+     // Scoped Helper functions:
+          function renderVerseSpan(v, AA) {
+               //  Render a single verse span
+               const sp = document.createElement('span');
+               sp.id = `id-vers${AA}${v.vn}`;
 
-     let activeBook = Number(activeBookID.slice("id-book".length));
-     let activeChapter = Number(activeChapterID.slice("id-chapter".length));
-     let i = wrkVerses.findIndex(rec => rec.bid === activeBook && rec.cn === activeChapter);
+               const num = document.createElement('span');
+               num.id = `id-versNum${AA}${v.vn}`;
+               num.classList.add("cs-verseNumber");
+               num.textContent = `${v.vn} `;
+               sp.appendChild(num);
 
+               const text = document.createElement('span');
+               text.id = `id-avers${AA}${v.vn}`;
+               text.innerHTML = v.jq === 1 ? JesusQuote(v.vt) : v.vt;
+
+               sp.appendChild(text);
+               return sp;
+          };
+
+          function JesusQuote(aVerse) {
+               // Change the color the verses of the quotes of Jesus span
+               switch (redLetterDefault) {
+                    case 0:
+                         //aVerse = aVerse.replaceAll('`', '');
+                         //aVerse = aVerse.replaceAll('´', '');
+                         aVerse = aVerse.replace(/[`´]/g, '');
+                         break;
+                    case 1:
+                         //aVerse = aVerse.replaceAll('`', '<span class="cs-jqRed">');
+                         //aVerse = aVerse.replaceAll('´', '</span>');
+                         aVerse = aVerse.replace(/[`´]/g, m => m === '`' ? '<span class="cs-jqRed">' : '</span>' );
+                         break;
+                    case 2:
+                         //aVerse = aVerse.replaceAll('`', '<span class="cs-jqBlue">');
+                         //aVerse = aVerse.replaceAll('´', '</span>');
+                         aVerse = aVerse.replace(/[`´]/g, m => m === '`' ? '<span class="cs-jqBlue">' : '</span>' );
+                         break;
+               };
+               return aVerse;
+          };
+     // End of Scoped Helper functions:
+
+     const wrkVerses = A1 === '' ? verses : verses1;
+     const activeBook = Number(activeBookID.slice("id-book".length));
+     const activeChapter = Number(activeChapterID.slice("id-chapter".length));
+
+     // Find first verse of this chapter
+     let i = wrkVerses.findIndex(v => v.bid === activeBook && v.cn === activeChapter);
+     if (i === -1) return false;
+
+     // Prepare page
      removeElements(`id-page${A1}`);
-     let page = document.getElementById(`id-page${A1}`);
-     let h2 = document.createElement('h2');
+     const page = document.getElementById(`id-page${A1}`);
+     const h2 = document.createElement('h2');
      h2.textContent = `${getBookTitle(activeBook)} ${activeChapter}`;
      document.getElementById(`id-navTitle`).textContent = h2.textContent;
 
-     if (isTWF) { let sp2 = document.createElement('span'); sp2.classList.add('cs-edited'); sp2.textContent = ` TWF - Last Edited: ${dateEdited}`; h2.appendChild(sp2); };
+     if (isTWF) {
+          const sp2 = document.createElement('span');
+          sp2.classList.add('cs-edited');
+          sp2.textContent = ` TWF - Last Edited: ${dateEdited}`;
+          h2.appendChild(sp2);
+     }
+
      page.appendChild(h2);
 
-
-     let p;
-     let pn;
-     let sp;
-     let spa;
-     let aVerse;
      let verseCount = 0;
+     const x = wrkVerses.length;
 
-     while (i < wrkVerses.length && wrkVerses[i].cn === activeChapter && wrkVerses[i].bid === activeBook) {
-          p = document.createElement('p');
+     // Main loop: iterate through verses in this chapter
+     while (i < x && wrkVerses[i].bid === activeBook && wrkVerses[i].cn === activeChapter) {
+
+          const p = document.createElement('p');
           p.id = `id-p${wrkVerses[i].vid}`;
-          pn = wrkVerses[i].pn;
-
+          const pn = wrkVerses[i].pn;
           let newParagraph = false;
+
           if (pn > 0 && paragraphLayoutDefault) {
-               while (wrkVerses[i].pn === pn) {
+               // Paragraph mode
+               while (i < x && wrkVerses[i].bid === activeBook && wrkVerses[i].cn === activeChapter
+                    && wrkVerses[i].pn === pn) {
 
-                    sp = document.createElement('span');
-                    sp.id = `id-vers${AA}${wrkVerses[i].vn}`;
-
-                    spa = document.createElement('span');
-                    spa.id = `id-versNum${AA}${wrkVerses[i].vn}`;
-                    spa.classList.add("cs-verseNumber");
-                    aVerse = wrkVerses[i].vt;
-                    if (newParagraph) { let spa1 = document.createElement('span'); spa1.classList.add("cs-versePadding"); p.appendChild(spa1); };
+                    const v = wrkVerses[i];
+                    if (newParagraph) {
+                         const pad = document.createElement('span');
+                         pad.classList.add("cs-versePadding");
+                         p.appendChild(pad);
+                    }
                     newParagraph = true;
-                    spa.textContent = `${wrkVerses[i].vn} `;
-                    sp.appendChild(spa);
+                    p.appendChild(renderVerseSpan(v, AA));
 
-                    spa = document.createElement('span');
-                    spa.id = `id-avers${AA}${wrkVerses[i].vn}`;
-
-                    if (wrkVerses[i].jq === 1) { spa.innerHTML = JesusQuote(aVerse);
-                    } else { spa.textContent = aVerse; };
-
-                    sp.appendChild(spa);
-                    p.appendChild(sp);
                     i++;
                     verseCount++;
                };
           } else {
-
-               sp = document.createElement('span');
-               sp.id = `id-vers${AA}${wrkVerses[i].vn}`;
-
-               spa = document.createElement('span');
-               spa.id = `id-versNum${AA}${wrkVerses[i].vn}`;
-               spa.classList.add("cs-verseNumber");
-               spa.textContent = `${wrkVerses[i].vn} `;
-               sp.appendChild(spa);
-
-               aVerse = wrkVerses[i].vt;
-               spa = document.createElement('span');
-               spa.id = `id-avers${AA}${wrkVerses[i].vn}`;
-
-               if (wrkVerses[i].jq === 1) { spa.innerHTML = JesusQuote(aVerse);
-               } else { spa.textContent = aVerse; };
-
+               // Single-verse mode
+               const v = wrkVerses[i];
                p.classList.add("cs-singleVerse");
-               sp.appendChild(spa);
-               p.appendChild(sp);
+               p.appendChild(renderVerseSpan(v, AA));
                i++;
                verseCount++;
           };
+
           page.appendChild(p);
      };
 
-     let aVersesBox = document.getElementById('id-versesBox');
-     if (aVersesBox) { loadVerses(findVerse, verseCount); };
+     // Load verse list if needed
+     const aVersesBox = document.getElementById('id-versesBox');
+     if (aVersesBox) loadVerses(findVerse, verseCount);
 
-     let btmLastLine = document.getElementById(`id-navLastChapter${A1}`);
-     if (btmLastLine) { if (activeBook === 1 && activeChapter === 1) { btmLastLine.style.visibility = 'hidden'; } else { btmLastLine.style.visibility = 'visible'; }; };
-
-     let btmNextLine = document.getElementById(`id-navNextChapter${A1}`);
-     if (btmNextLine) { if (activeBook === 66 && activeChapter === 22) { btmNextLine.style.visibility = 'hidden'; } else { btmNextLine.style.visibility = 'visible'; }; };
+     // Navigation visibility
+     const btmLastLine = document.getElementById(`id-navLastChapter${A1}`);
+     if (btmLastLine) { btmLastLine.style.visibility = (activeBook === 1 && activeChapter === 1) ? 'hidden' : 'visible'; };
+     const btmNextLine = document.getElementById(`id-navNextChapter${A1}`);
+     if (btmNextLine) { btmNextLine.style.visibility = (activeBook === 66 && activeChapter === 22) ? 'hidden' : 'visible'; }
 
      setFontSize();
      return true;
@@ -855,28 +892,24 @@ async function getVersion(e = null) {
      selectedVerseID = holdSelectedVerseID;
      if (selectedVerseID) { verseHighlight(selectedVerseID); };
 
-     let redLetter =  document.getElementById('id-redLetter');
+     let redLetter = document.getElementById('id-redLetter');
      if (redLetter) {
           if (versions[idx].rdl) {
+
                redLetter.style.display = 'block';
-               if (redLetterDefault === 0) {
-                    redLetter.textContent = 'Red Letter';
-               } else if (redLetterDefault === 1) {
-                    redLetter.textContent = 'Blue Letter';
-               } else if (redLetterDefault === 2) {
-                    redLetter.textContent = 'Black Letter';
-               };
+               if (redLetterDefault === 0) { redLetter.textContent = 'Red Letter';
+               } else if (redLetterDefault === 1) { redLetter.textContent = 'Blue Letter';
+               } else if (redLetterDefault === 2) { redLetter.textContent = 'Black Letter'; };
+
           } else {
                redLetter.style.display = 'none';
           };
      };
 
      let paragraphLayout = document.getElementById('id-paragraphLayout');
-     if(paragraphLayout) {
-          if (verses[0].pn > 0) {
-               paragraphLayout.style.display = 'block';
+     if (paragraphLayout) {
+          if (verses[0].pn > 0) { paragraphLayout.style.display = 'block';
           } else { paragraphLayout.style.display = 'none'; };
-          //if (verses) { paragraphLayout.style.display = 'none'; };
      };
      boxesAreOpen = false;
      return true;
@@ -889,25 +922,6 @@ function getVersionsABR(vrsn) {
 };
 
 function isNumeric(value) { return !isNaN(value) && !isNaN(parseFloat(value)); };
-
-function JesusQuote(aVerse) {
-
-     switch (redLetterDefault) {
-          case 0:
-               aVerse = aVerse.replaceAll('`', '');
-               aVerse = aVerse.replaceAll('´', '');
-               break;
-          case 1:
-               aVerse = aVerse.replaceAll('`', '<span class="cs-jqRed">');
-               aVerse = aVerse.replaceAll('´', '</span>');
-               break;
-          case 2:
-               aVerse = aVerse.replaceAll('`', '<span class="cs-jqBlue">');
-               aVerse = aVerse.replaceAll('´', '</span>');
-               break;
-     };
-     return aVerse;
-};
 
 function lightTheme() {
      let theme = document.documentElement;
@@ -942,6 +956,29 @@ function paragraphLayout() {
      };
      getChapter();
      localStorage.setItem("paragraphLayout", paragraphLayoutDefault);
+};
+
+function printSection(sectionId) {
+     const section = document.getElementById(sectionId);
+     const printWindow = window.open('');
+     let styles = '';
+     const elements = document.querySelectorAll('link[rel="stylesheet"], style');
+     for (const el of elements) { styles += el.outerHTML; };
+
+     printWindow.document.open();
+     printWindow.document.write('<html><head><title>Print Preview</title>');
+     printWindow.document.write(styles);
+     printWindow.document.write('<\/head><body>');
+     printWindow.document.write(section.outerHTML);
+     printWindow.document.write('<\/body><\/html>');
+     printWindow.document.close(); // Important to close the stream
+
+     // This part must be INSIDE the <script> tag
+     printWindow.onload = () => {
+          printWindow.focus();
+          printWindow.print();
+          printWindow.close();
+     };
 };
 
 function redLetter() {
@@ -1011,15 +1048,15 @@ async function stopBubbles(e = null) {
           e.stopPropagation();
           e.stopImmediatePropagation();
           return true;
-      } else {
+     } else {
           return false;
      };
 };
 
 function toggleTheme() {
      let theme = document.getElementById("id-themeBtn");
-     if(theme) { theme.classList.toggle("cs-darkTheme"); };
-     if(theme) { theme.textContent = theme.classList.contains("cs-darkTheme") ? "🌙" : "☀️"; };
+     if (theme) { theme.classList.toggle("cs-darkTheme"); };
+     if (theme) { theme.textContent = theme.classList.contains("cs-darkTheme") ? "🌙" : "☀️"; };
 };
 
 function unHighlight(e = null) {
@@ -1029,7 +1066,7 @@ function unHighlight(e = null) {
      removeQueryParam('vh');
      let btn = document.getElementById('id-MenuBtn4');
      if (btn) { btn.textContent = '1'; };
-     if(selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
+     if (selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
      selectedVerseNumberID = null;
      selectedVerseID = null;
      pastSelectedVerseID = null;
@@ -1039,7 +1076,7 @@ function verseHighlight(id) {
 
      let vh = document.getElementById(id).textContent;
      document.getElementById('id-MenuBtn4').textContent = vh;
-     if(selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
+     if (selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
      selectedVerseNumberID = `id-versNum${vh}`;
      const spa = document.getElementById(selectedVerseNumberID).parentElement;
      spa.classList.add('cs-highlight');

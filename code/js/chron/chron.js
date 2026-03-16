@@ -96,7 +96,7 @@ async function chronNextLast(bid, cn, dayid, loadChpts) {
      getMenus();
      localStorage.setItem("activeChronBookID", activeBookID);
      localStorage.setItem("activeChronChapterID", activeChapterID);
-     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
+     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
 };
 
 function getChronDay() {
@@ -340,7 +340,7 @@ async function restart(e = null) {
      await changeVersion();
      await loadChronChapters(changeChronChapter);
 
-     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "smooth" });
+     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
      startUp();
      getMenus();
      removeAllQueries();
