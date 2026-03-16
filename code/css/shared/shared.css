@@ -161,6 +161,8 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
           @media print {
                #id-headline,
                #id-navTitle { color: #000000 !important; -webkit-print-color-adjust: exact; /* Ensures browsers don't override the color */ print-color-adjust: exact; background-color: var(--mainBackground); }
+               #id-navLastChapter,
+               #id-navNextChapter { display: none; }
           }
      /*? End Media Query Print */
 /* ************** End Media Queries ***************** */
