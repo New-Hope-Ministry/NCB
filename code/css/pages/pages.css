@@ -31,6 +31,7 @@ tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 #id-font,
 #id-redLetter,
 #id-paragraphLayout,
+#id-print,
 #id-resetDefaults { margin-top: 0; }
 #id-page { margin-top: -.3em; }
 #id-pagesTitle { position: absolute; top: 50%; transform: translateY(-50%); left: 3.5em; width: max-content; color: var(--whiteText); font-size: 1.4rem; }

@@ -9,12 +9,14 @@
 #id-font,
 #id-redLetter,
 #id-resetDefaults,
-#id-paragraphLayout { width: max-content; margin-top: 1em; background-color: var(--gradientDark); color: var(--whiteText); user-select: none; cursor: pointer; }
+#id-paragraphLayout,
+#id-print { width: max-content; margin-top: 1em; background-color: var(--gradientDark); color: var(--whiteText); user-select: none; cursor: pointer; }
 
 #id-adjustFont,
 #id-redLetter,
 #id-resetDefaults,
-#id-paragraphLayout { padding-left: 1.5em; padding-right: 1.5em; text-decoration: underline; font-size: .9rem; cursor: pointer; }
+#id-paragraphLayout,
+#id-print { padding-left: 1.5em; padding-right: 1.5em; text-decoration: underline; font-size: .9rem; cursor: pointer; }
 
 .cs-adjustFont1 { display: flex; justify-content: center; align-items: center; height: 1.2rem; width: 1.2rem; line-height: 1.2em; border-radius: 50%; background-color: var(--whiteText); color: var(--gradientDark); font-weight: 550; cursor: pointer; }
 .cs-fontLine { display: inline-block; text-align: center; vertical-align: middle; height: 1.2rem; width: 1.2rem; line-height: 1.2em; font-size: 1.1em; }

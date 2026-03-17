@@ -16,6 +16,7 @@
      #id-blueLetterPlan:hover,
      #id-copyright:hover,
      #id-paragraphLayout:hover,
+     #id-print:hover,
      #id-redLetter:hover,
      #id-resetDefaults:hover,
      #id-themeNote:hover { color: var(--paleMaroonEmphasis); }

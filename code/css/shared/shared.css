@@ -160,7 +160,7 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
       /*? Media Query Print */
           @media print {
                #id-headline,
-               #id-navTitle { color: #000000 !important; -webkit-print-color-adjust: exact; /* Ensures browsers don't override the color */ print-color-adjust: exact; background-color: var(--mainBackground); }
+               #id-navTitle { background-color: var(--mainBackground); color: #000000 !important; -webkit-print-color-adjust: exact; /* Ensures browsers don't override the color */ print-color-adjust: exact; }
                #id-navLastChapter,
                #id-navNextChapter { display: none; }
           }
