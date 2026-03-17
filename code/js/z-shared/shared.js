@@ -958,65 +958,32 @@ function paragraphLayout() {
      localStorage.setItem("paragraphLayout", paragraphLayoutDefault);
 };
 
-/*
-function printSection1(sectionId) {
+async function printSection(sectionId) {
+
      const section = document.getElementById(sectionId);
-     const printWindow = window.open('');
-     let styles = '';
-     const elements = document.querySelectorAll('link[rel="stylesheet"], style');
-     for (const el of elements) { styles += el.outerHTML; };
-
-     printWindow.document.open();
-     printWindow.document.write('<html><head><title>Print Preview<\/title>');
-     printWindow.document.write(styles);
-     printWindow.document.write('<\/head><body>');
-     printWindow.document.write(section.outerHTML);
-     printWindow.document.write('<\/body><\/html>');
-     printWindow.document.close(); // Important to close the stream
-
-     // This part must be INSIDE the <script> tag
-     printWindow.onload = () => {
-          printWindow.focus();
-          delay(500);
-          printWindow.print();
-          printWindow.close();
+     if (!section) return;
+     let iframe = document.getElementById('print-iframe');
+     if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.id = 'print-iframe';
+          Object.assign(iframe.style, {
+               position: 'absolute',
+               width: '0',
+               height: '0',
+               border: 'none',
+               visibility: 'hidden'
+          });
+          document.body.appendChild(iframe);
      };
-};
 
-async function printSection2(sectionId) {
+     const doc = iframe.contentWindow.document;
+     doc.open();
+     doc.write('<!DOCTYPE html><html><head></head><body></body></html>');
+     doc.close();
 
-    const section = document.getElementById(sectionId);
-    if (!section) return;
+     const stylePromises = [];
+     const links = document.querySelectorAll('link[rel="stylesheet"], style');
 
-    // 1. Create or Reuse the Hidden Iframe
-    let iframe = document.getElementById('print-iframe');
-    if (!iframe) {
-        iframe = document.createElement('iframe');
-        iframe.id = 'print-iframe';
-        // Hide it from view but keep it in the DOM
-        Object.assign(iframe.style, {
-            position: 'absolute',
-            width: '0',
-            height: '0',
-            border: 'none',
-            visibility: 'hidden'
-        });
-        document.body.appendChild(iframe);
-    };
-
-    const doc = iframe.contentWindow.document;
-
-    // 2. Clear and Setup the Document
-    doc.open();
-    doc.write('<!DOCTYPE html><html><head><title>Print</title></head><body></body></html>');
-    doc.close();
-
-    // 3. Clone and Import Styles
-    // We use a Promise to track when all external stylesheets are loaded
-    const stylePromises = [];
-    const links = document.querySelectorAll('link[rel="stylesheet"], style');
-
-     //links.forEach(link => {
      for (const link of links) {
           const clone = link.cloneNode(true);
           if (clone.tagName === 'LINK') {
@@ -1028,85 +995,17 @@ async function printSection2(sectionId) {
           doc.head.appendChild(clone);
      };
 
-    // 4. Clone the Content (Security-First: No innerHTML)
-    const clonedContent = section.cloneNode(true);
-    doc.body.appendChild(clonedContent);
+     const clonedContent = section.cloneNode(true);
+     doc.body.appendChild(clonedContent);
 
-    // 5. Wait for Styles + Final "Paint"
-    await Promise.all(stylePromises);
-
-    // Give the mobile browser a tiny "breath" to render the layout
-    //setTimeout(() => {
-     await delay(250);
-        iframe.contentWindow.focus();
-        iframe.contentWindow.onafterprint = () => { iframe.remove(); };
-        iframe.contentWindow.print();
-    //}, 250);
-};*/
-
-async function printSection(sectionId) {
-     const section = document.getElementById(sectionId);
-     if (!section) return;
-
-     // Create iframe
-     let iframe = document.createElement('iframe');
-     iframe.id = 'print-iframe';
-
-     Object.assign(iframe.style, {
-          position: 'fixed',
-          right: '100%',   // off-screen but still rendered
-          width: '100vw',
-          height: '100vh',
-          border: 'none'
-     });
-
-     document.body.appendChild(iframe);
-
-     // Use srcdoc (mobile-safe)
-     iframe.srcdoc = `
-          <!DOCTYPE html>
-          <html>
-          <head></head>
-          <body></body>
-          </html>
-     `;
-
-     // Wait for iframe to load
-     await new Promise(resolve => iframe.onload = resolve);
-
-     const doc = iframe.contentDocument;
-
-     // Clone styles
-     const stylePromises = [];
-     const links = document.querySelectorAll('link[rel="stylesheet"], style');
-
-     for (const link of links) {
-          const clone = link.cloneNode(true);
-          if (clone.tagName === 'LINK') {
-               stylePromises.push(new Promise(res => {
-                    clone.onload = res;
-                    clone.onerror = res;
-               }));
-          }
-          doc.head.appendChild(clone);
-     }
-
-     // Clone content
-     const cloned = section.cloneNode(true);
-     doc.body.appendChild(cloned);
-
-     // Wait for styles
      await Promise.all(stylePromises);
-
-     // Mobile browsers need extra reflow time
-     await delay(50);
+     await delay(100);
      iframe.contentWindow.dispatchEvent(new Event('resize'));
      await delay(150);
 
      iframe.contentWindow.focus();
      iframe.contentWindow.print();
-
-     iframe.contentWindow.onafterprint = () => iframe.remove();
+     iframe.contentWindow.onafterprint = () => { iframe.remove(); };
 };
 
 function redLetter() {
