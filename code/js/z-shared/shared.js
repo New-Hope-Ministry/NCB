@@ -958,7 +958,7 @@ function paragraphLayout() {
      localStorage.setItem("paragraphLayout", paragraphLayoutDefault);
 };
 
-function printSection1(sectionId) {
+function printSection(sectionId) {
      const section = document.getElementById(sectionId);
      const printWindow = window.open('');
      let styles = '';
@@ -982,7 +982,7 @@ function printSection1(sectionId) {
      };
 };
 
-async function printSection(sectionId) {
+async function printSection2(sectionId) {
 
     const section = document.getElementById(sectionId);
     if (!section) return;
@@ -1041,6 +1041,71 @@ async function printSection(sectionId) {
         iframe.contentWindow.onafterprint = () => { iframe.remove(); };
         iframe.contentWindow.print();
     //}, 250);
+};
+
+async function printSection(sectionId) {
+     const section = document.getElementById(sectionId);
+     if (!section) return;
+
+     // Create iframe
+     let iframe = document.createElement('iframe');
+     iframe.id = 'print-iframe';
+
+     Object.assign(iframe.style, {
+          position: 'fixed',
+          right: '100%',   // off-screen but still rendered
+          width: '100vw',
+          height: '100vh',
+          border: 'none'
+     });
+
+     document.body.appendChild(iframe);
+
+     // Use srcdoc (mobile-safe)
+     iframe.srcdoc = `
+          <!DOCTYPE html>
+          <html>
+          <head><title>Print</title></head>
+          <body></body>
+          </html>
+     `;
+
+     // Wait for iframe to load
+     await new Promise(resolve => iframe.onload = resolve);
+
+     const doc = iframe.contentDocument;
+
+     // Clone styles
+     const stylePromises = [];
+     const links = document.querySelectorAll('link[rel="stylesheet"], style');
+
+     for (const link of links) {
+          const clone = link.cloneNode(true);
+          if (clone.tagName === 'LINK') {
+               stylePromises.push(new Promise(res => {
+                    clone.onload = res;
+                    clone.onerror = res;
+               }));
+          }
+          doc.head.appendChild(clone);
+     }
+
+     // Clone content
+     const cloned = section.cloneNode(true);
+     doc.body.appendChild(cloned);
+
+     // Wait for styles
+     await Promise.all(stylePromises);
+
+     // Mobile browsers need extra reflow time
+     await delay(50);
+     iframe.contentWindow.dispatchEvent(new Event('resize'));
+     await delay(150);
+
+     iframe.contentWindow.focus();
+     iframe.contentWindow.print();
+
+     iframe.contentWindow.onafterprint = () => iframe.remove();
 };
 
 function redLetter() {
