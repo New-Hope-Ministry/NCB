@@ -136,7 +136,7 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
           @media (max-width: 1280px) { }
           @media (max-width: 1025px) { }*/
           @media (max-width: 920px) { #id-mainPage, #id-mainPage1 { border-radius: 0; width: 100%; } }
-          @media (max-width: 768px) { #id-navLine { font-size: 1.1rem; } #id-page, #id-page1 { width: 90%; } }
+          @media (max-width: 768px) { #id-navLine { font-size: 1.1rem; } #id-page, #id-page1 { width: 90%; } #id-print { display: none; } }
           @media (max-width: 600px) { #id-rightIcon { right: 1em; top: 1.2em;} }
           @media (max-width: 480px) { html { font-size: 103%; } #id-page { width: 90%; } #id-comp, #id-listen, #id-restart, #id-readChron, #id-randomChapter { font-size: .8em; width: 15em; padding-left: 1em; padding-right: 1em; } }
           @media (max-width: 380px) { #id-comp, #id-listen, #id-restart, #id-readChron, #id-randomChapter { font-size: .6em; } }
