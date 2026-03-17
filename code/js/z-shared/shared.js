@@ -958,7 +958,8 @@ function paragraphLayout() {
      localStorage.setItem("paragraphLayout", paragraphLayoutDefault);
 };
 
-function printSection(sectionId) {
+/*
+function printSection1(sectionId) {
      const section = document.getElementById(sectionId);
      const printWindow = window.open('');
      let styles = '';
@@ -1041,7 +1042,7 @@ async function printSection2(sectionId) {
         iframe.contentWindow.onafterprint = () => { iframe.remove(); };
         iframe.contentWindow.print();
     //}, 250);
-};
+};*/
 
 async function printSection(sectionId) {
      const section = document.getElementById(sectionId);
@@ -1065,7 +1066,7 @@ async function printSection(sectionId) {
      iframe.srcdoc = `
           <!DOCTYPE html>
           <html>
-          <head><title>Print</title></head>
+          <head></head>
           <body></body>
           </html>
      `;
