@@ -4,8 +4,15 @@ th { background-color: var(--gradientDark); color: var(--whiteText); border-righ
 tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 .cs-thNoRightBorder { border-right: none; }
 
-.cs-btnBackground { display: flex; align-items: center; gap: 1em; padding: .5em; padding-left: 1.2em; padding-right: 1.2em; padding-bottom: .4em; border-top-left-radius: 6px; border-top-right-radius: 6px; background-color: var(--gradientDark); color: var(--whiteText); max-width: max-content; }
+.cs-btnBackground { display: flex; align-items: center; gap: 1em; padding: .5em; padding-left: 1.2em; padding-right: 1.2em; padding-bottom: .4em; border-top-left-radius: 6px; border-top-right-radius: 6px; background-color: var(--gradientDark); color: var(--whiteText); max-width: max-content; text-decoration: underline; cursor: pointer; }
+.cs-adjustFont1 { display: flex; justify-content: center; align-items: center; height: 1.2rem; width: 1.2rem; line-height: 1.2em; border-radius: 50%; background-color: var(--whiteText); color: var(--gradientDark); font-weight: 550; }
+.cs-adjustFont2 { display: inline-flex; background-color: #f2f2f2; border: 1px solid #434242; }
+
 .cs-display { display: inline; padding-left: .3em; }
+.cs-fontP { line-height: 1.4em; }
+.cs-noTextDecoration { text-decoration: none; }
+.cs-textUnderline { text-decoration: underline; }
+.cs-textFont { text-decoration: underline; background-color: #f2f2f2; padding: .3em; padding-top: 0; border: 1px solid #434242; border-radius: 6px; cursor: pointer; }
 
 .cs-link { display: block; position: relative; margin-top: .8em; margin-bottom: -.8em; }
 .cs-link1 { display: block; position: relative; margin-bottom: -.3em; }
@@ -24,7 +31,7 @@ tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 .cs-title1 { color: var(--greenEmphasis); font-weight: 550; font-size: .9em; }
 .cs-linkBtn { margin-left: .3em; margin-right: auto; }
 
-#id-adjustFont { padding: 0; }
+#id-adjustFont { padding: 0; text-decoration: underline; cursor: pointer; }
 #id-blueLetterPlan { display: block; position: relative; color: var(--aLinkDarkColor); width: 95%; max-width: max-content; margin: auto; text-align: center; font-size: .9em; cursor: pointer; }
 #id-contentsTitle { color: var(--greenEmphasis); width: 100%; }
 #id-HeadlineAbout { padding-bottom: .3em; }

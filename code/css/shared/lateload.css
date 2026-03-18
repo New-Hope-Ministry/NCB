@@ -7,6 +7,7 @@
      #id-navNextChapter:hover { color: #b20303; cursor: pointer; }
 
      .cs-adjustFont1:hover,
+     .cs-textFont:hover,
      #id-themeBtn:hover { background-color: #82b4fe; color: white; cursor: pointer; }
 
      .cs-glossaryLink:hover,
