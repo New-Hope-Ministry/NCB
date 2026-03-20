@@ -197,6 +197,7 @@ let domReadyPromise = (async () => {
 
           document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
           document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
+          document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
           boxOpen = 0;
 
           getMenus();
@@ -216,6 +217,7 @@ let domReadyPromise = (async () => {
           setQuerystring('cn', activeChapter);
           document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
           document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
+          document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
           boxOpen = 0;
 
           getMenus();
