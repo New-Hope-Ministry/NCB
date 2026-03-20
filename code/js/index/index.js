@@ -351,7 +351,6 @@ async function triggerCacheCheck() {
           setQuerystring('cn', 1);
           setQuerystring('verid', activeVersion);
 
-          document.getElementById('id-MenuBtn4').textContent = '1:';
           document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
           document.getElementById('id-redLetter').textContent = 'Red Letter';
           document.getElementById(defaultVersionID).classList.add('cs-bvSelected');

@@ -231,7 +231,7 @@ let domReadyPromise = (async () => {
           let verid1 = await getCompVersion(e);
           selected(activeCompVrsnID, 'id-versions1');
           setQuerystring('verid1', verid1);
-          getMenus();
+          await getMenus();
           return true;
      };
 
@@ -242,6 +242,8 @@ let domReadyPromise = (async () => {
           await getChapter(1, 'A', verses1);
           document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
           document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
+          getMenus();
+          return true;
      };
 
 
@@ -252,6 +254,8 @@ let domReadyPromise = (async () => {
           await getChapter(1, 'A', verses1);
           document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
           document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
+          getMenus();
+          return true;
      };
 
      async function getCompVersion(e = null) {

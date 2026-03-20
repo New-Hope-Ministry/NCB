@@ -1,6 +1,6 @@
 /*******************************/
 // Golbal Variables
-const dateEdited = '3-16-2026';
+const dateEdited = '3-20-2026';
 const copyrighted = '2018-2026';
 const goHome = 'https://thearkbible.com';
 const isLive = false;
@@ -1092,7 +1092,7 @@ function unHighlight(e = null) {
      selected('id-verse0', 'id-verses');
      removeQueryParam('vh');
      let btn = document.getElementById('id-MenuBtn4');
-     if (btn) { btn.textContent = '1'; };
+     if (btn) { if (isNumeric(btn.textContent)) { btn.textContent = '1'; }; };
      if (selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
      selectedVerseNumberID = null;
      selectedVerseID = null;
