@@ -1091,8 +1091,9 @@ function unHighlight(e = null) {
      stopBubbles(e);
      selected('id-verse0', 'id-verses');
      removeQueryParam('vh');
+     // If btn.id = 'id-MenuBtn4' and btn.dataset.type = 'vh1', the btn is the Verse Highlight button
      let btn = document.getElementById('id-MenuBtn4');
-     if (btn) { if (isNumeric(btn.textContent)) { btn.textContent = '1'; }; };
+     if (btn) { if (btn.dataset.type === 'vh1') { btn.textContent = '1'; }; };
      if (selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
      selectedVerseNumberID = null;
      selectedVerseID = null;
