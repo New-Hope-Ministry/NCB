@@ -1,6 +1,6 @@
 /*******************************/
 // Golbal Variables
-const dateEdited = '3-20-2026';
+const dateEdited = '3-23-2026';
 const copyrighted = '2018-2026';
 const goHome = 'https://thearkbible.com';
 const isLive = false;
@@ -810,8 +810,9 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
                          p.appendChild(pad);
                     }
                     newParagraph = true;
-                    p.appendChild(renderVerseSpan(v, AA));
-
+                    let sp = renderVerseSpan(v, AA);
+                    sp.classList.add("cs-verseText");
+                    p.appendChild(sp);
                     i++;
                     verseCount++;
                };

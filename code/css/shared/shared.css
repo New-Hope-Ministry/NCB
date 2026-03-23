@@ -117,11 +117,12 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 .cs-hr1 { width: 100%; margin: auto; margin-top: 1.2em; }
 .cs-jqRed { color: var(--lighterMaroonEmphasis); }
 .cs-jqBlue { color: var(--blueVerse); }
-.cs-singleVerse { margin-top: -.5em; z-index: 100; }
+.cs-singleVerse {  margin-top: -.5em; z-index: 100; }
 .cs-verseNumber { color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }
 .cs-verseNumber1 { margin-right: .3em; }
 .cs-verseNumber2 { padding-left: .3em; }
 .cs-versePadding { padding: .23em; }
+.cs-verseText { line-height: 1.3em; }
 
 .cs-copySign { font-size: .75em; }
 .cs-highlight { background-color: #4180de; }
