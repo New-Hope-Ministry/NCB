@@ -26,6 +26,7 @@ tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 .cs-qrcode { display: block; position: relative; top: 50%; height: 192px; width: 192px; margin: auto; cursor: pointer; }
 .cs-qrText { width: 50%; margin-left: auto; margin-right: auto; font-size: .8rem; text-align: center; }
 .cs-signed { color: var(--cs-edited); font-size: .7em; }
+.cs-unknown { color: var(--cs-edited); font-size: .9em; }
 .cs-tblHeadline { line-height: 1.5rem; text-align: center; border-top-left-radius: 6px; border-top-right-radius: 6px; overflow: hidden; font-size: 1.2rem; background-color: var(--headlineBackground); background-color: #b63f47; color: var(--headlineColor); padding: .3em; }
 .cs-title { height: max-content; font-size: 1.1em; font-weight: 550; color: var(--redEmphasis); margin-bottom: .5em; margin-top: 1em; }
 .cs-title1 { color: var(--greenEmphasis); font-weight: 550; font-size: .9em; }
