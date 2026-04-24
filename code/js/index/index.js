@@ -60,8 +60,8 @@ async function getDefaults() {
      let verid = params.get('verid');
      if (verid) { verid = Number(verid); };
     //verid = 13;
-     if (verid) { if (verid > defaultVersionTopID) { verid = defaultVersionTopID - 1;  removeQueryParam('verid'); }; };
-     if (verid) { activeVersionID = `id-version${verid}`; };
+     if (verid) { if (verid > defaultVersionTopID) { verid = defaultVersionTopID - 1;  setQuerystring('verid', verid); }; activeVersionID = `id-version${verid}`; };
+     //if (verid) { activeVersionID = `id-version${verid}`; };
      //localStorage.setItem("activeVersionID", `id-version13`);
      //localStorage.removeItem("activeVersionID")
      let activeVersion = null;
