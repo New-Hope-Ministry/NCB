@@ -59,7 +59,7 @@ async function getDefaults() {
      //Change verid & activeVersion if number of versions has changed
      let verid = params.get('verid');
     //verid = 13;
-     if (verid) { if (verid > 12) { verid = 11 }; };
+     if (verid) { if (verid > 12) { verid = 11 }; removeQueryParam('vh'); };
      if (verid) { activeVersionID = `id-version${verid}`; };
      //localStorage.setItem("activeVersionID", `id-version13`);
      //localStorage.removeItem("activeVersionID")
@@ -68,9 +68,10 @@ async function getDefaults() {
           activeVersionID = localStorage.getItem("activeVersionID");
           if (activeVersionID) {
                activeVersion = Number(activeVersionID.slice('id-version'.length));
+               if (activeVersion > 12) { activeVersionID = defaultVersionID; localStorage.removeItem("activeVersionID"); };
           };
      };
-     if (!activeVersionID || activeVersion > 12) { activeVersionID = defaultVersionID };
+     if (!activeVersionID) { activeVersionID = defaultVersionID; };
 
      let bid = params.get('bid');
      if (bid) { activeBookID = `id-book${bid}`; };
