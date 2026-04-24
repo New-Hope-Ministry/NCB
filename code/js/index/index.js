@@ -58,8 +58,9 @@ async function getDefaults() {
 
      //Change verid & activeVersion if number of versions has changed
      let verid = params.get('verid');
+     if (verid) { verid = Number(verid); };
     //verid = 13;
-     if (verid) { if (verid > 12) { verid = 11 }; removeQueryParam('verid'); };
+     if (verid) { if (verid > 12) { verid = 11;  removeQueryParam('verid'); }; };
      if (verid) { activeVersionID = `id-version${verid}`; };
      //localStorage.setItem("activeVersionID", `id-version13`);
      //localStorage.removeItem("activeVersionID")
