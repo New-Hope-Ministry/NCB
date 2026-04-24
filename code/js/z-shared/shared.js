@@ -833,9 +833,9 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
      if (aVersesBox) loadVerses(findVerse, verseCount);
 
      // Navigation visibility
-     const btmLastLine = document.getElementById(`id-navLastChapter${A1}`);
+     const btmLastLine = document.getElementById(`id-navLastChapter`);
      if (btmLastLine) { btmLastLine.style.visibility = (activeBook === 1 && activeChapter === 1) ? 'hidden' : 'visible'; };
-     const btmNextLine = document.getElementById(`id-navNextChapter${A1}`);
+     const btmNextLine = document.getElementById(`id-navNextChapter`);
      if (btmNextLine) { btmNextLine.style.visibility = (activeBook === 66 && activeChapter === 22) ? 'hidden' : 'visible'; }
 
      setFontSize();

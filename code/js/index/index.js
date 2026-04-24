@@ -56,10 +56,21 @@ async function getDefaults() {
      let vh = params.get('vh');
      if (vh) { selectedVerseID = `id-verse${vh}`; };
 
+     //Change verid & activeVersion if number of versions has changed
      let verid = params.get('verid');
+    //verid = 13;
+     if (verid) { if (verid > 12) { verid = 11 }; };
      if (verid) { activeVersionID = `id-version${verid}`; };
-     if (!activeVersionID) { activeVersionID = localStorage.getItem("activeVersionID"); };
-     if (!activeVersionID) { activeVersionID = defaultVersionID };
+     //localStorage.setItem("activeVersionID", `id-version13`);
+     //localStorage.removeItem("activeVersionID")
+     let activeVersion = null;
+     if (!activeVersionID) {
+          activeVersionID = localStorage.getItem("activeVersionID");
+          if (activeVersionID) {
+               activeVersion = Number(activeVersionID.slice('id-version'.length));
+          };
+     };
+     if (!activeVersionID || activeVersion > 12) { activeVersionID = defaultVersionID };
 
      let bid = params.get('bid');
      if (bid) { activeBookID = `id-book${bid}`; };
