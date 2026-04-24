@@ -1,6 +1,6 @@
 /*******************************/
 // Golbal Variables
-const dateEdited = '4-18-2026';
+const dateEdited = '4-23-2026';
 const copyrighted = '2018-2026';
 const goHome = 'https://thearkbible.com';
 const isLive = false;
