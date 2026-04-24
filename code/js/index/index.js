@@ -60,7 +60,7 @@ async function getDefaults() {
      let verid = params.get('verid');
      if (verid) { verid = Number(verid); };
     //verid = 13;
-     if (verid) { if (verid > 12) { verid = 11;  removeQueryParam('verid'); }; };
+     if (verid) { if (verid > defaultVersionTopID) { verid = defaultVersionTopID - 1;  removeQueryParam('verid'); }; };
      if (verid) { activeVersionID = `id-version${verid}`; };
      //localStorage.setItem("activeVersionID", `id-version13`);
      //localStorage.removeItem("activeVersionID")
@@ -69,7 +69,7 @@ async function getDefaults() {
           activeVersionID = localStorage.getItem("activeVersionID");
           if (activeVersionID) {
                activeVersion = Number(activeVersionID.slice('id-version'.length));
-               if (activeVersion > 12) { activeVersionID = defaultVersionID; localStorage.removeItem("activeVersionID"); };
+               if (activeVersion > defaultVersionTopID) { activeVersionID = defaultVersionID; localStorage.removeItem("activeVersionID"); };
           };
      };
      if (!activeVersionID) { activeVersionID = defaultVersionID; };

@@ -22,6 +22,7 @@ const defaultBookID = `id-book1`;
 const defaultChapterID = `id-chapter1`;
 const defaultDayID = `id-day1`;
 const defaultFontSize = 1.06;
+const defaultVersionTopID = 12;
 const defaultVersionID = `id-version11`; // Version Defaults: KJV = 8, TWF = 11
 const defaultCompVrsnID = `id-versionA1`; // Compare Version Defaults: AKJ = 1, TWF = 11
 // End of Keep the defaults here!
