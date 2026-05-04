@@ -1,6 +1,6 @@
 /*******************************/
 // Golbal Variables
-const dateEdited = '4-23-2026';
+const dateEdited = '5-04-2026';
 const copyrighted = '2018-2026';
 const goHome = 'https://thearkbible.com';
 const isLive = false;
@@ -22,7 +22,6 @@ const defaultBookID = `id-book1`;
 const defaultChapterID = `id-chapter1`;
 const defaultDayID = `id-day1`;
 const defaultFontSize = 1.06;
-const defaultVersionTopID = 12;
 const defaultVersionID = `id-version11`; // Version Defaults: KJV = 8, TWF = 11
 const defaultCompVrsnID = `id-versionA1`; // Compare Version Defaults: AKJ = 1, TWF = 11
 // End of Keep the defaults here!
@@ -491,9 +490,10 @@ async function lastChapter(e = null) {
 
      let loadChpts = false;
      if (cn < 1) {
+          cn = 1;
           bid--;
           if (bid < 1) { bid = 1; };
-          let books = getBooksVolume(bid);
+          let books = await getBooksVolume(bid);
           let i = books.findIndex(rec => rec.id === bid);
           cn = books[i].c;
           loadChpts = true;
@@ -509,7 +509,7 @@ async function nextChapter(e = null) {
      if (!boxesLoaded) { await loadBoxes(); };
      let bid = Number(activeBookID.slice("id-book".length));
      let cn = Number(activeChapterID.slice("id-chapter".length)) + 1;
-     let books = getBooksVolume(bid);
+     let books = await getBooksVolume(bid);
      let i = books.findIndex(rec => rec.id === bid);
      chs = books[i].c;
 

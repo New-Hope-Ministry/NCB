@@ -47,10 +47,10 @@ let domReadyPromise = (async () => {
      };
 
      async function loadBoxes() {
-          loadVersions(changeVersion);
-          loadVersions(changeCompVersion, 'id-versions1Box', 'A');
-          loadBooks(changeCompBook);
-          loadChapters(changeCompChapter);
+          await loadVersions(changeVersion);
+          await loadVersions(changeCompVersion, 'id-versions1Box', 'A');
+          await loadBooks(changeCompBook);
+          await loadChapters(changeCompChapter);
           startUp();
           boxesLoaded = true;
           return true;

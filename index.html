@@ -5,37 +5,82 @@
      <meta charset="UTF-8">
      <title>The Ark Bible</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
      <meta name="description" content="☀️ The Ark Bible App is an online searchable Bible App. It offers the Bible in many different versions and languages, and a 365 day chronological reading plan.">
      <meta name="keywords" content="God, Lord, God's Love, Jehovah, Jesus, Ark Bible, The Ark Bible, Bible, Bible App, Bible Archive, Bible Reference, Bible Study, Christ, Christian, Forgiveness, Free Bible, Holy Bible, Read the Bible, Searchable Bible, Search The Bible, Salvation, Savior, Scripture, Holy Scripture, Study Bible, Study The Bible, King James Version, KJV, Twenty-First Century Version, TWF, Bible 365 day Chronological Reading Plan">
-
      <style id="id-loaderStyle">
-          #id-loaderContainer { position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: #2b317f; }
-          #id-northStarLoader { position: fixed; top: 15%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5em; }
-          #id-loaderTitle { position: absolute; top: 20%; width: 100%; min-width: max-content; text-align: center; color: white; font-size: 3em; }
-          #id-loading { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); border: 8px solid var(--mediumGray); border-top: 8px solid var(--lightMaroonEmphasis); border-radius: 50%; background-color: var(--lightMaroonEmphasis); color: white; text-align: center; width: 2em; height: 2em; animation: spin 1.5s linear infinite; }
-          @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
-          @media (max-width: 668px) { #id-loaderTitle { font-size: 2em;} }
-     </style>
+          #id-loaderContainer {
+               position: fixed;
+               left: 0;
+               top: 0;
+               height: 100%;
+               width: 100%;
+               background-color: #2b317f;
+          }
 
+          #id-northStarLoader {
+               position: fixed;
+               top: 15%;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               font-size: 2.5em;
+          }
+
+          #id-loaderTitle {
+               position: absolute;
+               top: 20%;
+               width: 100%;
+               min-width: max-content;
+               text-align: center;
+               color: white;
+               font-size: 3em;
+          }
+
+          #id-loading {
+               position: fixed;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%) rotate(0deg);
+               border: 8px solid var(--mediumGray);
+               border-top: 8px solid var(--lightMaroonEmphasis);
+               border-radius: 50%;
+               background-color: var(--lightMaroonEmphasis);
+               color: white;
+               text-align: center;
+               width: 2em;
+               height: 2em;
+               animation: spin 1.5s linear infinite;
+          }
+
+          @keyframes spin {
+               0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
+               }
+
+               100% {
+                    transform: translate(-50%, -50%) rotate(360deg);
+               }
+          }
+
+          @media (max-width: 668px) {
+               #id-loaderTitle {
+                    font-size: 2em;
+               }
+          }
+     </style>
      <link rel="manifest" href="manifest.webmanifest">
      <!-- Pre-fetch -->
      <link rel="preload" as="image" href="images/headers/crystal.webp" imagesizes="100vw" fetchpriority="high">
      <link rel="preload" as="image" href="images/icons/ark-192.webp" fetchpriority="high">
-
      <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
-
      <link rel="stylesheet" type="text/css" href="code/css/shared/shared.css">
      <link rel="stylesheet" type="text/css" href="code/css/apps/settings.css">
      <link rel="stylesheet" type="text/css" href="code/css/shared/boxes.css">
      <link rel="stylesheet" type="text/css" href="code/css/shared/lateload.css" media="print" onload="this.media='all'">
-
      <script defer src="code/js/z-shared/shared.js"></script>
      <script defer src="code/js/index/index.js"></script>
      <script defer src="code/js/z-shared/boxes.js"></script>
-
      <script type="application/ld+json">
           {
                "@context": "https://schema.org",
@@ -217,16 +262,13 @@
 </head>
 
 <body id="id-body">
-
      <div id="id-loader">✝</div>
      <div id="id-loaderContainer">
           <div id="id-northStarLoader">✨</div>
           <h1 id="id-loaderTitle">The Ark Bible</h1>
           <div id="id-loading">✝</div>
      </div>
-
      <div id="id-noDisplay" onclick="openBoxes(event); unHighlight(event)">
-
           <div id="id-sunshine">
                <img id="id-logoImg" loading="eager" fetchpriority="high" width="192" height="192" src="images/icons/ark-192.webp" alt="The Ark Bible Cross Icon" title="The Ark Bible Cross Icon" onclick="bClick(goHome)">
                <div id="id-banner" onclick="openBoxes(event); unHighlight(event)">
@@ -240,23 +282,19 @@
                     </div>
                </div>
           </div>
-
           <div id="id-pageContainer" onclick="openBoxes(event); unHighlight(event)">
                <div id="top"> </div>
                <div id="id1-searchTop"></div>
                <div id="id-mainPage">
                     <div id="id-headline">Twenty-First Century Version</div>
                     <div id="id-page" onclick="openBoxes(event); unHighlight(event)"></div>
-
                     <div id="id-navLine" data-nosnippet>
                          <div id="id-navLastChapter" onclick="lastChapter(event)">‹ Last</div>
                          <div id="id-navTitle">Genesis 1</div>
                          <div id="id-navNextChapter" onclick="nextChapter(event)">Next ›</div>
                     </div>
                </div>
-
                <div id="id-randomChapter" onclick="readRandomChapter(event)">Read a Random Chapter</div>
-
                <div id="id-bottom">
                     <hr class="cs-hr1">
                     <div id="id-appLinks">
@@ -264,20 +302,14 @@
                          <a id="id-listen" onclick="openListen()" data-nosnippet>Listen to the Bible</a>
                          <a id="id-readChron" onclick="readChron()" data-nosnippet>365 Day Chronological Plan</a>
                     </div>
-
                     <div id="id-settings" data-nosnippet>
                          <div id="id-glossary">
                               <h4 class="cs-glossaryHeaders">Overview</h4>
                               <a class="cs-glossaryLink" onclick="aClick('pages/about.html')">About The Ark</a>
-
                               <a class="cs-glossaryLink" onclick="aClick('pages/statement.html')">Statement of Faith</a>
-
                               <a class="cs-glossaryLink" onclick="aClick('pages/license.html')">Licenses</a>
-
                               <a class="cs-glossaryLink" onclick="aClick('pages/history.html')">Versions History</a>
-
                               <a class="cs-glossaryLink" onclick="aClick('pages/qr.html')" title="The Ark Bible QR Code">Scan QR Code</a>
-
                               <a class="cs-glossaryLink" onclick="aClick('pages/help.html')" title="Help">Help</a>
                          </div>
                          <div id="id-glossary1">
@@ -288,7 +320,9 @@
                               </div>
                               <div id="id-font">
                                    <span class="cs-fontLine">
-                                        <span class="cs-adjustFont1" onclick="changeFontSize('-')" title="Increase Font Size">-</span>
+                                        <span class="cs-adjustFont1" onclick="changeFontSize('-')" title="Increase Font Size">
+                                             <span class="cs-rotate180">-</span>
+                                        </span>
                                    </span>
                                    <span id="id-adjustFont" onclick="changeFontSize('d')" title="Default Font Size">Font</span>
                                    <span class="cs-fontLine">
@@ -297,12 +331,10 @@
                               </div>
                               <div id="id-redLetter" onclick="redLetter()" title="Set color of Jesus' quotes - Red Letter or Black Letter">Red Letter</div>
                               <div id="id-paragraphLayout" onclick="paragraphLayout()" title="Set format of text layout - Paragraph or Single Line">Paragraph Layout</div>
-                               <div id="id-print" onclick="printSection('id-mainPage')" title="Print Current Page">Print Page</div>
+                              <div id="id-print" onclick="printSection('id-mainPage')" title="Print Current Page">Print Page</div>
                               <div id="id-resetDefaults" onclick="resetDefaults()" title="Reset Defaults to Original">Reset Defaults</div>
                          </div>
-
                     </div>
-
                     <hr class="cs-hr1">
                     <div id="id-GodLovesYou">
                          <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
@@ -324,7 +356,6 @@
                </div>
           </div>
      </div>
-
      <div id="id-versions" data-nosnippet>
           <div id="id-versionHeader">Versions</div>
           <div id="id-versionsBox"></div>
@@ -346,19 +377,65 @@
           <div id="id-verseHeader">Verses</div>
           <div id="id-versesBox"></div>
      </div>
-
      <style>
-          #id-end { display: none; position: fixed; left: 0; top: 4.25em; width: 100%; height: max-content; background-color: #f1f2f3; border-bottom: 5px solid #9b9a9a; border-top: 5px solid #9b9a9a; color: var(--gradientDark); z-index: 11; }
-          #id-endLine { position: relative; width: 85%; top: 10%; margin: auto; font-size: .9rem; margin-top: 1.5em; }
-          #id-endMsg { padding-left: 1.5em; padding-right: 1.5em; width: 94%; margin: auto; text-align: justify; }
-          #id-endBtnLine { display: flex; justify-content: space-evenly; top: 1%; width: 50%; margin: auto; margin-top: 1.5em; margin-bottom: 1.5em; }
-          .cs-endBtn { display: block; position: relative; background-color: #9b9a9a; color: white; width: 5em; height: 2em; border: none; cursor: pointer; margin: auto; font-weight: 550; }
+          #id-end {
+               display: none;
+               position: fixed;
+               left: 0;
+               top: 4.25em;
+               width: 100%;
+               height: max-content;
+               background-color: #f1f2f3;
+               border-bottom: 5px solid #9b9a9a;
+               border-top: 5px solid #9b9a9a;
+               color: var(--gradientDark);
+               z-index: 11;
+          }
+
+          #id-endLine {
+               position: relative;
+               width: 85%;
+               top: 10%;
+               margin: auto;
+               font-size: .9rem;
+               margin-top: 1.5em;
+          }
+
+          #id-endMsg {
+               padding-left: 1.5em;
+               padding-right: 1.5em;
+               width: 94%;
+               margin: auto;
+               text-align: justify;
+          }
+
+          #id-endBtnLine {
+               display: flex;
+               justify-content: space-evenly;
+               top: 1%;
+               width: 50%;
+               margin: auto;
+               margin-top: 1.5em;
+               margin-bottom: 1.5em;
+          }
+
+          .cs-endBtn {
+               display: block;
+               position: relative;
+               background-color: #9b9a9a;
+               color: white;
+               width: 5em;
+               height: 2em;
+               border: none;
+               cursor: pointer;
+               margin: auto;
+               font-weight: 550;
+          }
      </style>
      <div id="id-end" data-nosnippet>
           <div id="id-endLine">
                <p id="id-endMsg">
-                    <span class="cs-h2 cs-h3">The Ark Bible Installation</span>
-                    You do not have to install The Ark Bible app to use it, but if you click Install you agree to allow this app to be installed and store local files on your device. If you click Cancel, no files will be stored locally. The Ark Bible app does not collect or store any personal or tracking data whether it is installed or not. If you change your mind later, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or by clearing your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page. If you allow the files to be stored locally it will reduce data usage for your internet connection.
+                    <span class="cs-h2 cs-h3">The Ark Bible Installation</span> You do not have to install The Ark Bible app to use it, but if you click Install you agree to allow this app to be installed and store local files on your device. If you click Cancel, no files will be stored locally. The Ark Bible app does not collect or store any personal or tracking data whether or not it is installed. If you change your mind later, you can reset the app by clicking the Reset Defaults button at the bottom of the page, or by clearing your browser history. More information about the files stored can be found if you click on the Help link at the bottom of the page.
                </p>
                <div id="id-endBtnLine">
                     <button class="cs-endBtn" onclick="saveLocal()">Install</button>
@@ -366,7 +443,6 @@
                </div>
           </div>
      </div>
-
 </body>
 
 </html>

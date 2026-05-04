@@ -33,7 +33,7 @@ let domReadyPromise = (async () => {
      };
 
      async function loadBoxes() {
-          loadVersions(changeSearchVersion);
+          await loadVersions(changeSearchVersion);
           startUp();
           boxesLoaded = true;
           return true;

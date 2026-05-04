@@ -83,9 +83,9 @@ window.onbeforeunload = (event) => {
      };
 
      async function loadBoxes() {
-          loadVersions(changeVersion);
-          loadBooks(changeBook);
-          loadChapters(changeChapter);
+          await loadVersions(changeVersion);
+          await loadBooks(changeBook);
+          await loadChapters(changeChapter);
           startUp();
           boxesLoaded = true;
           return true;

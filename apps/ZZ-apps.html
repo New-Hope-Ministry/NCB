@@ -21,10 +21,10 @@
      <script id="id-initialize">
           // These functions can be customized for each app page
           async function loadBoxes() {
-               loadVersions(changeVersion);
-               loadBooks(changeBook);
-               loadChapters(changeChapter);
-               loadVerses(findVerse, 50);
+               await loadVersions(changeVersion);
+               await loadBooks(changeBook);
+               await loadChapters(changeChapter);
+               await loadVerses(findVerse, 50);
                startUp();
                boxesLoaded = true;
                return true;

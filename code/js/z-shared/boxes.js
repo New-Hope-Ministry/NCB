@@ -7,7 +7,7 @@ function closeBoxes() {
           if (element) { element.style.display = 'none'; };
      };
     boxesAreOpen = false;
-    
+
 };
 
 async function loadBooks(chgBook, box = 'id-booksBox') {

@@ -18,7 +18,8 @@
 #id-paragraphLayout,
 #id-print { padding-left: 1.5em; padding-right: 1.5em; text-decoration: underline; font-size: .9rem; cursor: pointer; }
 
-.cs-adjustFont1 { display: flex; justify-content: center; align-items: center; height: 1.2rem; width: 1.2rem; line-height: 1.2em; border-radius: 50%; background-color: var(--whiteText); color: var(--gradientDark); font-weight: 550; cursor: pointer; }
+.cs-adjustFont1 { display: flex; justify-content: center; align-items: center; height: 1.2rem; width: 1.2rem; line-height: 0; border-radius: 50%; background-color: var(--whiteText); color: var(--gradientDark); }
+.cs-rotate180 { display: inline-block; transform: rotate(180deg) translateY(-2px); text-align: center; width: auto; }
 .cs-fontLine { display: inline-block; text-align: center; vertical-align: middle; height: 1.2rem; width: 1.2rem; line-height: 1.2em; font-size: 1.1em; }
 .cs-glossaryHeaders { user-select: none; color: var(--lightGreenEmphasis); }
 
