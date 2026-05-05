@@ -115,18 +115,18 @@ async function getDefaults() {
 
      let bid = params.get('bid');
      if (bid) { activeBookID = `id-book${bid}`; };
-     if (!activeBookID) { activeBookID = localStorage.getItem("activeChronBookID"); };
-     if (!activeBookID) { activeBookID = defaultBookID; };
+     if (!activeBookID || activeBookID === 'null') { activeBookID = localStorage.getItem("activeChronBookID"); };
+     if (!activeBookID || activeBookID === 'null') { activeBookID = defaultBookID; };
 
      let cn = params.get('cn');
      if (cn) { activeChapterID = `id-chapter${cn}`; };
-     if (!activeChapterID) { activeChapterID = localStorage.getItem("activeChronChapterID"); };
-     if (!activeChapterID) { activeChapterID = defaultChapterID; };
+     if (!activeChapterID || activeChapterID === 'null') { activeChapterID = localStorage.getItem("activeChronChapterID"); };
+     if (!activeChapterID || activeChapterID === 'null') { activeChapterID = defaultChapterID; };
 
      let verid = params.get('verid');
      if (verid) { activeVersionID = `id-version${verid}`; };
-     if (!activeVersionID) { activeVersionID = localStorage.getItem("activeChronVersionID"); };
-     if (!activeVersionID) { activeVersionID = defaultVersionID };
+     if (!activeVersionID || activeVersionID === 'null') { activeVersionID = localStorage.getItem("activeChronVersionID"); };
+     if (!activeVersionID || activeVersionID === 'null') { activeVersionID = defaultVersionID };
 
      await getDesignDefaults();
      return true;
