@@ -80,6 +80,7 @@ const versions = [
 ];
 //const idx =11; // TWF = 11
 const idx = versions.findIndex(rec => rec.ar === 'TWF');
+//const idx = 11;
 const abr= versions[idx].ar;
 const fileName = `data\\${abr}\\${abr}Verses.json`;
 const data = fs.readFileSync(fileName, 'utf8');
@@ -439,10 +440,7 @@ for (const item of jsonData) {
     item.vt = item.vt.replace(':"', ': "');
     item.vt = item.vt.replace(":‘", ": ‘");
     item.vt = item.vt.replace(":“", ": “");
-    item.vt = item.vt.replace("  ", " ");
     item.vt = item.vt.replace("\"\"", "\" \"");
-
-    item.vt = item.vt.replace("andknow", "and know");
 
 };
 

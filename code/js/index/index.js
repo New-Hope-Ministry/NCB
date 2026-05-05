@@ -59,11 +59,13 @@ async function getDefaults() {
      //Change verid & activeVersion if number of versions has changed
      let verid = params.get('verid');
      if (verid) { verid = Number(verid); };
-    //verid = 13;
      if (verid) { if (verid > 12) { verid = 12;  setQuerystring('verid', verid); }; activeVersionID = `id-version${verid}`; };
+
+     // for testing
      //if (verid) { activeVersionID = `id-version${verid}`; };
      //localStorage.setItem("activeVersionID", `id-version13`);
      //localStorage.removeItem("activeVersionID")
+
      let activeVersion = null;
      if (!activeVersionID) {
           activeVersionID = localStorage.getItem("activeVersionID");
@@ -143,14 +145,17 @@ function selected(id, container, reset = null) {
           case "id-versions":
                unselected = pastSelectedVersionID;
                pastSelectedVersionID = id;
+               localStorage.setItem('activeVersionID', activeVersionID);
                break;
           case "id-books":
                unselected = pastSelectedBookID;
                pastSelectedBookID = id;
+               localStorage.setItem('activeBookID', activeBookID);
                break;
           case "id-chapters":
                unselected = pastSelectedChapterID;
                pastSelectedChapterID = id;
+               localStorage.setItem('activeChapterID', activeChapterID);
                break;
           case "id-verses":
                unselected = pastSelectedVerseID;
@@ -341,7 +346,14 @@ async function triggerCacheCheck() {
           if (theme.classList.contains('cs-darkTheme')) { theme.classList.remove('cs-darkTheme'); };
           rotateTheme = true;
           changeFontSize('d');
+
+          let keepBook = localStorage.getItem("activeChronBookID");
+          let keepChapter = localStorage.getItem("activeChronChapterID");
+          let keepVersion = localStorage.getItem("activeChronVersionID");
           localStorage.clear();
+          localStorage.setItem("activeChronBookID", keepBook);
+          localStorage.setItem("activeChronChapterID", keepChapter);
+          localStorage.setItem("activeChronVersionID", keepVersion);
 
           paragraphLayoutDefault = 0;
           redLetterDefault = 0;
