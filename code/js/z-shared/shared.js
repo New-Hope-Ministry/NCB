@@ -1,6 +1,6 @@
 /*******************************/
 // Golbal Variables
-const dateEdited = '5-05-2026';
+const dateEdited = '5-06-2026';
 const copyrighted = '2018-2026';
 const goHome = 'https://thearkbible.com';
 const isLive = false;
@@ -10,7 +10,7 @@ var verses = [];
 
 // Default Value Definitions!
 //? The default values are used when resetting the Ark to its initial state
-/*The default activeVersionID is 'id-version21', which is the Twenty-First Century Version.
+/*The default activeVersionID is 'id-version9', which is the Twenty-First Century Version.
 The default activeBookID is 'id-book1', which is Genesis.
 The default activeChapterID is 'id-chapter1', which is the first chapter from the book of the activeBookID.
 The default setTheme is '0', which is the light theme.
@@ -22,7 +22,7 @@ const defaultBookID = `id-book1`;
 const defaultChapterID = `id-chapter1`;
 const defaultDayID = `id-day1`;
 const defaultFontSize = 1.06;
-const defaultVersionID = `id-version11`; // Version Defaults: KJV = 8, TWF = 11
+const defaultVersionID = `id-version9`; // Version Defaults: KJV = 8, TWF = 11
 const defaultCompVrsnID = `id-versionA1`; // Compare Version Defaults: AKJ = 1, TWF = 11
 // End of Keep the defaults here!
 
@@ -391,78 +391,60 @@ const newBooks = [
      }
 ];
 const versions = [
-     {
-          "ar": "AKJ",
-          "id": 1,
-          "rdl": 0,
-          "t": "American King James Version"
-     },
-     {
-          "ar": "ASV",
-          "id": 2,
-          "rdl": 0,
-          "t": "American Standard Version"
-     },
-     {
-          "ar": "AKV",
-          "id": 3,
-          "rdl": 0,
-          "t": "Authorized King James Version"
-     },
-     {
-          "ar": "BSB",
-          "id": 4,
-          "rdl": 0,
-          "t": "Berean Standard Bible"
-     },
-     {
-          "ar": "DBY",
-          "id": 5,
-          "rdl": 0,
-          "t": "Darby English Bible"
-     },
-     {
-          "ar": "DRB",
-          "id": 6,
-          "rdl": 0,
-          "t": "Douay-Rheims Bible"
-     },
-     {
-          "ar": "ERV",
-          "id": 7,
-          "rdl": 0,
-          "t": "English Revised Version"
-     },
-     {
-          "ar": "KJV",
-          "id": 8,
-          "rdl": 0,
-          "t": "King James Version"
-     },
-     {
-          "ar": "NWB",
-          "id": 9,
-          "rdl": 0,
-          "t": "Noah Webster's Bible"
-     },
-     {
-          "ar": "SLT",
-          "id": 10,
-          "rdl": 0,
-          "t": "Smith's Literal Translation"
-     },
-     {
-          "ar": "TWF",
-          "id": 11,
-          "rdl": 1,
-          "t": "Twenty-First Century Version"
-     },
-     {
-          "ar": "YLT",
-          "id": 12,
-          "rdl": 0,
-          "t": "Young's Literal Translation"
-     }
+    {
+        "ar": "AKJ",
+        "id": 1,
+        "rdl": 0,
+        "t": "American King James Version"
+    },
+    {
+        "ar": "ASV",
+        "id": 2,
+        "rdl": 0,
+        "t": "American Standard Version"
+    },
+    {
+        "ar": "AKV",
+        "id": 3,
+        "rdl": 0,
+        "t": "Authorized King James Version"
+    },
+    {
+        "ar": "BSB",
+        "id": 4,
+        "rdl": 0,
+        "t": "Berean Standard Bible"
+    },
+    {
+        "ar": "DRB",
+        "id": 5,
+        "rdl": 0,
+        "t": "Douay-Rheims Bible"
+    },
+    {
+        "ar": "ERV",
+        "id": 6,
+        "rdl": 0,
+        "t": "English Revised Version"
+    },
+    {
+        "ar": "KJV",
+        "id": 7,
+        "rdl": 0,
+        "t": "King James Version"
+    },
+    {
+        "ar": "SLT",
+        "id": 8,
+        "rdl": 0,
+        "t": "Smith's Literal Translation"
+    },
+    {
+        "ar": "TWF",
+        "id": 9,
+        "rdl": 1,
+        "t": "Twenty-First Century Version"
+    }
 ];
 
 // Shared Functions

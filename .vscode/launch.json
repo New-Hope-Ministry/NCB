@@ -12,42 +12,42 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch chron.html",
-            "url": "http://localhost:5501/apps/chron.html",
+            "url": "http://localhost:5502/apps/chron.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch comp.html",
-            "url": "http://localhost:5501/apps/comp.html",
+            "url": "http://localhost:5502/apps/comp.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch index.html",
-            "url": "http://localhost:5501/index.html",
+            "url": "http://localhost:5502/index.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch srch.html",
-            "url": "http://localhost:5501/apps/srch.html",
+            "url": "http://localhost:5502/apps/srch.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch synth.html",
-            "url": "http://localhost:5501/apps/synth.html",
+            "url": "http://localhost:5502/apps/synth.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch ZZ-apps.html",
-            "url": "http://localhost:5500/apps/ZZ-apps.html",
+            "url": "http://localhost:5502/apps/ZZ-apps.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

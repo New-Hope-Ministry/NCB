@@ -30,55 +30,37 @@ const versions = [
         "t": "Berean Standard Bible"
     },
     {
-        "ar": "DBY",
-        "id": 5,
-        "rdl": 0,
-        "t": "Darby English Bible"
-    },
-    {
         "ar": "DRB",
-        "id": 6,
+        "id": 5,
         "rdl": 0,
         "t": "Douay-Rheims Bible"
     },
     {
         "ar": "ERV",
-        "id": 7,
+        "id": 6,
         "rdl": 0,
         "t": "English Revised Version"
     },
     {
         "ar": "KJV",
-        "id": 8,
+        "id": 7,
         "rdl": 0,
         "t": "King James Version"
     },
     {
-        "ar": "NWB",
-        "id": 9,
-        "rdl": 0,
-        "t": "Noah Webster's Bible"
-    },
-    {
         "ar": "SLT",
-        "id": 10,
+        "id": 8,
         "rdl": 0,
         "t": "Smith's Literal Translation"
     },
     {
         "ar": "TWF",
-        "id": 11,
+        "id": 9,
         "rdl": 1,
         "t": "Twenty-First Century Version"
-    },
-    {
-        "ar": "YLT",
-        "id": 12,
-        "rdl": 0,
-        "t": "Young's Literal Translation"
     }
 ];
-//const idx = 11; // TWF = 10
+//const idx = 5; // TWF = 8
 const idx = versions.findIndex(rec => rec.ar === 'TWF');
 const abr= versions[idx].ar;
 const fileName = `data\\${abr}\\${abr}Verses.json`;

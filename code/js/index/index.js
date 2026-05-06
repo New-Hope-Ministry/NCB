@@ -3,6 +3,7 @@ let domReadyPromise = (async () => {
         document.addEventListener("DOMContentLoaded", async () => {
           // DOMContentLoaded event fires before page is displayed
 
+          //localStorage.clear();
             let rec = await getDefaults();
             if (rec) rec = await getVersion();
             if (rec) rec = await getMenus();
@@ -71,7 +72,7 @@ async function getDefaults() {
           activeVersionID = localStorage.getItem("activeVersionID");
           if (activeVersionID) {
                activeVersion = Number(activeVersionID.slice('id-version'.length));
-               if (activeVersion > 12) { activeVersionID = defaultVersionID; localStorage.removeItem("activeVersionID"); };
+               if (activeVersion > 9) { activeVersionID = defaultVersionID; localStorage.removeItem("activeVersionID"); };
           };
      };
      if (!activeVersionID) { activeVersionID = defaultVersionID; };
