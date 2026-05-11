@@ -42,13 +42,49 @@ window.addEventListener("load", async () => {
      if (noDisplay) { noDisplay.style.visibility = 'visible'; };
 });
 
-async function loadBoxes() {
-     await loadVersions(changeVersion);
-     await loadBooks(changeBook);
-     await loadChapters(changeChapter);
-     startUp();
-     boxesLoaded = true;
-     return true;
+function changeFontSize(direction) {
+
+     if (direction === '+') {
+          if (activeFontSizeCount > 8) { return; };
+          activeFontSize = activeFontSize * 1.15;
+          activeFontSizeCount++;
+     } else if (direction === '-') {
+          if (activeFontSizeCount < 1) { return; };
+          activeFontSize = activeFontSize / 1.15;
+          activeFontSizeCount--;
+     } else if (direction === 'd') {
+          activeFontSize = defaultFontSize;
+          activeFontSizeCount = 0;
+     };
+     setFontSize();
+
+     localStorage.setItem("activeFontSizeCount", activeFontSizeCount);
+     localStorage.setItem("activeFontSize", activeFontSize);
+};
+
+function changeTheme() {
+
+     toggleTheme();
+     if (rotateTheme) {
+          darkTheme();
+          rotateTheme = false;
+          setTheme = '1';
+          localStorage.setItem("setTheme", '1');
+     } else {
+          lightTheme();
+          rotateTheme = true;
+          setTheme = '0';
+          localStorage.setItem("setTheme", '0');
+     };
+
+};
+
+async function deleteData() {
+
+     localStorage.removeItem('installed');
+     localStorage.removeItem('savedLocal');
+     document.getElementById('top').scrollIntoView({ block: 'start' });
+     await unregisterServiceWorkers();
 };
 
 async function getDefaults() {
@@ -60,7 +96,7 @@ async function getDefaults() {
      //Change verid & activeVersion if number of versions has changed
      let verid = params.get('verid');
      if (verid) { verid = Number(verid); };
-     if (verid) { if (verid > 12) { verid = 12;  setQuerystring('verid', verid); }; activeVersionID = `id-version${verid}`; };
+     if (verid) { if (verid > 9) { verid = 9;  setQuerystring('verid', verid); }; activeVersionID = `id-version${verid}`; };
 
      // for testing
      //if (verid) { activeVersionID = `id-version${verid}`; };
@@ -136,6 +172,112 @@ async function openBoxes(e = null) {
                break;
      };
      if (boxesAreOpen) { closeBoxes(); } else { boxesAreOpen = true; };
+};
+
+async function loadBoxes() {
+     await loadVersions(changeVersion);
+     await loadBooks(changeBook);
+     await loadChapters(changeChapter);
+     startUp();
+     boxesLoaded = true;
+     return true;
+};
+
+/*
+function openListen() {
+     const params = new URLSearchParams(window.location.search);
+     const verid = params.get('verid');
+     const bid = params.get('bid');
+     const cn = params.get('cn');
+
+     const readParams = new URLSearchParams();
+
+     if (verid !== null && verid !== 'null') readParams.set('verid', verid);
+     if (bid !== null && bid !== 'null') readParams.set('bid', bid);
+     if (cn !== null && cn !== 'null') readParams.set('cn', cn);
+
+     let ahref = `apps/synth.html?${readParams.toString()}`;
+     if (isLive) { ahref = ahref.replace(".html", ""); };
+     window.location.href = ahref;
+};*/
+
+function readChron() {
+
+     let ahref = `apps/chron.html`;
+     if (isLive) { ahref = ahref.replace(".html", ""); };
+     window.location.href = ahref;
+};
+
+function readRandomChapter(e = null) {
+
+     stopBubbles(e);
+     let min = 30640;
+     let i = Math.floor(Math.random() * (0 - min + 1)) + min;
+     let bid = verses[i].bid;
+     let cn = verses[i].cn;
+
+     activeBookID = `id-book${bid}`;
+     activeChapterID = `id-chapter${cn}`;
+     getChapter();
+     closeBoxes();
+     document.getElementById('top').scrollIntoView({ block: 'start' });
+};
+
+function resetDefaults() {
+
+     let confirmed = confirm('You are about to reset all saved settings and file storage settings. Changes will take effect immediately. Click OK to continue or Cancel to abort!');
+     if (!confirmed) { return; };
+
+     let theme = document.getElementById("id-themeBtn");
+
+     rotateTheme = false;
+     changeTheme();
+     theme.textContent = "☀️";
+     if (theme.classList.contains('cs-darkTheme')) { theme.classList.remove('cs-darkTheme'); };
+     rotateTheme = true;
+     changeFontSize('d');
+
+     let keepBook = localStorage.getItem("activeChronBookID");
+     let keepChapter = localStorage.getItem("activeChronChapterID");
+     let keepVersion = localStorage.getItem("activeChronVersionID");
+     localStorage.clear();
+     localStorage.setItem("activeChronBookID", keepBook);
+     localStorage.setItem("activeChronChapterID", keepChapter);
+     localStorage.setItem("activeChronVersionID", keepVersion);
+
+     paragraphLayoutDefault = 0;
+     redLetterDefault = 0;
+     selectedVerseID = null;
+
+     activeVersionID = defaultVersionID;
+     activeBookID = defaultBookID;
+     activeChapterID = defaultChapterID;
+     let activeVersion = Number(defaultVersionID.slice("id-version".length));
+
+     loadVersions(changeVersion);
+     getVersion();
+     deleteData();
+
+     selected(activeVersionID, 'id-versions');
+     selected(activeBookID, 'id-books');
+     selected(activeChapterID, 'id-chapters');
+
+     setQuerystring('bid', 1);
+     setQuerystring('cn', 1);
+     setQuerystring('verid', activeVersion);
+
+     document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
+     document.getElementById('id-redLetter').textContent = 'Red Letter';
+     document.getElementById(defaultVersionID).classList.add('cs-bvSelected');
+
+     pastSelectedVersionID = defaultVersionID;
+     pastSelectedBookID = defaultBookID;
+     pastSelectedChapterID = defaultChapterID;
+     pastSelectedVerseID = selectedVerseID;
+
+     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
+     // getMenus is in shared.js, but it calls setMenu in index.js
+     getMenus();
 };
 
 function selected(id, container, reset = null) {
@@ -218,179 +360,7 @@ async function startUp() {
      return true;
 };
 
-async function triggerCacheCheck() {
-     const LAST_CHECK_KEY = 'lastCacheCheck';
-     const today = new Date();
-     const dayOfWeek = today.getDay();
-     if (dayOfWeek === 0) { console.log(`Caches not checked it's Sunday`); return; };
-     const now = Date.now();
-     const sevenDays = 7 * 24 * 60 * 60 * 1000;
 
-     const lastCheck = parseInt(localStorage.getItem(LAST_CHECK_KEY), 10);
-     if (!lastCheck || now - lastCheck >= sevenDays) {
-          try {
-               const registration = await navigator.serviceWorker.ready;
-               const activeWorker = registration.active || navigator.serviceWorker.controller;
-
-               if (activeWorker) {
-                    activeWorker.postMessage({ action: 'checkCaches' });
-                    localStorage.setItem(LAST_CHECK_KEY, now.toString());
-                    console.log('checkCaches triggered and timestamp updated.');
-               } else {
-                    console.warn('No active service worker found.');
-               }
-          } catch (err) {
-               console.error('Failed to trigger checkVerses:', err);
-          }
-     } else {
-          console.log('checkVerses skipped - last run was less than 7 days ago.');
-     };
-};
-
-// Page  functions
-     function readChron() {
-
-          let ahref = `apps/chron.html`;
-          if (isLive) { ahref = ahref.replace(".html", ""); };
-          window.location.href = ahref;
-     };
-
-     function readRandomChapter(e = null) {
-
-          stopBubbles(e);
-          let min = 30640;
-          let i = Math.floor(Math.random() * (0 - min + 1)) + min;
-          let bid = verses[i].bid;
-          let cn = verses[i].cn;
-
-          activeBookID = `id-book${bid}`;
-          activeChapterID = `id-chapter${cn}`;
-          getChapter();
-          closeBoxes();
-          document.getElementById('top').scrollIntoView({ block: 'start' });
-     };
-
-     function openListen() {
-          const params = new URLSearchParams(window.location.search);
-          const verid = params.get('verid');
-          const bid = params.get('bid');
-          const cn = params.get('cn');
-
-          const readParams = new URLSearchParams();
-
-          if (verid !== null && verid !== 'null') readParams.set('verid', verid);
-          if (bid !== null && bid !== 'null') readParams.set('bid', bid);
-          if (cn !== null && cn !== 'null') readParams.set('cn', cn);
-
-          let ahref = `apps/synth.html?${readParams.toString()}`;
-          if (isLive) { ahref = ahref.replace(".html", ""); };
-          window.location.href = ahref;
-     };
-// End of Page  functions
-
-// Settings functions
-     function changeFontSize(direction) {
-
-          if (direction === '+') {
-               if (activeFontSizeCount > 8) { return; };
-               activeFontSize = activeFontSize * 1.15;
-               activeFontSizeCount++;
-          } else if (direction === '-') {
-               if (activeFontSizeCount < 1) { return; };
-               activeFontSize = activeFontSize / 1.15;
-               activeFontSizeCount--;
-          } else if (direction === 'd') {
-               activeFontSize = defaultFontSize;
-               activeFontSizeCount = 0;
-          };
-          setFontSize();
-
-          localStorage.setItem("activeFontSizeCount", activeFontSizeCount);
-          localStorage.setItem("activeFontSize", activeFontSize);
-     };
-
-     function changeTheme() {
-
-          toggleTheme();
-          if (rotateTheme) {
-               darkTheme();
-               rotateTheme = false;
-               setTheme = '1';
-               localStorage.setItem("setTheme", '1');
-          } else {
-               lightTheme();
-               rotateTheme = true;
-               setTheme = '0';
-               localStorage.setItem("setTheme", '0');
-          };
-
-     };
-
-     async function deleteData() {
-
-          localStorage.removeItem('installed');
-          localStorage.removeItem('savedLocal');
-          document.getElementById('top').scrollIntoView({ block: 'start' });
-          await unregisterServiceWorkers();
-     };
-
-     function resetDefaults() {
-
-          let confirmed = confirm('You are about to reset all saved settings and file storage settings. Changes will take effect immediately. Click OK to continue or Cancel to abort!');
-          if (!confirmed) { return; };
-
-          let theme = document.getElementById("id-themeBtn");
-
-          rotateTheme = false;
-          changeTheme();
-          theme.textContent = "☀️";
-          if (theme.classList.contains('cs-darkTheme')) { theme.classList.remove('cs-darkTheme'); };
-          rotateTheme = true;
-          changeFontSize('d');
-
-          let keepBook = localStorage.getItem("activeChronBookID");
-          let keepChapter = localStorage.getItem("activeChronChapterID");
-          let keepVersion = localStorage.getItem("activeChronVersionID");
-          localStorage.clear();
-          localStorage.setItem("activeChronBookID", keepBook);
-          localStorage.setItem("activeChronChapterID", keepChapter);
-          localStorage.setItem("activeChronVersionID", keepVersion);
-
-          paragraphLayoutDefault = 0;
-          redLetterDefault = 0;
-          selectedVerseID = null;
-
-          activeVersionID = defaultVersionID;
-          activeBookID = defaultBookID;
-          activeChapterID = defaultChapterID;
-          let activeVersion = Number(defaultVersionID.slice("id-version".length));
-
-          loadVersions(changeVersion);
-          getVersion();
-          deleteData();
-
-          selected(activeVersionID, 'id-versions');
-          selected(activeBookID, 'id-books');
-          selected(activeChapterID, 'id-chapters');
-
-          setQuerystring('bid', 1);
-          setQuerystring('cn', 1);
-          setQuerystring('verid', activeVersion);
-
-          document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
-          document.getElementById('id-redLetter').textContent = 'Red Letter';
-          document.getElementById(defaultVersionID).classList.add('cs-bvSelected');
-
-          pastSelectedVersionID = defaultVersionID;
-          pastSelectedBookID = defaultBookID;
-          pastSelectedChapterID = defaultChapterID;
-          pastSelectedVerseID = selectedVerseID;
-
-          document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
-          // getMenus is in shared.js, but it calls setMenu in index.js
-          getMenus();
-     };
-// End of Settings functions
 
 // Client Side serviceworker code.
      async function closeSave() {
@@ -420,6 +390,35 @@ async function triggerCacheCheck() {
           };
      };
 
+     async function triggerCacheCheck() {
+          const LAST_CHECK_KEY = 'lastCacheCheck';
+          const today = new Date();
+          const dayOfWeek = today.getDay();
+          if (dayOfWeek === 0) { console.log(`Caches not checked it's Sunday`); return; };
+          const now = Date.now();
+          const sevenDays = 7 * 24 * 60 * 60 * 1000;
+
+          const lastCheck = parseInt(localStorage.getItem(LAST_CHECK_KEY), 10);
+          if (!lastCheck || now - lastCheck >= sevenDays) {
+               try {
+                    const registration = await navigator.serviceWorker.ready;
+                    const activeWorker = registration.active || navigator.serviceWorker.controller;
+
+                    if (activeWorker) {
+                         activeWorker.postMessage({ action: 'checkCaches' });
+                         localStorage.setItem(LAST_CHECK_KEY, now.toString());
+                         console.log('checkCaches triggered and timestamp updated.');
+                    } else {
+                         console.warn('No active service worker found.');
+                    }
+               } catch (err) {
+                    console.error('Failed to trigger checkVerses:', err);
+               }
+          } else {
+               console.log('checkVerses skipped - last run was less than 7 days ago.');
+          };
+     };
+
      async function unregisterServiceWorkers() {
 
           if ('serviceWorker' in navigator) {
@@ -440,4 +439,4 @@ async function triggerCacheCheck() {
                };
           };
      };
-// End of client Side serviceworker code.
+// End: Client Side serviceworker code.
