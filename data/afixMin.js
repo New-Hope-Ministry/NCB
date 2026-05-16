@@ -68,7 +68,7 @@ const data = fs.readFileSync(fileName, 'utf8');
 const jsonData = JSON.parse(data);
 var i =0;
 
-while (i < 3) {
+while (i < 4) {
      for (const item of jsonData) {
      item.vt = item.vt.replaceAll(":a", ': a');
      item.vt = item.vt.replaceAll(":b", ': b');
