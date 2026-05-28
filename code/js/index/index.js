@@ -183,24 +183,6 @@ async function loadBoxes() {
      return true;
 };
 
-/*
-function openListen() {
-     const params = new URLSearchParams(window.location.search);
-     const verid = params.get('verid');
-     const bid = params.get('bid');
-     const cn = params.get('cn');
-
-     const readParams = new URLSearchParams();
-
-     if (verid !== null && verid !== 'null') readParams.set('verid', verid);
-     if (bid !== null && bid !== 'null') readParams.set('bid', bid);
-     if (cn !== null && cn !== 'null') readParams.set('cn', cn);
-
-     let ahref = `apps/synth.html?${readParams.toString()}`;
-     if (isLive) { ahref = ahref.replace(".html", ""); };
-     window.location.href = ahref;
-};*/
-
 function readChron() {
 
      let ahref = `apps/chron.html`;
