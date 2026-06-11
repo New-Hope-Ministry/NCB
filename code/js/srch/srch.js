@@ -12,7 +12,8 @@ let domReadyPromise = (async () => {
                     document.getElementById('id-searchVersion').textContent = `${versions[i].t} - ${versions[i].ar}`;
                };
                if (rec) { verses = await fetchVerses(i); };
-               if (rec) { await getMenus(); };
+               if (rec) { rec = false; await getMenus(); rec = true; };
+               if (rec) { searcher(); };
                resolve();
           });
      });
@@ -27,6 +28,8 @@ let domReadyPromise = (async () => {
           if (verid) { activeVersionID = `id-version${verid}`; };
           if (!activeVersionID) { activeVersionID = localStorage.getItem("activeVersionID"); };
           if (!activeVersionID) { activeVersionID = defaultVersionID };
+          let q = params.get('q');
+          if (q) { document.getElementById('id-searchBox').textContent = q; searchFocus(); };
 
           await getDesignDefaults();
           return true;
@@ -296,6 +299,8 @@ let domReadyPromise = (async () => {
           removeElements('id-searchResults');
           getSearchVerses(searchResults);
           loader.style.display = 'none';
+          setQuerystring('q', searchData);
+          return true;
      };
 
      function searchFocus() {
