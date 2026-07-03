@@ -8,6 +8,7 @@ tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 .cs-adjustFont1 { display: flex; justify-content: center; align-items: center; height: 1.2rem; width: 1.2rem; line-height: 1.2em; border-radius: 50%; background-color: var(--whiteText); color: var(--gradientDark); font-weight: 550; }
 .cs-adjustFont2 { display: inline-flex; background-color: #f2f2f2; border: 1px solid #434242; }
 
+.cs-contentsTitle { color: var(--greenEmphasis); width: 100%; }
 .cs-display { display: inline; padding-left: .3em; }
 .cs-fontP { line-height: 1.4em; }
 .cs-noTextDecoration { text-decoration: none; }
@@ -31,6 +32,24 @@ tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 .cs-title { height: max-content; font-size: 1.1em; font-weight: 550; color: var(--redEmphasis); margin-bottom: .5em; margin-top: 1em; }
 .cs-title1 { color: var(--greenEmphasis); font-weight: 550; font-size: .9em; }
 .cs-linkBtn { margin-left: .3em; margin-right: auto; }
+
+.cs-copyright { color: navy; text-decoration: underline; }
+.cs-copyright,
+.cs-copyright:visited { cursor: pointer; }
+
+.cs-copyright:hover { color: var(--paleMaroonEmphasis); }
+.cs-twfLink {
+     font-size: 1rem;
+     line-height: 1.8em;
+     color: navajowhite;
+     background-color: #ba0e0e;
+     padding: .5em;
+     border-radius: 6px;
+     text-decoration: none;
+     cursor: pointer;
+     z-index: 10;
+}
+.cs-twfLink:hover { background-color: #706f6f; color: white; }
 
 #id-adjustFont { padding: 0; text-decoration: underline; cursor: pointer; }
 #id-blueLetterPlan { display: block; position: relative; color: var(--aLinkDarkColor); width: 95%; max-width: max-content; margin: auto; text-align: center; font-size: .9em; cursor: pointer; }

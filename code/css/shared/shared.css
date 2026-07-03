@@ -100,11 +100,13 @@ div#id-pageContainer::-webkit-scrollbar-thumb:hover { background: #555 !importan
 #id-listen,
 #id-restart,
 #id-readChron,
-#id-randomChapter { display: flex; text-decoration: none; height: 2em; width: 20em; background-color: var(--aBlueLinkColor); color: #131212; border-radius: 6px; margin: auto; justify-content: center; align-items: center; }
+#id-randomChapter,
+#id-testimony { display: flex; text-decoration: none; height: 2em; width: 20em; background-color: var(--aBlueLinkColor); color: #131212; border-radius: 6px; margin: auto; justify-content: center; align-items: center; }
 
 #id-comp,
 #id-listen,
-#id-readChron { margin-top: 1.2em; }
+#id-readChron,
+#id-testimony { margin-top: 1.2em; }
 
 #id-randomChapter { background-color: #b63f47; color: white; margin-top: 2.5em; }
 #id-restart { margin-top: 1.5em; }

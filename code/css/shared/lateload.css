@@ -31,7 +31,8 @@
      #id-readChron:hover,
      #id-restart:hover,
      #id-randomChapter:hover,
-     #id-searchBtn:hover { background-color: #706f6f; color: white;  outline: 3px solid #d40505; cursor: pointer; }
+     #id-searchBtn:hover,
+     #id-testimony:hover { background-color: #706f6f; color: white;  outline: 3px solid #d40505; cursor: pointer; }
 
      #id-sortBook:hover { background-color: #dedbdb; outline: 3px solid #f5f5c1; }
      #id-sortBookHelp:hover { background-color: #dedbdb; outline: 3px solid #f0f03d; }
