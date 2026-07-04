@@ -54,6 +54,7 @@ tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 #id-adjustFont { padding: 0; text-decoration: underline; cursor: pointer; }
 #id-blueLetterPlan { display: block; position: relative; color: var(--aLinkDarkColor); width: 95%; max-width: max-content; margin: auto; text-align: center; font-size: .9em; cursor: pointer; }
 #id-contentsTitle { color: var(--greenEmphasis); width: 100%; }
+
 #id-HeadlineAbout { padding-bottom: .3em; }
 #id-font,
 #id-redLetter,
