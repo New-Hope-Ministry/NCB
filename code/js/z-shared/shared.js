@@ -759,7 +759,8 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
      const page = document.getElementById(`id-page${A1}`);
      const h2 = document.createElement('h2');
      h2.textContent = `${getBookTitle(activeBook)} ${activeChapter}`;
-     document.getElementById(`id-navTitle`).textContent = h2.textContent;
+     document.getElementById('id-navTitle').textContent = h2.textContent;
+     document.getElementById('id-title').textContent = `The Ark Bible - ${h2.textContent}`;
 
      if (isTWF) {
           const sp2 = document.createElement('span');
@@ -1075,7 +1076,14 @@ function unHighlight(e = null) {
      stopBubbles(e);
      selected('id-verse0', 'id-verses');
      removeQueryParam('vh');
-     // If btn.id = 'id-MenuBtn4' and btn.dataset.type = 'vh1', the btn is the Verse Highlight button
+
+     let title = document.getElementById('id-title');
+     const aString = title.textContent;
+     const modifiedString = aString.replace(/:\d+$/, "");
+     title.textContent = modifiedString;
+     title = document.getElementById('id-ogTitle');
+     title.content = modifiedString;
+
      let btn = document.getElementById('id-MenuBtn4');
      if (btn) { if (btn.dataset.type === 'vh1') { btn.textContent = '1'; }; };
      if (selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
@@ -1088,6 +1096,14 @@ function verseHighlight(id) {
 
      let vh = document.getElementById(id).textContent;
      document.getElementById('id-MenuBtn4').textContent = vh;
+
+     let title = document.getElementById('id-title');
+     const originalString = title.textContent;
+     const modifiedString = `${originalString.replace(/:\d+$/, "")}:${vh}`;
+     title.textContent = modifiedString;
+     title = document.getElementById('id-ogTitle');
+     title.content = modifiedString;
+
      if (selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
      selectedVerseNumberID = `id-versNum${vh}`;
      const spa = document.getElementById(selectedVerseNumberID).parentElement;
