@@ -41,15 +41,15 @@ tr:nth-child(even) { background-color: #f2f2f2; color: var(--darkGray); }
 .cs-twfLink {
      font-size: 1rem;
      line-height: 1.8em;
-     color: navajowhite;
-     background-color: #ba0e0e;
+     background-color: var(--aBlueLinkColor); color: #131212;
+     margin-left: .2em;
      padding: .5em;
      border-radius: 6px;
      text-decoration: none;
      cursor: pointer;
      z-index: 10;
 }
-.cs-twfLink:hover { background-color: #706f6f; color: white; }
+
 
 #id-adjustFont { padding: 0; text-decoration: underline; cursor: pointer; }
 #id-blueLetterPlan { display: block; position: relative; color: var(--aLinkDarkColor); width: 95%; max-width: max-content; margin: auto; text-align: center; font-size: .9em; cursor: pointer; }
