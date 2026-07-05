@@ -760,10 +760,13 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
      const h2 = document.createElement('h2');
      h2.textContent = `${getBookTitle(activeBook)} ${activeChapter}`;
      document.getElementById('id-navTitle').textContent = h2.textContent;
+
      let title = document.getElementById('id-title');
-     title.textContent = `The Ark Bible - ${h2.textContent}`;
-     title = document.getElementById('id-ogTitle');
-     title.textContent = `The Ark Bible - ${h2.textContent}`;
+     if (title) {
+          title.textContent = `The Ark Bible - ${h2.textContent}`;
+          title = document.getElementById('id-ogTitle');
+          title.textContent = `The Ark Bible - ${h2.textContent}`;
+     };
 
      if (isTWF) {
           const sp2 = document.createElement('span');
@@ -1081,11 +1084,13 @@ function unHighlight(e = null) {
      removeQueryParam('vh');
 
      let title = document.getElementById('id-title');
-     const aString = title.textContent;
-     const modifiedString = aString.replace(/:\d+$/, "");
-     title.textContent = modifiedString;
-     title = document.getElementById('id-ogTitle');
-     title.content = modifiedString;
+     if (title) {
+          const aString = title.textContent;
+          const modifiedString = aString.replace(/:\d+$/, "");
+          title.textContent = modifiedString;
+          title = document.getElementById('id-ogTitle');
+          title.content = modifiedString;
+     };
 
      let btn = document.getElementById('id-MenuBtn4');
      if (btn) { if (btn.dataset.type === 'vh1') { btn.textContent = '1'; }; };
@@ -1101,11 +1106,13 @@ function verseHighlight(id) {
      document.getElementById('id-MenuBtn4').textContent = vh;
 
      let title = document.getElementById('id-title');
-     const originalString = title.textContent;
-     const modifiedString = `${originalString.replace(/:\d+$/, "")}:${vh}`;
-     title.textContent = modifiedString;
-     title = document.getElementById('id-ogTitle');
-     title.content = modifiedString;
+     if (title) {
+          const originalString = title.textContent;
+          const modifiedString = `${originalString.replace(/:\d+$/, "")}:${vh}`;
+          title.textContent = modifiedString;
+          title = document.getElementById('id-ogTitle');
+          title.content = modifiedString;
+     };
 
      if (selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
      selectedVerseNumberID = `id-versNum${vh}`;
