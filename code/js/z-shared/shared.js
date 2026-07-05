@@ -760,7 +760,10 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
      const h2 = document.createElement('h2');
      h2.textContent = `${getBookTitle(activeBook)} ${activeChapter}`;
      document.getElementById('id-navTitle').textContent = h2.textContent;
-     document.getElementById('id-title').textContent = `The Ark Bible - ${h2.textContent}`;
+     let title = document.getElementById('id-title');
+     title.textContent = `The Ark Bible - ${h2.textContent}`;
+     title = document.getElementById('id-ogTitle');
+     title.textContent = `The Ark Bible - ${h2.textContent}`;
 
      if (isTWF) {
           const sp2 = document.createElement('span');
