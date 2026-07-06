@@ -8,12 +8,7 @@ let domReadyPromise = (async () => {
                let rec = await getDefaults();
                if (rec) { rec = false; rec = await getVersion(); };
                if (rec) { await getMenus(); };
-               let title = document.getElementById('id-title');
-               let txt = title.textContent;
-               let newTxt = txt.replace('The Ark Bible', 'Ark 365 Day Plan');
-               title.textContent = newTxt;
-               title = document.getElementById('id-ogTitle');
-               title.textContent = newTxt;
+
                resolve();
         });
     });
@@ -94,13 +89,6 @@ async function chronNextLast(bid, cn, dayid, loadChpts) {
      if (loadChpts) { await loadChronChapters(changeChronChapter); };
 
      getChapter();
-     let title = document.getElementById('id-title');
-     let txt = title.textContent;
-     let newTxt = txt.replace('The Ark Bible', 'The Ark 365 Day Plan');
-     title.textContent = newTxt;
-     title = document.getElementById('id-ogTitle');
-     title.textContent = newTxt;
-
      selected(activeBookID, 'id-books');
      selected(activeChapterID, 'id-chapters');
      selected(activeDayID, 'id-days');

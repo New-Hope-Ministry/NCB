@@ -13,12 +13,6 @@ let domReadyPromise = (async () => {
                if (rec) { rec = false; rec = await getVersion(); };
                if (rec) { rec = false; rec = await getCompVersion(); };
                if (rec) { rec = false; rec = await getMenus(); };
-               let title = document.getElementById('id-title');
-               let txt = title.textContent;
-               let newTxt = txt.replace('The Ark Bible', 'Ark Compare Versions');
-               title.textContent = newTxt;
-               title = document.getElementById('id-ogTitle');
-               title.textContent = newTxt;
                resolve();
           });
     });
@@ -193,13 +187,6 @@ let domReadyPromise = (async () => {
 
           getChapter();
           getChapter(1, 'A', verses1);
-          let title = document.getElementById('id-title');
-          let txt = title.textContent;
-          let newTxt = txt.replace('The Ark Bible', 'Ark Compare Versions');
-          title.textContent = newTxt;
-          title = document.getElementById('id-ogTitle');
-          title.textContent = newTxt;
-
           loadChapters(changeCompChapter);
           closeBoxes();
           selected(activeBookID, 'id-books');
@@ -224,13 +211,6 @@ let domReadyPromise = (async () => {
 
           getChapter();
           getChapter(1, 'A', verses1);
-          let title = document.getElementById('id-title');
-          let txt = title.textContent;
-          let newTxt = txt.replace('The Ark Bible', 'Ark Compare Versions');
-          title.textContent = newTxt;
-          title = document.getElementById('id-ogTitle');
-          title.textContent = newTxt;
-
           closeBoxes();
           selected(activeChapterID, 'id-chapters');
           setQuerystring('cn', activeChapter);
@@ -259,13 +239,6 @@ let domReadyPromise = (async () => {
           stopBubbles(e);
           await lastChapter(e);
           await getChapter(1, 'A', verses1);
-          let title = document.getElementById('id-title');
-          let txt = title.textContent;
-          let newTxt = txt.replace('The Ark Bible', 'Ark Compare Versions');
-          title.textContent = newTxt;
-          title = document.getElementById('id-ogTitle');
-          title.textContent = newTxt;
-
           document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
           document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
           getMenus();
@@ -277,12 +250,6 @@ let domReadyPromise = (async () => {
           stopBubbles(e);
           await nextChapter(e);
           await getChapter(1, 'A', verses1);
-          let title = document.getElementById('id-title');
-          let txt = title.textContent;
-          let newTxt = txt.replace('The Ark Bible', 'Ark Compare Versions');
-          title.textContent = newTxt;
-          title = document.getElementById('id-ogTitle');
-          title.textContent = newTxt;
           document.getElementById('id-mainPage').scrollTo({ top: 0, behavior: "instant" });
           document.getElementById('id-mainPage1').scrollTo({ top: 0, behavior: "instant" });
           getMenus();
@@ -300,13 +267,6 @@ let domReadyPromise = (async () => {
           let idx = versions.findIndex(rec => rec.id === verid1);
           verses1 = await fetchVerses(idx);
           await getChapter(1, 'A', verses1);
-          let title = document.getElementById('id-title');
-          let txt = title.textContent;
-          let newTxt = txt.replace('The Ark Bible', 'Ark Compare Versions');
-          title.textContent = newTxt;
-          title = document.getElementById('id-ogTitle');
-          title.textContent = newTxt;
-
           document.getElementById('id-headline1').textContent = versions[idx].t;
           boxesAreOpen = false;
           return verid1;

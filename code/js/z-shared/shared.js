@@ -32,6 +32,7 @@ var boxesAreOpen = false;
 var fetchPrefix = '';
 var inst = null;
 var isTWF = true;
+var pageTitle = null;
 var paragraphLayoutDefault = 0;
 var redLetterDefault = 0;
 var rotateTheme = true;
@@ -763,9 +764,10 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
 
      let title = document.getElementById('id-title');
      if (title) {
-          title.textContent = `The Ark Bible - ${h2.textContent}`;
+          if (!pageTitle) { pageTitle = title.textContent; };
+          title.textContent = `${pageTitle} - ${h2.textContent}`;
           title = document.getElementById('id-ogTitle');
-          title.textContent = `The Ark Bible - ${h2.textContent}`;
+          title.textContent = `${pageTitle} - ${h2.textContent}`;
      };
 
      if (isTWF) {
