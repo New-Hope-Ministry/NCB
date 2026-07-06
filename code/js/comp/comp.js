@@ -246,7 +246,6 @@ let domReadyPromise = (async () => {
           return true;
      };
 
-
      async function compNextChapter(e = null) {
 
           stopBubbles(e);
