@@ -289,6 +289,7 @@ let domReadyPromise = (async () => {
 
           let loader = document.getElementById("id-loader");
           let searchData = document.getElementById('id-searchBox').textContent;
+          searchData = searchData.trim();
           if (searchData === '') { return; };
 
           loader.style.display = 'block';
@@ -300,6 +301,15 @@ let domReadyPromise = (async () => {
           getSearchVerses(searchResults);
           loader.style.display = 'none';
           setQuerystring('q', searchData);
+          let title = document.getElementById('id-title');
+          let ogTitle = document.getElementById('id-ogTitle');
+          if (title) {
+               if (!pageTitle) { pageTitle = title.textContent; };
+               const newTitle = `${pageTitle} - ${searchData}`;
+               title.textContent = newTitle;
+               document.title = newTitle;
+               if (ogTitle) { ogTitle.setAttribute('content', newTitle); };
+          };
           return true;
      };
 

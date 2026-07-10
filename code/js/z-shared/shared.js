@@ -763,11 +763,13 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
      document.getElementById('id-navTitle').textContent = h2.textContent;
 
      let title = document.getElementById('id-title');
+     let ogTitle = document.getElementById('id-ogTitle');
      if (title) {
           if (!pageTitle) { pageTitle = title.textContent; };
-          title.textContent = `${pageTitle} - ${h2.textContent}`;
-          title = document.getElementById('id-ogTitle');
-          title.textContent = `${pageTitle} - ${h2.textContent}`;
+          const newTitle = `${pageTitle} - ${h2.textContent}`;
+          title.textContent = newTitle;
+          document.title = newTitle;
+          if (ogTitle) { ogTitle.setAttribute('content', newTitle); };
      };
 
      if (isTWF) {
