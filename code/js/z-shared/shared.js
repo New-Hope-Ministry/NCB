@@ -450,16 +450,12 @@ const versions = [
 
 // Shared Functions
 function aClick(ahref) {
-     if (isLive) {
-          ahref = ahref.replace(".html", "");
-     };
+     if (isLive) { ahref = ahref.replace(".html", ""); };
      window.location.href = ahref;
 };
 function bClick(ahref) { window.location.href = ahref; };
 function cClick(ahref) {
-     if (isLive) {
-          ahref = ahref.replace("index.html", goHome);
-     };
+     if (isLive) { ahref = ahref.replace("index.html", goHome); };
      window.location.href = ahref;
 };
 
