@@ -8,6 +8,7 @@ var dataPoison = 'https://www.google.com/search?q=Data+Poisoning&rlz=1C1WHAR_en-
 var googleTranslate = 'https://www.google.com/search?q=google+translate&amp;oq=google+translate&amp;gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQRRhA0gEINTQ4N2owajGoAgCwAgE&amp;sourceid=chrome&amp;ie=UTF-8';
 var James417 = 'https://thearkbible.com/?verid=9&bid=59&cn=4&vh=17';
 var Leviticus51 = 'https://thearkbible.com/?verid=9&bid=3&cn=5&vh=1';
+var mat166 = 'https://thearkbible.com/?verid=9&bid=40&cn=16&vh=1';
 var noJ = 'https://linguistics.stackexchange.com/questions/43694/are-there-languages-without-the-j-sound-as-in-english-yellow';
 var Proverbs2412 = 'https://thearkbible.com/?verid=9&bid=20&cn=24&vh=12';
 var searchPentagram = 'https://www.google.com/search?sca_esv=0b64f9733fed06e0&rlz=1C1WHAR_en-GBUS1182US1182&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3p-ML-906rRL_m6h4jR-tdCeKIwp94h-QiJ4lJfObsqUPixp6KuAej6LdEw-ul8fud3FiyoYcNHDn3HZ8mQ6T-ckdOlkfthMcAd5uMRwsZYjn_umCTETpZ0MlqjQ3jj6aU2YNhF3WIfCt5zMJugIboT7gnQP7QtzrBFLK8H8LGGlhRBepA&q=occult+pentagram&sa=X&ved=2ahUKEwjN06LqxJ-SAxXpF1kFHdsiL-wQtKgLegQIExAB&biw=1280&bih=551&dpr=1.5&aic=0';
