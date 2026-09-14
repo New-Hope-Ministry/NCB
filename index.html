@@ -79,10 +79,12 @@
      <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+
      <link rel="stylesheet" type="text/css" href="code/css/shared/shared.css">
      <link rel="stylesheet" type="text/css" href="code/css/apps/settings.css">
      <link rel="stylesheet" type="text/css" href="code/css/shared/boxes.css">
      <link rel="stylesheet" type="text/css" href="code/css/shared/lateload.css" media="print" onload="this.media='all'">
+
      <script defer src="code/js/z-shared/shared.js"></script>
      <script defer src="code/js/index/index.js"></script>
      <script defer src="code/js/z-shared/boxes.js"></script>
@@ -382,6 +384,13 @@
           <div id="id-verseHeader">Verses</div>
           <div id="id-versesBox"></div>
      </div>
+
+     <div id="id-citationContainer" onclick="closeCitation()">
+          <div id="id-citation" onclick="event.stopPropagation()">
+
+          </div>
+     </div>
+
      <style>
           #id-end {
                display: none;

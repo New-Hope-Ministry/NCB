@@ -236,7 +236,7 @@ let domReadyPromise = (async () => {
           if (result.length - searchResultIndex < 30) { i = result.length; };
 
           document.getElementById('id-resultCount').textContent = `There are ${result.length} search results.`;
-
+          const regex = /\[[a-zA-ZÀ-ÿ]+\d+\]/g;
           while (searchResultIndex < i && i <= result.length) {
                p = document.createElement('p');
                p.classList.add('cs-searchVerse');
@@ -246,7 +246,9 @@ let domReadyPromise = (async () => {
                br = document.createElement('br');
                p.appendChild(br);
                sp = document.createElement('span');
-               sp.textContent = `${verses[idx].vt.replace(/[`´]/g, '')}`
+
+               let avers = verses[idx].vt.replace(regex, '');
+               sp.textContent = `${avers.replace(/[`´]/g, '')}`
                p.appendChild(sp);
                aSearch.appendChild(p);
                searchResultIndex++;

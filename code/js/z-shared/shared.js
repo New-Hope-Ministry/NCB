@@ -7,6 +7,8 @@ const isLive = false;
 
 var localVoices = [];
 var verses = [];
+var definitions = null;
+var references = null;
 
 // Default Value Definitions!
 //? The default values are used when resetting the Ark to its initial state
@@ -601,6 +603,9 @@ async function checkID(id) {
      */
 };
 
+function closeCitation() {
+     document.getElementById('id-citationContainer').style.display = 'none';
+}
 function darkTheme() {
      let theme = document.documentElement;
      theme.style.setProperty('--headerImg', 'url("../../../images/headers/brcrystal.webp")');
@@ -624,6 +629,34 @@ function darkTheme() {
 };
 
 const delay = (ms) => new Promise(res => setTimeout(res, ms));
+
+async function fetchFile(file) {
+
+     // Fetch non verse json files from the server
+
+     let loader = document.getElementById("id-loader");
+     loader.style.display = 'block';
+     let url = `${fetchPrefix}data/ZMETA/${file}`;
+
+     try {
+          const res = await fetch(url);
+          if (!res.ok) { if (loader) { loader.style.display = 'none'; }; throw new Error(res.status); };
+          let file = await res.json();
+          if (loader) { loader.style.display = 'none'; };
+          return file;
+     } catch (error) {
+          switch (error.message) {
+               case '500':
+                    err = 'Network fetch error: 500A!';
+                    break;
+               case '503':
+                    err = 'No internet connection error: 503A!';
+                    break;
+          };
+          alert(error.message);
+     };
+     return false;
+};
 
 async function fetchVerses(idx) {
 
@@ -700,6 +733,35 @@ function getBooksVolume(id) {
 
 async function getChapter(A1 = '', AA = '', verses1 = null) {
 
+          function addLink(text, alph) {
+
+               let str = text;
+               let lnk = '';
+               let regex = '';
+               switch (alph) {
+                    case "d":
+                         regex = /d(\d+)/g;
+                         lnk = `onclick="getDefinition(event)" class="cs-citationLink">[${alph}]</a>`;
+                         break;
+                    case "r":
+                         regex = /r(\d+)/g;
+                         lnk = `onclick="getReference(event)" class="cs-citationLink">[${alph}]</a>`;
+                         break;
+               };
+               //const regex = /d(\d+)/g; // Note the 'g' (global) flag
+               const num = [...str.matchAll(regex)].map(match => Number(match[1]));
+               const x = Number(num.length);
+               let i = 0;
+               //console.log(str);
+               while (i<x) {
+                    let alnk = `<a id="${num[i]}" ${lnk}`;
+                    let repl = `[${alph}${num[i]}]`;
+                    str = str.replace(repl, alnk)
+                    i++;
+               };
+               return str;
+          };
+
      // Scoped Helper functions:
           function renderVerseSpan(v, AA) {
                //  Render a single verse span
@@ -714,7 +776,11 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
 
                const text = document.createElement('span');
                text.id = `id-avers${AA}${v.vn}`;
-               text.innerHTML = v.jq === 1 ? JesusQuote(v.vt) : v.vt;
+
+               let vt = v.vt;
+               if (vt.includes("[d")) { vt = addLink(vt, 'd'); };
+               if (vt.includes("[r")) { vt = addLink(vt, 'r'); };
+               text.innerHTML = v.jq === 1 ? JesusQuote(vt) : vt;
 
                sp.appendChild(text);
                return sp;
@@ -790,8 +856,7 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
 
           if (pn > 0 && paragraphLayoutDefault) {
                // Paragraph mode
-               while (i < x && wrkVerses[i].bid === activeBook && wrkVerses[i].cn === activeChapter
-                    && wrkVerses[i].pn === pn) {
+               while (i < x && wrkVerses[i].bid === activeBook && wrkVerses[i].cn === activeChapter && wrkVerses[i].pn === pn) {
 
                     const v = wrkVerses[i];
                     if (newParagraph) {
@@ -830,6 +895,141 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
 
      setFontSize();
      return true;
+};
+
+async function getDefinition(e) {
+
+     stopBubbles(e);
+     let id;
+     if (e) { id = Number(e.target.id); };
+     let def = document.getElementById('id-citation');
+     removeElements(`id-citation`);
+
+     if (!definitions) { definitions = await fetchFile('Def.json');}
+     const x = Number(definitions.length);
+     let i = definitions.findIndex(d => d.wid === id);
+     if (i === -1) return false;
+
+
+     let sp = document.createElement('span');
+     sp.id = 'id-citationTitle';
+     sp.textContent = `${definitions[i].w}:`;
+     def.appendChild(sp);
+
+     let wid =  definitions[i].wid;
+     while (i < x && definitions[i].wid === wid) {
+
+          sp = document.createElement('span');
+          sp.classList.add('cs-citationLine');
+
+          let adef = definitions[i].df;
+          let regex = /\b([A-Z]):\s*/;
+          let match = adef.match(regex);
+          let pre = match ? match[0] : "";
+          adef = adef.replace(pre, '');
+
+          let sp1 = document.createElement('span');
+          sp1.classList.add('cs-citationPrefix');
+          sp1.textContent = pre;
+          sp.appendChild(sp1);
+          let ita = document.createElement('i');
+          ita.textContent = ` ${adef}`;
+          sp.appendChild(ita);
+          def.appendChild(sp);
+          let br = document.createElement('br');
+          def.appendChild(br);
+          i++
+     };
+
+     let br = document.createElement('br');
+     def.appendChild(br);
+     let btn = document.createElement('button');
+     btn.id = 'id-citationBtn';
+     btn.textContent = '⚔️';
+     btn.addEventListener("click", closeCitation);
+     def.appendChild(btn);
+     document.getElementById('id-citationContainer').style.display = 'block';
+
+};
+
+async function getReference(e) {
+
+     stopBubbles(e);
+     let id;
+     if (e) { id = Number(e.target.id); };
+      let ref = document.getElementById('id-citation');
+     removeElements(`id-citation`);
+
+     if (!references) { references = await fetchFile('Ref.json');}
+     const x = Number(references.length);
+     let i = references.findIndex(r => r.rid === id);
+     if (i === -1) return false;
+
+     let sp = document.createElement('span');
+     sp.id = 'id-citationTitle';
+     sp.textContent = `${references[i].vt} References:`;
+     ref.appendChild(sp);
+
+     let vid =  references[i].vid;
+     const regex = /\[[a-zA-ZÀ-ÿ]+\d+\]/g;
+
+     while (i < x && references[i].vid === vid) {
+
+          sp = document.createElement('span');
+          sp.classList.add('cs-citationLine');
+
+          let span = document.createElement('span');
+          span.classList.add('cs-citationPrefix');
+          let refer = references[i].vr
+          span.textContent = refer;
+          sp.appendChild(span);
+          let ita = document.createElement('i');
+          let z = verses.findIndex(v => v.vid === references[i].vrid);
+
+          let avers = verses[z].vt.replace(regex, '');
+          if (refer.includes('-')) {
+               const match = refer.match(/:(\d+)-(\d+)/);
+               let num1 = Number(match[1]);
+               let num2 = Number(match[2]);
+               let c = z;
+               let d = (num2 - num1);
+               d = d + z + 1;
+               let vers = ` - ${avers}`;
+               c++;
+               num1++;
+               while(c<d) {
+                    avers = verses[c].vt.replace(regex, '');
+                    vers += ` ${num1}: ${avers}`;
+                    c++;
+                    num1++;
+               };
+               ita.textContent = vers;
+          } else {
+               ita.textContent = ` - ${avers}`;
+          };
+
+
+          sp.appendChild(ita);
+          ref.appendChild(sp);
+          let br = document.createElement('br');
+          ref.appendChild(br);
+          i++
+     };
+
+     let br = document.createElement('br');
+     ref.appendChild(br);
+
+     let btn = document.createElement('button');
+     btn.id = 'id-citationBtn';
+     btn.textContent = '⚔️';
+     btn.addEventListener("click", closeCitation);
+     ref.appendChild(btn);
+
+     br = document.createElement('br');
+     ref.appendChild(br);
+     br = document.createElement('br');
+     ref.appendChild(br);
+     document.getElementById('id-citationContainer').style.display = 'block';
 };
 
 async function getDesignDefaults() {

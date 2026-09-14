@@ -9,6 +9,20 @@
             "type": "node"
         },
         {
+            "name": "Launch Node afixWord.js",
+            "program": "${workspaceFolder}/data/afixWord.js",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node"
+        },
+        {
+            "name": "Launch Node test.js",
+            "program": "${workspaceFolder}/test.js",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch chron.html",

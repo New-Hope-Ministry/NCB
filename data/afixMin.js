@@ -124,7 +124,7 @@ while (i < 4) {
      item.vt = item.vt.replaceAll(":Z", ': Z');
 
      // Semicolon
-          item.vt = item.vt.replaceAll(";\"a", ";\" a");
+     item.vt = item.vt.replaceAll(";\"a", ";\" a");
      item.vt = item.vt.replaceAll(";\"b", ";\" b");
      item.vt = item.vt.replaceAll(";\"c", ";\" c");
      item.vt = item.vt.replaceAll(";\"d", ";\" d");
