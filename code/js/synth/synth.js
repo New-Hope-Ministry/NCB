@@ -270,7 +270,8 @@ window.onbeforeunload = (event) => {
           const elements = document.querySelectorAll('[id*="id-avers"]');
           for (const el of elements) {
                let x = el.id.slice("id-avers".length);
-               textSpeech += ` ${vers} ${x}:.....${el.textContent}`;
+               let averse = el.textContent.replace(/\[[a-zA-Z]\]/g, '');
+               textSpeech += ` ${vers} ${x}:.....${averse}`;
                //break;
           };
 
