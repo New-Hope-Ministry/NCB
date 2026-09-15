@@ -910,7 +910,6 @@ async function getDefinition(e) {
      let i = definitions.findIndex(d => d.wid === id);
      if (i === -1) return false;
 
-
      let sp = document.createElement('span');
      sp.id = 'id-citationTitle';
      sp.textContent = `${definitions[i].w}:`;
@@ -1187,6 +1186,7 @@ async function printSection(sectionId) {
      };
 
      const clonedContent = section.cloneNode(true);
+     clonedContent.querySelectorAll('a').forEach(a => a.remove());
      doc.body.appendChild(clonedContent);
 
      await Promise.all(stylePromises);
