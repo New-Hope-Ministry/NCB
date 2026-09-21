@@ -16,8 +16,8 @@
             "type": "node"
         },
         {
-            "name": "Launch Node test.js",
-            "program": "${workspaceFolder}/test.js",
+            "name": "Launch Node min.js",
+            "program": "${workspaceFolder}/data/min.js",
             "request": "launch",
             "skipFiles": ["<node_internals>/**"],
             "type": "node"

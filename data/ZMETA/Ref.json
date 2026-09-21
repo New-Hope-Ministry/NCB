@@ -1,1 +1,1276 @@
-[{"rid":1,"vid":9057,"vr":"2 Samuel 7:13","vrid":8194,"vt":"1 Kings 9:5"},{"rid":2,"vid":10314,"vr":"Joshua 6:18","vrid":5968,"vt":"1 Chronicles 2:7"},{"rid":3,"vid":10314,"vr":"Joshua 7:1","vrid":5978,"vt":"1 Chronicles 2:7"},{"rid":4,"vid":23188,"vr":"Jeremiah 31:15","vrid":19707,"vt":"Matthew 2:18"},{"rid":5,"vid":23193,"vr":"Judges 13:5","vrid":6890,"vt":"Matthew 2:23"},{"rid":6,"vid":23214,"vr":"Deuteronomy 8:3","vrid":5141,"vt":"Matthew 4:4"},{"rid":7,"vid":23216,"vr":"Psalms 91:11-12","vrid":15408,"vt":"Matthew 4:6"},{"rid":8,"vid":23217,"vr":"Deuteronomy 6:16","vrid":5103,"vt":"Matthew 4:7"},{"rid":9,"vid":23220,"vr":"Deuteronomy 6:13","vrid":5100,"vt":"Matthew 4:10"},{"rid":10,"vid":23226,"vr":"Isaiah 9:1-2","vrid":17831,"vt":"Matthew 4:16"},{"rid":11,"vid":23256,"vr":"Exodus 20:13","vrid":2065,"vt":"Matthew 5:21"},{"rid":12,"vid":23262,"vr":"Exodus 20:14","vrid":2066,"vt":"Matthew 5:27"},{"rid":13,"vid":23266,"vr":"Deuteronomy 24:1","vrid":5527,"vt":"Matthew 5:31"},{"rid":14,"vid":23268,"vr":"Numbers 30:2","vrid":4651,"vt":"Matthew 5:33"},{"rid":15,"vid":23273,"vr":"Exodus 21:24","vrid":2102,"vt":"Matthew 5:38"},{"rid":16,"vid":23278,"vr":"Leviticus 19:18","vrid":3300,"vt":"Matthew 5:43"},{"rid":17,"vid":23363,"vr":"Isaiah 53:4","vrid":18716,"vt":"Matthew 8:17"},{"rid":18,"vid":23470,"vr":"Malachi 3:1","vrid":23122,"vt":"Matthew 11:10"},{"rid":19,"vid":23497,"vr":"Hosea 6:6","vrid":22174,"vt":"Matthew 12:7"},{"rid":20,"vid":23508,"vr":"Isaiah 42:1","vrid":18482,"vt":"Matthew 12:18"},{"rid":21,"vid":23832,"vr":"Zechariah 9:9","vrid":23009,"vt":"Matthew 21:5"},{"rid":22,"vid":23843,"vr":"Psalms 8:2","vrid":14015,"vt":"Matthew 21:16"},{"rid":23,"vid":23869,"vr":"Psalms 118:22","vrid":15892,"vt":"Matthew 21:42"},{"rid":24,"vid":23905,"vr":"Exodus 3:6","vrid":1586,"vt":"Matthew 22:32"},{"rid":25,"vid":23954,"vr":"2 Chronicles 24:20-22","vrid":11698,"vt":"Matthew 23:35"},{"rid":26,"vid":23954,"vr":"Genesis 4:4-8","vrid":84,"vt":"Matthew 23:35"},{"rid":27,"vid":24086,"vr":"Zechariah 13:7","vrid":23067,"vt":"Matthew 26:31"},{"rid":28,"vid":24140,"vr":"Zechariah 11:12-13","vrid":23041,"vt":"Matthew 27:10"},{"rid":29,"vid":24219,"vr":"Isaiah 40:3","vrid":18424,"vt":"Mark 1:3"},{"rid":30,"vid":24470,"vr":"Isaiah 29:13","vrid":18207,"vt":"Mark 7:6"},{"rid":31,"vid":24551,"vr":"Isaiah 40:3-5","vrid":18424,"vt":"Mark 9:11-12"},{"rid":32,"vid":24551,"vr":"Malachi 4:6","vrid":23145,"vt":"Mark 9:11-12"},{"rid":33,"vid":24551,"vr":"Isaiah 53:1-12","vrid":18713,"vt":"Mark 9:11-12"},{"rid":34,"vid":24551,"vr":"Isaiah 50:6","vrid":18669,"vt":"Mark 9:11-12"},{"rid":35,"vid":24551,"vr":"Isaiah 52:14","vrid":18711,"vt":"Mark 9:11-12"},{"rid":36,"vid":24552,"vr":"2 Chronicles 36:15-16","vrid":12009,"vt":"Mark 9:13"},{"rid":37,"vid":24658,"vr":"Isaiah 56:7","vrid":18761,"vt":"Mark 11:17"},{"rid":38,"vid":24658,"vr":"Jeremiah 7:11","vrid":19131,"vt":"Mark 11:17"},{"rid":39,"vid":24710,"vr":"Psalms 110:1","vrid":15788,"vt":"Mark 12:36"},{"rid":40,"vid":24732,"vr":"Daniel 9:27","vrid":22016,"vt":"Mark 13:14"},{"rid":41,"vid":24776,"vr":"Isaiah 53:5-9","vrid":18717,"vt":"Mark 14:21"},{"rid":42,"vid":24776,"vr":"Psalms 41:9","vrid":14552,"vt":"Mark 14:21"},{"rid":43,"vid":24782,"vr":"Zechariah 13:7","vrid":23067,"vt":"Mark 14:27"},{"rid":44,"vid":24855,"vr":"Isaiah 53:12","vrid":18724,"vt":"Mark 15:28"},{"rid":45,"vid":24997,"vr":"Exodus 13:2","vrid":1870,"vt":"Luke 2:23"},{"rid":46,"vid":24998,"vr":"Leviticus 12:8","vrid":3053,"vt":"Luke 2:24"},{"rid":47,"vid":25032,"vr":"Isaiah 40:5","vrid":18426,"vt":"Luke 3:6"},{"rid":48,"vid":25072,"vr":"Deuteronomy 6:13","vrid":5100,"vt":"Luke 4:8"},{"rid":49,"vid":25075,"vr":"Psalms 91:11-12","vrid":15407,"vt":"Luke 4:11"},{"rid":50,"vid":25076,"vr":"Deuteronomy 6:16","vrid":5103,"vt":"Luke 4:12"},{"rid":51,"vid":25083,"vr":"Isaiah 61:1-2","vrid":18845,"vt":"Luke 4:19"},{"rid":52,"vid":25223,"vr":"Malachi 3:1","vrid":23122,"vt":"Luke 7:27"},{"rid":53,"vid":25457,"vr":"Genesis 4:8","vrid":88,"vt":"Luke 11:51"},{"rid":54,"vid":25457,"vr":"2 Chronicles 24:20-22","vrid":11698,"vt":"Luke 11:51"},{"rid":55,"vid":26516,"vr":"Psalms 82:6","vrid":15240,"vt":"John 10:34"},{"rid":56,"vid":26596,"vr":"Zechariah 9:9","vrid":23009,"vt":"John 12:15"},{"rid":57,"vid":26619,"vr":"Isaiah 53:1","vrid":18713,"vt":"John 12:38"},{"rid":58,"vid":26649,"vr":"Psalm 41:9","vrid":14552,"vt":"John 13:18"},{"rid":59,"vid":26725,"vr":"Psalm 35:19","vrid":14430,"vt":"John 15:25"},{"rid":60,"vid":26725,"vr":"Psalm 69:4","vrid":14940,"vt":"John 15:25"},{"rid":61,"vid":26772,"vr":"John 6:39","vrid":26297,"vt":"John 17;12"},{"rid":62,"vid":26795,"vr":"John 6:39","vrid":26297,"vt":"John 18:9"},{"rid":63,"vid":26795,"vr":"John 17:12","vrid":26772,"vt":"John 18:9"},{"rid":64,"vid":26850,"vr":"Psalms 22:18","vrid":14223,"vt":"John 19:24"},{"rid":65,"vid":26854,"vr":"Psalm 69:21","vrid":14957,"vt":"John 19:28"},{"rid":66,"vid":26862,"vr":"Psalms 34:20","vrid":14409,"vt":"John 19:36"},{"rid":67,"vid":26863,"vr":"Zechariah 12:10","vrid":23056,"vt":"John 19:37"},{"rid":68,"vid":26944,"vr":"Psalm 69:25","vrid":14961,"vt":"Acts 1:20"},{"rid":69,"vid":26944,"vr":"Psalm 109:8","vrid":15764,"vt":"Acts 1:20"},{"rid":70,"vid":26971,"vr":"Joel 2:28-32","vrid":22340,"vt":"Acts 2:21"},{"rid":71,"vid":26978,"vr":"Psalm 16:8-11","vrid":14101,"vt":"Acts 2:28"},{"rid":72,"vid":26985,"vr":"Psalm 110:1","vrid":15788,"vt":"Acts 2:35"},{"rid":73,"vid":27019,"vr":"Deuteronomy 18:15","vrid":5400,"vt":"Acts 3:22"},{"rid":74,"vid":27020,"vr":"Deuteronomy 18:19","vrid":5404,"vt":"Acts 3:23"},{"rid":75,"vid":27022,"vr":"Genesis 12:3","vrid":302,"vt":"Acts 3:25"},{"rid":76,"vid":27049,"vr":"Psalms 2:1-2","vrid":13947,"vt":"Acts 4:26"},{"rid":77,"vid":27209,"vr":"Isaiah 53:7","vrid":18719,"vt":"Acts 8:32"},{"rid":78,"vid":27210,"vr":"Isaiah 53:8","vrid":18720,"vt":"Acts 8:33"},{"rid":79,"vid":27396,"vr":"Psalm 2:7","vrid":13953,"vt":"Acts 13:33"},{"rid":80,"vid":27397,"vr":"Isaiah 55:3","vrid":18744,"vt":"Acts 13:34"},{"rid":81,"vid":27398,"vr":"Psalm 16:10","vrid":14103,"vt":"Acts 13:35"},{"rid":82,"vid":27404,"vr":"Habakkuk 1:5","vrid":22737,"vt":"Acts 13:41"},{"rid":83,"vid":27410,"vr":"Isaiah 49:6","vrid":18643,"vt":"Acts 13:47"},{"rid":84,"vid":27673,"vr":"Acts 6:1-6","vrid":27103,"vt":"Acts 21:8"},{"rid":85,"vid":28153,"vr":"Psalms 44:22","vrid":14594,"vt":"Romans 8:36"},{"rid":86,"vid":28163,"vr":"Genesis 21:12","vrid":526,"vt":"Romans 9:7"},{"rid":87,"vid":28165,"vr":"Genesis 18:10","vrid":435,"vt":"Romans 9:9"},{"rid":88,"vid":28168,"vr":"Genesis 25:23","vrid":682,"vt":"Romans 9:12"},{"rid":89,"vid":28169,"vr":"Malachi 1:2-3","vrid":23092,"vt":"Romans 9:13"},{"rid":90,"vid":28171,"vr":"Exodus 33:19","vrid":2493,"vt":"Romans 9:15"},{"rid":91,"vid":28173,"vr":"Exodus 9:16","vrid":1759,"vt":"Romans 9:17"},{"rid":92,"vid":28181,"vr":"Hosea 2:23","vrid":22129,"vt":"Romans 9:25"},{"rid":93,"vid":28183,"vr":"Isaiah 10:20-23","vrid":17871,"vt":"Romans 9:27"},{"rid":94,"vid":28185,"vr":"Isaiah 1:9","vrid":17664,"vt":"Romans 9:29"},{"rid":95,"vid":28194,"vr":"Leviticus 18:5","vrid":3257,"vt":"Romans 10:5"},{"rid":96,"vid":28195,"vr":"Deuteronomy 30:12","vrid":5721,"vt":"Romans 10:6"},{"rid":97,"vid":28196,"vr":"Deuteronomy 30:13","vrid":5722,"vt":"Romans 10:7"},{"rid":98,"vid":28197,"vr":"Deuteronomy 30:14","vrid":5723,"vt":"Romans 10:8"},{"rid":99,"vid":28200,"vr":"Isaiah 28:16","vrid":18181,"vt":"Romans 10:11"},{"rid":100,"vid":28204,"vr":"Isaiah 52:7","vrid":18704,"vt":"Romans 10:15"},{"rid":101,"vid":28205,"vr":"Isaiah 53:1","vrid":18713,"vt":"Romans 10:16"},{"rid":102,"vid":28208,"vr":"Deuteronomy 32:21","vrid":5780,"vt":"Romans 10:19"},{"rid":103,"vid":28210,"vr":"Isaiah 65:2","vrid":18900,"vt":"Romans 10:21"},{"rid":104,"vid":28213,"vr":"1 Kings 19:10","vrid":9398,"vt":"Romans 11:3"},{"rid":105,"vid":28214,"vr":"1 Kings 19:18","vrid":9406,"vt":"Romans 11:4"},{"rid":106,"vid":28218,"vr":"Isaiah 29:10","vrid":18204,"vt":"Romans 11:8"},{"rid":107,"vid":28218,"vr":"Deuteronomy 29:4","vrid":5684,"vt":"Romans 11:8"},{"rid":108,"vid":28220,"vr":"Psalm 69:22-23","vrid":14958,"vt":"Romans 11:10"},{"rid":109,"vid":28237,"vr":"Isaiah 59:20-21","vrid":18821,"vt":"Romans 11:27"},{"rid":110,"vid":28237,"vr":"Isaiah 27:9","vrid":18161,"vt":"Romans 11:27"},{"rid":111,"vid":28265,"vr":"Deuteronomy 32:35","vrid":5794,"vt":"Romans 12:19"},{"rid":112,"vid":28276,"vr":"Exodus 20:13-17","vrid":2065,"vt":"Romans 13:9"},{"rid":113,"vid":28276,"vr":"Deuteronomy 5:17-21","vrid":5071,"vt":"Romans 13:9"},{"rid":114,"vid":28276,"vr":"Leviticus 19:18","vrid":3300,"vt":"Romans 13:9"},{"rid":115,"vid":28292,"vr":"Isaiah 45:23","vrid":18585,"vt":"Romans 14:11"},{"rid":116,"vid":28307,"vr":"Psalm 69:9","vrid":14945,"vt":"Romans 15:3"},{"rid":117,"vid":28313,"vr":"Psalm 18:49","vrid":14168,"vt":"Romans 15:9"},{"rid":118,"vid":28313,"vr":"2 Samuel 22:50","vrid":8653,"vt":"Romans 15:9"},{"rid":119,"vid":28314,"vr":"Deuteronomy 32:43","vrid":5802,"vt":"Romans 15:10"},{"rid":120,"vid":28315,"vr":"Psalm 117:1","vrid":15869,"vt":"Romans 15:11"},{"rid":121,"vid":28316,"vr":"Isaiah 11:10","vrid":17895,"vt":"Romans 15:12"},{"rid":122,"vid":28325,"vr":"Isaiah 52:15","vrid":18712,"vt":"Romans 15:21"},{"rid":123,"vid":28383,"vr":"Isaiah 29:14","vrid":18208,"vt":"1 Corinthians 1:19"},{"rid":124,"vid":28395,"vr":"Jeremiah 9:23-24","vrid":19199,"vt":"1 Corinthians 1:31"},{"rid":125,"vid":28404,"vr":"Isaiah 64:4","vrid":18890,"vt":"1 Corinthians 2:9"},{"rid":126,"vid":28411,"vr":"Isaiah 40:13","vrid":18434,"vt":"1 Corinthians 2:16"},{"rid":127,"vid":28430,"vr":"Job 5:13","vrid":12965,"vt":"1 Corinthians 3:19"},{"rid":128,"vid":28431,"vr":"Psalm 94:11","vrid":15443,"vt":"1 Corinthians 3:20"},{"rid":129,"vid":28550,"vr":"Deuteronomy 25:4","vrid":5552,"vt":"1 Corinthians 9:9"},{"rid":130,"vid":28575,"vr":"Exodus 32:6","vrid":2445,"vt":"1 Corinthians 10:7"},{"rid":131,"vid":28576,"vr":"Numbers 25:1-9","vrid":4473,"vt":"1 Corinthians 10:8"},{"rid":132,"vid":28577,"vr":"Numbers 21:5-6","vrid":4346,"vt":"1 Corinthians 10:9"},{"rid":133,"vid":28578,"vr":"Numbers 16:41-50","vrid":4236,"vt":"1 Corinthians 10:10"},{"rid":134,"vid":28700,"vr":"Isaiah 28:11-12","vrid":18176,"vt":"1 Corinthians 14:21"},{"rid":135,"vid":28722,"vr":"Isaiah 53:5-6","vrid":18717,"vt":"1 Corinthians 15:3"},{"rid":136,"vid":28722,"vr":"Isaiah 53:12","vrid":18724,"vt":"1 Corinthians 15:3"},{"rid":137,"vid":28723,"vr":"Hosea 6:2","vrid":22170,"vt":"1 Corinthians 15:4"},{"rid":138,"vid":28746,"vr":"Psalm 8:6","vrid":14019,"vt":"1 Corinthians 15:27"},{"rid":139,"vid":28764,"vr":"Genesis 2:7","vrid":38,"vt":"1 Corinthians 15:45"},{"rid":140,"vid":28773,"vr":"Isaiah 25:8","vrid":18127,"vt":"1 Corinthians 15:54"},{"rid":141,"vid":28774,"vr":"Hosea 13:14","vrid":22281,"vt":"1 Corinthians 5:55"},{"rid":142,"vid":28873,"vr":"Psalm 116:10","vrid":15859,"vt":"2 Corinthians 4:13"},{"rid":143,"vid":28901,"vr":"Isaiah 49:8","vrid":18645,"vt":"2 Corinthians 6:2"},{"rid":144,"vid":28915,"vr":"Leviticus 26:11-12","vrid":3536,"vt":"2 Corinthians 6:16"},{"rid":145,"vid":28916,"vr":"Isaiah 52:11","vrid":18708,"vt":"2 Corinthians 6:17"},{"rid":146,"vid":28917,"vr":"2 Samuel 7:14","vrid":8195,"vt":"2 Corinthians 6:18"},{"rid":147,"vid":28948,"vr":"Exodus 16:18","vrid":1966,"vt":"2 Corinthians 8:15"},{"rid":148,"vid":28966,"vr":"Psalm 112:9","vrid":15813,"vt":"2 Corinthians 9:9"},{"rid":149,"vid":29111,"vr":"Genesis 22:18","vrid":566,"vt":"Galatians 3:8"},{"rid":150,"vid":29113,"vr":"Deuteronomy 27:26","vrid":5612,"vt":"Galatians 3:10"},{"rid":151,"vid":29114,"vr":"Habakkuk 2:4","vrid":22753,"vt":"Galatians 3:11"},{"rid":152,"vid":29115,"vr":"Leviticus 18:5","vrid":3257,"vt":"Galatians 3:12"},{"rid":153,"vid":29116,"vr":"Deuteronomy 21:23","vrid":5471,"vt":"Galatians 3:13"},{"rid":154,"vid":29154,"vr":"Genesis 16:15","vrid":397,"vt":"Galatians 4:22"},{"rid":155,"vid":29154,"vr":"Genesis 21:1-2","vrid":515,"vt":"Galatians 4:22"},{"rid":156,"vid":29159,"vr":"Isaiah 54:1","vrid":18725,"vt":"Galatians 4:27"},{"rid":157,"vid":29162,"vr":"Genesis 21:10","vrid":524,"vt":"Galatians 4:30"},{"rid":158,"vid":29281,"vr":"Psalm 68:18","vrid":14919,"vt":"Ephesians 4:8"},{"rid":159,"vid":29319,"vr":"Isaiah 60:1","vrid":18823,"vt":"Ephesians 5:14"},{"rid":160,"vid":29341,"vr":"Deuteronomy 5:16","vrid":5070,"vt":"Ephesians 6:3"},{"rid":161,"vid":29782,"vr":"Deuteronomy 25:4","vrid":5552,"vt":"1 Timothy 5:18"},{"rid":162,"vid":29782,"vr":"Matthew 10:10","vrid":23428,"vt":"1 Timothy 5:18"},{"rid":163,"vid":30022,"vr":"Psalms 95:7-8","vrid":15462,"vt":"Hebrews 4:7"},{"rid":164,"vid":30036,"vr":"Psalm 5:5","vrid":13979,"vt":"Hebrews 5:5"},{"rid":165,"vid":30037,"vr":"Psalm 110:4","vrid":15791,"vt":"Hebrews 5:6"},{"rid":166,"vid":30059,"vr":"Genesis 22:17","vrid":565,"vt":"Hebrews 6:14"},{"rid":167,"vid":30141,"vr":"Psalms 40:6-8","vrid":14532,"vt":"Hebrews 10:7"},{"rid":168,"vid":30317,"vr":"Genesis 15:6","vrid":367,"vt":"James 2:23"},{"rid":169,"vid":30317,"vr":"Isaiah 41:8","vrid":18460,"vt":"James 2:23"},{"rid":170,"vid":30344,"vr":"Proverbs 3:34","vrid":16490,"vt":"James 4:6"},{"rid":171,"vid":30391,"vr":"Leviticus 11:44","vrid":3042,"vt":"1 Peter 1:16"},{"rid":172,"vid":30407,"vr":"Psalm 118:22","vrid":15892,"vt":"1 Peter 2:7"},{"rid":173,"vid":30408,"vr":"Isaiah 8:14","vrid":17822,"vt":"1 Peter 2:8"},{"rid":174,"vid":30424,"vr":"Isaiah 53:5","vrid":18717,"vt":"1 Peter 2:24"},{"rid":175,"vid":30425,"vr":"Isaiah 53:6","vrid":18718,"vt":"1 Peter 2:25"},{"rid":176,"vid":30437,"vr":"Psalms 34:12-26","vrid":14401,"vt":"1 Peter 3:12"},{"rid":177,"vid":30439,"vr":"Isaiah 8:12","vrid":17820,"vt":"1 Peter 3:14"},{"rid":178,"vid":30684,"vr":"Numbers 16:1-50","vrid":4196,"vt":"Jude 1:11"}]
+[
+    {
+        "rid": 1,
+        "vid": 9057,
+        "vr": "2 Samuel 7:13",
+        "vrid": 8194,
+        "vt": "1 Kings 9:3-5"
+    },
+    {
+        "rid": 2,
+        "vid": 10314,
+        "vr": "Joshua 6:18",
+        "vrid": 5968,
+        "vt": "1 Chronicles 2:7"
+    },
+    {
+        "rid": 3,
+        "vid": 10314,
+        "vr": "Joshua 7:1",
+        "vrid": 5978,
+        "vt": "1 Chronicles 2:7"
+    },
+    {
+        "rid": 4,
+        "vid": 23188,
+        "vr": "Jeremiah 31:15",
+        "vrid": 19707,
+        "vt": "Matthew 2:18"
+    },
+    {
+        "rid": 5,
+        "vid": 23193,
+        "vr": "Judges 13:5",
+        "vrid": 6890,
+        "vt": "Matthew 2:23"
+    },
+    {
+        "rid": 6,
+        "vid": 23214,
+        "vr": "Deuteronomy 8:3",
+        "vrid": 5141,
+        "vt": "Matthew 4:4"
+    },
+    {
+        "rid": 7,
+        "vid": 23216,
+        "vr": "Psalms 91:11-12",
+        "vrid": 15408,
+        "vt": "Matthew 4:6"
+    },
+    {
+        "rid": 8,
+        "vid": 23217,
+        "vr": "Deuteronomy 6:16",
+        "vrid": 5103,
+        "vt": "Matthew 4:7"
+    },
+    {
+        "rid": 9,
+        "vid": 23220,
+        "vr": "Deuteronomy 6:13",
+        "vrid": 5100,
+        "vt": "Matthew 4:10"
+    },
+    {
+        "rid": 10,
+        "vid": 23226,
+        "vr": "Isaiah 9:1-2",
+        "vrid": 17831,
+        "vt": "Matthew 4:15-16"
+    },
+    {
+        "rid": 11,
+        "vid": 23256,
+        "vr": "Exodus 20:13",
+        "vrid": 2065,
+        "vt": "Matthew 5:21"
+    },
+    {
+        "rid": 12,
+        "vid": 23262,
+        "vr": "Exodus 20:14",
+        "vrid": 2066,
+        "vt": "Matthew 5:27"
+    },
+    {
+        "rid": 13,
+        "vid": 23266,
+        "vr": "Deuteronomy 24:1",
+        "vrid": 5527,
+        "vt": "Matthew 5:31"
+    },
+    {
+        "rid": 14,
+        "vid": 23268,
+        "vr": "Numbers 30:2",
+        "vrid": 4651,
+        "vt": "Matthew 5:33"
+    },
+    {
+        "rid": 15,
+        "vid": 23273,
+        "vr": "Exodus 21:24",
+        "vrid": 2102,
+        "vt": "Matthew 5:38"
+    },
+    {
+        "rid": 16,
+        "vid": 23278,
+        "vr": "Leviticus 19:18",
+        "vrid": 3300,
+        "vt": "Matthew 5:43"
+    },
+    {
+        "rid": 17,
+        "vid": 23363,
+        "vr": "Isaiah 53:4",
+        "vrid": 18716,
+        "vt": "Matthew 8:17"
+    },
+    {
+        "rid": 18,
+        "vid": 23470,
+        "vr": "Malachi 3:1",
+        "vrid": 23122,
+        "vt": "Matthew 11:10"
+    },
+    {
+        "rid": 19,
+        "vid": 23497,
+        "vr": "Hosea 6:6",
+        "vrid": 22174,
+        "vt": "Matthew 12:7"
+    },
+    {
+        "rid": 20,
+        "vid": 23508,
+        "vr": "Isaiah 42:1",
+        "vrid": 18482,
+        "vt": "Matthew 12:18"
+    },
+    {
+        "rid": 21,
+        "vid": 23832,
+        "vr": "Zechariah 9:9",
+        "vrid": 23009,
+        "vt": "Matthew 21:5"
+    },
+    {
+        "rid": 22,
+        "vid": 23843,
+        "vr": "Psalms 8:2",
+        "vrid": 14015,
+        "vt": "Matthew 21:16"
+    },
+    {
+        "rid": 23,
+        "vid": 23869,
+        "vr": "Psalms 118:22",
+        "vrid": 15892,
+        "vt": "Matthew 21:42"
+    },
+    {
+        "rid": 24,
+        "vid": 23905,
+        "vr": "Exodus 3:6",
+        "vrid": 1586,
+        "vt": "Matthew 22:32"
+    },
+    {
+        "rid": 25,
+        "vid": 23954,
+        "vr": "2 Chronicles 24:20-22",
+        "vrid": 11698,
+        "vt": "Matthew 23:35"
+    },
+    {
+        "rid": 26,
+        "vid": 23954,
+        "vr": "Genesis 4:8",
+        "vrid": 84,
+        "vt": "Matthew 23:35"
+    },
+    {
+        "rid": 27,
+        "vid": 24086,
+        "vr": "Zechariah 13:7",
+        "vrid": 23067,
+        "vt": "Matthew 26:31"
+    },
+    {
+        "rid": 28,
+        "vid": 24140,
+        "vr": "Zechariah 11:12-13",
+        "vrid": 23041,
+        "vt": "Matthew 27:9-10"
+    },
+    {
+        "rid": 29,
+        "vid": 24219,
+        "vr": "Isaiah 40:3",
+        "vrid": 18424,
+        "vt": "Mark 1:3"
+    },
+    {
+        "rid": 30,
+        "vid": 24470,
+        "vr": "Isaiah 29:13",
+        "vrid": 18207,
+        "vt": "Mark 7:6"
+    },
+    {
+        "rid": 31,
+        "vid": 24552,
+        "vr": "Malachi 4:5-6",
+        "vrid": 23145,
+        "vt": "Mark 9:11-13"
+    },
+    {
+        "rid": 32,
+        "vid": 24552,
+        "vr": "Isaiah 53:1-12",
+        "vrid": 18713,
+        "vt": "Mark 9:11-13"
+    },
+    {
+        "rid": 33,
+        "vid": 24552,
+        "vr": "Isaiah 50:6",
+        "vrid": 18669,
+        "vt": "Mark 9:11-13"
+    },
+    {
+        "rid": 34,
+        "vid": 24552,
+        "vr": "Isaiah 52:14",
+        "vrid": 18711,
+        "vt": "Mark 9:11-13"
+    },
+    {
+        "rid": 35,
+        "vid": 24552,
+        "vr": "2 Chronicles 36:16",
+        "vrid": 12009,
+        "vt": "Mark 9:11-13"
+    },
+    {
+        "rid": 36,
+        "vid": 24658,
+        "vr": "Isaiah 56:7",
+        "vrid": 18761,
+        "vt": "Mark 11:17"
+    },
+    {
+        "rid": 37,
+        "vid": 24658,
+        "vr": "Jeremiah 7:11",
+        "vrid": 19131,
+        "vt": "Mark 11:17"
+    },
+    {
+        "rid": 38,
+        "vid": 24710,
+        "vr": "Psalms 110:1",
+        "vrid": 15788,
+        "vt": "Mark 12:36"
+    },
+    {
+        "rid": 39,
+        "vid": 24732,
+        "vr": "Daniel 9:27",
+        "vrid": 22016,
+        "vt": "Mark 13:14"
+    },
+    {
+        "rid": 40,
+        "vid": 24732,
+        "vr": "Daniel 11:31",
+        "vrid": 22068,
+        "vt": "Mark 13:14"
+    },
+    {
+        "rid": 41,
+        "vid": 24732,
+        "vr": "Daniel 12:11",
+        "vrid": 22093,
+        "vt": "Mark 13:14"
+    },
+    {
+        "rid": 42,
+        "vid": 24776,
+        "vr": "Isaiah 53:5-9",
+        "vrid": 18717,
+        "vt": "Mark 14:21"
+    },
+    {
+        "rid": 43,
+        "vid": 24776,
+        "vr": "Psalms 41:9",
+        "vrid": 14552,
+        "vt": "Mark 14:21"
+    },
+    {
+        "rid": 44,
+        "vid": 24776,
+        "vr": "Psalms 55:12-15",
+        "vrid": 14745,
+        "vt": "Mark 14:21"
+    },
+    {
+        "rid": 45,
+        "vid": 24782,
+        "vr": "Zechariah 13:7",
+        "vrid": 23067,
+        "vt": "Mark 14:27"
+    },
+    {
+        "rid": 46,
+        "vid": 24855,
+        "vr": "Isaiah 53:12",
+        "vrid": 18724,
+        "vt": "Mark 15:28"
+    },
+    {
+        "rid": 47,
+        "vid": 24997,
+        "vr": "Exodus 13:2",
+        "vrid": 1870,
+        "vt": "Luke 2:23"
+    },
+    {
+        "rid": 48,
+        "vid": 24998,
+        "vr": "Leviticus 12:8",
+        "vrid": 3053,
+        "vt": "Luke 2:24"
+    },
+    {
+        "rid": 49,
+        "vid": 25032,
+        "vr": "Isaiah 40:5",
+        "vrid": 18426,
+        "vt": "Luke 3:6"
+    },
+    {
+        "rid": 50,
+        "vid": 25072,
+        "vr": "Deuteronomy 6:13",
+        "vrid": 5100,
+        "vt": "Luke 4:8"
+    },
+    {
+        "rid": 51,
+        "vid": 25075,
+        "vr": "Psalms 91:11-12",
+        "vrid": 15407,
+        "vt": "Luke 4:11"
+    },
+    {
+        "rid": 52,
+        "vid": 25076,
+        "vr": "Deuteronomy 6:16",
+        "vrid": 5103,
+        "vt": "Luke 4:12"
+    },
+    {
+        "rid": 53,
+        "vid": 25083,
+        "vr": "Isaiah 61:1-2",
+        "vrid": 18845,
+        "vt": "Luke 4:18-19"
+    },
+    {
+        "rid": 54,
+        "vid": 25223,
+        "vr": "Malachi 3:1",
+        "vrid": 23122,
+        "vt": "Luke 7:27"
+    },
+    {
+        "rid": 55,
+        "vid": 25457,
+        "vr": "Genesis 4:8",
+        "vrid": 88,
+        "vt": "Luke 11:51"
+    },
+    {
+        "rid": 56,
+        "vid": 25457,
+        "vr": "2 Chronicles 24:20-22",
+        "vrid": 11698,
+        "vt": "Luke 11:51"
+    },
+    {
+        "rid": 57,
+        "vid": 26516,
+        "vr": "Psalms 82:6",
+        "vrid": 15240,
+        "vt": "John 10:34"
+    },
+    {
+        "rid": 58,
+        "vid": 26596,
+        "vr": "Zechariah 9:9",
+        "vrid": 23009,
+        "vt": "John 12:15"
+    },
+    {
+        "rid": 59,
+        "vid": 26619,
+        "vr": "Isaiah 53:1",
+        "vrid": 18713,
+        "vt": "John 12:38"
+    },
+    {
+        "rid": 60,
+        "vid": 26649,
+        "vr": "Psalms 41:9",
+        "vrid": 14552,
+        "vt": "John 13:18"
+    },
+    {
+        "rid": 61,
+        "vid": 26725,
+        "vr": "Psalm 35:19",
+        "vrid": 14430,
+        "vt": "John 15:25"
+    },
+    {
+        "rid": 62,
+        "vid": 26725,
+        "vr": "Psalms 69:4",
+        "vrid": 14940,
+        "vt": "John 15:25"
+    },
+    {
+        "rid": 63,
+        "vid": 26772,
+        "vr": "John 6:39",
+        "vrid": 26297,
+        "vt": "John 17:12"
+    },
+    {
+        "rid": 64,
+        "vid": 26772,
+        "vr": "Psalms 41:9",
+        "vrid": 14552,
+        "vt": "John 17:12"
+    },
+    {
+        "rid": 65,
+        "vid": 26772,
+        "vr": "Psalms 109:8",
+        "vrid": 15764,
+        "vt": "John 17:12"
+    },
+    {
+        "rid": 66,
+        "vid": 26795,
+        "vr": "John 6:39",
+        "vrid": 26297,
+        "vt": "John 18:9"
+    },
+    {
+        "rid": 67,
+        "vid": 26795,
+        "vr": "John 17:12",
+        "vrid": 26772,
+        "vt": "John 18:9"
+    },
+    {
+        "rid": 68,
+        "vid": 26850,
+        "vr": "Psalms 22:18",
+        "vrid": 14223,
+        "vt": "John 19:24"
+    },
+    {
+        "rid": 69,
+        "vid": 26855,
+        "vr": "Psalms 69:21",
+        "vrid": 14957,
+        "vt": "John 19:28-29"
+    },
+    {
+        "rid": 70,
+        "vid": 26862,
+        "vr": "Psalms 34:20",
+        "vrid": 14409,
+        "vt": "John 19:36"
+    },
+    {
+        "rid": 71,
+        "vid": 26863,
+        "vr": "Zechariah 12:10",
+        "vrid": 23056,
+        "vt": "John 19:37"
+    },
+    {
+        "rid": 72,
+        "vid": 26944,
+        "vr": "Psalms 69:25",
+        "vrid": 14961,
+        "vt": "Acts 1:20"
+    },
+    {
+        "rid": 73,
+        "vid": 26944,
+        "vr": "Psalms 109:8",
+        "vrid": 15764,
+        "vt": "Acts 1:20"
+    },
+    {
+        "rid": 74,
+        "vid": 26971,
+        "vr": "Joel 2:28-32",
+        "vrid": 22340,
+        "vt": "Acts 2:18-21"
+    },
+    {
+        "rid": 75,
+        "vid": 26978,
+        "vr": "Psalm 16:8-11",
+        "vrid": 14101,
+        "vt": "Acts 2:25-28"
+    },
+    {
+        "rid": 76,
+        "vid": 26985,
+        "vr": "Psalms 110:1",
+        "vrid": 15788,
+        "vt": "Acts 2:35"
+    },
+    {
+        "rid": 77,
+        "vid": 27019,
+        "vr": "Deuteronomy 18:15",
+        "vrid": 5400,
+        "vt": "Acts 3:22"
+    },
+    {
+        "rid": 78,
+        "vid": 27020,
+        "vr": "Deuteronomy 18:19",
+        "vrid": 5404,
+        "vt": "Acts 3:23"
+    },
+    {
+        "rid": 79,
+        "vid": 27022,
+        "vr": "Genesis 12:3",
+        "vrid": 302,
+        "vt": "Acts 3:25"
+    },
+    {
+        "rid": 80,
+        "vid": 27049,
+        "vr": "Psalms 2:1-2",
+        "vrid": 13947,
+        "vt": "Acts 4:25-26"
+    },
+    {
+        "rid": 81,
+        "vid": 27210,
+        "vr": "Isaiah 53:7-8",
+        "vrid": 18720,
+        "vt": "Acts 8:32-33"
+    },
+    {
+        "rid": 82,
+        "vid": 27396,
+        "vr": "Psalms 2:7",
+        "vrid": 13953,
+        "vt": "Acts 13:33"
+    },
+    {
+        "rid": 83,
+        "vid": 27397,
+        "vr": "Isaiah 55:3",
+        "vrid": 18744,
+        "vt": "Acts 13:34"
+    },
+    {
+        "rid": 84,
+        "vid": 27398,
+        "vr": "Psalms 16:10",
+        "vrid": 14103,
+        "vt": "Acts 13:35"
+    },
+    {
+        "rid": 85,
+        "vid": 27404,
+        "vr": "Habakkuk 1:5",
+        "vrid": 22737,
+        "vt": "Acts 13:41"
+    },
+    {
+        "rid": 86,
+        "vid": 27410,
+        "vr": "Isaiah 49:6",
+        "vrid": 18643,
+        "vt": "Acts 13:47"
+    },
+    {
+        "rid": 87,
+        "vid": 28153,
+        "vr": "Psalms 44:22",
+        "vrid": 14594,
+        "vt": "Romans 8:36"
+    },
+    {
+        "rid": 88,
+        "vid": 28163,
+        "vr": "Genesis 21:12",
+        "vrid": 526,
+        "vt": "Romans 9:7"
+    },
+    {
+        "rid": 89,
+        "vid": 28165,
+        "vr": "Genesis 18:10",
+        "vrid": 435,
+        "vt": "Romans 9:9"
+    },
+    {
+        "rid": 90,
+        "vid": 28168,
+        "vr": "Genesis 25:23",
+        "vrid": 682,
+        "vt": "Romans 9:12"
+    },
+    {
+        "rid": 91,
+        "vid": 28169,
+        "vr": "Malachi 1:2-3",
+        "vrid": 23092,
+        "vt": "Romans 9:13"
+    },
+    {
+        "rid": 92,
+        "vid": 28171,
+        "vr": "Exodus 33:19",
+        "vrid": 2493,
+        "vt": "Romans 9:15"
+    },
+    {
+        "rid": 93,
+        "vid": 28173,
+        "vr": "Exodus 9:16",
+        "vrid": 1759,
+        "vt": "Romans 9:17"
+    },
+    {
+        "rid": 94,
+        "vid": 28181,
+        "vr": "Hosea 2:23",
+        "vrid": 22129,
+        "vt": "Romans 9:25"
+    },
+    {
+        "rid": 95,
+        "vid": 28183,
+        "vr": "Isaiah 10:22",
+        "vrid": 17873,
+        "vt": "Romans 9:27"
+    },
+    {
+        "rid": 96,
+        "vid": 28185,
+        "vr": "Isaiah 1:9",
+        "vrid": 17664,
+        "vt": "Romans 9:29"
+    },
+    {
+        "rid": 97,
+        "vid": 28194,
+        "vr": "Leviticus 18:5",
+        "vrid": 3257,
+        "vt": "Romans 10:5"
+    },
+    {
+        "rid": 98,
+        "vid": 28195,
+        "vr": "Deuteronomy 30:12-13",
+        "vrid": 5721,
+        "vt": "Romans 10:6-7"
+    },
+    {
+        "rid": 99,
+        "vid": 28197,
+        "vr": "Deuteronomy 30:14",
+        "vrid": 5723,
+        "vt": "Romans 10:8"
+    },
+    {
+        "rid": 100,
+        "vid": 28200,
+        "vr": "Isaiah 28:16",
+        "vrid": 18181,
+        "vt": "Romans 10:11"
+    },
+    {
+        "rid": 101,
+        "vid": 28204,
+        "vr": "Isaiah 52:7",
+        "vrid": 18704,
+        "vt": "Romans 10:15"
+    },
+    {
+        "rid": 102,
+        "vid": 28205,
+        "vr": "Isaiah 53:1",
+        "vrid": 18713,
+        "vt": "Romans 10:16"
+    },
+    {
+        "rid": 103,
+        "vid": 28208,
+        "vr": "Deuteronomy 32:21",
+        "vrid": 5780,
+        "vt": "Romans 10:19"
+    },
+    {
+        "rid": 104,
+        "vid": 28210,
+        "vr": "Isaiah 65:2",
+        "vrid": 18900,
+        "vt": "Romans 10:21"
+    },
+    {
+        "rid": 105,
+        "vid": 28213,
+        "vr": "1 Kings 19:10",
+        "vrid": 9398,
+        "vt": "Romans 11:2-3"
+    },
+    {
+        "rid": 106,
+        "vid": 28214,
+        "vr": "1 Kings 19:18",
+        "vrid": 9406,
+        "vt": "Romans 11:4"
+    },
+    {
+        "rid": 107,
+        "vid": 28218,
+        "vr": "Isaiah 29:10",
+        "vrid": 18204,
+        "vt": "Romans 11:8"
+    },
+    {
+        "rid": 108,
+        "vid": 28218,
+        "vr": "Deuteronomy 29:4",
+        "vrid": 5684,
+        "vt": "Romans 11:8"
+    },
+    {
+        "rid": 109,
+        "vid": 28220,
+        "vr": "Psalms 69:22-23",
+        "vrid": 14958,
+        "vt": "Romans 11:9-10"
+    },
+    {
+        "rid": 110,
+        "vid": 28236,
+        "vr": "Isaiah 59:20",
+        "vrid": 18821,
+        "vt": "Romans 11:26"
+    },
+    {
+        "rid": 111,
+        "vid": 28237,
+        "vr": "Isaiah 27:9",
+        "vrid": 18161,
+        "vt": "Romans 11:27"
+    },
+    {
+        "rid": 112,
+        "vid": 28265,
+        "vr": "Deuteronomy 32:35",
+        "vrid": 5794,
+        "vt": "Romans 12:19"
+    },
+    {
+        "rid": 113,
+        "vid": 28276,
+        "vr": "Exodus 20:13-17",
+        "vrid": 2065,
+        "vt": "Romans 13:9"
+    },
+    {
+        "rid": 114,
+        "vid": 28276,
+        "vr": "Deuteronomy 5:17-21",
+        "vrid": 5071,
+        "vt": "Romans 13:9"
+    },
+    {
+        "rid": 115,
+        "vid": 28276,
+        "vr": "Leviticus 19:18",
+        "vrid": 3300,
+        "vt": "Romans 13:9"
+    },
+    {
+        "rid": 116,
+        "vid": 28292,
+        "vr": "Isaiah 45:23",
+        "vrid": 18585,
+        "vt": "Romans 14:11"
+    },
+    {
+        "rid": 117,
+        "vid": 28307,
+        "vr": "Psalms 69:9",
+        "vrid": 14945,
+        "vt": "Romans 15:3"
+    },
+    {
+        "rid": 118,
+        "vid": 28313,
+        "vr": "Psalms 18:49",
+        "vrid": 14168,
+        "vt": "Romans 15:9"
+    },
+    {
+        "rid": 119,
+        "vid": 28313,
+        "vr": "2 Samuel 22:50",
+        "vrid": 8653,
+        "vt": "Romans 15:9"
+    },
+    {
+        "rid": 120,
+        "vid": 28314,
+        "vr": "Deuteronomy 32:43",
+        "vrid": 5802,
+        "vt": "Romans 15:10"
+    },
+    {
+        "rid": 121,
+        "vid": 28315,
+        "vr": "Psalms 117:1",
+        "vrid": 15869,
+        "vt": "Romans 15:11"
+    },
+    {
+        "rid": 122,
+        "vid": 28316,
+        "vr": "Isaiah 11:10",
+        "vrid": 17895,
+        "vt": "Romans 15:12"
+    },
+    {
+        "rid": 123,
+        "vid": 28325,
+        "vr": "Isaiah 52:15",
+        "vrid": 18712,
+        "vt": "Romans 15:21"
+    },
+    {
+        "rid": 124,
+        "vid": 28383,
+        "vr": "Isaiah 29:14",
+        "vrid": 18208,
+        "vt": "1 Corinthians 1:19"
+    },
+    {
+        "rid": 125,
+        "vid": 28395,
+        "vr": "Jeremiah 9:23-24",
+        "vrid": 19199,
+        "vt": "1 Corinthians 1:31"
+    },
+    {
+        "rid": 126,
+        "vid": 28404,
+        "vr": "Isaiah 64:4",
+        "vrid": 18890,
+        "vt": "1 Corinthians 2:9"
+    },
+    {
+        "rid": 127,
+        "vid": 28411,
+        "vr": "Isaiah 40:13",
+        "vrid": 18434,
+        "vt": "1 Corinthians 2:16"
+    },
+    {
+        "rid": 128,
+        "vid": 28430,
+        "vr": "Job 5:13",
+        "vrid": 12965,
+        "vt": "1 Corinthians 3:19"
+    },
+    {
+        "rid": 129,
+        "vid": 28431,
+        "vr": "Psalms 94:11",
+        "vrid": 15443,
+        "vt": "1 Corinthians 3:20"
+    },
+    {
+        "rid": 130,
+        "vid": 28550,
+        "vr": "Deuteronomy 25:4",
+        "vrid": 5552,
+        "vt": "1 Corinthians 9:9"
+    },
+    {
+        "rid": 131,
+        "vid": 28575,
+        "vr": "Exodus 32:6",
+        "vrid": 2445,
+        "vt": "1 Corinthians 10:7"
+    },
+    {
+        "rid": 132,
+        "vid": 28576,
+        "vr": "Numbers 25:1-9",
+        "vrid": 4473,
+        "vt": "1 Corinthians 10:8"
+    },
+    {
+        "rid": 133,
+        "vid": 28577,
+        "vr": "Numbers 21:5-6",
+        "vrid": 4346,
+        "vt": "1 Corinthians 10:9"
+    },
+    {
+        "rid": 134,
+        "vid": 28578,
+        "vr": "Numbers 16:41-50",
+        "vrid": 4236,
+        "vt": "1 Corinthians 10:10"
+    },
+    {
+        "rid": 135,
+        "vid": 28700,
+        "vr": "Isaiah 28:11-12",
+        "vrid": 18176,
+        "vt": "1 Corinthians 14:21"
+    },
+    {
+        "rid": 136,
+        "vid": 28722,
+        "vr": "Isaiah 53:5-11",
+        "vrid": 18717,
+        "vt": "1 Corinthians 15:3"
+    },
+    {
+        "rid": 137,
+        "vid": 28722,
+        "vr": "Isaiah 53:12",
+        "vrid": 18724,
+        "vt": "1 Corinthians 15:3"
+    },
+    {
+        "rid": 138,
+        "vid": 28723,
+        "vr": "Hosea 6:2",
+        "vrid": 22170,
+        "vt": "1 Corinthians 15:4"
+    },
+    {
+        "rid": 139,
+        "vid": 28746,
+        "vr": "Psalms 8:6",
+        "vrid": 14019,
+        "vt": "1 Corinthians 15:27"
+    },
+    {
+        "rid": 140,
+        "vid": 28764,
+        "vr": "Genesis 2:7",
+        "vrid": 38,
+        "vt": "1 Corinthians 15:45"
+    },
+    {
+        "rid": 141,
+        "vid": 28764,
+        "vr": "Genesis 5:2",
+        "vrid": 0,
+        "vt": "1 Corinthians 15:45"
+    },
+    {
+        "rid": 142,
+        "vid": 28773,
+        "vr": "Isaiah 25:8",
+        "vrid": 18127,
+        "vt": "1 Corinthians 15:54"
+    },
+    {
+        "rid": 143,
+        "vid": 28774,
+        "vr": "Hosea 13:14",
+        "vrid": 22281,
+        "vt": "1 Corinthians 15:55"
+    },
+    {
+        "rid": 144,
+        "vid": 28873,
+        "vr": "Psalms 116:10",
+        "vrid": 15859,
+        "vt": "2 Corinthians 4:13"
+    },
+    {
+        "rid": 145,
+        "vid": 28901,
+        "vr": "Isaiah 49:8",
+        "vrid": 18645,
+        "vt": "2 Corinthians 6:2"
+    },
+    {
+        "rid": 146,
+        "vid": 28915,
+        "vr": "Leviticus 26:11-12",
+        "vrid": 3536,
+        "vt": "2 Corinthians 6:16"
+    },
+    {
+        "rid": 147,
+        "vid": 28916,
+        "vr": "Isaiah 52:11",
+        "vrid": 18708,
+        "vt": "2 Corinthians 6:17"
+    },
+    {
+        "rid": 148,
+        "vid": 28917,
+        "vr": "2 Samuel 7:14",
+        "vrid": 8195,
+        "vt": "2 Corinthians 6:18"
+    },
+    {
+        "rid": 149,
+        "vid": 28948,
+        "vr": "Exodus 16:18",
+        "vrid": 1966,
+        "vt": "2 Corinthians 8:15"
+    },
+    {
+        "rid": 150,
+        "vid": 28966,
+        "vr": "Psalms 112:9",
+        "vrid": 15813,
+        "vt": "2 Corinthians 9:9"
+    },
+    {
+        "rid": 151,
+        "vid": 29111,
+        "vr": "Genesis 22:18",
+        "vrid": 566,
+        "vt": "Galatians 3:8"
+    },
+    {
+        "rid": 152,
+        "vid": 29113,
+        "vr": "Deuteronomy 27:26",
+        "vrid": 5612,
+        "vt": "Galatians 3:10"
+    },
+    {
+        "rid": 153,
+        "vid": 29114,
+        "vr": "Habakkuk 2:4",
+        "vrid": 22753,
+        "vt": "Galatians 3:11"
+    },
+    {
+        "rid": 154,
+        "vid": 29115,
+        "vr": "Leviticus 18:5",
+        "vrid": 3257,
+        "vt": "Galatians 3:12"
+    },
+    {
+        "rid": 155,
+        "vid": 29116,
+        "vr": "Deuteronomy 21:23",
+        "vrid": 5471,
+        "vt": "Galatians 3:13"
+    },
+    {
+        "rid": 156,
+        "vid": 29154,
+        "vr": "Genesis 16:15",
+        "vrid": 397,
+        "vt": "Galatians 4:22"
+    },
+    {
+        "rid": 157,
+        "vid": 29154,
+        "vr": "Genesis 21:1-2",
+        "vrid": 515,
+        "vt": "Galatians 4:22"
+    },
+    {
+        "rid": 158,
+        "vid": 29159,
+        "vr": "Isaiah 54:1",
+        "vrid": 18725,
+        "vt": "Galatians 4:27"
+    },
+    {
+        "rid": 159,
+        "vid": 29162,
+        "vr": "Genesis 21:10",
+        "vrid": 524,
+        "vt": "Galatians 4:30"
+    },
+    {
+        "rid": 160,
+        "vid": 29281,
+        "vr": "Psalms 68:18",
+        "vrid": 14919,
+        "vt": "Ephesians 4:8"
+    },
+    {
+        "rid": 161,
+        "vid": 29319,
+        "vr": "Isaiah 60:1",
+        "vrid": 18823,
+        "vt": "Ephesians 5:14"
+    },
+    {
+        "rid": 162,
+        "vid": 29341,
+        "vr": "Deuteronomy 5:16",
+        "vrid": 5070,
+        "vt": "Ephesians 6:3"
+    },
+    {
+        "rid": 163,
+        "vid": 29782,
+        "vr": "Deuteronomy 25:4",
+        "vrid": 5552,
+        "vt": "1 Timothy 5:18"
+    },
+    {
+        "rid": 164,
+        "vid": 29782,
+        "vr": "Matthew 10:10",
+        "vrid": 23428,
+        "vt": "1 Timothy 5:18"
+    },
+    {
+        "rid": 165,
+        "vid": 30022,
+        "vr": "Psalms 95:7-8",
+        "vrid": 15462,
+        "vt": "Hebrews 4:7"
+    },
+    {
+        "rid": 166,
+        "vid": 30036,
+        "vr": "Psalms 2:7",
+        "vrid": 13953,
+        "vt": "Hebrews 5:5"
+    },
+    {
+        "rid": 167,
+        "vid": 30037,
+        "vr": "Psalms 110:4",
+        "vrid": 15791,
+        "vt": "Hebrews 5:6"
+    },
+    {
+        "rid": 168,
+        "vid": 30059,
+        "vr": "Genesis 22:17",
+        "vrid": 565,
+        "vt": "Hebrews 6:14"
+    },
+    {
+        "rid": 169,
+        "vid": 30142,
+        "vr": "Psalms 40:6-8",
+        "vrid": 14532,
+        "vt": "Hebrews 10:6-8"
+    },
+    {
+        "rid": 170,
+        "vid": 30317,
+        "vr": "Genesis 15: 6",
+        "vrid": 367,
+        "vt": "James 2:23"
+    },
+    {
+        "rid": 171,
+        "vid": 30317,
+        "vr": "Isaiah 41:8",
+        "vrid": 18460,
+        "vt": "James 2:23"
+    },
+    {
+        "rid": 172,
+        "vid": 30344,
+        "vr": "Proverbs 3:34",
+        "vrid": 16490,
+        "vt": "James 4:6"
+    },
+    {
+        "rid": 173,
+        "vid": 30391,
+        "vr": "Leviticus 11:44",
+        "vrid": 3042,
+        "vt": "1 Peter 1:16"
+    },
+    {
+        "rid": 174,
+        "vid": 30407,
+        "vr": "Psalms 118:22",
+        "vrid": 15892,
+        "vt": "1 Peter 2:7"
+    },
+    {
+        "rid": 175,
+        "vid": 30408,
+        "vr": "Isaiah 8:14",
+        "vrid": 17822,
+        "vt": "1 Peter 2:8"
+    },
+    {
+        "rid": 176,
+        "vid": 30424,
+        "vr": "Isaiah 53:5",
+        "vrid": 18717,
+        "vt": "1 Peter 2:24"
+    },
+    {
+        "rid": 177,
+        "vid": 30425,
+        "vr": "Isaiah 53:6",
+        "vrid": 18718,
+        "vt": "1 Peter 2:25"
+    },
+    {
+        "rid": 178,
+        "vid": 30437,
+        "vr": "Psalms 34:12-16",
+        "vrid": 14401,
+        "vt": "1 Peter 3:10-12"
+    },
+    {
+        "rid": 179,
+        "vid": 30440,
+        "vr": "Isaiah 8:12-13",
+        "vrid": 17820,
+        "vt": "1 Peter 3:14-15"
+    },
+    {
+        "rid": 180,
+        "vid": 30684,
+        "vr": "Numbers 16:1-3",
+        "vrid": 4196,
+        "vt": "Jude 1:11"
+    },
+    {
+        "rid": 181,
+        "vid": 30684,
+        "vr": "Numbers 31:16",
+        "vrid": 4681,
+        "vt": "Jude 1:11"
+    },
+    {
+        "rid": 182,
+        "vid": 30684,
+        "vr": "Numbers 16:19-25",
+        "vrid": 4214,
+        "vt": "Jude 1:11"
+    }
+]

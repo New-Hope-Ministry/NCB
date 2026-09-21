@@ -20,7 +20,8 @@
      #id-print:hover,
      #id-redLetter:hover,
      #id-resetDefaults:hover,
-     #id-themeNote:hover { color: var(--paleMaroonEmphasis); }
+     #id-themeNote:hover,
+     #id-turnOnCitations:hover { color: var(--paleMaroonEmphasis); }
 
      #id-iconLink:hover,
      #id-logoImg:hover { background-color: #eeeea5; }

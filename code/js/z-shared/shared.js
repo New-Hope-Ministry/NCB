@@ -1,6 +1,6 @@
 /*******************************/
 // Golbal Variables
-const dateEdited = '9-14-2026';
+const dateEdited = '9-21-2026';
 const copyrighted = '2018-2026';
 const goHome = 'https://thearkbible.com';
 const isLive = false;
@@ -41,6 +41,7 @@ var rotateTheme = true;
 var savedLocal = false;
 var setRedLetter = 0;
 var setTheme = '0';
+var turnOnCitation = 1;
 
 var activeBookID = null;
 var activeChapterID = null;
@@ -511,7 +512,7 @@ async function nextLast(bid, cn, loadChpts) {
      activeBookID = `id-book${bid}`;
      activeChapterID = `id-chapter${cn}`;
      closeBoxes();
-     if (loadChpts) { loadChapters(changeChapter); };
+     if (loadChpts) { loadChapters(changeChapter) };
      getChapter();
      unHighlight();
      removeQueryParam('vh');
@@ -606,6 +607,7 @@ async function checkID(id) {
 function closeCitation() {
      document.getElementById('id-citationContainer').style.display = 'none';
 }
+
 function darkTheme() {
      let theme = document.documentElement;
      theme.style.setProperty('--headerImg', 'url("../../../images/headers/brcrystal.webp")');
@@ -733,6 +735,7 @@ function getBooksVolume(id) {
 
 async function getChapter(A1 = '', AA = '', verses1 = null) {
 
+     // Scoped Helper functions:
           function addLink(text, alph) {
 
                let str = text;
@@ -762,7 +765,6 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
                return str;
           };
 
-     // Scoped Helper functions:
           function renderVerseSpan(v, AA) {
                //  Render a single verse span
                const sp = document.createElement('span');
@@ -778,8 +780,14 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
                text.id = `id-avers${AA}${v.vn}`;
 
                let vt = v.vt;
-               if (vt.includes("[d")) { vt = addLink(vt, 'd'); };
-               if (vt.includes("[r")) { vt = addLink(vt, 'r'); };
+               if (turnOnCitation) {
+                    if (vt.includes("[d")) { vt = addLink(vt, 'd'); };
+                    if (vt.includes("[r")) { vt = addLink(vt, 'r'); };
+               } else {
+                    let text = vt.replace(/\[[a-zA-Z]\d+\]/g, '');
+                    vt = text;
+               };
+
                text.innerHTML = v.jq === 1 ? JesusQuote(vt) : vt;
 
                sp.appendChild(text);
@@ -916,11 +924,13 @@ async function getDefinition(e) {
      def.appendChild(sp);
 
      let wid =  definitions[i].wid;
+     let z = 0;
      while (i < x && definitions[i].wid === wid) {
 
           sp = document.createElement('span');
           sp.classList.add('cs-citationLine');
-
+          if (z>0) { sp.classList.add('cs-citationTop'); };
+          z++;
           let adef = definitions[i].df;
           let regex = /\b([A-Z]):\s*/;
           let match = adef.match(regex);
@@ -940,8 +950,8 @@ async function getDefinition(e) {
           i++
      };
 
-     let br = document.createElement('br');
-     def.appendChild(br);
+     //let br = document.createElement('br');
+     //def.appendChild(br);
      let btn = document.createElement('button');
      btn.id = 'id-citationBtn';
      btn.textContent = '⚔️';
@@ -949,6 +959,43 @@ async function getDefinition(e) {
      def.appendChild(btn);
      document.getElementById('id-citationContainer').style.display = 'block';
 
+};
+
+async function getDesignDefaults() {
+
+     activeFontSize = localStorage.getItem("activeFontSize");
+     if (!activeFontSize) { activeFontSize = 1.06; } else { activeFontSize = Number(activeFontSize); };
+     activeFontSizeCount = localStorage.getItem("activeFontSizeCount");
+     if (!activeFontSizeCount) { activeFontSizeCount = 0; } else { activeFontSizeCount = Number(activeFontSizeCount); };
+     inst = localStorage.getItem('installed');
+     let ltr = localStorage.getItem('redLetter');
+     if (ltr) { redLetterDefault = Number(ltr); setRedLetter = Number(ltr); };
+     paragraphLayoutDefault = localStorage.getItem("paragraphLayout");
+     if (!paragraphLayoutDefault) { paragraphLayoutDefault = 0; }
+     else { paragraphLayoutDefault = Number(paragraphLayoutDefault); };
+     let svd = localStorage.getItem('savedLocal');
+     if (svd) { savedLocal = svd; };
+     setTheme = localStorage.getItem("setTheme");
+     let ct = localStorage.getItem('citation');
+     if (ct !== null) {
+          turnOnCitation = Number(ct);
+          if (turnOnCitation === 0) { document.getElementById('id-turnOnCitations').textContent = 'Turn On Citations'; };
+     };
+     return true;
+};
+
+async function getMenus() {
+
+     // getMenus is in shared.js, but it calls setMenu in each app.js files
+     const indices = [1, 2, 3, 4];
+     for (const i of indices) {
+
+          const mnuBtn = document.getElementById(`id-MenuBtn${i}`);
+          if (!mnuBtn) continue;
+          const val = setMenu(`id-MenuBtn${i}`);
+          mnuBtn.textContent = `${val}`;
+     };
+     return true;
 };
 
 async function getReference(e) {
@@ -1029,38 +1076,6 @@ async function getReference(e) {
      br = document.createElement('br');
      ref.appendChild(br);
      document.getElementById('id-citationContainer').style.display = 'block';
-};
-
-async function getDesignDefaults() {
-
-     activeFontSize = localStorage.getItem("activeFontSize");
-     if (!activeFontSize) { activeFontSize = 1.06; } else { activeFontSize = Number(activeFontSize); };
-     activeFontSizeCount = localStorage.getItem("activeFontSizeCount");
-     if (!activeFontSizeCount) { activeFontSizeCount = 0; } else { activeFontSizeCount = Number(activeFontSizeCount); };
-     inst = localStorage.getItem('installed');
-     let ltr = localStorage.getItem('redLetter');
-     if (ltr) { redLetterDefault = Number(ltr); setRedLetter = Number(ltr); };
-     paragraphLayoutDefault = localStorage.getItem("paragraphLayout");
-     if (!paragraphLayoutDefault) { paragraphLayoutDefault = 0; }
-     else { paragraphLayoutDefault = Number(paragraphLayoutDefault); };
-     let svd = localStorage.getItem('savedLocal');
-     if (svd) { savedLocal = svd; };
-     setTheme = localStorage.getItem("setTheme");
-     return true;
-};
-
-async function getMenus() {
-
-     // getMenus is in shared.js, but it calls setMenu in each app.js files
-     const indices = [1, 2, 3, 4];
-     for (const i of indices) {
-
-          const mnuBtn = document.getElementById(`id-MenuBtn${i}`);
-          if (!mnuBtn) continue;
-          const val = setMenu(`id-MenuBtn${i}`);
-          mnuBtn.textContent = `${val}`;
-     };
-     return true;
 };
 
 async function getVersion(e = null) {
@@ -1277,6 +1292,20 @@ function toggleTheme() {
      if (theme) { theme.textContent = theme.classList.contains("cs-darkTheme") ? "🌙" : "☀️"; };
 };
 
+function turnOnCitations(e = null) {
+
+     if (turnOnCitation) {
+          document.getElementById('id-turnOnCitations').textContent = 'Turn On Citations';
+          turnOnCitation = 0;
+          localStorage.setItem("citation", 0);
+     } else {
+          document.getElementById('id-turnOnCitations').textContent = 'Turn Off Citations';
+          turnOnCitation = 1;
+          localStorage.setItem("citation", 1);
+     };
+     getChapter();
+};
+
 function unHighlight(e = null) {
 
      stopBubbles(e);
@@ -1294,7 +1323,10 @@ function unHighlight(e = null) {
 
      let btn = document.getElementById('id-MenuBtn4');
      if (btn) { if (btn.dataset.type === 'vh1') { btn.textContent = '1'; }; };
-     if (selectedVerseNumberID) { document.getElementById(selectedVerseNumberID).parentElement.classList.remove('cs-highlight'); };
+     if (selectedVerseNumberID) {
+          let sel = document.getElementById(selectedVerseNumberID);
+          if (sel) { sel.parentElement.classList.remove('cs-highlight'); };
+     };
      selectedVerseNumberID = null;
      selectedVerseID = null;
      pastSelectedVerseID = null;

@@ -256,8 +256,11 @@ function resetDefaults() {
      pastSelectedBookID = defaultBookID;
      pastSelectedChapterID = defaultChapterID;
      pastSelectedVerseID = selectedVerseID;
+     document.getElementById('id-turnOnCitations').textContent = 'Turn Off Citations';
+     turnOnCitation = 1;
+     getChapter()
 
-     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
+     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });;
      // getMenus is in shared.js, but it calls setMenu in index.js
      getMenus();
 };
