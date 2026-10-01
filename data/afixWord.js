@@ -91,7 +91,8 @@ function setDictionary() {
 
      records.forEach(record => {
           // Create a composite key for the matching criteria
-          const groupKey = `${record.bid}-${record.cn}`;
+          //const groupKey = `${record.bid}-${record.cn}`;
+          const groupKey = `${record.bid}-${record.cn}-${record.vn}`;
 
           // Initialize a tracking Set for this group if it doesn't exist
           if (!groupAsteriskWords.has(groupKey)) {
