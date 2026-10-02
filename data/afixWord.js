@@ -55,29 +55,20 @@ const versions = [
           "t": "Twenty-First Century Version"
      }
 ];
-const idx = versions.findIndex(rec => rec.ar === 'TWF');
-const abr = versions[idx].ar;
 
-const referencePath = './data/ZMETA/VRef.json';
-const versePath = `data\\${abr}\\${abr}Verses.json`;
-const wordPath = './data/ZMETA/DWord.json';
-
-let verseData = fs.readFileSync(versePath, 'utf8');
-let wordFile = fs.readFileSync(wordPath, 'utf8');
-let referenceFile = fs.readFileSync(referencePath, 'utf8');
-
-//deleteAllBrackets();  1
-//setReference();  2
-//setDictionary();  3
-//minifyJson();  4
-run(4);
+let abr = '';
+let versePath = '';
+let verseData =null;
 
 function setDictionary() {
 
      const letter = 'd';
      const regex = new RegExp(`\\[${letter}\\d+\\]`, 'g');
      verseData = verseData.replace(regex, '');
+     const wordPath = './data/ZMETA/DWord.json';
+     const wordFile = fs.readFileSync(wordPath, 'utf8');
      const jsonData = JSON.parse(wordFile);
+
      for (const item of jsonData) {
           const targetWord = item.Word;
           // Matches the base word only if it is NOT followed by an apostrophe and a suffix
@@ -123,6 +114,8 @@ function setReference() {
      const regex = new RegExp(`\\[${letter}\\d+\\]`, 'g');
      verseData = verseData.replace(regex, '');
 
+     const referencePath = './data/ZMETA/VRef.json';
+     const referenceFile = fs.readFileSync(referencePath, 'utf8');
      const jsonData = JSON.parse(referenceFile);
      const records = JSON.parse(verseData);
      for (const item of jsonData) {
@@ -149,6 +142,8 @@ function deleteAllBrackets() {
      //This deletes any letter prefix
      const regex = /\[[a-zA-ZÀ-ÿ]+\d+\]/g;
      verseData = verseData.replace(regex, '');
+     let jsonData = JSON.parse(verseData);
+     verseData = JSON.stringify(jsonData, null, 2);
      fs.writeFileSync(versePath, verseData, 'utf8');
      console.log('Brackets Deleted!');
 };
@@ -174,7 +169,12 @@ function minifyJson() {
      console.log('Files Minified!');
 };
 
-function run(func) {
+function run(func, ver) {
+
+     const idx = versions.findIndex(rec => rec.ar === ver);
+     abr = versions[idx].ar;
+     versePath = `data\\${abr}\\${abr}Verses.json`;
+     verseData = fs.readFileSync(versePath, 'utf8');
 
      switch(func) {
           case 1:
@@ -191,5 +191,11 @@ function run(func) {
                break;
      };
 }
+
+run(4, 'TWF');
+//deleteAllBrackets();  1
+//setReference();  2
+//setDictionary();  3
+//minifyJson();  4
 
 console.log('Finished and complete!');
