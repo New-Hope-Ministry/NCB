@@ -780,14 +780,25 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
                text.id = `id-avers${AA}${v.vn}`;
 
                let vt = v.vt;
-               if (turnOnCitation) {
-                    if (vt.includes("[d")) { vt = addLink(vt, 'd'); };
-                    if (vt.includes("[r")) { vt = addLink(vt, 'r'); };
+               let verid = Number(activeVersionID.slice('id-version'.length));
+               let val = getVersionsABR(verid);
+               let citationBtn = document.getElementById('id-turnOnCitations');
+               if (val === 'AKV') {
+                    citationBtn.style.display = 'none';
                } else {
-                    let text = vt.replace(/\[[a-zA-Z]\d+\]/g, '');
-                    vt = text;
+                    if (turnOnCitation) {
+                         if (vt.includes("[d")) { vt = addLink(vt, 'd'); };
+                         if (vt.includes("[r")) { vt = addLink(vt, 'r'); };
+                         citationBtn.textContent = 'Turn Off Citations';
+                         citationBtn.title =  'Turn Off Citations';
+                    } else {
+                         let text = vt.replace(/\[[a-zA-Z]\d+\]/g, '');
+                         vt = text;
+                         citationBtn.textContent = 'Turn On Citations';
+                         citationBtn.title =  'Turn On Citations';
+                    };
+                    citationBtn.style.display = 'block';
                };
-
                text.innerHTML = v.jq === 1 ? JesusQuote(vt) : vt;
 
                sp.appendChild(text);
@@ -1294,12 +1305,15 @@ function toggleTheme() {
 
 function turnOnCitations(e = null) {
 
+     let citationBtn = document.getElementById('id-turnOnCitations');
      if (turnOnCitation) {
-          document.getElementById('id-turnOnCitations').textContent = 'Turn On Citations';
+          citationBtn.textContent = 'Turn On Citations';
+          citationBtn.title =  'Turn On Citations';
           turnOnCitation = 0;
           localStorage.setItem("citation", 0);
      } else {
-          document.getElementById('id-turnOnCitations').textContent = 'Turn Off Citations';
+          citationBtn.textContent = 'Turn Off Citations';
+          citationBtn.title =  'Turn Off Citations';
           turnOnCitation = 1;
           localStorage.setItem("citation", 1);
      };

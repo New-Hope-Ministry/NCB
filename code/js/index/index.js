@@ -256,7 +256,9 @@ function resetDefaults() {
      pastSelectedBookID = defaultBookID;
      pastSelectedChapterID = defaultChapterID;
      pastSelectedVerseID = selectedVerseID;
-     document.getElementById('id-turnOnCitations').textContent = 'Turn Off Citations';
+     let citationBtn = document.getElementById('id-turnOnCitations');
+     citationBtn.textContent = 'Turn Off Citations';
+     citationBtn.title = 'Turn Off Citations';
      turnOnCitation = 1;
      getChapter()
 
