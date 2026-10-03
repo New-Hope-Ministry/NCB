@@ -256,10 +256,10 @@ function resetDefaults() {
      pastSelectedBookID = defaultBookID;
      pastSelectedChapterID = defaultChapterID;
      pastSelectedVerseID = selectedVerseID;
-     let citationBtn = document.getElementById('id-turnOnCitations');
-     citationBtn.textContent = 'Turn Off Citations';
-     citationBtn.title = 'Turn Off Citations';
-     turnOnCitation = 1;
+     citationsOpen = true;
+     citationsOn = 1;
+     dictionaryOn = 1;
+     referencesOn = 1;
      getChapter()
 
      document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });;

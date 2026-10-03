@@ -21,7 +21,7 @@
      #id-redLetter:hover,
      #id-resetDefaults:hover,
      #id-themeNote:hover,
-     #id-turnOnCitations:hover { color: var(--paleMaroonEmphasis); }
+     #id-citationSettings:hover { color: var(--paleMaroonEmphasis); }
 
      #id-iconLink:hover,
      #id-logoImg:hover { background-color: #eeeea5; }

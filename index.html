@@ -79,6 +79,7 @@
      <!-- Favicon & Desktop Icons -->
      <link rel="icon" type="image/webp" sizes="192x192" href="images/logos/logo-192.webp">
      <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+     <link rel="shortcut icon" href="favicon.ico">
 
      <link rel="stylesheet" type="text/css" href="code/css/shared/shared.css">
      <link rel="stylesheet" type="text/css" href="code/css/apps/settings.css">
@@ -336,10 +337,11 @@
                                         <span class="cs-adjustFont1" onclick="changeFontSize('+')" title="Decrease Font Size">+</span>
                                    </span>
                               </div>
+                              <div id="id-citationSettings" onclick="openCitations()" title="Turn Citations On and Off">Citations</div>
                               <div id="id-redLetter" onclick="redLetter()" title="Set color of Jesus' quotes - Red Letter or Black Letter">Red Letter</div>
                               <div id="id-paragraphLayout" onclick="paragraphLayout()" title="Set format of text layout - Paragraph or Single Line">Paragraph Layout</div>
                               <div id="id-print" onclick="printSection('id-mainPage')" title="Print Current Page">Print Page</div>
-                              <div id="id-turnOnCitations" onclick="turnOnCitations()" title="Turn Off Citations">Turn Off Citations</div>
+
                               <div id="id-resetDefaults" onclick="resetDefaults()" title="Reset Defaults to Original">Reset Defaults</div>
                          </div>
                     </div>
@@ -386,10 +388,9 @@
           <div id="id-versesBox"></div>
      </div>
 
-     <div id="id-citationContainer" onclick="closeCitation()">
-          <div id="id-citation" onclick="event.stopPropagation()">
-
-          </div>
+     <div id="id-modal" onclick="closeModal()">
+          <!--<div id="id-citation" onclick="event.stopPropagation()"></div>
+          <div id="id-citations" onclick="event.stopPropagation()">settings</div>-->
      </div>
 
      <style>

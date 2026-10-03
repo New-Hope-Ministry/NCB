@@ -10,14 +10,14 @@
 #id-redLetter,
 #id-resetDefaults,
 #id-paragraphLayout,
-#id-turnOnCitations,
+#id-citationSettings,
 #id-print { width: max-content; margin-top: 1em; background-color: var(--gradientDark); color: var(--whiteText); user-select: none; cursor: pointer; }
 
 #id-adjustFont,
 #id-redLetter,
 #id-resetDefaults,
 #id-paragraphLayout,
-#id-turnOnCitations,
+#id-citationSettings,
 #id-print { padding-left: 1.5em; padding-right: 1.5em; text-decoration: underline; font-size: .9rem; cursor: pointer; }
 
 .cs-adjustFont1 { display: flex; justify-content: center; align-items: center; height: 1.2rem; width: 1.2rem; line-height: 0; border-radius: 50%; background-color: var(--whiteText); color: var(--gradientDark); }

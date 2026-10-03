@@ -31,17 +31,20 @@ const defaultCompVrsnID = `id-versionA1`; // Compare Version Defaults: AKJ = 1, 
 var bookSort = false;
 var boxesLoaded = false;
 var boxesAreOpen = false;
+var citationsOn = 1;
+var citationsOpen = true;
+var dictionaryOn = 1;
 var fetchPrefix = '';
 var inst = null;
 var isTWF = true;
 var pageTitle = null;
 var paragraphLayoutDefault = 0;
 var redLetterDefault = 0;
+var referencesOn = 1;
 var rotateTheme = true;
 var savedLocal = false;
 var setRedLetter = 0;
 var setTheme = '0';
-var turnOnCitation = 1;
 
 var activeBookID = null;
 var activeChapterID = null;
@@ -604,9 +607,136 @@ async function checkID(id) {
      */
 };
 
-function closeCitation() {
-     document.getElementById('id-citationContainer').style.display = 'none';
-}
+async function resetCitations(e = null) {
+
+     stopBubbles(e);
+     let ck = document.getElementById('id-dctBox');
+     ck.classList.add('cs-ckdBox');
+     ck.checked = true;
+     dictionaryOn = 1;
+     localStorage.removeItem("dictionary");
+
+     ck = document.getElementById('id-refBox');
+     ck.classList.add('cs-ckdBox');
+     ck.checked = true;
+     referencesOn = 1;
+     localStorage.removeItem("references");
+     citationsOn = 1;
+     closeModal();
+     getChapter();
+     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
+};
+
+async function saveCitations(e = null) {
+
+     stopBubbles(e);
+     let ck = document.getElementById('id-dctBox');
+     localStorage.removeItem("dictionary");
+     citationsOn = 0;
+     dictionaryOn = 0;
+     if (ck.checked) {
+          dictionaryOn = 1;
+          citationsOn = 1;
+     };
+
+     ck = document.getElementById('id-refBox');
+     localStorage.removeItem("references");
+     referencesOn = 0;
+     if (ck.checked) {
+          referencesOn = 1;
+          citationsOn = 1;
+     };
+     localStorage.setItem("dictionary", dictionaryOn);
+     localStorage.setItem("references", referencesOn);
+     closeModal();
+     getChapter();
+     document.getElementById('id-pageContainer').scrollTo({ top: 0, behavior: "instant" });
+};
+
+function checkboxChecked(e = null) {
+
+     let id;
+     if (e) { e.stopPropagation(); id = e.target.id; };
+     let aBox = document.getElementById(id);
+
+     if (!aBox.checked) {
+          aBox.classList.remove('cs-ckdBox');
+          aBox.checked = false;
+     } else {
+          aBox.classList.add('cs-ckdBox');
+          aBox.checked = true;
+     };
+};
+
+async function openCitations(e = null) {
+
+     let modal = document.getElementById('id-modal')
+     let cit = await getModal('id-citation');
+
+     if (citationsOpen) {
+
+          let sp = document.createElement('span');
+          sp.id = 'id-citationTitle';
+          sp.textContent = 'Citations:';
+          cit.appendChild(sp);
+
+          let lbl = document.createElement('label');
+          lbl.id = 'id-dctLbl';
+          let ck = document.createElement('input');
+          ck.addEventListener("change", checkboxChecked);
+          ck.id = 'id-dctBox';
+          ck.type = 'checkbox';
+          lbl.appendChild(ck);
+          lbl.appendChild(document.createTextNode(' Enable Dictionary'));
+          cit.appendChild(lbl);
+          if (dictionaryOn) { ck.checked = true; ck.classList.add('cs-ckdBox');  };
+
+          let br = document.createElement('br');
+          cit.appendChild(br);
+
+          lbl = document.createElement('label');
+          lbl.id = 'id-refLbl';
+          ck = document.createElement('input');
+          ck.addEventListener("change", checkboxChecked);
+          ck.id = 'id-refBox';
+          ck.type = 'checkbox';
+          lbl.appendChild(ck);
+          lbl.appendChild(document.createTextNode(' Enable References'));
+          cit.appendChild(lbl);
+          if (referencesOn) { ck.checked = true; ck.classList.add('cs-ckdBox'); };
+
+          br = document.createElement('br');
+          cit.appendChild(br);
+          br = document.createElement('br');
+          cit.appendChild(br);
+
+          let btn = document.createElement('button');
+          btn.id = 'id-citationBtn';
+          btn.textContent = 'Save';
+          btn.addEventListener("click", saveCitations);
+          cit.appendChild(btn);
+
+          btn = document.createElement('button');
+          btn.id = 'id-citationBtn1';
+          btn.textContent = 'Reset';
+          btn.addEventListener("click", resetCitations);
+          cit.appendChild(btn);
+
+          modal.style.display = 'block';
+          citationsOpen = false;
+          //localStorage.setItem("citation", 0);
+     } else {
+          modal.style.display = 'none';
+          citationsOpen = true;
+          //localStorage.setItem("citation", 1);
+     };
+};
+
+
+function closeModal() {
+     document.getElementById('id-modal').style.display = 'none';
+     citationsOpen = true;
+};
 
 function darkTheme() {
      let theme = document.documentElement;
@@ -782,22 +912,33 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
                let vt = v.vt;
                let verid = Number(activeVersionID.slice('id-version'.length));
                let val = getVersionsABR(verid);
-               let citationBtn = document.getElementById('id-turnOnCitations');
+               let citationBtn = document.getElementById('id-citationSettings');
                if (val === 'AKV') {
-                    citationBtn.style.display = 'none';
+                    if (citationBtn) { citationBtn.style.display = 'none'; };
                } else {
-                    if (turnOnCitation) {
-                         if (vt.includes("[d")) { vt = addLink(vt, 'd'); };
-                         if (vt.includes("[r")) { vt = addLink(vt, 'r'); };
-                         citationBtn.textContent = 'Turn Off Citations';
-                         citationBtn.title =  'Turn Off Citations';
+                    if (citationsOn) {
+
+                         if (vt.includes("[d")) {
+                              if (dictionaryOn) { vt = addLink(vt, 'd'); }
+                              else { //let text = vt.replace(/\[[a-zA-Z]\d+\]/g, '');
+                                   let text = vt.replace(/\[d\d*\]/g, '');
+                                   vt = text;
+                              };
+                         };
+
+                         if (vt.includes("[r")) {
+                              if (referencesOn) { vt = addLink(vt, 'r');
+                              } else { //let text = vt.replace(/\[[a-zA-Z]\d+\]/g, '');
+                              let text = vt.replace(/\[r\d*\]/g, '');
+                              vt = text;
+                              };
+                         };
+
                     } else {
                          let text = vt.replace(/\[[a-zA-Z]\d+\]/g, '');
                          vt = text;
-                         citationBtn.textContent = 'Turn On Citations';
-                         citationBtn.title =  'Turn On Citations';
                     };
-                    citationBtn.style.display = 'block';
+                    if (citationBtn) { citationBtn.style.display = 'block'; };
                };
                text.innerHTML = v.jq === 1 ? JesusQuote(vt) : vt;
 
@@ -916,14 +1057,24 @@ async function getChapter(A1 = '', AA = '', verses1 = null) {
      return true;
 };
 
+async function getModal(id) {
+
+     removeElements(`id-modal`);
+     let def = document.createElement(id);
+     def.id = id;
+     def.addEventListener('click', function (event) { event.stopPropagation(); });
+     document.getElementById('id-modal').appendChild(def);
+
+     return def;
+};
+
 async function getDefinition(e) {
 
      stopBubbles(e);
      let id;
      if (e) { id = Number(e.target.id); };
-     let def = document.getElementById('id-citation');
-     removeElements(`id-citation`);
 
+     let def = await getModal('id-citation');
      if (!definitions) { definitions = await fetchFile('Def.json');}
      const x = Number(definitions.length);
      let i = definitions.findIndex(d => d.wid === id);
@@ -961,14 +1112,12 @@ async function getDefinition(e) {
           i++
      };
 
-     //let br = document.createElement('br');
-     //def.appendChild(br);
      let btn = document.createElement('button');
      btn.id = 'id-citationBtn';
      btn.textContent = '⚔️';
-     btn.addEventListener("click", closeCitation);
+     btn.addEventListener("click", closeModal);
      def.appendChild(btn);
-     document.getElementById('id-citationContainer').style.display = 'block';
+     document.getElementById('id-modal').style.display = 'block';
 
 };
 
@@ -987,11 +1136,12 @@ async function getDesignDefaults() {
      let svd = localStorage.getItem('savedLocal');
      if (svd) { savedLocal = svd; };
      setTheme = localStorage.getItem("setTheme");
-     let ct = localStorage.getItem('citation');
-     if (ct !== null) {
-          turnOnCitation = Number(ct);
-          if (turnOnCitation === 0) { document.getElementById('id-turnOnCitations').textContent = 'Turn On Citations'; };
-     };
+
+     let dct = localStorage.getItem('dictionary');
+     if (dct !== null) { dictionaryOn = Number(dct); };
+     let ref = localStorage.getItem('references');
+     if (ref !== null) { referencesOn = Number(ref); };
+     if (dictionaryOn || referencesOn) { citationsOn = 1; } else { citationsOn = 0; };
      return true;
 };
 
@@ -1014,8 +1164,9 @@ async function getReference(e) {
      stopBubbles(e);
      let id;
      if (e) { id = Number(e.target.id); };
-      let ref = document.getElementById('id-citation');
-     removeElements(`id-citation`);
+     //let ref = document.getElementById('id-citation');
+     //removeElements(`id-citation`);
+     let ref = await getModal('id-citation');
 
      if (!references) { references = await fetchFile('Ref.json');}
      const x = Number(references.length);
@@ -1065,7 +1216,6 @@ async function getReference(e) {
                ita.textContent = ` - ${avers}`;
           };
 
-
           sp.appendChild(ita);
           ref.appendChild(sp);
           let br = document.createElement('br');
@@ -1079,14 +1229,14 @@ async function getReference(e) {
      let btn = document.createElement('button');
      btn.id = 'id-citationBtn';
      btn.textContent = '⚔️';
-     btn.addEventListener("click", closeCitation);
+     btn.addEventListener("click", closeModal);
      ref.appendChild(btn);
 
      br = document.createElement('br');
      ref.appendChild(br);
      br = document.createElement('br');
      ref.appendChild(br);
-     document.getElementById('id-citationContainer').style.display = 'block';
+     document.getElementById('id-modal').style.display = 'block';
 };
 
 async function getVersion(e = null) {
@@ -1301,23 +1451,6 @@ function toggleTheme() {
      let theme = document.getElementById("id-themeBtn");
      if (theme) { theme.classList.toggle("cs-darkTheme"); };
      if (theme) { theme.textContent = theme.classList.contains("cs-darkTheme") ? "🌙" : "☀️"; };
-};
-
-function turnOnCitations(e = null) {
-
-     let citationBtn = document.getElementById('id-turnOnCitations');
-     if (turnOnCitation) {
-          citationBtn.textContent = 'Turn On Citations';
-          citationBtn.title =  'Turn On Citations';
-          turnOnCitation = 0;
-          localStorage.setItem("citation", 0);
-     } else {
-          citationBtn.textContent = 'Turn Off Citations';
-          citationBtn.title =  'Turn Off Citations';
-          turnOnCitation = 1;
-          localStorage.setItem("citation", 1);
-     };
-     getChapter();
 };
 
 function unHighlight(e = null) {
