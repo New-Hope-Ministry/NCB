@@ -19,6 +19,30 @@ let domReadyPromise = (async () => {
      });
 })();
 
+const searchBox = document.getElementById("id-searchBox");
+searchBox.addEventListener("paste", function (event) {
+    event.preventDefault();
+
+    const text = event.clipboardData.getData("text/plain");
+    const selection = window.getSelection();
+    if (!selection.rangeCount) return;
+    const range = selection.getRangeAt(0);
+    // Ensure the selection belongs to the search box
+    if (!searchBox.contains(range.commonAncestorContainer) &&
+        range.commonAncestorContainer !== searchBox) {
+        return;
+    }
+    range.deleteContents();
+    const textNode = document.createTextNode(text);
+    range.insertNode(textNode);
+    // Move the cursor to the end of the inserted text
+    range.setStartAfter(textNode);
+    range.collapse(true);
+
+    selection.removeAllRanges();
+    selection.addRange(range);
+});
+
 // Page Functions
      async function getDefaults() {
 

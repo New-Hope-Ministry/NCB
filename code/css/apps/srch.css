@@ -4,27 +4,27 @@
      margin: auto;
      background-color: var(--mainBackground);
      color: var(--blackText);
-     overflow: hidden
+     overflow: hidden;
 }
 
 #id-searchTitle {
      width: 90%;
      margin: auto;
-     text-align: center
+     text-align: center;
 }
 
 #id-searchCase {
      width: 90%;
      margin: auto;
      text-align: center;
-     font-size: .9em
+     font-size: .9em;
 }
 
 #id-searchPage {
      text-align: justify;
      margin: auto;
      margin-top: 1.5em;
-     width: 99%
+     width: 99%;
 }
 
 #id-searchBox {
@@ -42,13 +42,13 @@
      z-index: 12;
      white-space: nowrap;
      overflow-x: scroll;
-     overflow-y: hidden
+     overflow-y: hidden;
 }
 
 #id-searchBox[contenteditable="true"]:empty:before {
      content: attr(data-placeholder);
      color: gray;
-     font-style: italic
+     font-style: italic;
 }
 
 #id-searchBtn {
@@ -63,37 +63,29 @@
      z-index: 12;
      text-align: center;
      border: 2px solid black;
-     cursor: pointer
+     cursor: pointer;
 }
 
 #id-resultCount {
      width: 90%;
      margin: auto;
-     text-align: center
+     text-align: center;
 }
 
-#id-searchResults {
-     min-height: 67vh
-}
+#id-searchResults { min-height: 67vh; }
 
 .cs-moreSearchResults {
      font-size: 1.2rem;
      text-decoration: underline;
-     color: var(--lightMaroonEmphasis)
+     color: var(--lightMaroonEmphasis);
 }
 
-.cs-searchVerse {
-     margin-top: -.1em
-}
+.cs-searchVerse { margin-top: -.1em; }
 
 .cs-searchChapter {
      font-size: 1.2rem;
      text-decoration: underline;
-     color: var(--navyEmphasis)
+     color: var(--navyEmphasis);
 }
 
-@media (max-width:768px) {
-     #id-searchBtn {
-          width: 20%
-     }
-}
+@media (max-width:768px) { #id-searchBtn { width: 20%; } }
