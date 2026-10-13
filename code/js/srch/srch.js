@@ -1,47 +1,67 @@
-let domReadyPromise = (async () => {
-     return new Promise(async resolve => {
-          document.addEventListener("DOMContentLoaded", async () => {
-               // DOMContentLoaded event fires before page is displayed
+// DOM functions
+     let domReadyPromise = (async () => {
+          return new Promise(async resolve => {
+               document.addEventListener("DOMContentLoaded", async () => {
+                    // DOMContentLoaded event fires before page is displayed
 
-               fetchPrefix = '../';
-               let i = null;
-               let rec = await getDefaults();
-               if (activeVersionID) {
-                    let id = Number(activeVersionID.slice("id-version".length));
-                    i = versions.findIndex(rec => rec.id === id);
-                    document.getElementById('id-searchVersion').textContent = `${versions[i].t} - ${versions[i].ar}`;
+                    fetchPrefix = '../';
+                    let i = null;
+                    let rec = await getDefaults();
+                    if (activeVersionID) {
+                         let id = Number(activeVersionID.slice("id-version".length));
+                         i = versions.findIndex(rec => rec.id === id);
+                         document.getElementById('id-searchVersion').textContent = `${versions[i].t} - ${versions[i].ar}`;
+                    };
+                    if (rec) { verses = await fetchVerses(i); };
+                    if (rec) { rec = false; await getMenus(); rec = true; };
+                    if (rec) { searcher(); };
+                    resolve();
+               });
+          });
+     })();
+
+     const searchBox = document.getElementById("id-searchBox");
+     searchBox.addEventListener("input", function () {
+          // Wait until the browser finishes the editing operation
+          requestAnimationFrame(() => {
+               const text = searchBox.textContent.trim();
+
+               if (text === "") {
+                    // Clear any leftover invisible content
+                    searchBox.replaceChildren();
+
+                    // Remove the q query-string parameter
+                    const url = new URL(window.location.href);
+                    url.searchParams.delete("q");
+
+                    window.history.replaceState({}, "", url);
+                    removeElements('id-searchResults');
                };
-               if (rec) { verses = await fetchVerses(i); };
-               if (rec) { rec = false; await getMenus(); rec = true; };
-               if (rec) { searcher(); };
-               resolve();
           });
      });
-})();
+     searchBox.addEventListener("paste", function (event) {
+          event.preventDefault();
 
-const searchBox = document.getElementById("id-searchBox");
-searchBox.addEventListener("paste", function (event) {
-    event.preventDefault();
+          const text = event.clipboardData.getData("text/plain");
+          const selection = window.getSelection();
+          if (!selection.rangeCount) return;
+          const range = selection.getRangeAt(0);
+          // Ensure the selection belongs to the search box
+          if (!searchBox.contains(range.commonAncestorContainer) &&
+               range.commonAncestorContainer !== searchBox) {
+               return;
+          }
+          range.deleteContents();
+          const textNode = document.createTextNode(text);
+          range.insertNode(textNode);
+          // Move the cursor to the end of the inserted text
+          range.setStartAfter(textNode);
+          range.collapse(true);
 
-    const text = event.clipboardData.getData("text/plain");
-    const selection = window.getSelection();
-    if (!selection.rangeCount) return;
-    const range = selection.getRangeAt(0);
-    // Ensure the selection belongs to the search box
-    if (!searchBox.contains(range.commonAncestorContainer) &&
-        range.commonAncestorContainer !== searchBox) {
-        return;
-    }
-    range.deleteContents();
-    const textNode = document.createTextNode(text);
-    range.insertNode(textNode);
-    // Move the cursor to the end of the inserted text
-    range.setStartAfter(textNode);
-    range.collapse(true);
-
-    selection.removeAllRanges();
-    selection.addRange(range);
-});
+          selection.removeAllRanges();
+          selection.addRange(range);
+     });
+// End of DOM functions
 
 // Page Functions
      async function getDefaults() {
