@@ -36,6 +36,8 @@
 
                     window.history.replaceState({}, "", url);
                     removeElements('id-searchResults');
+                    document.getElementById('id-searchResults').focus();
+                    document.getElementById('id-resultCount').textContent = '';
                };
           });
      });

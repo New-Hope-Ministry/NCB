@@ -43,6 +43,7 @@
      white-space: nowrap;
      overflow-x: scroll;
      overflow-y: hidden;
+     cursor: text;
 }
 
 #id-searchBox[contenteditable="true"]:empty:before {
