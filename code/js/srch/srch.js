@@ -170,7 +170,8 @@
 
           verses = await fetchVerses(id);
           document.getElementById('id-searchVersion').textContent = `${versions[id].t} - ${versions[id].ar}`;
-          selected(activeVersionID, 'id-versions');
+          //selected(activeVersionID, 'id-versions');
+          startUp();
           // getMenus is in shared.js, but it calls setMenu in srch.js
           getMenus();
           if (document.getElementById('id-searchBox').textContent === '') {
